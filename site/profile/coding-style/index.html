@@ -2864,6 +2864,9 @@
 </ul>
 <hr />
 <h2 id="11-docker-deployment-conventions">11. Docker &amp; Deployment Conventions<a class="headerlink" href="#11-docker-deployment-conventions" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>Background</strong>: The containerization conventions here are grounded in professional Kubernetes experience predating the current projects. Before Docker Compose became the deployment target, production infrastructure was managed with Kubernetes — cluster management, pod scheduling, service discovery — operated entirely via SSH and documented shell commands. The current Docker Compose approach is a deliberate simplicity trade-off for a solo operator, not a lack of familiarity with orchestration at scale.</p>
+</blockquote>
 <h3 id="multi-stage-rust-builds">Multi-Stage Rust Builds<a class="headerlink" href="#multi-stage-rust-builds" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c"># Stage 1: Build</span>
 <a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="k">FROM</span><span class="w"> </span><span class="s">rust:latest</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="s">builder</span>

@@ -480,7 +480,7 @@ Multi-agent orchestration platform managing Claude Code agent teams through auto
 
 ## 11. Kokoro VPN
 
-**Repository**: `happykokoro/kokoro-vpn` (public, MIT license)
+**Repository**: `happykokoro/kokoro-vpn` (private)
 **Language**: Rust + TypeScript (Tauri v2)
 **Status**: Production (3-node mesh deployed)
 

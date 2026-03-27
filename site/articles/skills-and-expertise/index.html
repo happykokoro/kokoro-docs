@@ -1290,6 +1290,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#12-php-laravel-and-enterprise-web-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. PHP, Laravel, and Enterprise Web Development
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2155,6 +2166,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#12-php-laravel-and-enterprise-web-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. PHP, Laravel, and Enterprise Web Development
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2362,6 +2384,12 @@
 <p>USDC on Solana is accepted for subscription payments in kokoro-pay, with on-chain vault address validation and transaction confirmation polling. A gift code system handles generation, redemption, and validation with expiry tracking.</p>
 <h3 id="platform-payment-service">Platform Payment Service<a class="headerlink" href="#platform-payment-service" title="Permanent link">&para;</a></h3>
 <p>Within the alpha-lab monorepo, the payment service (<code>services/payment-service</code>) integrates payment event processing into the same Redis Streams infrastructure used for trading signals. Payment events (new subscription, upgrade, cancellation) flow through the streaming pipeline, triggering access control changes in the platform in near-real-time. A unified multi-provider abstraction layer sits over both Stripe and crypto payment rails, allowing the payment service's business logic to be written once and applied to either payment method.</p>
+<hr />
+<hr />
+<h2 id="12-php-laravel-and-enterprise-web-development">12. PHP, Laravel, and Enterprise Web Development<a class="headerlink" href="#12-php-laravel-and-enterprise-web-development" title="Permanent link">&para;</a></h2>
+<p>Alongside the Rust and TypeScript work that defines the Kokoro ecosystem, the developer brings formal academic grounding in enterprise PHP development through graduate-level study. The primary evidence is a complete Laravel 11 tuition marketplace application — a multi-sided platform connecting students with tutors — built with PHP 8.2, Laravel's Blade templating engine, Bootstrap 5, and MySQL. The application implements the full stack of Laravel enterprise patterns: Eloquent ORM models (User, Tutor, Tuition) with relationship definitions and mass assignment protection, CRUD controllers with resource routing, database migrations and seeders for repeatable schema setup, image upload handling to Laravel's storage system with public disk symlinking, form validation using both inline rules and FormRequest classes, and paginated, filtered resource listings. Authentication is scaffolded through Laravel Breeze, providing a complete register/login/password-reset/email-verification flow with minimal boilerplate. The test suite uses Pest, the modern PHP testing framework that brings expressive BDD-style syntax to PHPUnit's assertion library.</p>
+<p>The Laravel experience reflects deliberate study of enterprise PHP architecture patterns: the Model-View-Controller separation that Laravel enforces, Eloquent's Active Record pattern and its tradeoffs versus Data Mapper approaches, the Artisan CLI's role in database lifecycle management (migrations, seeders, scheduling, queue workers), and Composer's package resolution model. These are the patterns that appear in production PHP applications at scale — not just framework usage, but the architectural decisions that make PHP applications maintainable over years and across teams.</p>
+<p>Server maintenance and scheduling expertise is demonstrated daily across three production servers in the Kokoro infrastructure. The DigitalOcean Singapore server hosts the primary trading platform (Docker Compose stack of 12+ containers), the AWS Ireland server runs Kokoro MM and its market-making engine, and the AWS London server supports the copy-trading and market data services. All three are managed through the same operational patterns: systemd service units define the lifecycle for backend Rust binaries and Node.js processes; PM2 manages Node.js processes in the copy-trader and pipeline services; Docker's restart policies and health checks handle containerized service recovery automatically. Cron jobs schedule periodic workloads including price feed refreshes, Louvain graph re-clustering (hourly), P&amp;L aggregation snapshots, and database maintenance tasks. Log management uses structured output (JSON lines via the tracing crate) with rotation policies to prevent unbounded disk growth. SSL certificate lifecycle is automated through Caddy's built-in ACME client on the public endpoints and Cloudflare's DNS management for all domains. PostgreSQL and Redis persistence are maintained with backup procedures and health monitoring. The three servers are coordinated via a WireGuard mesh VPN on the 10.10.0.0/24 subnet, ensuring that inter-service API calls between Singapore, Ireland, and London never traverse the public internet. This hands-on operational experience — not just deployment but ongoing scheduling, maintenance, and incident response — is the difference between knowing how to build systems and knowing how to run them.</p>
 <hr />
 <p><em>This whitepaper documents technical capabilities as demonstrated across production implementations. All claims are grounded in specific codebases and implementation artifacts within the Kokoro project portfolio.</em></p>
 

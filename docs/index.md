@@ -39,7 +39,7 @@ Comprehensive business plans for each product line — market analysis, revenue 
 - [**Kokoro Alpha Lab**](plans/alpha-lab.md) — Quantitative trading research platform ($49-$499/mo SaaS)
 - [**Kokoro MM**](plans/mm.md) — Polymarket AMM-as-a-Service (first in market)
 - [**Kokoro Liquidation Bot**](plans/liquidation-bot.md) — Zero-capital DeFi liquidation across 6 EVM chains
-- [**Kokoro VPN**](plans/vpn.md) — Self-hosted WireGuard platform (MIT open-source)
+- [**Kokoro VPN**](plans/vpn.md) — Self-hosted WireGuard platform
 - [**Trading Bots**](plans/trading-bots.md) — Polymarket quant bot + copy trader ecosystem
 - [**Developer Tools**](plans/developer-tools.md) — 115 MCP tools, agent orchestration, dev pipeline
 

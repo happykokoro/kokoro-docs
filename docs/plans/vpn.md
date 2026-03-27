@@ -2,7 +2,7 @@
 
 **Prepared**: March 2026
 **Author**: Kokoro Tech
-**Status**: Seed-stage, open-source, self-funded
+**Status**: Seed-stage, self-funded
 
 ---
 
@@ -124,9 +124,9 @@ Kokoro VPN positions between raw WireGuard management and the full complexity of
 
 Kokoro VPN uses a layered open-source monetization model. The core software is and will remain free. Revenue is generated from services and features that add operational value on top of the free foundation.
 
-### 4.1 Open-Source Community Tier (Free, MIT)
+### 4.1 Community Tier (Free)
 
-The complete server binary, CLI, desktop application, and Terraform configs are free under MIT license. There is no feature gating at the software level in the community tier. This is deliberate: the goal is to maximize adoption, which creates the community, brand recognition, and inbound pipeline that monetizable tiers depend on.
+The complete server binary, CLI, desktop application, and Terraform configs are free under proprietary license. There is no feature gating at the software level in the community tier. This is deliberate: the goal is to maximize adoption, which creates the community, brand recognition, and inbound pipeline that monetizable tiers depend on.
 
 Community users contribute bug reports, feature requests, documentation improvements, and word-of-mouth referrals. GitHub stars, Hacker News discussions, and r/selfhosted posts are the primary distribution channels for this tier.
 
@@ -196,7 +196,7 @@ Desktop premium: $49/year per user, or $149/year for teams of up to 10.
 - Tauri v2 desktop application (React 19, Tailwind v4)
 - Terraform deployment configs for DigitalOcean and AWS
 - 3-node production mesh deployed and operating continuously
-- Public repository, MIT license, GitHub published
+- Public repository, proprietary license, GitHub published
 
 ### 5.2 Near-Term Roadmap (Q2-Q3 2026)
 
@@ -263,7 +263,7 @@ Partnerships with small form-factor hardware vendors (Raspberry Pi ecosystem, Mi
 
 ### 6.1 Open-Source Distribution
 
-The primary distribution channel is GitHub. An MIT-licensed repository with clear documentation, a working Terraform quick-start, and a compelling README that demonstrates the value proposition in the first 30 seconds is the foundation.
+The primary distribution channel is GitHub. An repository with clear documentation, a working Terraform quick-start, and a compelling README that demonstrates the value proposition in the first 30 seconds is the foundation.
 
 Key open-source GTM tactics:
 
@@ -438,7 +438,7 @@ The capital requirement to reach this milestone is minimal. Infrastructure costs
 
 ### 9.1 Open-Source Monetization Challenge
 
-**Risk**: The vast majority of users will never pay. An MIT-licensed product with no feature gating means anyone can use the full product forever for free. This is the fundamental tension of open-source monetization, and it has ended many well-intentioned projects.
+**Risk**: The vast majority of users will never pay. An product with no feature gating means anyone can use the full product forever for free. This is the fundamental tension of open-source monetization, and it has ended many well-intentioned projects.
 
 **Mitigation**: The monetization strategy deliberately avoids the "open-core" trap — gating important features behind a paid tier creates resentment in open-source communities and fragment the user base between free and paid users who have fundamentally different experiences. Instead, revenue comes from services (managed hosting, support) and convenience (desktop premium, multi-server management) — things that require ongoing operational effort or provide time savings, not features that users feel they are being denied.
 
@@ -464,7 +464,7 @@ The product roadmap mitigates commoditization risk by moving up the value stack:
 
 **Risk**: Kokoro VPN is currently maintained by a single developer. If the founder becomes unavailable — illness, burnout, a major competing priority — the project stalls. For enterprise customers relying on Kokoro VPN for production infrastructure, this is a real concern.
 
-**Mitigation**: The MIT license is itself a mitigation — if Kokoro Tech were to dissolve, any user or third party could fork and continue development. The codebase is designed for readability and maintenance: idiomatic Rust, no external runtime dependencies, clear separation between the server and CLI concerns.
+**Mitigation**: The proprietary license is itself a mitigation — if Kokoro Tech were to dissolve, any user or third party could fork and continue development. The codebase is designed for readability and maintenance: idiomatic Rust, no external runtime dependencies, clear separation between the server and CLI concerns.
 
 Beyond the license, enterprise support contracts create the financial incentive and contractual commitment to maintain the product. An enterprise customer paying $2,000/month for premium support has effectively funded ongoing development and has contractual recourse if support quality degrades.
 

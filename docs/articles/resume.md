@@ -198,7 +198,7 @@ The scale of this portfolio is best understood through its aggregate metrics. Ov
 
 ## Open Source Contributions
 
-Three projects from this portfolio are publicly available. **claude-init** auto-generates .claude/ configuration directories for any project by detecting language and framework from project structure — available on GitHub. **claude-dev-pipeline** implements a parallel development pipeline skill for Claude Code under the MIT license. **kokoro-vpn** is the self-hosted WireGuard VPN platform, also published under the MIT license.
+Three projects from this portfolio are publicly available. **claude-init** auto-generates .claude/ configuration directories for any project by detecting language and framework from project structure — available on GitHub. **claude-dev-pipeline** implements a parallel development pipeline skill for Claude Code under the MIT license. **kokoro-vpn** is the self-hosted WireGuard VPN platform (private repository).
 
 ---
 
