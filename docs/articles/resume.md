@@ -224,7 +224,7 @@ This failure-and-recovery cycle is the expected pattern in research-driven quant
 Three projects from this portfolio are publicly available:
 
 - **claude-init** — Auto-generates `.claude/` configuration directories for any project by detecting language (9 options) and framework (18 options). Zero external dependencies. Available on GitHub.
-- **claude-dev-pipeline** — Parallel development pipeline skill for Claude Code implementing 4-phase execution (research → team → review → merge). MIT license.
+- **claude-dev-pipeline** — Parallel development pipeline skill for AI coding agent implementing 4-phase execution (research → team → review → merge). MIT license.
 - **kokoro-vpn** — Self-hosted WireGuard VPN platform with Tauri v2 desktop client. MIT license.
 
 ---
@@ -249,7 +249,7 @@ This architecture pattern means client customizations do not require forking the
 
 The 115 MCP tools across two production servers are the clearest demonstration that Kokoro Tech can build structured AI tool interfaces for any domain. Each tool follows the same pattern: a well-typed schema, a documented contract, a production API call behind it. The lab-mcp server has 98 tools covering signal pipeline state, backtesting, factor analysis, execution, and system management. The kokoro-mm MCP server has 17 tools for the market making platform.
 
-For clients building AI-powered products — whether in trading, enterprise SaaS, developer tools, or any other domain — this is the capability: a complete MCP server implementation from protocol layer to domain logic, tested and production-ready. The same tooling that allows Claude to autonomously manage the Kokoro platform can be built for any structured domain.
+For clients building AI-powered products — whether in trading, enterprise SaaS, developer tools, or any other domain — this is the capability: a complete MCP server implementation from protocol layer to domain logic, tested and production-ready. The same tooling that allows AI agents to autonomously manage the Kokoro platform can be built for any structured domain.
 
 ### Multi-Region Infrastructure Proves Operational Capability at Global Scale
 

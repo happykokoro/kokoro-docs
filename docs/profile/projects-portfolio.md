@@ -499,7 +499,7 @@ Features: tier-gating per tool, service-availability guards, Zod schema validati
 
 ### Purpose
 
-Full-featured automated development pipeline engine orchestrating Claude Code agents through structured multi-phase workflows, with React web console, visual pipeline designer, and SaaS platform layer.
+Full-featured automated development pipeline engine orchestrating AI coding agent agents through structured multi-phase workflows, with React web console, visual pipeline designer, and SaaS platform layer.
 
 ### Architecture
 
@@ -522,13 +522,13 @@ Full-featured automated development pipeline engine orchestrating Claude Code ag
 
 ### Purpose
 
-Multi-agent orchestration platform managing Claude Code agent teams through automated pipelines: launch → monitor → merge → build → test → report.
+Multi-agent orchestration platform managing AI coding agent agent teams through automated pipelines: launch → monitor → merge → build → test → report.
 
 ### Architecture
 
 - FastAPI + WebSocket dashboard (`/ws/status`, `/ws/logs`, `/ws/teams`, `/ws/gm`)
 - `GeneralManager`: 7-phase lifecycle (launching → waiting → analyzing → merging → building → testing → completed)
-- `TeamLauncher`: spawns Claude CLI subprocesses, monitors stdout, auto-kills on ENOSPC/OOM
+- `TeamLauncher`: spawns AI agent CLI subprocesses, monitors stdout, auto-kills on ENOSPC/OOM
 - Git worktree isolation: each agent gets isolated branch, merge-on-completion
 - Team templates: feature-dev (3 agents: architect/implementer/reviewer), build-fix (1 agent), code-review, debug, research
 - Approval gate: pipeline pauses on merge conflicts, build failures, test failures

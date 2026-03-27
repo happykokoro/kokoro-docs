@@ -51,11 +51,11 @@
 
 ### AI Agent Systems & Developer Tooling
 
-- **MCP Protocol mastery**: Built 2 MCP servers with 115 tools total, exposing full trading platform APIs to Claude for autonomous research and execution
-- **Agent orchestration**: Built `agent-orchestra` — Python platform managing Claude Code agent teams with WebSocket dashboard, 7-phase automated lifecycle, worktree isolation, approval gates, critical error auto-kill
+- **MCP Protocol mastery**: Built 2 MCP servers with 115 tools total, exposing full trading platform APIs to AI agents for autonomous research and execution
+- **Agent orchestration**: Built `agent-orchestra` — Python platform managing AI coding agent agent teams with WebSocket dashboard, 7-phase automated lifecycle, worktree isolation, approval gates, critical error auto-kill
 - **Development pipeline**: `claude-dev-pipeline` skill implementing 4-phase parallel execution (research → team → review → merge) with atomic PRs and dependency-aware merge order
-- **Claude Code tooling**: `claude-init` CLI (1,229 lines Python, zero deps) auto-generates `.claude/` config for any project by detecting language (9), framework (18), and project structure
-- **Custom skills**: 7 domain-specific Claude Code skills (dev-pipeline, signal-pipeline, risk-management, kalman-filter, polymarket-arbitrage, anchor-patterns, dex-integration)
+- **AI coding agent tooling**: `claude-init` CLI (1,229 lines Python, zero deps) auto-generates `.claude/` config for any project by detecting language (9), framework (18), and project structure
+- **Custom skills**: 7 domain-specific AI coding agent skills (dev-pipeline, signal-pipeline, risk-management, kalman-filter, polymarket-arbitrage, anchor-patterns, dex-integration)
 
 ---
 
@@ -81,7 +81,7 @@ Expert-level Rust engineering at 330,000+ lines of production code means client 
 3 production servers across 3 continents (Singapore, Ireland, London), connected by a self-built WireGuard mesh VPN. Docker Compose stacks, Prometheus/Grafana observability, Caddy auto-HTTPS, Cloudflare DDoS protection, SOPS secrets management. Client infrastructure deployments are modeled on what runs in production — not on textbook diagrams.
 
 **AI Agent Systems → AI-Augmented Development & MCP Tooling**
-115 MCP tools built across two production servers expose every platform capability to AI agents. Agent Orchestra manages multi-agent Claude Code teams with automated pipelines. The result: development cycles that are measurably faster than traditional outsourcing with the same or higher quality bar. Clients can commission MCP server development, agent orchestration setup, or AI-augmented development workflow consulting as standalone services.
+115 MCP tools built across two production servers expose every platform capability to AI agents. Agent Orchestra manages multi-agent AI coding agent teams with automated pipelines. The result: development cycles that are measurably faster than traditional outsourcing with the same or higher quality bar. Clients can commission MCP server development, agent orchestration setup, or AI-augmented development workflow consulting as standalone services.
 
 ### The AI-Augmented Delivery Advantage
 
@@ -232,7 +232,7 @@ Proto `.proto` files in `services/proto/` are the source of truth; generated Rus
 
 | Tool                    | Stack                       | Purpose                                                                  |
 | ----------------------- | --------------------------- | ------------------------------------------------------------------------ |
-| **Agent Orchestra**     | Python + Rust               | Multi-agent Claude Code orchestration with WebSocket dashboard           |
+| **Agent Orchestra**     | Python + Rust               | Multi-agent AI coding agent orchestration with WebSocket dashboard           |
 | **Claude Init**         | Python (zero deps)          | Auto-generate .claude/ config for any project                            |
 | **Claude Dev Pipeline** | Markdown skill              | Parallel agent development with atomic PRs                               |
 | **Kokoro Pipeline**     | Rust → TypeScript migration | Dev pipeline engine with visual designer, marketplace, multi-tenant SaaS |
@@ -362,7 +362,7 @@ Real numbers extracted from production code — not estimates.
 2. **11 DSP filters from mathematical foundations** — direct implementations of H-infinity (IEEE minimax optimal), UKF (sigma point transform), particle filter (Sequential Monte Carlo), IMM, RBPF, wavelet CWT, Hilbert transform
 3. **Flash loan liquidation** across 6 EVM chains simultaneously — zero capital required, custom Solidity contract for atomic borrow-liquidate-swap-repay sequence
 4. **20 Solana Anchor programs** spanning DeFi (AMM, lending, yield, liquidation, leverage), gaming (6 types), prediction markets, NFT, and governance
-5. **Multi-agent development orchestration** — Agent Orchestra manages Claude Code agent teams with automated merge, build, test pipeline; used to build Phase 2 of alpha-lab with 6 parallel agents
+5. **Multi-agent development orchestration** — Agent Orchestra manages AI coding agent agent teams with automated merge, build, test pipeline; used to build Phase 2 of alpha-lab with 6 parallel agents
 6. **Dual-format Redis Streams migration** — zero-downtime JSON→proto transition across 10 streams with auto-detection at consumer level
 7. **Self-built WireGuard mesh VPN** connecting 3 servers across 3 cloud providers (DigitalOcean Singapore, AWS Ireland, AWS London) with per-node ACL firewall generation
 8. **8-profile trading bot fleet** — single binary running 8 parallel strategy pipelines sharing one data feed, each with different quant models (GARCH, Hurst, Brownian Bridge, bilateral MM)
@@ -370,7 +370,7 @@ Real numbers extracted from production code — not estimates.
 ### Open Source Contributions
 
 - **claude-init** — Auto-generate .claude/ configuration for any project (public, GitHub)
-- **claude-dev-pipeline** — Parallel development pipeline skill for Claude Code (public, MIT license)
+- **claude-dev-pipeline** — Parallel development pipeline skill for AI coding agent (public, MIT license)
 - **kokoro-vpn** — Self-hosted WireGuard VPN platform (public, MIT license)
 
 ---
@@ -394,7 +394,7 @@ Desktop:     Tauri v2
 Database:    PostgreSQL (SQLx/Prisma), Redis Streams, SQLite
 Blockchain:  Solana SDK, Anchor, Alloy (EVM), Jupiter, Raydium, Orca
 Charting:    TradingView, Recharts, Plotly, D3, React Flow
-AI/ML:       MCP Protocol, Claude API, DQN, WASM plugins
+AI/ML:       MCP Protocol, LLM API, DQN, WASM plugins
 Math:        nalgebra, statrs, rustfft, good_lp, criterion
 Testing:     cargo test, Vitest, Playwright, criterion benchmarks
 ```

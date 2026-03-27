@@ -40,7 +40,7 @@ The same technology stack that powers the Kokoro platform is available as commer
 
 **Software Outsourcing & Custom Development** — Full-stack custom software (Rust, TypeScript, Python, Go, PHP/Laravel), blockchain and DeFi applications (Solana programs, EVM smart contracts, DEX integrations), quantitative trading systems (signal processing pipelines, risk management, execution engines), API development, and frontend engineering (Next.js, React, dashboards, charting).
 
-**AI-Augmented Development Services** — MCP server development (115 tools built across two production servers — proven expertise), Claude Code skill and agent configuration, AI-augmented development workflow consulting, and agent orchestration system setup.
+**AI-Augmented Development Services** — MCP server development (115 tools built across two production servers — proven expertise), AI coding agent skill and agent configuration, AI-augmented development workflow consulting, and agent orchestration system setup.
 
 **Hardware & Network Infrastructure** — Server architecture design and deployment, WireGuard VPN mesh networking (proven 3-node production mesh spanning 3 cloud providers), Docker and container orchestration, monitoring infrastructure (Prometheus, Grafana, Uptime Kuma), network security (firewall ACL, SSL/TLS, DDoS protection via Cloudflare), and self-hosted service deployment (11+ services in production).
 

@@ -280,11 +280,11 @@ Connected via WireGuard mesh (10.10.0.0/24) for private inter-server communicati
 
 ## 6. AI & Agent Systems
 
-### Claude Code Mastery
+### AI coding agent Mastery
 
-- **MCP Protocol**: Built 2 MCP servers (115 total tools) exposing trading platform APIs to Claude for autonomous operation
-- **Custom skills**: Built production skills for Claude Code (dev-pipeline, signal-pipeline, risk-management, kalman-filter, polymarket-arbitrage, anchor-patterns, dex-integration)
-- **Agent orchestration**: Built agent-orchestra from scratch — Python dashboard managing Claude CLI subprocesses with WebSocket real-time monitoring
+- **MCP Protocol**: Built 2 MCP servers (115 total tools) exposing trading platform APIs to AI agents for autonomous operation
+- **Custom skills**: Built production skills for AI coding agent (dev-pipeline, signal-pipeline, risk-management, kalman-filter, polymarket-arbitrage, anchor-patterns, dex-integration)
+- **Agent orchestration**: Built agent-orchestra from scratch — Python dashboard managing AI agent CLI subprocesses with WebSocket real-time monitoring
 - **Team patterns**: Designed team templates (feature-dev: 3 agents, build-fix: 1 agent, code-review, debug, research) with approval gates
 - **Worktree isolation**: Each agent gets isolated git branch, merge-on-completion, shared CARGO_TARGET_DIR
 - **Production pipeline**: `claude-dev-pipeline` skill implements 4-phase parallel execution with atomic PRs and dependency-aware merge order

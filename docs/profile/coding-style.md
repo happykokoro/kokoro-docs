@@ -317,7 +317,7 @@ class GeneralManager:
         # ... approval gate on failure
 ```
 
-### Claude Init Pattern
+### claude-init Pattern
 
 - **Zero dependencies**: Pure stdlib only (`argparse`, `pathlib`, `json`, `os`, `dataclasses`)
 - **Single file**: 1,229 lines in `init.py`

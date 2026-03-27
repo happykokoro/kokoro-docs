@@ -125,7 +125,7 @@ MCP tooling, agent infrastructure, and AI development workflow engineering.
 **What we offer:**
 
 - MCP (Model Context Protocol) server development — expose any system to AI agents through structured tool contracts
-- Claude Code skill development — domain-specific agent capabilities for structured workflows
+- AI coding agent skill development — domain-specific agent capabilities for structured workflows
 - Agent orchestration system setup — multi-agent development pipelines with automated lifecycle management
 - AI-augmented development workflow consulting — implement the same AI-first engineering methodology used to build the Kokoro platform
 - LLM integration and copilot development (trade advisor, risk explainer, strategy generator patterns)
@@ -133,7 +133,7 @@ MCP tooling, agent infrastructure, and AI development workflow engineering.
 
 **Track record:**
 
-115 MCP tools built across two production servers, covering every service boundary of the Kokoro platform — signal pipeline state, factor weights, backtesting, position management, bot deployment, system health, and infrastructure management. Agent Orchestra, an open-source Python platform, manages multi-agent Claude Code teams with WebSocket dashboard, 7-phase automated lifecycle, git worktree isolation, and approval gates.
+115 MCP tools built across two production servers, covering every service boundary of the Kokoro platform — signal pipeline state, factor weights, backtesting, position management, bot deployment, system health, and infrastructure management. Agent Orchestra, an open-source Python platform, manages multi-agent AI coding agent teams with WebSocket dashboard, 7-phase automated lifecycle, git worktree isolation, and approval gates.
 
 **Why this matters:**
 
@@ -197,7 +197,7 @@ Before AI-augmented development became the primary workflow, server administrati
 
 ### AI-Augmented Delivery
 
-Kokoro Tech's development workflow is AI-augmented by design, not as an add-on. The 115 MCP tools expose every platform capability to Claude for autonomous operation. Agent Orchestra coordinates parallel development across multiple AI coding agents — the same infrastructure used to build the Kokoro platform can be applied to client projects.
+Kokoro Tech's development workflow is AI-augmented by design, not as an add-on. The 115 MCP tools expose every platform capability to AI agents for autonomous operation. Agent Orchestra coordinates parallel development across multiple AI coding agents — the same infrastructure used to build the Kokoro platform can be applied to client projects.
 
 The practical result: development phases that typically run sequentially (research, implementation, review, testing) run in parallel. Phase 2 of the alpha-lab monorepo was built using 6 parallel AI agents in a single session. Build-fix cycles that would take a human developer hours complete in minutes.
 
@@ -252,7 +252,7 @@ Web:          TypeScript (Next.js 15/16, React 19, Tailwind v4), PHP (Laravel)
 Data:         Python (FastAPI, pandas, NumPy, arch, scikit-learn)
 Blockchain:   Solana/Anchor, Solidity, EVM (Alloy), Jupiter, Raydium, Orca
 Databases:    PostgreSQL, Redis Streams, SQLite
-AI/Agents:    MCP Protocol, Claude API, DQN, WASM plugins, Agent Orchestra
+AI/Agents:    MCP Protocol, LLM API, DQN, WASM plugins, Agent Orchestra
 Infrastructure: Docker, WireGuard, Caddy, Nginx, Cloudflare, Prometheus, Grafana
 Cloud:        AWS EC2, DigitalOcean, multi-region (Singapore, Ireland, London)
 Security:     SOPS, AES-256-GCM, HKDF, TOTP, JWT, EIP-712, Flashbots
@@ -266,7 +266,7 @@ The AI-augmented development methodology is not a marketing claim — it is the 
 
 ### What It Means in Practice
 
-**115 MCP tools** expose every service boundary of the platform through structured API contracts accessible to AI agents. Research, backtesting, execution, system health monitoring, and infrastructure management can all be delegated to Claude agents through these tools. This creates a feedback loop: the platform builds tools that make its own development faster, which enables building more tools.
+**115 MCP tools** expose every service boundary of the platform through structured API contracts accessible to AI agents. Research, backtesting, execution, system health monitoring, and infrastructure management can all be delegated to AI agents agents through these tools. This creates a feedback loop: the platform builds tools that make its own development faster, which enables building more tools.
 
 **Agent Orchestra** manages parallel AI coding agent teams with WebSocket real-time monitoring, git worktree isolation per agent, dependency-aware merge ordering, automated build-test-report pipelines, and approval gates on merge conflicts or build failures. This infrastructure was used to build Phase 2 of the alpha-lab monorepo — 6 parallel agents working simultaneously, each on an isolated branch, with automated merge and build verification.
 
