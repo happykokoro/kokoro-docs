@@ -88,7 +88,7 @@ Researchers studying MEV, liquidity dynamics, and on-chain market microstructure
 
 ### Market Size
 
-The global algorithmic trading market is approximately $14–15 billion (2024) and projected to grow to $25–30 billion by 2030 (CAGR ~10%). The more relevant sub-market is quantitative trading tools and infrastructure for individual traders and small funds. No precise figure is publicly available, but indicators include:
+As of early 2026, the global algorithmic trading market is valued at $25–33 billion, growing at 14.4% CAGR and projected to reach $44 billion by 2030. This is a significant upward revision from prior estimates, driven by AI-driven algorithms, real-time execution optimization, and cross-asset expansion across crypto, prediction markets, and traditional markets simultaneously. The more relevant sub-market is quantitative trading tools and infrastructure for individual traders and small funds. No precise figure is publicly available, but indicators include:
 
 - QuantConnect (self-reported): 200,000+ registered users
 - TradingView: 50M+ users (mostly non-quant retail, but meaningful overlap)
@@ -96,6 +96,10 @@ The global algorithmic trading market is approximately $14–15 billion (2024) a
 - 3Commas/Shrimpy: target the automated retail trader, not the quant developer
 
 The serviceable addressable market for a self-hosted, depth-first quant platform is conservatively 20,000–50,000 potential users globally, with the realistic early-stage target being the top 1,000–5,000 technically sophisticated users willing to pay for premium tools.
+
+**Rust adoption as a market signal.** As of early 2026, approximately 709,000 developers use Rust as their primary language, with adoption accelerating fastest in fintech. Senior engineers at banks and trading firms describe Rust as "non-negotiable for serious HFT" — and migrations from C++ to Rust are underway at institutional desks. Kokoro Alpha Lab's 330,000+ lines of Rust, its sub-second pipeline cycle, and its zero-copy async architecture are not incidentally chosen — they reflect exactly the technical direction the industry is moving. A quant platform built in Python cannot credibly compete on execution latency with Rust-native alternatives, and the market is now large enough to recognize the difference.
+
+**DeFi lending market as a secondary tailwind.** The DeFi market reached $238.5B in early 2026, projected to grow to $770.6B by 2031 (26.4% CAGR). As of early 2026, Aave holds $27.29B TVL, $83.3M in monthly fees, and surpassed $1 trillion in cumulative loans. $675M in DeFi liquidations occurred in the first nine months of 2026, with $429M liquidated in a single week (January 31–February 5). This is relevant for Alpha Lab because on-chain intelligence — wallet clustering, MEV detection, liquidation opportunity scoring — is part of the Alpha Lab signal pipeline. The growth of DeFi lending directly increases the value of the on-chain alpha factors and the execution routes that depend on them.
 
 ### Competitor Landscape
 

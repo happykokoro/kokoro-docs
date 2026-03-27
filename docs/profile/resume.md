@@ -382,6 +382,24 @@ Individual crypto and prediction market traders lack access to:
 
 ---
 
+## Market Timing
+
+The Kokoro portfolio is positioned at the intersection of multiple simultaneously expanding markets, each reaching a critical inflection point as of early 2026.
+
+- **Prediction markets: $200B+ annual run rate.** Polymarket hit $7B in monthly volume in February 2026, with a single-day record of $425M. Combined Polymarket and Kalshi volume runs at a $200B+ annual rate, with projections toward $325B. CNBC forecasts the sector reaching $1.1 trillion by 2030. DraftKings, FanDuel, and Robinhood launched prediction products for the 2026 FIFA World Cup. Tech and Science markets grew 1,637% YoY. Kokoro MM and the Polymarket trading bots are live in this market today.
+
+- **DeFi lending: institutional adoption underway.** The DeFi market stands at $238.5B as of early 2026 (projected $770.6B by 2031, 26.4% CAGR). Aave holds $27.29B TVL, $83.3M monthly fees, 62.8% market share, and crossed $1 trillion in cumulative loans. $675M in liquidations occurred in the first nine months of 2026, including a record $429M in one week. Apollo Global Management and Société Générale are now deploying through DeFi. Each institutional dollar entering DeFi lending creates more liquidation opportunities — a direct revenue tailwind for the Kokoro Liquidation Bot.
+
+- **Algorithmic trading: $25–33B market, 14.4% CAGR.** As of early 2026, the algorithmic trading market is valued at $25–33B and projected to reach $44B by 2030. Growth is driven by AI-driven algorithms, real-time execution optimization, and cross-asset expansion — all areas the Kokoro Alpha Lab addresses directly. Rust has become "non-negotiable for serious HFT" in 2026, with banks and trading firms migrating from C++ to Rust. Kokoro's 330,000+ lines of Rust is substantial even by institutional standards.
+
+- **AI coding tools: $12.8B market with viral MCP adoption.** The AI coding tools market reached $12.8B in early 2026, projected to exceed $100B by 2030. 85% of developers regularly use AI tools. The Model Context Protocol hit 97 million monthly SDK downloads in March 2026 (up from 2M at November 2024 launch), with 6,400+ registered servers. Claude Code became the most-used AI coding tool in developer surveys within 10 months of launch. Kokoro's 115 MCP tools are one of the largest known domain-specific MCP implementations.
+
+- **Solo founder era: Anthropic CEO's prediction is playing out.** Dario Amodei stated 70–80% odds of the first $1B one-person company by 2026 or shortly after, specifically naming "proprietary trading" and "developer tools" as the most likely sectors. Solo-founded startups have risen from 23.7% of new companies in 2019 to 36.3% by mid-2025. Base44 (solo founder) sold to Wix for $80M in under six months. Kokoro builds exactly what Amodei described, with 10–50x the capital efficiency of an equivalent team-based operation.
+
+This portfolio is not ahead of one trend — it is at the convergence of all five.
+
+---
+
 ## Contact & Links
 
 |                           |                                |

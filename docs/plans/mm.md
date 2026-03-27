@@ -107,7 +107,17 @@ The competitive moat is therefore structural: Kokoro MM requires deep, concurren
 
 ### Market Timing
 
-The current moment is favorable for three reasons. First, Polymarket's trading volume growth is accelerating. Second, the platform's CLOB API matured only in 2024, meaning the window for first-mover SaaS products is still open. Third, the broader prediction market regulatory environment is shifting toward legitimacy — Kalshi received CFTC approval for election markets in 2024, which is expected to increase mainstream adoption of the asset class and drive new participants toward all prediction market platforms including Polymarket.
+The current moment is favorable for several compounding reasons.
+
+**Volume growth has broken records.** As of early 2026, Polymarket hit $7 billion in monthly trading volume in February 2026, with a single-day record of $425 million — surpassing even the 2024 US election peak. Combined Polymarket and Kalshi volume is running at a $200B+ annual run rate, with analyst forecasts pointing toward $325 billion. CNBC projects the prediction market sector reaching $1.1 trillion by 2030.
+
+**Mainstream product adoption is driving new participants.** DraftKings, FanDuel, and Robinhood all launched prediction market products for the 2026 FIFA World Cup — marking the first time prediction markets have been offered through household consumer finance brands. This is converting millions of mainstream users into potential prediction market participants, many of whom will seek more sophisticated tools.
+
+**Non-election categories are exploding.** Tech and Science prediction markets grew 1,637% year-over-year as of early 2026; Economics grew 905%. This demonstrates that the market is not a single-event phenomenon dependent on electoral cycles — it is a structurally growing asset class across many domains.
+
+**The CLOB API window is still open.** Polymarket's programmatic CLOB API matured only in 2024, meaning the window for first-mover SaaS products built on top of it is still open. Kokoro MM is already live and battle-tested — six protocol-level bugs were found and fixed before deployment. That accumulated knowledge cannot be purchased or shortcut.
+
+**Regulatory legitimacy is increasing.** Kalshi received CFTC approval for election markets in 2024, and the broader regulatory environment is shifting toward legitimacy for prediction markets. Institutional and US-based retail participation is opening up in regulated venues — expanding the total addressable market and validating the asset class as a legitimate trading venue.
 
 ---
 

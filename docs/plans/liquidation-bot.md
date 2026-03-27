@@ -80,7 +80,13 @@ The API server (axum, port 4300 internally / 4400 externally) exposes nine endpo
 
 ### 3.1 DeFi Lending Market Size
 
-DeFi lending protocols represent one of the most capital-intensive and structurally stable segments of the blockchain economy. Aave V3 alone maintains between $10 billion and $20 billion in active liquidity across its deployments, depending on market conditions. Combined with Compound V3, Morpho Blue, Spark/MakerDAO (which uses Aave V3 as its underlying), and emerging Base-native protocols such as Seamless and Moonwell, the total DeFi lending TVL across EVM chains consistently exceeds $50 billion in bull market conditions and remains above $15–20 billion during contractions.
+DeFi lending protocols represent one of the most capital-intensive and structurally stable segments of the blockchain economy. As of early 2026, the DeFi market stands at $238.5 billion and is projected to reach $770.6 billion by 2031, growing at a 26.4% CAGR. Aave alone holds $27.29 billion TVL with $83.3 million in monthly fees and a 62.8% market share among lending protocols — and became the first DeFi platform to surpass $1 trillion in cumulative loans originated.
+
+The liquidation opportunity is quantified and recent. $675 million in liquidations occurred in the first nine months of 2026 alone, with a record $429 million liquidated in a single week (January 31–February 5, 2026). These are not hypothetical projections — they are realized liquidation events captured from on-chain data, representing the exact profit pool that liquidation bots compete to capture.
+
+Critically, institutional capital is entering DeFi lending at scale. Apollo Global Management and Société Générale are now deploying capital through DeFi infrastructure as of early 2026. More institutional TVL entering lending protocols directly increases the size of positions, the frequency of liquidatable events, and the magnitude of each liquidation opportunity. This is a structural tailwind: as the lending market grows, the liquidation bot's addressable opportunity grows proportionally.
+
+Combined with Compound V3, Morpho Blue, Spark/MakerDAO (which uses Aave V3 as its underlying), and emerging Base-native protocols such as Seamless and Moonwell, the total DeFi lending TVL across EVM chains consistently exceeds $50 billion in normal market conditions.
 
 The significance for liquidation bots is not the TVL itself, but the ratio of positions that fall into the liquidatable zone during price dislocations. Historical analysis of Aave V3 on Ethereum shows that during the major drawdowns of 2022 (LUNA collapse, FTX collapse) and the volatility episodes of 2024–2025, hundreds of millions of dollars in collateral became liquidatable within hours. Each such event produces a concentrated burst of liquidation opportunities.
 

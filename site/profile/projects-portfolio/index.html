@@ -580,6 +580,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#quantitative-core-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quantitative Core Summary
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#crate-inventory-65-crates" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1941,6 +1952,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#quantitative-core-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quantitative Core Summary
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#crate-inventory-65-crates" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2825,6 +2847,8 @@
 <p>Services on the Singapore server run in a single Docker Compose stack: Redis, PostgreSQL, Lab, Engine, Platform, Frontend, Lab-MCP, Payment Service, Wallet Monitor, Pricing Service, Prometheus, and Grafana. Health checks gate startup ordering; <code>restart: unless-stopped</code> ensures recovery from transient failures.</p>
 <p><strong>Shared type library versioned and tagged for cross-repo compatibility</strong></p>
 <p>The <code>shared-types</code> crate defines the canonical types (signals, events, positions, tier enums) shared across all repositories. Satellite repositories pin to tagged releases (<code>shared-v0.x.x</code>) rather than floating on git HEAD, making dependency upgrades explicit and controllable.</p>
+<h3 id="quantitative-core-summary">Quantitative Core Summary<a class="headerlink" href="#quantitative-core-summary" title="Permanent link">&para;</a></h3>
+<p>The 65 crates implement a full quantitative trading stack. Signal processing: 11 DSP filters implemented from mathematical foundations — H-infinity (4-state with innovation gating), UKF (Cholesky sigma points), particle filter (importance resampling), IMM (3-regime Kalman), RBPF, dual Kalman, wavelet CWT, Hilbert transform, Mellin transform, EWMA, and Fourier analysis. Factor implementations: 24 <code>AlphaFactor</code> implementations covering crypto, equities, options, forex, and prediction markets — including a Hawkes process factor for self-exciting event modeling and a DQN ensemble for adaptive signal generation. Quantitative modeling: GARCH(1,1) volatility estimation, Hurst exponent regime classification (R/S analysis), Gaussian/Student-t/Clayton copulas, conformal prediction, Brownian Bridge path conditioning, and ADF stationarity testing. Options pricing: Black-Scholes with full Greeks (delta, gamma, vega, theta, rho) and Monte Carlo simulation (GBM paths, importance sampling, antithetic variates). Portfolio optimization: Markowitz mean-variance optimization (analytical + projected gradient descent) and Kelly criterion sizing. Risk management: composable risk gate chains, VaR and CVaR (parametric + historical), drawdown circuit breakers, and adaptive position sizing.</p>
 <h3 id="crate-inventory-65-crates">Crate Inventory (65 crates)<a class="headerlink" href="#crate-inventory-65-crates" title="Permanent link">&para;</a></h3>
 <p><strong>Signal Infrastructure (8 crates)</strong>:</p>
 <ul>
