@@ -624,6 +624,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#multi-repo-ecosystem-coordination" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-Repo Ecosystem Coordination
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1740,6 +1751,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#multi-repo-ecosystem-coordination" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-Repo Ecosystem Coordination
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2365,6 +2387,16 @@
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>L4: Entry Point         (mm-bin, apps/lab, apps/engine)
 </code></pre></div>
 <p><strong>Enforced rule</strong>: Lower layers never import higher layers. <code>mm-types</code> has zero dependencies on other workspace crates. <code>mm-engine</code> depends on L0-L2 but never on <code>mm-gateway</code>.</p>
+<h3 id="multi-repo-ecosystem-coordination">Multi-Repo Ecosystem Coordination<a class="headerlink" href="#multi-repo-ecosystem-coordination" title="Permanent link">&para;</a></h3>
+<p>The Kokoro platform is not a monorepo — it is a federation of 7+ repositories that coordinate as one logical system. Each repository is independently deployable and independently versioned, but participates in the larger platform through well-defined contracts at every service boundary. The coordination mechanisms are explicit and layered:</p>
+<p><strong>Shared type crate with semantic versioning.</strong> A single <code>shared-types</code> crate (and its compiled proto definitions) defines the canonical domain types used across all repositories: signal shapes, event schemas, position structs, billing tier enums. Satellite repositories pin to tagged releases (<code>shared-v0.x.x</code>) rather than a git SHA, enforcing a deliberate upgrade process. When a type changes, the change propagates through a controlled dependency bump — not silently across a monorepo boundary.</p>
+<p><strong>Redis Streams as the inter-service message bus.</strong> 10 named streams carry asynchronous events between services that run on different servers or different processes. Messages are encoded in a dual JSON/protobuf format: the <code>enc</code> field signals which encoding is in use, and all consumers auto-detect. This allows old and new service versions to coexist during rolling deployments without coordination. Consumer groups enable parallel processing within a service tier.</p>
+<p><strong>gRPC for synchronous service-to-service calls.</strong> Three service pairs use Tonic gRPC for request-response and server-streaming interactions: Lab↔Engine (signal submission, execution confirmation), Engine↔Platform (tier enforcement, billing events), and Platform↔external clients (authenticated, rate-limited API surface). Proto <code>.proto</code> files are the source of truth; generated Rust types are checked into <code>services/proto/</code>.</p>
+<p><strong>REST APIs at the external boundary.</strong> The Platform binary translates internal gRPC calls into REST responses for the frontend and third-party integrators. No external consumer calls internal gRPC directly — the REST surface is the stable public contract, and internal gRPC bindings can evolve behind it.</p>
+<p><strong>SSE for real-time frontend streaming.</strong> Server-Sent Events push live data from the Platform binary to the browser without requiring WebSocket upgrades. The frontend maintains an <code>EventSource</code> connection with exponential backoff reconnection.</p>
+<p><strong>WireGuard mesh making cross-server communication transparent.</strong> All three production servers (Singapore, Ireland, London) participate in a WireGuard mesh on the 10.10.0.0/24 subnet. Services address each other by mesh IP regardless of which physical server they run on. A service on the Singapore server communicates with a service on the Ireland server exactly as if they were on the same LAN — no public internet exposure, no external load balancer, no service discovery overhead.</p>
+<p><strong>Docker Compose per server, with health checks and restart policies.</strong> Each server runs its own Docker Compose stack. Container health checks gate <code>depends_on</code> startup ordering. <code>restart: unless-stopped</code> ensures services recover from transient failures. Shared infrastructure (Redis, PostgreSQL) is managed within the same Compose stack as the services that depend on it.</p>
+<p><strong>The key insight: each repository is independently deployable but participates in a larger system through well-defined contracts.</strong> Adding a new satellite service does not require modifying the monorepo. Adding a new message type requires only bumping the <code>shared-types</code> version and updating consumers. The system grows by extending contracts, not by restructuring boundaries.</p>
 <hr />
 <h2 id="2-rust-coding-conventions">2. Rust Coding Conventions<a class="headerlink" href="#2-rust-coding-conventions" title="Permanent link">&para;</a></h2>
 <h3 id="error-handling-strategy">Error Handling Strategy<a class="headerlink" href="#error-handling-strategy" title="Permanent link">&para;</a></h3>

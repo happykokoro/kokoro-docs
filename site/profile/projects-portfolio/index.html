@@ -569,6 +569,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#ecosystem-topology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ecosystem Topology
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#crate-inventory-65-crates" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1919,6 +1930,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#ecosystem-topology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ecosystem Topology
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#crate-inventory-65-crates" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2729,6 +2751,80 @@
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>apps/platform (port 4000) — Gateway: auth, billing, tier gates, gRPC→REST proxy
 </code></pre></div>
 <p><strong>Inter-service communication</strong>: Redis Streams (10 active streams with dual JSON/proto format), gRPC (tonic 0.13), REST (axum 0.8), SSE for real-time frontend streaming.</p>
+<h3 id="ecosystem-topology">Ecosystem Topology<a class="headerlink" href="#ecosystem-topology" title="Permanent link">&para;</a></h3>
+<p>Kokoro Alpha Lab is not a standalone application — it is the hub of a 7+ repository distributed system. The monorepo itself runs on the Singapore server, but the full platform spans multiple servers and multiple independently deployed repositories, all coordinated through defined contracts.</p>
+<p><strong>Coordinated repositories (7+)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Repository</th>
+<th>Role</th>
+<th>Communication</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>kokoro-alpha-lab</code> (this repo)</td>
+<td>Core monorepo: research, execution, gateway</td>
+<td>Exposes gRPC + REST; consumes Redis Streams</td>
+</tr>
+<tr>
+<td><code>kokoro-alpha-lab-frontend</code></td>
+<td>Next.js dashboard, extracted from monorepo</td>
+<td>REST API proxy → Platform (port 4000); SSE for real-time</td>
+</tr>
+<tr>
+<td><code>kokoro-wallet-monitor</code></td>
+<td>Solana wallet tracking microservice, extracted</td>
+<td>Publishes events → Redis Streams (upstream feed)</td>
+</tr>
+<tr>
+<td><code>kokoro-pricing-service</code></td>
+<td>Multi-DEX price aggregation, extracted</td>
+<td>Publishes events → Redis Streams (upstream feed)</td>
+</tr>
+<tr>
+<td><code>lab-mcp</code></td>
+<td>TypeScript MCP server, 98 tool interfaces</td>
+<td>REST → Lab/Engine/Platform APIs</td>
+</tr>
+<tr>
+<td><code>kokoro-polymarket-bot</code></td>
+<td>Polymarket trading bot, consumer</td>
+<td>Imports <code>shared-types</code>; reads Redis Streams</td>
+</tr>
+<tr>
+<td><code>kokoro-copy-trader</code></td>
+<td>Copy trading system, independent</td>
+<td>Runs on separate server; standalone deployment</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Three application binaries inside the monorepo</strong></p>
+<ul>
+<li><code>apps/lab</code> (port 4100) — Research environment: full factor pipeline, backtesting, API, gRPC :50051, SSE, replay mode</li>
+<li><code>apps/engine</code> (port 4200) — Execution environment: frozen strategy, real order execution, gRPC :50052</li>
+<li><code>apps/platform</code> (port 4000) — API gateway: authentication, billing, tier-based access, gRPC→REST proxy for the frontend</li>
+</ul>
+<p><strong>Two extracted microservices feeding data upstream</strong></p>
+<ul>
+<li><code>kokoro-wallet-monitor</code> — Tracks on-chain wallet activity; publishes discovered wallets, cluster events, and coordination signals to Redis Streams, where the monorepo's Lab binary consumes them</li>
+<li><code>kokoro-pricing-service</code> — Aggregates price data from multiple DEX sources; publishes normalized price events to Redis Streams consumed by the factor pipeline</li>
+</ul>
+<p><strong>One extracted frontend consuming the REST API</strong></p>
+<p>The Next.js frontend (<code>kokoro-alpha-lab-frontend</code>) was extracted from the monorepo as a separate repository. It communicates exclusively through the Platform binary's REST and SSE endpoints, never calling Lab or Engine directly. This maintains the API gateway contract between internal services and external consumers.</p>
+<p><strong>One MCP server exposing 98 tool interfaces</strong></p>
+<p><code>lab-mcp</code> (TypeScript) exposes the full research platform as 98 structured MCP tools. AI agents can query live signal states, run backtests, inspect positions, manage strategies, and interact with the execution layer — all through tool calls that map to authenticated REST API endpoints.</p>
+<p><strong>10 Redis Streams connecting all services</strong></p>
+<p>All asynchronous events — price ticks, wallet alerts, factor inputs, signal outputs, execution confirmations, billing events — flow through named Redis Streams with consumer groups. Messages carry an <code>enc</code> field for auto-detected dual JSON/protobuf format, enabling rolling protocol migrations without downtime.</p>
+<p><strong>gRPC for inter-app communication</strong></p>
+<p>Lab, Engine, and Platform communicate synchronously via Tonic gRPC. Server-streaming RPCs handle continuous data flows (signals, positions, trades). Unary RPCs handle request-response operations (strategy deployment, backtest submission, factor queries).</p>
+<p><strong>Payment service communicating via Redis Streams</strong></p>
+<p>The payment service (<code>services/payment-service/</code>) lives inside the monorepo but communicates asynchronously with other services via Redis Streams — not direct function calls. This makes it independently deployable as a separate container within the same Docker Compose stack.</p>
+<p><strong>Everything orchestrated by Docker Compose with 12+ containers on Singapore</strong></p>
+<p>Services on the Singapore server run in a single Docker Compose stack: Redis, PostgreSQL, Lab, Engine, Platform, Frontend, Lab-MCP, Payment Service, Wallet Monitor, Pricing Service, Prometheus, and Grafana. Health checks gate startup ordering; <code>restart: unless-stopped</code> ensures recovery from transient failures.</p>
+<p><strong>Shared type library versioned and tagged for cross-repo compatibility</strong></p>
+<p>The <code>shared-types</code> crate defines the canonical types (signals, events, positions, tier enums) shared across all repositories. Satellite repositories pin to tagged releases (<code>shared-v0.x.x</code>) rather than floating on git HEAD, making dependency upgrades explicit and controllable.</p>
 <h3 id="crate-inventory-65-crates">Crate Inventory (65 crates)<a class="headerlink" href="#crate-inventory-65-crates" title="Permanent link">&para;</a></h3>
 <p><strong>Signal Infrastructure (8 crates)</strong>:</p>
 <ul>

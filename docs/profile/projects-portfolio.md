@@ -106,6 +106,10 @@ Services on the Singapore server run in a single Docker Compose stack: Redis, Po
 
 The `shared-types` crate defines the canonical types (signals, events, positions, tier enums) shared across all repositories. Satellite repositories pin to tagged releases (`shared-v0.x.x`) rather than floating on git HEAD, making dependency upgrades explicit and controllable.
 
+### Quantitative Core Summary
+
+The 65 crates implement a full quantitative trading stack. Signal processing: 11 DSP filters implemented from mathematical foundations — H-infinity (4-state with innovation gating), UKF (Cholesky sigma points), particle filter (importance resampling), IMM (3-regime Kalman), RBPF, dual Kalman, wavelet CWT, Hilbert transform, Mellin transform, EWMA, and Fourier analysis. Factor implementations: 24 `AlphaFactor` implementations covering crypto, equities, options, forex, and prediction markets — including a Hawkes process factor for self-exciting event modeling and a DQN ensemble for adaptive signal generation. Quantitative modeling: GARCH(1,1) volatility estimation, Hurst exponent regime classification (R/S analysis), Gaussian/Student-t/Clayton copulas, conformal prediction, Brownian Bridge path conditioning, and ADF stationarity testing. Options pricing: Black-Scholes with full Greeks (delta, gamma, vega, theta, rho) and Monte Carlo simulation (GBM paths, importance sampling, antithetic variates). Portfolio optimization: Markowitz mean-variance optimization (analytical + projected gradient descent) and Kelly criterion sizing. Risk management: composable risk gate chains, VaR and CVaR (parametric + historical), drawdown circuit breakers, and adaptive position sizing.
+
 ### Crate Inventory (65 crates)
 
 **Signal Infrastructure (8 crates)**:

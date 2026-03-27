@@ -809,10 +809,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#one-developer-fourteen-products-half-a-million-lines-of-code" class="md-nav__link">
+  <a href="#one-developer-one-distributed-platform-half-a-million-lines-of-code" class="md-nav__link">
     <span class="md-ellipsis">
       
-        One Developer. Fourteen Products. Half a Million Lines of Code.
+        One Developer. One Distributed Platform. Half a Million Lines of Code.
       
     </span>
   </a>
@@ -1234,10 +1234,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#one-developer-fourteen-products-half-a-million-lines-of-code" class="md-nav__link">
+  <a href="#one-developer-one-distributed-platform-half-a-million-lines-of-code" class="md-nav__link">
     <span class="md-ellipsis">
       
-        One Developer. Fourteen Products. Half a Million Lines of Code.
+        One Developer. One Distributed Platform. Half a Million Lines of Code.
       
     </span>
   </a>
@@ -1408,10 +1408,11 @@
 
 
 <h1 id="the-architect-behind-kokoro-tech-a-founder-profile">The Architect Behind Kokoro Tech: A Founder Profile<a class="headerlink" href="#the-architect-behind-kokoro-tech-a-founder-profile" title="Permanent link">&para;</a></h1>
-<h2 id="one-developer-fourteen-products-half-a-million-lines-of-code">One Developer. Fourteen Products. Half a Million Lines of Code.<a class="headerlink" href="#one-developer-fourteen-products-half-a-million-lines-of-code" title="Permanent link">&para;</a></h2>
-<p>There is a common assumption in the technology industry that building serious, institutional-grade infrastructure requires teams — squads of engineers, months of sprints, layers of management. The career of the founder behind Kokoro Tech challenges that assumption in a way that is difficult to dismiss.</p>
-<p>Over the course of roughly eighteen months, a single developer — working across Rust, TypeScript, Python, Go, and Solidity — designed, built, and deployed a portfolio of fourteen products spanning quantitative trading research, blockchain protocol engineering, AI agent orchestration, and SaaS infrastructure. The combined codebase exceeds 530,000 lines of production code. It includes 1,860 automated tests, 100-plus Rust crates, twenty Anchor programs on Solana, and 115 purpose-built tools for AI agent interaction. Three cloud servers, distributed across DigitalOcean Singapore, AWS Ireland, and AWS London, run this infrastructure — all connected via a self-built WireGuard mesh VPN.</p>
-<p>This is not a portfolio of side projects and prototypes. These are production systems with real deployments, real money, and real architectural decisions made under real constraints. Understanding what was built, how it was built, and why it matters requires tracing the journey from its foundations.</p>
+<h2 id="one-developer-one-distributed-platform-half-a-million-lines-of-code">One Developer. One Distributed Platform. Half a Million Lines of Code.<a class="headerlink" href="#one-developer-one-distributed-platform-half-a-million-lines-of-code" title="Permanent link">&para;</a></h2>
+<p>There is a common assumption in the technology industry that building serious, institutional-grade distributed infrastructure requires teams — squads of engineers, months of sprints, layers of management. The career of the founder behind Kokoro Tech challenges that assumption in a way that is difficult to dismiss.</p>
+<p>Over the course of roughly eighteen months, a single developer — working across Rust, TypeScript, Python, Go, and Solidity — designed, built, and deployed what appears at first glance to be a portfolio of fourteen products, but is more accurately described as one interconnected distributed platform with fourteen independently deployable nodes. The combined codebase exceeds 530,000 lines of production code. It includes 1,860 automated tests, 100-plus Rust crates, twenty Anchor programs on Solana, and 115 purpose-built tools for AI agent interaction. Three cloud servers, distributed across DigitalOcean Singapore, AWS Ireland, and AWS London, run this infrastructure — all connected via a self-built WireGuard mesh VPN that makes cross-server communication indistinguishable from LAN traffic.</p>
+<p>What makes this portfolio distinctive is not the line count or the product count — it is the architectural coherence across repository boundaries. Seven or more repositories coordinate as one logical system through shared type libraries with versioned semantic releases, 10 named Redis Streams carrying real-time events in dual-format encoding, gRPC service definitions governing synchronous inter-service calls, and REST APIs at the boundary with external consumers. Services on different physical servers address each other by mesh IP and communicate as if co-located. Satellite repositories were extracted from the core monorepo as they reached operational maturity — each extraction defined by a stable interface contract, not by arbitrary project boundaries. This is distributed system architecture practiced as a discipline, not assembled as an afterthought.</p>
+<p>This is not a portfolio of side projects and prototypes. These are production systems with real deployments, real money, SaaS-grade billing and access controls, and real architectural decisions made under real constraints. Understanding what was built, how it was built, and why it matters requires tracing the journey from its foundations.</p>
 <hr />
 <h2 id="the-journey-from-blockchain-foundations-to-a-full-trading-ecosystem">The Journey: From Blockchain Foundations to a Full Trading Ecosystem<a class="headerlink" href="#the-journey-from-blockchain-foundations-to-a-full-trading-ecosystem" title="Permanent link">&para;</a></h2>
 <p>The story begins in 2021, when the developer first engaged seriously with distributed systems through blockchain infrastructure. Two years of foundational work — building a Go-based public blockchain implementation, a blockchain demonstration system, and a library of data structures used in coding interview preparation — established the systems thinking and low-level discipline that would define everything that followed.</p>

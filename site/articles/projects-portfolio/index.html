@@ -725,13 +725,30 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#prologue-an-ecosystem-not-a-collection" class="md-nav__link">
+  <a href="#prologue-a-distributed-architecture-not-a-collection" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Prologue: An Ecosystem, Not a Collection
+        Prologue: A Distributed Architecture, Not a Collection
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Prologue: A Distributed Architecture, Not a Collection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-architecture-of-the-ecosystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Architecture of the Ecosystem
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1913,13 +1930,30 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#prologue-an-ecosystem-not-a-collection" class="md-nav__link">
+  <a href="#prologue-a-distributed-architecture-not-a-collection" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Prologue: An Ecosystem, Not a Collection
+        Prologue: A Distributed Architecture, Not a Collection
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Prologue: A Distributed Architecture, Not a Collection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-architecture-of-the-ecosystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Architecture of the Ecosystem
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2770,9 +2804,13 @@
 <p>A comprehensive engineering analysis of the Kokoro project portfolio — covering quantitative trading infrastructure, DeFi automation, developer tooling, and supporting platforms. Written for senior engineers, CTOs, and technical investors evaluating the depth and cohesion of this technology stack.</p>
 </blockquote>
 <hr />
-<h2 id="prologue-an-ecosystem-not-a-collection">Prologue: An Ecosystem, Not a Collection<a class="headerlink" href="#prologue-an-ecosystem-not-a-collection" title="Permanent link">&para;</a></h2>
-<p>The twenty projects described in this document are not independent experiments. They form a deliberate, interlocking ecosystem built around a central thesis: that quantitative trading — across crypto, traditional equities, prediction markets, and DeFi — can be unified under a single coherent software architecture rather than scattered across siloed tools.</p>
+<h2 id="prologue-a-distributed-architecture-not-a-collection">Prologue: A Distributed Architecture, Not a Collection<a class="headerlink" href="#prologue-a-distributed-architecture-not-a-collection" title="Permanent link">&para;</a></h2>
+<p>The projects described in this document are not independent experiments. They form a deliberate, interlocking distributed system built around a central thesis: that quantitative trading — across crypto, traditional equities, prediction markets, and DeFi — can be unified under a single coherent software architecture rather than scattered across siloed tools.</p>
 <p>At the core sits Kokoro Alpha Lab, a 242,000-line Rust monorepo that defines the data types, traits, algorithms, and execution abstractions upon which nearly every other project depends. Surrounding it are execution-specialized derivatives — Kokoro MM for market making, the Polymarket Bot for directional trading, the Liquidation Bot for DeFi arbitrage — each consuming shared libraries from the monorepo's <code>shared-types</code> crate. The infrastructure layer includes a wallet monitor feeding on-chain intelligence upstream, a pricing service normalizing multi-DEX data, and an MCP tool server that exposes the entire research platform to AI-assisted workflows. The developer tooling — Agent Orchestra, Kokoro Pipeline, and Claude Init — handles the engineering process itself, enabling a single developer to manage a codebase of this scale through automated multi-agent collaboration. Taken together, these projects represent a vertically integrated trading technology operation.</p>
+<h3 id="the-architecture-of-the-ecosystem">The Architecture of the Ecosystem<a class="headerlink" href="#the-architecture-of-the-ecosystem" title="Permanent link">&para;</a></h3>
+<p>The ecosystem is structured as a federated architecture: a core monorepo provides shared domain types and infrastructure primitives, while satellite services are extracted into independent repositories when they reach operational maturity and have stable, proven interfaces. This extraction pattern is deliberate — start in the monorepo where iteration is fast and the interface is fluid, prove the interface under real workload, then extract to its own repository with a pinned <code>shared-types</code> dependency once the contract is stable. The wallet monitor, pricing service, and frontend all followed this path.</p>
+<p>Inter-service boundaries are defined by message contracts rather than by organizational convention. Protobuf schemas define the wire format for all Redis Stream events and gRPC calls. Redis Stream message types establish the asynchronous contract between producers and consumers. REST API specifications define the synchronous contract at the boundary with external consumers. Each contract is versioned independently: proto files carry package names like <code>kokoro.lab.v1</code>, stream message types carry an <code>enc</code> field that enables format negotiation, and the shared-types crate uses semantic version tags (<code>shared-v0.x.x</code>) that satellite repositories pin to explicitly.</p>
+<p>Cross-server service discovery is handled transparently by the WireGuard mesh. All services — whether running on the Singapore monorepo server, the Ireland market-making server, or the London copy-trader server — address each other by mesh IP in the 10.10.0.x range. A service does not know or care which physical server its dependency runs on. This makes the three-server deployment feel like a single datacenter from the application's perspective, without the overhead of a full service mesh framework.</p>
 <hr />
 <h2 id="1-kokoro-alpha-lab">1. Kokoro Alpha Lab<a class="headerlink" href="#1-kokoro-alpha-lab" title="Permanent link">&para;</a></h2>
 <p><strong>Repository</strong>: <code>happykokoro/kokoro-alpha-lab</code> (private)

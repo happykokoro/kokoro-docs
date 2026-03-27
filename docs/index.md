@@ -12,6 +12,8 @@ The core monorepo (65 Rust crates, 3 application binaries) is surrounded by sate
 
 Services communicate across 3 cloud servers (Singapore, Ireland, London) via a self-built WireGuard mesh VPN — all cross-server traffic stays on the encrypted 10.10.0.0/24 subnet, making physical server boundaries transparent to the application layer. Within the Singapore server alone, Docker Compose orchestrates 12+ containers. Across the full mesh, 10 named streaming data channels carry real-time events between services in dual JSON/protobuf format, enabling gradual protocol migration without downtime.
 
+The platform implements quantitative signal processing (Kalman filters, H-infinity filters, particle filters, UKF, wavelet analysis, GARCH volatility modeling), market making (Avellaneda-Stoikov quoting), portfolio optimization (Markowitz mean-variance, Kelly criterion), and risk management (VaR, CVaR, circuit breakers) — all as composable, independently testable modules. Statistical modeling covers GARCH, Hurst exponent, copulas, Brownian Bridge path conditioning, and conformal prediction. Options pricing includes Black-Scholes and Monte Carlo simulation.
+
 115 AI tool interfaces across two MCP servers expose the platform for autonomous operation — research, backtesting, execution, and system management can all be delegated to AI agents through structured API contracts.
 
 530,000+ lines of production code. 1,860+ automated tests. Built and operated by a single founder leveraging AI-augmented development workflows.
