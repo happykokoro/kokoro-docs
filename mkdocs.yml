@@ -53,6 +53,8 @@ markdown_extensions:
 
 nav:
   - Home: index.md
+  - Services:
+      - Overview: services/overview.md
   - Technical Profile:
       - Technology Stack: profile/technology-stack.md
       - Projects Portfolio: profile/projects-portfolio.md

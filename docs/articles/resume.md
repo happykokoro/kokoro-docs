@@ -229,6 +229,38 @@ Three projects from this portfolio are publicly available:
 
 ---
 
+## Commercial Applications
+
+The architecture described in this document is not only the foundation for Kokoro Tech's own products — it is a deployable model for client engagements. Each architectural layer translates to a concrete service capability.
+
+### Modular Crate Architecture Enables Rapid Client Customization
+
+The 65-crate monorepo is organized so that individual components can be extracted and reused without carrying the full platform's dependencies. A client commissioning a quantitative signal processing system receives the relevant filter crates (`dsp-filters`, `factor-enhanced`, `prediction`) configured for their asset class, without the trading execution or market making layers. A client building a DeFi liquidation bot receives the `ProtocolAdapter` trait hierarchy and the relevant chain adapters, configured for their target protocols.
+
+This is not theoretical extensibility — the platform was designed with the Clean Integration Layer specifically to enable this: 63 pure-logic crates contain zero I/O and have no external runtime dependencies. Extracting a crate for a client project means extracting tested, pure logic that compiles and runs independently.
+
+### Trait-Based Plugin System Means Client-Specific Implementations Integrate Cleanly
+
+Every extension point in the platform — `AlphaFactor`, `ExecutionBackend`, `ProtocolAdapter`, `LiquidationExecutor`, `RiskGate` — is defined as a Rust trait. Client-specific implementations simply implement the trait and register with the factory. A client-specific liquidation strategy implements `LiquidationExecutor`. A proprietary alpha signal implements `AlphaFactor`. Custom risk rules implement the `RiskGate` chain interface.
+
+This architecture pattern means client customizations do not require forking the core platform — they plug in at the defined extension points. Client code is isolated from platform internals, meaning platform upgrades do not break client customizations and client customizations do not destabilize the platform core.
+
+### MCP Tools Demonstrate Structured AI Interface Capability for Any Domain
+
+The 115 MCP tools across two production servers are the clearest demonstration that Kokoro Tech can build structured AI tool interfaces for any domain. Each tool follows the same pattern: a well-typed schema, a documented contract, a production API call behind it. The lab-mcp server has 98 tools covering signal pipeline state, backtesting, factor analysis, execution, and system management. The kokoro-mm MCP server has 17 tools for the market making platform.
+
+For clients building AI-powered products — whether in trading, enterprise SaaS, developer tools, or any other domain — this is the capability: a complete MCP server implementation from protocol layer to domain logic, tested and production-ready. The same tooling that allows Claude to autonomously manage the Kokoro platform can be built for any structured domain.
+
+### Multi-Region Infrastructure Proves Operational Capability at Global Scale
+
+Three production servers (DigitalOcean Singapore, AWS Ireland, AWS London) connected by a self-built WireGuard mesh VPN are not an architectural aspiration — they are an operational reality. The mesh was built, configured, and has run without incident across a multi-year development cycle. Per-node ACL firewall rules are generated programmatically. Cross-region latency is the only variable; routing is eliminated.
+
+For clients requiring global deployment — latency-sensitive trading systems, geographically distributed SaaS platforms, multi-region data pipelines — Kokoro Tech has already solved the infrastructure design problem in production. The design can be adapted and deployed for client environments without starting from first principles.
+
+The full observability stack (Prometheus on all services, Grafana dashboards, OpenTelemetry distributed tracing, structured logging, Uptime Kuma external monitoring) transfers directly to client deployments. Every service pattern in this document — API Gateway, Event-Driven Architecture via Redis Streams, Circuit Breaker, CQRS, Saga Pattern — has been implemented, tested, and operated in production. Client systems built on these patterns inherit operational maturity rather than discovering production edge cases post-launch.
+
+---
+
 ## Contact
 
 **GitHub (Organization):** https://github.com/happykokoro

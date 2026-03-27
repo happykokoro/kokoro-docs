@@ -4,6 +4,12 @@
 
 ---
 
+## Scope of Services
+
+The technical capabilities documented in this profile are available as commercial services for global clients. Kokoro Tech provides software outsourcing and custom development, AI consulting and MCP tooling, hardware and network infrastructure design, DevOps and operations consulting, and quantitative finance system development — delivered to enterprises, FinTech companies, and development teams across Asia-Pacific, Europe, and the Americas. Every skill listed here has been exercised in production systems, not in academic or demonstration contexts. Clients commissioning services from Kokoro Tech receive implementations drawn from the same engineering standards that govern the company's own platform.
+
+---
+
 ## 1. Systems Programming (Rust)
 
 ### Async Runtime Architecture

@@ -59,6 +59,42 @@
 
 ---
 
+## Service Capabilities
+
+The technical competencies documented above translate directly into commercial service offerings for global clients. Kokoro Tech serves developers, enterprises, and FinTech companies internationally — not as a freelancer, but as a full-capability technology partner with production-proven systems and AI-augmented delivery.
+
+### From Competency to Client Offering
+
+**Systems Programming & Performance Engineering → Custom Software Development**
+Expert-level Rust engineering at 330,000+ lines of production code means client systems are built for reliability from day one. The Clean Integration Layer methodology — 63 pure-logic crates with zero I/O, 3 I/O binaries — is applied to every engagement: client business logic is isolated, testable, and maintainable long after delivery. Clients receive production-quality, not prototype-quality code.
+
+**Quantitative Finance & Algorithmic Trading → Quant System Design**
+11 production DSP filters (H-infinity, UKF, particle filter, IMM, wavelet, and more), 24 alpha factor implementations, Avellaneda-Stoikov market making, VaR/CVaR risk management — all implemented from mathematical foundations, not library wrappers. Clients building trading systems, risk platforms, or signal processing pipelines get implementations that are mathematically sound and operationally hardened.
+
+**Blockchain & DeFi Engineering → Blockchain Application Development**
+20 Solana Anchor programs in production, a multi-chain liquidation bot running across 6 EVM chains, complete Polymarket SDK integration, Jupiter/Raydium/Orca DEX integrations. This is not tutorial-level blockchain work — it is production DeFi infrastructure covering every layer from smart contracts to execution to risk management.
+
+**Full-Stack Web Development → End-to-End Product Delivery**
+200+ API endpoints, 200+ frontend pages, 6 charting libraries, real-time SSE, Tauri desktop apps, Payload CMS — Kokoro Tech can own the complete product stack from database schema to deployed frontend without handoffs between specialists.
+
+**Infrastructure & DevOps → Infrastructure as a Service**
+3 production servers across 3 continents (Singapore, Ireland, London), connected by a self-built WireGuard mesh VPN. Docker Compose stacks, Prometheus/Grafana observability, Caddy auto-HTTPS, Cloudflare DDoS protection, SOPS secrets management. Client infrastructure deployments are modeled on what runs in production — not on textbook diagrams.
+
+**AI Agent Systems → AI-Augmented Development & MCP Tooling**
+115 MCP tools built across two production servers expose every platform capability to AI agents. Agent Orchestra manages multi-agent Claude Code teams with automated pipelines. The result: development cycles that are measurably faster than traditional outsourcing with the same or higher quality bar. Clients can commission MCP server development, agent orchestration setup, or AI-augmented development workflow consulting as standalone services.
+
+### The AI-Augmented Delivery Advantage
+
+Traditional outsourcing delivers at the speed of human developer throughput. Kokoro Tech's AI-augmented workflow runs research, implementation, review, and testing phases in parallel — the same pipeline used to build the Kokoro platform. Phase 2 of the alpha-lab monorepo was built by 6 parallel AI agents coordinated through Agent Orchestra in a single session. This is not theoretical: it is the default delivery mode.
+
+The practical outcome for clients: faster time-to-delivery, lower per-feature cost, higher consistency across the codebase, and a structured audit trail from the agent orchestration pipeline.
+
+### Global Infrastructure as a Delivery Asset
+
+Three production servers across three continents are not just platform infrastructure — they are evidence of operational capability. Clients requiring multi-region deployments, latency-optimized infrastructure, or self-hosted architecture get designs proven in production. The WireGuard mesh makes cross-server communication transparent and private. The self-hosted ecosystem (11 services) demonstrates that Kokoro Tech can own and operate infrastructure end-to-end, not just hand off deployment scripts.
+
+---
+
 ## Architecture Standards Compliance
 
 The platform architecture is documented following **ISO/IEC/IEEE 42010:2022 — Systems and Software Engineering: Architecture Description**. This international standard defines how architecture descriptions should be organized using viewpoints, stakeholder concerns, and architecture description languages.
