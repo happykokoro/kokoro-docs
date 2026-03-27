@@ -250,6 +250,22 @@
 
 Connected via WireGuard mesh (10.10.0.0/24) for private inter-server communication.
 
+### Server Scheduling & Maintenance
+
+**Professional foundation**: Before the current AI-augmented workflow, server administration was performed entirely manually in a professional role — Jenkins for CI/CD pipelines, Kubernetes for container orchestration, direct SSH sessions, and shell commands documented in physical notebooks. This hands-on operational discipline forms the foundation of the current infrastructure management practice.
+
+- Production server administration across 3 servers (DigitalOcean, 2x AWS)
+- systemd service management for all backend processes
+- Docker container orchestration with health checks and restart policies
+- Cron job scheduling for periodic tasks (price feeds, graph reclustering, P&L aggregation)
+- Log management and rotation
+- SSL certificate management via Caddy auto-HTTPS and Cloudflare
+- Database backup and maintenance (PostgreSQL, Redis persistence)
+- Process monitoring: PM2 for Node.js, systemd for Rust binaries, Docker for containerized services
+- Disk space management and resource monitoring
+- Remote server access via SSH with key-based authentication
+- Multi-server coordination via WireGuard mesh VPN
+
 ---
 
 ## 6. AI & Agent Systems
@@ -385,3 +401,17 @@ Connected via WireGuard mesh (10.10.0.0/24) for private inter-server communicati
 
 - **Redis Streams-based payment lifecycle**: Payment events flow through the same streaming infrastructure as trading signals (services/payment-service in alpha-lab monorepo)
 - **Multi-provider abstraction**: Unified interface across Stripe and crypto payment rails
+
+---
+
+## 12. PHP & Enterprise Web Development
+
+- Laravel MVC architecture: Models, Controllers, Migrations, Seeders, Blade views
+- Eloquent ORM with relationships, mass assignment protection, query scoping
+- Authentication: Laravel Breeze (register, login, password reset, profile management)
+- Database design: MySQL schemas with foreign key constraints, cascading deletes, index optimization
+- File handling: Image upload to storage with public disk linking
+- Form validation: inline and FormRequest-based validation
+- Server-side rendering: Blade templating with Bootstrap 5 integration
+- Testing: Pest framework for feature and unit testing
+- Graduate-level study of enterprise PHP patterns and server maintenance

@@ -501,6 +501,8 @@ type HealthChecker interface {
 
 ## 11. Docker & Deployment Conventions
 
+> **Background**: The containerization conventions here are grounded in professional Kubernetes experience predating the current projects. Before Docker Compose became the deployment target, production infrastructure was managed with Kubernetes — cluster management, pod scheduling, service discovery — operated entirely via SSH and documented shell commands. The current Docker Compose approach is a deliberate simplicity trade-off for a solo operator, not a lack of familiarity with orchestration at scale.
+
 ### Multi-Stage Rust Builds
 
 ```dockerfile

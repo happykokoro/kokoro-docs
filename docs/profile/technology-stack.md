@@ -19,6 +19,7 @@
 
 | Language         | Context                                                                                  |
 | ---------------- | ---------------------------------------------------------------------------------------- |
+| **PHP**          | Laravel 11 enterprise projects (graduate studies), Blade templating, Composer            |
 | **Solidity**     | FlashLiquidator.sol (kokoro-liquidation-bot), on-chain contracts                         |
 | **SQL**          | PostgreSQL schemas, SQLx migrations (58 migration pairs in kokoro-mm alone), raw queries |
 | **Shell / Bash** | claude-dev-pipeline skill, deployment scripts, CI/CD workflows                           |
@@ -243,6 +244,21 @@
 
 ---
 
+## 5.5 PHP Ecosystem
+
+| Package             | Usage                                                                            |
+| ------------------- | -------------------------------------------------------------------------------- |
+| `laravel/framework` | 11.31 — Full MVC framework for web applications                                  |
+| `laravel/breeze`    | Authentication scaffolding (login, register, password reset, email verification) |
+| `pestphp/pest`      | Modern PHP testing framework                                                     |
+| `laravel/sail`      | Docker development environment                                                   |
+| Blade               | Server-side templating engine                                                    |
+| Eloquent ORM        | Active Record pattern for database operations                                    |
+| Artisan CLI         | Database migrations, seeders, scheduling, queue management                       |
+| Composer            | PHP dependency management                                                        |
+
+---
+
 ## 6. Solana / Blockchain Stack
 
 ### On-Chain (kokoro-protocol)
@@ -333,6 +349,7 @@
 | ------------------ | ------------------------------------------------------------------------------------- |
 | **Docker**         | All production services containerized. Multi-stage builds for Rust binaries           |
 | **Docker Compose** | Service orchestration on all 3 servers. kokoro-services defines 11 utility containers |
+| **Kubernetes**     | Container orchestration, cluster management (professional server admin role)          |
 | **Caddy**          | Reverse proxy with automatic HTTPS/TLS (kokoro-mm on AWS Ireland)                     |
 | **Nginx**          | Reverse proxy (DigitalOcean main server)                                              |
 | **PM2**            | Node.js process management                                                            |
@@ -343,6 +360,7 @@
 | Tool               | Usage                                                                                                                                    |
 | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------- |
 | **GitHub Actions** | CI pipelines: `cargo build --release`, `cargo clippy -D warnings`, `cargo fmt --check`, `cargo deny check`, `npm run build`, test suites |
+| **Jenkins**        | CI/CD pipeline management (professional server admin role)                                                                               |
 | **rsync**          | Static site deployment (kokoro-tech → production server)                                                                                 |
 | **SCP**            | Binary deployment (copy-trader, liquidation-bot)                                                                                         |
 

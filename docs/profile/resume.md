@@ -62,6 +62,7 @@ Specializes in high-performance Rust systems for financial applications, real-ti
 - **Desktop**: Tauri v2 VPN client (React 19 + Vite 6)
 - **CMS**: Payload CMS 3.77 with custom blocks, lexical editor, form-builder, SEO, live preview
 - **Database design**: PostgreSQL (complex schemas, 21+ query modules, repository pattern), Redis Streams (10 streams, dual JSON/proto, consumer groups), SQLite (lightweight persistence), JSONL (event sourcing)
+- **PHP/Laravel**: Enterprise-level Laravel applications with Eloquent ORM, Breeze authentication, Blade templating, MySQL, Pest testing (graduate studies focus)
 
 ### Infrastructure & DevOps
 
@@ -71,6 +72,7 @@ Specializes in high-performance Rust systems for financial applications, real-ti
 - **Reverse proxying**: Caddy (auto-HTTPS) + Nginx + Cloudflare DNS/CDN/DDoS
 - **Monitoring**: Prometheus metrics on all services, Grafana dashboards, OpenTelemetry tracing, Uptime Kuma, structured logging (tracing crate)
 - **Security**: WireGuard mesh networking, SOPS secrets management, Flashbots MEV protection, per-user key derivation, feature-gated live-signing
+- **Server administration**: Production server scheduling and maintenance across 3 servers — systemd services, cron scheduling, Docker orchestration, SSL management, database backups, log rotation, resource monitoring
 
 ### AI Agent Systems & Developer Tooling
 
@@ -79,6 +81,23 @@ Specializes in high-performance Rust systems for financial applications, real-ti
 - **Development pipeline**: `claude-dev-pipeline` skill implementing 4-phase parallel execution (research → team → review → merge) with atomic PRs and dependency-aware merge order
 - **Claude Code tooling**: `claude-init` CLI (1,229 lines Python, zero deps) auto-generates `.claude/` config for any project by detecting language (9), framework (18), and project structure
 - **Custom skills**: 7 domain-specific Claude Code skills (dev-pipeline, signal-pipeline, risk-management, kalman-filter, polymarket-arbitrage, anchor-patterns, dex-integration)
+
+---
+
+## Professional Experience
+
+### Server Administrator (Post-Graduation)
+
+Prior to founding Kokoro Tech, worked as a server administrator managing production infrastructure in the pre-AI era. Responsibilities included:
+
+- **CI/CD pipeline management** using Jenkins — build, test, and deployment automation
+- **Container orchestration** with Kubernetes — cluster management, pod scheduling, service discovery
+- **Manual server maintenance** via SSH — health checks, monitoring setup, log analysis, troubleshooting
+- **Development environments** on Windows VMs running Ubuntu
+- **Documentation discipline** — shell commands documented in physical notebooks for reference during maintenance
+- **Monitoring and health checks** via UI management panels and manual inspection
+
+This foundational hands-on operations experience — where every deployment was manual and every command was memorized — directly informed the current infrastructure design. The progression from notebook-documented shell commands to AI-orchestrated 22-agent parallel development represents a complete evolution in software engineering methodology.
 
 ---
 
@@ -258,14 +277,14 @@ Real numbers extracted from production code — not estimates.
 
 ```
 Expert:    Rust, TypeScript
-Advanced:  Python, Go, Solidity, SQL
+Advanced:  Python, Go, PHP, Solidity, SQL
 Competent: Shell/Bash, Java, C/C++
 ```
 
 ### Frameworks & Libraries
 
 ```
-Backend:     Axum, Tokio, Tonic, Express, FastAPI, Gin, Anchor
+Backend:     Axum, Tokio, Tonic, Express, FastAPI, Gin, Anchor, Laravel
 Frontend:    Next.js, React, Tailwind, Radix UI, Zustand, SWR
 Desktop:     Tauri v2
 Database:    PostgreSQL (SQLx/Prisma), Redis Streams, SQLite
@@ -280,10 +299,10 @@ Testing:     cargo test, Vitest, Playwright, criterion benchmarks
 
 ```
 Cloud:       AWS (EC2), DigitalOcean (Droplets)
-Containers:  Docker, Docker Compose
+Containers:  Docker, Docker Compose, Kubernetes
 Networking:  WireGuard, Caddy, Nginx, Cloudflare
 Monitoring:  Prometheus, Grafana, OpenTelemetry, Uptime Kuma
-CI/CD:       GitHub Actions
+CI/CD:       GitHub Actions, Jenkins
 Security:    SOPS, Flashbots, AES-256-GCM, HKDF, TOTP, JWT
 ```
 
