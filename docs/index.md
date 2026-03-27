@@ -26,6 +26,8 @@ Blockchain made financial markets transparent. But transparency without tools is
 
 [Read our full philosophy →](philosophy/vision.md)
 
+[Read our values and culture →](philosophy/culture.md)
+
 ---
 
 ## Global Services

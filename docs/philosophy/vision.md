@@ -134,4 +134,8 @@ That is the standard against which this work is measured.
 
 ---
 
+→ [Read about our culture and values](culture.md)
+
+---
+
 _Kokoro Tech — [tech.happykokoro.com](https://tech.happykokoro.com)_

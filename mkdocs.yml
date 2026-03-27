@@ -55,6 +55,7 @@ nav:
   - Home: index.md
   - Philosophy:
       - Why We Build: philosophy/vision.md
+      - Culture & Values: philosophy/culture.md
   - Services:
       - Overview: services/overview.md
   - Technical Profile:
