@@ -53,6 +53,8 @@ markdown_extensions:
 
 nav:
   - Home: index.md
+  - Philosophy:
+      - Why We Build: philosophy/vision.md
   - Services:
       - Overview: services/overview.md
   - Technical Profile:

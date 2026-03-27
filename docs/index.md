@@ -20,6 +20,14 @@ The platform implements quantitative signal processing (Kalman filters, H-infini
 
 ---
 
+## Our Philosophy
+
+Blockchain made financial markets transparent. But transparency without tools is just noise. The OECD found that DeFi has "failed to deliver on the promise of democratisation" without proper tooling — raw on-chain data doesn't close the gap between institutions and individuals; it shifts the advantage from those who can see the data to those who can interpret it. Kokoro Tech builds the interpretation layer: institutional-grade signal processing, risk management, and execution infrastructure, self-hosted and self-custodied, so that financial self-sovereignty is practical rather than just possible.
+
+[Read our full philosophy →](philosophy/vision.md)
+
+---
+
 ## Global Services
 
 Kokoro Tech operates globally, serving users, developers, and enterprises across Asia-Pacific, Europe, and the Americas. Infrastructure is deployed across 3 continents by design — DigitalOcean Singapore (Asia-Pacific primary), AWS Ireland (Europe), and AWS London (Europe secondary) — providing global latency coverage as standard. Products are built for international markets: Polymarket is global, DeFi is borderless, and the staking platform covers 17+ chains across ecosystems.
