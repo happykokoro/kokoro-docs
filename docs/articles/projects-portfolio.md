@@ -4,11 +4,19 @@
 
 ---
 
-## Prologue: An Ecosystem, Not a Collection
+## Prologue: A Distributed Architecture, Not a Collection
 
-The twenty projects described in this document are not independent experiments. They form a deliberate, interlocking ecosystem built around a central thesis: that quantitative trading — across crypto, traditional equities, prediction markets, and DeFi — can be unified under a single coherent software architecture rather than scattered across siloed tools.
+The projects described in this document are not independent experiments. They form a deliberate, interlocking distributed system built around a central thesis: that quantitative trading — across crypto, traditional equities, prediction markets, and DeFi — can be unified under a single coherent software architecture rather than scattered across siloed tools.
 
 At the core sits Kokoro Alpha Lab, a 242,000-line Rust monorepo that defines the data types, traits, algorithms, and execution abstractions upon which nearly every other project depends. Surrounding it are execution-specialized derivatives — Kokoro MM for market making, the Polymarket Bot for directional trading, the Liquidation Bot for DeFi arbitrage — each consuming shared libraries from the monorepo's `shared-types` crate. The infrastructure layer includes a wallet monitor feeding on-chain intelligence upstream, a pricing service normalizing multi-DEX data, and an MCP tool server that exposes the entire research platform to AI-assisted workflows. The developer tooling — Agent Orchestra, Kokoro Pipeline, and Claude Init — handles the engineering process itself, enabling a single developer to manage a codebase of this scale through automated multi-agent collaboration. Taken together, these projects represent a vertically integrated trading technology operation.
+
+### The Architecture of the Ecosystem
+
+The ecosystem is structured as a federated architecture: a core monorepo provides shared domain types and infrastructure primitives, while satellite services are extracted into independent repositories when they reach operational maturity and have stable, proven interfaces. This extraction pattern is deliberate — start in the monorepo where iteration is fast and the interface is fluid, prove the interface under real workload, then extract to its own repository with a pinned `shared-types` dependency once the contract is stable. The wallet monitor, pricing service, and frontend all followed this path.
+
+Inter-service boundaries are defined by message contracts rather than by organizational convention. Protobuf schemas define the wire format for all Redis Stream events and gRPC calls. Redis Stream message types establish the asynchronous contract between producers and consumers. REST API specifications define the synchronous contract at the boundary with external consumers. Each contract is versioned independently: proto files carry package names like `kokoro.lab.v1`, stream message types carry an `enc` field that enables format negotiation, and the shared-types crate uses semantic version tags (`shared-v0.x.x`) that satellite repositories pin to explicitly.
+
+Cross-server service discovery is handled transparently by the WireGuard mesh. All services — whether running on the Singapore monorepo server, the Ireland market-making server, or the London copy-trader server — address each other by mesh IP in the 10.10.0.x range. A service does not know or care which physical server its dependency runs on. This makes the three-server deployment feel like a single datacenter from the application's perspective, without the overhead of a full service mesh framework.
 
 ---
 

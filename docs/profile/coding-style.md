@@ -50,6 +50,26 @@ L4: Entry Point         (mm-bin, apps/lab, apps/engine)
 
 **Enforced rule**: Lower layers never import higher layers. `mm-types` has zero dependencies on other workspace crates. `mm-engine` depends on L0-L2 but never on `mm-gateway`.
 
+### Multi-Repo Ecosystem Coordination
+
+The Kokoro platform is not a monorepo — it is a federation of 7+ repositories that coordinate as one logical system. Each repository is independently deployable and independently versioned, but participates in the larger platform through well-defined contracts at every service boundary. The coordination mechanisms are explicit and layered:
+
+**Shared type crate with semantic versioning.** A single `shared-types` crate (and its compiled proto definitions) defines the canonical domain types used across all repositories: signal shapes, event schemas, position structs, billing tier enums. Satellite repositories pin to tagged releases (`shared-v0.x.x`) rather than a git SHA, enforcing a deliberate upgrade process. When a type changes, the change propagates through a controlled dependency bump — not silently across a monorepo boundary.
+
+**Redis Streams as the inter-service message bus.** 10 named streams carry asynchronous events between services that run on different servers or different processes. Messages are encoded in a dual JSON/protobuf format: the `enc` field signals which encoding is in use, and all consumers auto-detect. This allows old and new service versions to coexist during rolling deployments without coordination. Consumer groups enable parallel processing within a service tier.
+
+**gRPC for synchronous service-to-service calls.** Three service pairs use Tonic gRPC for request-response and server-streaming interactions: Lab↔Engine (signal submission, execution confirmation), Engine↔Platform (tier enforcement, billing events), and Platform↔external clients (authenticated, rate-limited API surface). Proto `.proto` files are the source of truth; generated Rust types are checked into `services/proto/`.
+
+**REST APIs at the external boundary.** The Platform binary translates internal gRPC calls into REST responses for the frontend and third-party integrators. No external consumer calls internal gRPC directly — the REST surface is the stable public contract, and internal gRPC bindings can evolve behind it.
+
+**SSE for real-time frontend streaming.** Server-Sent Events push live data from the Platform binary to the browser without requiring WebSocket upgrades. The frontend maintains an `EventSource` connection with exponential backoff reconnection.
+
+**WireGuard mesh making cross-server communication transparent.** All three production servers (Singapore, Ireland, London) participate in a WireGuard mesh on the 10.10.0.0/24 subnet. Services address each other by mesh IP regardless of which physical server they run on. A service on the Singapore server communicates with a service on the Ireland server exactly as if they were on the same LAN — no public internet exposure, no external load balancer, no service discovery overhead.
+
+**Docker Compose per server, with health checks and restart policies.** Each server runs its own Docker Compose stack. Container health checks gate `depends_on` startup ordering. `restart: unless-stopped` ensures services recover from transient failures. Shared infrastructure (Redis, PostgreSQL) is managed within the same Compose stack as the services that depend on it.
+
+**The key insight: each repository is independently deployable but participates in a larger system through well-defined contracts.** Adding a new satellite service does not require modifying the monorepo. Adding a new message type requires only bumping the `shared-types` version and updating consumers. The system grows by extending contracts, not by restructuring boundaries.
+
 ---
 
 ## 2. Rust Coding Conventions

@@ -51,6 +51,61 @@ apps/platform (port 4000) — Gateway: auth, billing, tier gates, gRPC→REST pr
 
 **Inter-service communication**: Redis Streams (10 active streams with dual JSON/proto format), gRPC (tonic 0.13), REST (axum 0.8), SSE for real-time frontend streaming.
 
+### Ecosystem Topology
+
+Kokoro Alpha Lab is not a standalone application — it is the hub of a 7+ repository distributed system. The monorepo itself runs on the Singapore server, but the full platform spans multiple servers and multiple independently deployed repositories, all coordinated through defined contracts.
+
+**Coordinated repositories (7+)**
+
+| Repository                     | Role                                           | Communication                                            |
+| ------------------------------ | ---------------------------------------------- | -------------------------------------------------------- |
+| `kokoro-alpha-lab` (this repo) | Core monorepo: research, execution, gateway    | Exposes gRPC + REST; consumes Redis Streams              |
+| `kokoro-alpha-lab-frontend`    | Next.js dashboard, extracted from monorepo     | REST API proxy → Platform (port 4000); SSE for real-time |
+| `kokoro-wallet-monitor`        | Solana wallet tracking microservice, extracted | Publishes events → Redis Streams (upstream feed)         |
+| `kokoro-pricing-service`       | Multi-DEX price aggregation, extracted         | Publishes events → Redis Streams (upstream feed)         |
+| `lab-mcp`                      | TypeScript MCP server, 98 tool interfaces      | REST → Lab/Engine/Platform APIs                          |
+| `kokoro-polymarket-bot`        | Polymarket trading bot, consumer               | Imports `shared-types`; reads Redis Streams              |
+| `kokoro-copy-trader`           | Copy trading system, independent               | Runs on separate server; standalone deployment           |
+
+**Three application binaries inside the monorepo**
+
+- `apps/lab` (port 4100) — Research environment: full factor pipeline, backtesting, API, gRPC :50051, SSE, replay mode
+- `apps/engine` (port 4200) — Execution environment: frozen strategy, real order execution, gRPC :50052
+- `apps/platform` (port 4000) — API gateway: authentication, billing, tier-based access, gRPC→REST proxy for the frontend
+
+**Two extracted microservices feeding data upstream**
+
+- `kokoro-wallet-monitor` — Tracks on-chain wallet activity; publishes discovered wallets, cluster events, and coordination signals to Redis Streams, where the monorepo's Lab binary consumes them
+- `kokoro-pricing-service` — Aggregates price data from multiple DEX sources; publishes normalized price events to Redis Streams consumed by the factor pipeline
+
+**One extracted frontend consuming the REST API**
+
+The Next.js frontend (`kokoro-alpha-lab-frontend`) was extracted from the monorepo as a separate repository. It communicates exclusively through the Platform binary's REST and SSE endpoints, never calling Lab or Engine directly. This maintains the API gateway contract between internal services and external consumers.
+
+**One MCP server exposing 98 tool interfaces**
+
+`lab-mcp` (TypeScript) exposes the full research platform as 98 structured MCP tools. AI agents can query live signal states, run backtests, inspect positions, manage strategies, and interact with the execution layer — all through tool calls that map to authenticated REST API endpoints.
+
+**10 Redis Streams connecting all services**
+
+All asynchronous events — price ticks, wallet alerts, factor inputs, signal outputs, execution confirmations, billing events — flow through named Redis Streams with consumer groups. Messages carry an `enc` field for auto-detected dual JSON/protobuf format, enabling rolling protocol migrations without downtime.
+
+**gRPC for inter-app communication**
+
+Lab, Engine, and Platform communicate synchronously via Tonic gRPC. Server-streaming RPCs handle continuous data flows (signals, positions, trades). Unary RPCs handle request-response operations (strategy deployment, backtest submission, factor queries).
+
+**Payment service communicating via Redis Streams**
+
+The payment service (`services/payment-service/`) lives inside the monorepo but communicates asynchronously with other services via Redis Streams — not direct function calls. This makes it independently deployable as a separate container within the same Docker Compose stack.
+
+**Everything orchestrated by Docker Compose with 12+ containers on Singapore**
+
+Services on the Singapore server run in a single Docker Compose stack: Redis, PostgreSQL, Lab, Engine, Platform, Frontend, Lab-MCP, Payment Service, Wallet Monitor, Pricing Service, Prometheus, and Grafana. Health checks gate startup ordering; `restart: unless-stopped` ensures recovery from transient failures.
+
+**Shared type library versioned and tagged for cross-repo compatibility**
+
+The `shared-types` crate defines the canonical types (signals, events, positions, tier enums) shared across all repositories. Satellite repositories pin to tagged releases (`shared-v0.x.x`) rather than floating on git HEAD, making dependency upgrades explicit and controllable.
+
 ### Crate Inventory (65 crates)
 
 **Signal Infrastructure (8 crates)**:

@@ -6,9 +6,11 @@
 
 ## Professional Summary
 
-Full-stack systems engineer and quantitative developer who single-handedly designed, built, and deployed a 14-product technology portfolio spanning quantitative trading, blockchain infrastructure, AI agent systems, and SaaS platforms. The combined codebase exceeds 530,000 lines of production code across Rust, TypeScript, Python, and Go, with 1,860+ automated tests, deployed across 3 cloud servers connected via self-built WireGuard mesh VPN.
+Full-stack distributed systems architect who single-handedly designed, built, and deployed an interconnected platform spanning quantitative trading, blockchain infrastructure, AI agent systems, and SaaS products. What appears as 14 separate projects is, in practice, one logical distributed system: 7+ coordinated repositories sharing versioned type contracts (tagged semantic releases), communicating across 3 cloud servers via an encrypted WireGuard mesh VPN, connected by 10 real-time streaming data channels, and exposed through 115 AI tool interfaces for autonomous operation.
 
-Specializes in high-performance Rust systems for financial applications, real-time data pipelines, blockchain protocol integrations, and AI-augmented development workflows. Operates as a solo founder managing the full stack from Solidity smart contracts to React dashboards to Docker orchestration.
+The combined codebase exceeds 530,000 lines of production code across Rust, TypeScript, Python, and Go, with 1,860+ automated tests. Each repository is independently deployable, but participates in the larger system through well-defined message contracts — protobuf schemas on Redis Streams, gRPC service definitions between application binaries, and REST APIs at the boundary with external consumers. The infrastructure spans DigitalOcean Singapore (12+ Docker containers), AWS Ireland, and AWS London — all connected as a single network via self-built WireGuard mesh, with SaaS-grade reliability practices: tiered billing, per-tenant resource limits, monitoring on every service, and CI/CD across 8+ repositories.
+
+Specializes in high-performance Rust systems for financial applications, multi-repo architecture with shared library versioning, real-time cross-service data pipelines, blockchain protocol integrations, and AI-augmented development workflows. Operates as a solo founder managing the full stack from smart contracts to distributed Rust services to React dashboards to Docker orchestration.
 
 ---
 

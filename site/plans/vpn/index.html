@@ -1138,10 +1138,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#41-open-source-community-tier-free-mit" class="md-nav__link">
+  <a href="#41-community-tier-free" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4.1 Open-Source Community Tier (Free, MIT)
+        4.1 Community Tier (Free)
       
     </span>
   </a>
@@ -1790,10 +1790,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#41-open-source-community-tier-free-mit" class="md-nav__link">
+  <a href="#41-community-tier-free" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4.1 Open-Source Community Tier (Free, MIT)
+        4.1 Community Tier (Free)
       
     </span>
   </a>
@@ -2210,7 +2210,7 @@
 <h1 id="kokoro-vpn-business-plan">Kokoro VPN — Business Plan<a class="headerlink" href="#kokoro-vpn-business-plan" title="Permanent link">&para;</a></h1>
 <p><strong>Prepared</strong>: March 2026
 <strong>Author</strong>: Kokoro Tech
-<strong>Status</strong>: Seed-stage, open-source, self-funded</p>
+<strong>Status</strong>: Seed-stage, self-funded</p>
 <hr />
 <h2 id="1-executive-summary">1. Executive Summary<a class="headerlink" href="#1-executive-summary" title="Permanent link">&para;</a></h2>
 <p>Kokoro VPN is a self-hosted WireGuard VPN platform that solves a problem no single open-source tool currently addresses cleanly: running both a traditional client VPN (hub-and-spoke) and a full-mesh server interconnect in one unified deployment, managed through a single CLI and REST API, with a polished desktop application and infrastructure-as-code provisioning built in.</p>
@@ -2286,8 +2286,8 @@
 <hr />
 <h2 id="4-revenue-model">4. Revenue Model<a class="headerlink" href="#4-revenue-model" title="Permanent link">&para;</a></h2>
 <p>Kokoro VPN uses a layered open-source monetization model. The core software is and will remain free. Revenue is generated from services and features that add operational value on top of the free foundation.</p>
-<h3 id="41-open-source-community-tier-free-mit">4.1 Open-Source Community Tier (Free, MIT)<a class="headerlink" href="#41-open-source-community-tier-free-mit" title="Permanent link">&para;</a></h3>
-<p>The complete server binary, CLI, desktop application, and Terraform configs are free under MIT license. There is no feature gating at the software level in the community tier. This is deliberate: the goal is to maximize adoption, which creates the community, brand recognition, and inbound pipeline that monetizable tiers depend on.</p>
+<h3 id="41-community-tier-free">4.1 Community Tier (Free)<a class="headerlink" href="#41-community-tier-free" title="Permanent link">&para;</a></h3>
+<p>The complete server binary, CLI, desktop application, and Terraform configs are free under proprietary license. There is no feature gating at the software level in the community tier. This is deliberate: the goal is to maximize adoption, which creates the community, brand recognition, and inbound pipeline that monetizable tiers depend on.</p>
 <p>Community users contribute bug reports, feature requests, documentation improvements, and word-of-mouth referrals. GitHub stars, Hacker News discussions, and r/selfhosted posts are the primary distribution channels for this tier.</p>
 <h3 id="42-managed-hosting-tier">4.2 Managed Hosting Tier<a class="headerlink" href="#42-managed-hosting-tier" title="Permanent link">&para;</a></h3>
 <p>Many users who want the privacy and control of self-hosted VPN do not want to operate servers. Managed hosting removes the operational burden: Kokoro Tech provisions, monitors, updates, and backs up the VPN server infrastructure on behalf of the customer. The customer retains full control of their network topology, ACL rules, and peer configurations — they simply do not manage the underlying servers.</p>
@@ -2384,7 +2384,7 @@
 <li>Tauri v2 desktop application (React 19, Tailwind v4)</li>
 <li>Terraform deployment configs for DigitalOcean and AWS</li>
 <li>3-node production mesh deployed and operating continuously</li>
-<li>Public repository, MIT license, GitHub published</li>
+<li>Public repository, proprietary license, GitHub published</li>
 </ul>
 <h3 id="52-near-term-roadmap-q2-q3-2026">5.2 Near-Term Roadmap (Q2-Q3 2026)<a class="headerlink" href="#52-near-term-roadmap-q2-q3-2026" title="Permanent link">&para;</a></h3>
 <p><strong>Expanded OS and Platform Support</strong></p>
@@ -2424,7 +2424,7 @@
 <hr />
 <h2 id="6-go-to-market-strategy">6. Go-to-Market Strategy<a class="headerlink" href="#6-go-to-market-strategy" title="Permanent link">&para;</a></h2>
 <h3 id="61-open-source-distribution">6.1 Open-Source Distribution<a class="headerlink" href="#61-open-source-distribution" title="Permanent link">&para;</a></h3>
-<p>The primary distribution channel is GitHub. An MIT-licensed repository with clear documentation, a working Terraform quick-start, and a compelling README that demonstrates the value proposition in the first 30 seconds is the foundation.</p>
+<p>The primary distribution channel is GitHub. An repository with clear documentation, a working Terraform quick-start, and a compelling README that demonstrates the value proposition in the first 30 seconds is the foundation.</p>
 <p>Key open-source GTM tactics:</p>
 <ul>
 <li><strong>README-driven design</strong>: Every feature explained with concrete commands and expected output. Screenshots of the desktop app. A quick-start that gets a new node online in under 5 minutes.</li>
@@ -2648,7 +2648,7 @@
 <hr />
 <h2 id="9-risks-and-mitigations">9. Risks and Mitigations<a class="headerlink" href="#9-risks-and-mitigations" title="Permanent link">&para;</a></h2>
 <h3 id="91-open-source-monetization-challenge">9.1 Open-Source Monetization Challenge<a class="headerlink" href="#91-open-source-monetization-challenge" title="Permanent link">&para;</a></h3>
-<p><strong>Risk</strong>: The vast majority of users will never pay. An MIT-licensed product with no feature gating means anyone can use the full product forever for free. This is the fundamental tension of open-source monetization, and it has ended many well-intentioned projects.</p>
+<p><strong>Risk</strong>: The vast majority of users will never pay. An product with no feature gating means anyone can use the full product forever for free. This is the fundamental tension of open-source monetization, and it has ended many well-intentioned projects.</p>
 <p><strong>Mitigation</strong>: The monetization strategy deliberately avoids the "open-core" trap — gating important features behind a paid tier creates resentment in open-source communities and fragment the user base between free and paid users who have fundamentally different experiences. Instead, revenue comes from services (managed hosting, support) and convenience (desktop premium, multi-server management) — things that require ongoing operational effort or provide time savings, not features that users feel they are being denied.</p>
 <p>The freemium business model for developer tools has a well-established conversion rate range (1-5% to paid tiers). At 3,000 active community installs — a milestone achievable within 18 months of public launch based on comparable open-source VPN tool growth rates — even a 1% conversion to the $29/month managed hosting tier generates meaningful revenue.</p>
 <h3 id="92-tailscale-dominance">9.2 Tailscale Dominance<a class="headerlink" href="#92-tailscale-dominance" title="Permanent link">&para;</a></h3>
@@ -2661,7 +2661,7 @@
 <p>The product roadmap mitigates commoditization risk by moving up the value stack: ACL generation, SSO integration, ZTNA policy enforcement, and multi-tenant management are features that differentiate Kokoro VPN from both raw WireGuard and cloud-native VPN offerings. A pure "WireGuard management GUI" is commoditized; a "zero-trust network access platform with WireGuard as the transport layer" is not.</p>
 <h3 id="94-single-developer-bus-factor">9.4 Single Developer Bus Factor<a class="headerlink" href="#94-single-developer-bus-factor" title="Permanent link">&para;</a></h3>
 <p><strong>Risk</strong>: Kokoro VPN is currently maintained by a single developer. If the founder becomes unavailable — illness, burnout, a major competing priority — the project stalls. For enterprise customers relying on Kokoro VPN for production infrastructure, this is a real concern.</p>
-<p><strong>Mitigation</strong>: The MIT license is itself a mitigation — if Kokoro Tech were to dissolve, any user or third party could fork and continue development. The codebase is designed for readability and maintenance: idiomatic Rust, no external runtime dependencies, clear separation between the server and CLI concerns.</p>
+<p><strong>Mitigation</strong>: The proprietary license is itself a mitigation — if Kokoro Tech were to dissolve, any user or third party could fork and continue development. The codebase is designed for readability and maintenance: idiomatic Rust, no external runtime dependencies, clear separation between the server and CLI concerns.</p>
 <p>Beyond the license, enterprise support contracts create the financial incentive and contractual commitment to maintain the product. An enterprise customer paying $2,000/month for premium support has effectively funded ongoing development and has contractual recourse if support quality degrades.</p>
 <p>Longer-term, the project will actively recruit community contributors and, as revenue permits, engage part-time contractors for specific feature work — reducing the bus factor below one.</p>
 <h3 id="95-security-vulnerabilities">9.5 Security Vulnerabilities<a class="headerlink" href="#95-security-vulnerabilities" title="Permanent link">&para;</a></h3>
