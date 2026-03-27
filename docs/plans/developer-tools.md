@@ -10,7 +10,7 @@
 
 Kokoro Developer Tools is a unified ecosystem of AI-augmented development infrastructure built to extend the capabilities of Claude Code — Anthropic's AI coding assistant — into a production-grade, team-scale automation platform. The ecosystem comprises five interconnected tools: Agent Orchestra (multi-agent orchestration with a live WebSocket dashboard), Claude Init (zero-dependency project configuration generator), Claude Dev Pipeline (parallel-agent skill protocol), Lab MCP (98 MCP tools exposing a full quantitative trading platform), and Kokoro MM MCP (17 MCP tools for prediction market operations). Together, they expose 115 Model Context Protocol tools — the largest known domain-specific MCP collection in the wild.
 
-The central thesis is demonstrated, not theoretical: a single developer used this exact toolchain to design, build, deploy, and maintain 14 production products totaling 530,000+ lines of code across Rust, TypeScript, Python, and Go, with 1,860+ automated tests running across three cloud servers. That is a development velocity that would normally require an engineering team of eight to twelve. The tools that enabled this scale are now being productized for the broader Claude Code developer community.
+The central thesis is demonstrated, not theoretical: a technical founder used this exact toolchain to design, build, deploy, and maintain 14 production products totaling 530,000+ lines of code across Rust, TypeScript, Python, and Go, with 1,860+ automated tests running across three cloud servers. That is a development velocity that would normally require an engineering team of eight to twelve. Crucially, these tools are not a substitute for building a team — they are the operational backbone that makes growing a team efficient. The tools that enabled this scale are now being productized for the broader Claude Code developer community.
 
 The business operates at the intersection of two high-growth markets: AI coding assistants (projected to reach $12.6 billion by 2028) and the MCP protocol ecosystem (launched October 2024, already adopted by leading IDEs and AI platforms). Revenue comes from four channels: open-source community growth for Claude Init and Claude Dev Pipeline, a premium MCP server marketplace, Agent Orchestra offered as a managed SaaS for engineering teams, and enterprise consulting for organizations adopting Claude Code at scale.
 
@@ -194,7 +194,7 @@ Year 1 financial projection for Agent Orchestra SaaS: 50 Starter subscribers + 1
 
 The fastest path to significant early revenue. Organizations adopting Claude Code at scale face a specific problem: the tool is powerful but requires architectural knowledge to use well. How should `.claude/` directories be structured for monorepos? How should agent roles be divided for a team of 15 engineers? Which tasks should be delegated to agents versus reserved for human judgment? How do MCP servers get built for proprietary internal APIs?
 
-These are questions Kokoro can answer with demonstrated expertise. The portfolio is proof of work: 530,000+ lines of code maintained by a single developer using this exact toolset. No other consulting firm can claim that specific combination of scale and methodology.
+These are questions Kokoro can answer with demonstrated expertise. The portfolio is proof of work: 530,000+ lines of code built and maintained by a founder-led team using this exact toolset — with a 9-year career arc from hardware mining systems to distributed SaaS that means the technical depth is genuine, not assembled from documentation. No other consulting firm can claim that specific combination of scale, depth, and methodology.
 
 Consulting service lines:
 
@@ -308,7 +308,7 @@ A repository with 500+ GitHub stars in the Claude Code tooling space is the equi
 
 The Kokoro development story is genuinely compelling and has distribution potential in multiple communities:
 
-**"How a Single Developer Maintains 14 Products"** — A detailed technical post explaining the role of agent orchestration, parallel pipelines, and MCP tools in achieving this scale. Targets Hacker News, dev.to, and the Anthropic developer community blog. The claim is extraordinary and immediately verifiable from the public GitHub repositories — which gives it credibility that marketing copy cannot.
+**"How a Technical Founder Maintains 14 Products — and Built the Architecture to Scale Beyond It"** — A detailed technical post explaining the role of agent orchestration, parallel pipelines, and MCP tools in achieving this scale, and how the same infrastructure is designed to coordinate a growing human+AI team. Targets Hacker News, dev.to, and the Anthropic developer community blog. The claim is extraordinary and immediately verifiable from the public GitHub repositories — which gives it credibility that marketing copy cannot.
 
 **"Building with Claude Code at Scale: Lessons from 530,000 Lines of Code"** — Deep dive into the specific architectural decisions that make large-scale Claude Code usage reliable: worktree isolation, approval gates, structured agent roles, context management. Targets senior engineers who have tried Claude Code on large projects and found it unreliable at scale.
 
@@ -328,7 +328,7 @@ Building a close relationship with Anthropic's developer relations team is a hig
 
 ### 6.4 Developer Community Distribution
 
-**Hacker News**: The "Show HN" format is well-suited to the Kokoro story. "Show HN: I built a tool that let me maintain 14 products as a solo developer" is a headline that will generate genuine interest and discussion. The technical depth available to answer questions is a significant asset.
+**Hacker News**: The "Show HN" format is well-suited to the Kokoro story. "Show HN: The AI-augmented development infrastructure that runs 14 products — and is designed to scale to a 20-person team" is a headline that will generate genuine interest and discussion. The technical depth available to answer questions is a significant asset.
 
 **Claude Code Reddit / Discord**: Active communities where developers share configurations, skills, and workflows. Contributing high-quality content to these communities (sharing claude-init configurations, discussing agent orchestration approaches) builds reputation before any explicit product promotion.
 
@@ -354,13 +354,17 @@ The Phase 2 build record is concrete evidence: 6 agents running simultaneously, 
 
 ### 7.3 Deep Claude Code Expertise
 
-The team (currently one developer) has accumulated expertise in Claude Code workflows that is rare: understanding of how to structure CLAUDE.md for large codebases, how to define agent roles that minimize context confusion, how to write skills that produce consistently structured outputs, how to manage context window limits across multi-session tasks. This expertise is the foundation of the consulting business and is embedded in the design of all five tools.
+The founding team has accumulated expertise in Claude Code workflows that is rare: understanding of how to structure CLAUDE.md for large codebases, how to define agent roles that minimize context confusion, how to write skills that produce consistently structured outputs, how to manage context window limits across multi-session tasks. This expertise is the foundation of the consulting business and is embedded in the design of all five tools.
 
 Custom skills built for specific Kokoro domains — dev-pipeline, signal-pipeline, risk-management, kalman-filter, polymarket-arbitrage, anchor-patterns, dex-integration — demonstrate the range of task types that can be encoded as reusable Claude Code behaviors. A developer who understands how these skills are structured can build new skills significantly faster than one working from scratch.
 
-### 7.4 Demonstrated Solo-Developer Scale
+### 7.4 Demonstrated Founder-Led Scale — and the Path to Team Scale
 
-The most compelling technical moat is the proof-of-concept the portfolio represents. 14 products, 530,000+ lines, 1,860+ tests, single developer. This is not a marketing claim — it is verifiable from the GitHub commit history, the deployed production services, and the live public-facing products. The developer tooling enabled this scale. Other teams wanting to achieve similar leverage have a clear path: adopt the same toolchain.
+The most compelling technical moat is the proof-of-concept the portfolio represents. 14 products, 530,000+ lines, 1,860+ tests, built by a technical founder with 9 years of experience from hardware mining rigs to distributed SaaS. This is not a marketing claim — it is verifiable from the GitHub commit history, the deployed production services, and the live public-facing products. The developer tooling enabled this scale.
+
+But the narrative does not end at "founder alone." It continues: the same infrastructure that enabled a lean founder-led team to build at this scale is designed to coordinate a growing human+AI team. Agent Orchestra manages parallel agents today and will manage parallel engineers tomorrow. The MCP tools are the operational interface for the platform now and will be the onboarding interface for new operators as the team grows. The architecture — CIL, trait plugins, codified conventions — means every crate is an assignable unit of work with a defined interface and a test suite as acceptance criteria.
+
+Other teams wanting to achieve similar leverage have a clear path: adopt the same toolchain. And the Kokoro roadmap demonstrates what comes next: a platform that scales from one technical founder to a coordinated team without architectural debt or operational chaos.
 
 ---
 
@@ -416,6 +420,38 @@ All projections should be treated as directional estimates subject to the market
 
 ---
 
+## 8.4 Team & Operations
+
+### Founding Team and Operating Model
+
+The developer tools ecosystem is built and operated by the same technical founder who built the trading platform — the toolchain is in production daily use, not a speculative product built for a theoretical customer. This gives the consulting and SaaS offerings a credibility that cannot be manufactured: the founder has used these exact tools to maintain 530,000+ lines of code across 14 products, and can demonstrate that capability from a live codebase.
+
+The AI-augmented development infrastructure is the operating backbone:
+
+- **Agent Orchestra** manages parallel feature development across the open-source tools and the SaaS products simultaneously — the same system being productized is the system used to build it
+- **Claude Dev Pipeline** structures every multi-feature development cycle: research, parallel agents, review, merge — encoding the lessons from 18 months of Claude Code usage at scale
+- **115 MCP tools** give any team member (human or AI) the ability to operate the full trading platform without context-switching to a browser — the same operational efficiency offered to customers
+
+### Developer Tools as Scaling Infrastructure
+
+The critical insight is that Agent Orchestra, the MCP tools, and Claude Dev Pipeline are not just products — they are the infrastructure through which Kokoro Tech itself scales. As the company grows:
+
+- **From 1 to 3 people**: The first hires (a developer advocate, a second engineer) slot into the existing Agent Orchestra pipeline. Their work goes through the same merge-build-test lifecycle as AI agent work. The infrastructure was designed for this.
+- **From 3 to 10 people**: Team leads own Agent Orchestra team templates for their domain. A quant researcher owns the `signal-pipeline` skill and the factors team template. A blockchain specialist owns the `dex-integration` skill. The methodology scales because it is methodology, not just tooling.
+- **From 10 to 20 people**: The MCP tool layer becomes the operational interface for the entire organization. Support engineers use MCP tools to diagnose customer issues. Product managers use MCP tools to understand usage patterns. Engineers use MCP tools to understand system state. The organization operates through the same structured interfaces that AI agents use.
+
+This is the proof point that makes the consulting business credible: Kokoro Tech is not selling a methodology it invented — it is selling the methodology it runs on.
+
+### Hiring Plan
+
+| Stage  | Revenue Trigger | First Hire                  | Role in Developer Tools                                                      |
+| ------ | --------------- | --------------------------- | ---------------------------------------------------------------------------- |
+| Year 1 | $250K ARR       | Developer advocate / devrel | Grow the claude-init and claude-dev-pipeline communities; own documentation  |
+| Year 2 | $500K ARR       | Second engineer             | Own Agent Orchestra SaaS infrastructure; expand Claude Init language support |
+| Year 2 | $750K ARR       | Sales engineer              | Qualify and close enterprise consulting engagements                          |
+
+---
+
 ## 9. Risks and Mitigations
 
 ### 9.1 Platform Dependency on Anthropic
@@ -448,19 +484,19 @@ The risk of hostile forks is lower for these products than for developer product
 
 The consulting business is the most defensible against this risk: deep expertise in applying tools to specific technical problems does not become less valuable when the tools improve.
 
-### 9.5 Single-Developer Execution Risk
+### 9.5 Key-Person Concentration Risk
 
-**Risk**: The current team is one developer. Illness, burnout, or competing priorities can stall product development, support response times, and consulting delivery simultaneously.
+**Risk**: In the current founder-led phase, key technical decisions and delivery capacity are concentrated with the founder. Illness, burnout, or competing priorities can slow product development, support response times, and consulting delivery simultaneously.
 
-**Mitigation**: The open-source tools are designed to be low-maintenance after release — they are configuration generators and methodology documents, not services that require uptime. Agent Orchestra SaaS, when launched, will require operational attention but is architected to be self-managing for most states.
+**Mitigation**: The open-source tools are designed to be low-maintenance after release — they are configuration generators and methodology documents, not services that require uptime. Agent Orchestra SaaS, when launched, will require operational attention but is architected to be self-managing for most states. The architecture mitigation is also strong: the CLAUDE.md system, constitution.md, and codified conventions mean the codebase is accessible to a new contributor without extended knowledge transfer.
 
-The consulting business compounds this risk: consulting revenue requires active delivery work that cannot be parallelized across AI agents. Growth in consulting should be paced to the point where it finances hiring before it exceeds single-developer capacity.
+The consulting business creates the most direct path to the first hire: consulting revenue finances a second technical team member before the SaaS products reach that threshold. Growth in consulting should be paced to the point where it finances hiring before it exceeds the team's capacity.
 
 ---
 
 ## 10. Conclusion
 
-Kokoro Developer Tools is not a speculative bet on AI agent productivity — it is a demonstrated, measured, production result: 14 products, 530,000+ lines of code, deployed and generating revenue, built by one developer using the toolchain being productized. The business plan describes how to take that internal capability to market.
+Kokoro Developer Tools is not a speculative bet on AI agent productivity — it is a demonstrated, measured, production result: 14 products, 530,000+ lines of code, deployed and generating revenue, built by a technical founder using the toolchain being productized. The business plan describes how to take that internal capability to market. And the tools are not merely products — they are the operational backbone of a platform designed to grow from a lean founder-led team to a coordinated organization of specialists.
 
 The market timing is favorable. Claude Code is in early-growth phase, the MCP ecosystem is nascent, and the developer community building around AI-augmented coding is looking for practitioners who have solved the scale and reliability problems firsthand rather than theoretically. The open-source tools create a distribution moat that compounds with GitHub star growth. The consulting business creates near-term revenue while the SaaS products develop their user bases.
 

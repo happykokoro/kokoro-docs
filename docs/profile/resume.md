@@ -6,27 +6,32 @@
 
 ## Professional Summary
 
-Full-stack distributed systems architect who single-handedly designed, built, and deployed an interconnected platform spanning quantitative trading, blockchain infrastructure, AI agent systems, and SaaS products. What appears as 14 separate projects is, in practice, one logical distributed system: 7+ coordinated repositories sharing versioned type contracts (tagged semantic releases), communicating across 3 cloud servers via an encrypted WireGuard mesh VPN, connected by 10 real-time streaming data channels, and exposed through 115 AI tool interfaces for autonomous operation.
+Technical founder with 9 years of experience spanning hardware cryptocurrency mining systems, enterprise server operations, graduate-level software engineering, and the design and deployment of a 14-product distributed SaaS platform. The journey runs from PCB-adjacent mining rig design and hash algorithm optimization during the 2017 crypto boom, through professional server administration (Jenkins, Kubernetes, SSH), through enterprise PHP/Laravel development during graduate studies, to founding Kokoro Tech in 2025 and building a production-grade quantitative trading and blockchain infrastructure ecosystem with AI-augmented development workflows.
+
+What appears as 14 separate projects is, in practice, one logical distributed system: 7+ coordinated repositories sharing versioned type contracts (tagged semantic releases), communicating across 3 cloud servers via an encrypted WireGuard mesh VPN, connected by 10 real-time streaming data channels, and exposed through 115 AI tool interfaces for autonomous operation.
 
 The combined codebase exceeds 530,000 lines of production code across Rust, TypeScript, Python, and Go, with 1,860+ automated tests. Each repository is independently deployable, but participates in the larger system through well-defined message contracts — protobuf schemas on Redis Streams, gRPC service definitions between application binaries, and REST APIs at the boundary with external consumers. The infrastructure spans DigitalOcean Singapore (12+ Docker containers), AWS Ireland, and AWS London — all connected as a single network via self-built WireGuard mesh, with SaaS-grade reliability practices: tiered billing, per-tenant resource limits, monitoring on every service, and CI/CD across 8+ repositories.
 
-Specializes in high-performance Rust systems for financial applications, multi-repo architecture with shared library versioning, real-time cross-service data pipelines, blockchain protocol integrations, and AI-augmented development workflows. The quantitative core implements 11 DSP filters from mathematical foundations (H-infinity, UKF, particle filter, IMM, RBPF, wavelet, Hilbert, Kalman, and more), 24 alpha factor implementations, market making via the Avellaneda-Stoikov model, risk management (VaR, CVaR, composable risk gates), statistical modeling (GARCH, Hurst exponent, copulas, conformal prediction), and options pricing (Black-Scholes, Monte Carlo simulation). Blockchain coverage includes 20 Anchor programs on Solana and production liquidation across 6 EVM chains. Operates as a solo founder managing the full stack from smart contracts to distributed Rust services to React dashboards to Docker orchestration.
+Specializes in high-performance Rust systems for financial applications, multi-repo architecture with shared library versioning, real-time cross-service data pipelines, blockchain protocol integrations, and AI-augmented development workflows. The quantitative core implements 11 DSP filters from mathematical foundations (H-infinity, UKF, particle filter, IMM, RBPF, wavelet, Hilbert, Kalman, and more), 24 alpha factor implementations, market making via the Avellaneda-Stoikov model, risk management (VaR, CVaR, composable risk gates), statistical modeling (GARCH, Hurst exponent, copulas, conformal prediction), and options pricing (Black-Scholes, Monte Carlo simulation). Blockchain coverage includes 20 Anchor programs on Solana and production liquidation across 6 EVM chains. The architecture was deliberately designed for team scaling — trait-based plugin systems, Clean Integration Layer, and 115 MCP tools mean every crate is an independently assignable unit of work and every service boundary is a natural hire boundary.
 
 ---
 
 ## Project Timeline
 
-| Period            | Focus                   | Key Deliverables                                                                                               |
-| ----------------- | ----------------------- | -------------------------------------------------------------------------------------------------------------- |
-| 2021-2022         | Blockchain foundations  | PublicBlockChain (Go), blockchain-demo, coding interview prep                                                  |
-| 2025 Q1           | Kokoro Protocol         | 20 Anchor programs on Solana (DeFi, gaming, prediction markets)                                                |
-| 2025 Q2-Q3        | Kokoro Alpha Lab        | 242K-line Rust monorepo, signal processing pipeline, multi-asset trading                                       |
-| 2025 Q4           | Infrastructure buildout | Self-hosted services, Docker orchestration, monitoring stack                                                   |
-| 2026 Q1 (Jan-Feb) | Ecosystem expansion     | Liquidation bot (6 EVM chains), wallet monitor, pricing service, polymarket bot (8-profile fleet), copy trader |
-| 2026 Q1 (Mar)     | SaaS products           | Kokoro MM (Polymarket AMM), Kokoro Pipeline (dev automation), Kokoro VPN (WireGuard mesh)                      |
-| 2026 Q1 (Mar)     | Developer tools         | agent-orchestra, claude-init, claude-dev-pipeline, 115 MCP tools                                               |
+| Period            | Focus                    | Key Deliverables                                                                                                       |
+| ----------------- | ------------------------ | ---------------------------------------------------------------------------------------------------------------------- |
+| 2017              | University + crypto boom | Mining rig design (thermal, power, PCB considerations), hash algorithm optimization, crypto mining hardware+software   |
+| 2017-2021         | Undergraduate CS         | Hardware projects, mining algorithm research, CS foundations across systems, networking, and algorithms                |
+| 2021-2022         | Server administration    | Jenkins CI/CD, Kubernetes cluster management, SSH-based manual ops, blockchain foundations (Go), coding interview prep |
+| 2022-2024         | Graduate studies         | PHP Laravel enterprise applications (Eloquent ORM, Pest testing, Breeze auth), server scheduling and maintenance       |
+| 2025 Q1           | Kokoro Protocol          | 20 Anchor programs on Solana (DeFi, gaming, prediction markets)                                                        |
+| 2025 Q2-Q3        | Kokoro Alpha Lab         | 242K-line Rust monorepo, signal processing pipeline, multi-asset trading                                               |
+| 2025 Q4           | Infrastructure buildout  | Self-hosted services, Docker orchestration, monitoring stack                                                           |
+| 2026 Q1 (Jan-Feb) | Ecosystem expansion      | Liquidation bot (6 EVM chains), wallet monitor, pricing service, polymarket bot (8-profile fleet), copy trader         |
+| 2026 Q1 (Mar)     | SaaS products            | Kokoro MM (Polymarket AMM), Kokoro Pipeline (dev automation), Kokoro VPN (WireGuard mesh)                              |
+| 2026 Q1 (Mar)     | Developer tools          | agent-orchestra, claude-init, claude-dev-pipeline, 115 MCP tools                                                       |
 
-> All products built by a single developer leveraging AI-augmented development workflows.
+> Built by a technical founder leveraging AI-augmented development workflows — architecture designed from day one for team scaling.
 
 ---
 
@@ -88,9 +93,19 @@ Specializes in high-performance Rust systems for financial applications, multi-r
 
 ## Professional Experience
 
-### Server Administrator (Post-Graduation)
+### Undergraduate Research — Mining Rig Design & Crypto Algorithm Engineering (2017-2021)
 
-Prior to founding Kokoro Tech, worked as a server administrator managing production infrastructure in the pre-AI era. Responsibilities included:
+The career began in 2017 — the year of the first massive Ethereum and cryptocurrency bull run — when the founder entered university and encountered the intersection of hardware and cryptographic systems firsthand. As part of undergraduate hardware projects, designed and built mining rigs for the 2017-2018 crypto boom. This was genuine hardware-software intersection work:
+
+- **Mining rig hardware design**: PCB design considerations, thermal management systems, power efficiency calculations — understanding the physical constraints of sustained computational workloads
+- **Hash algorithm optimization**: Studied and optimized SHA-256 and Ethash (memory-hard PoW) implementations, exploring the tradeoffs between parallelism, memory bandwidth, and power consumption
+- **Economics and systems thinking**: Running mining operations requires understanding difficulty adjustments, profitability curves, and network dynamics — an early exposure to the quantitative modeling that would define the Kokoro ecosystem
+
+This experience is not in any public repository — it was university project work and physical hardware. But it planted the seed for the entire Kokoro ecosystem: the thesis that crypto-economic systems can be analyzed, modeled, and engaged with programmatically. Every project since has followed from that initial insight.
+
+### Server Administrator (Post-Graduation, 2021-2022)
+
+Following graduation, worked as a server administrator managing production infrastructure in the pre-AI era. Responsibilities included:
 
 - **CI/CD pipeline management** using Jenkins — build, test, and deployment automation
 - **Container orchestration** with Kubernetes — cluster management, pod scheduling, service discovery
@@ -255,7 +270,7 @@ Real numbers extracted from production code — not estimates.
 
 ### Notable Engineering Feats
 
-1. **242,466-line Rust monorepo** with Clean Integration Layer — 63 pure-logic crates, 3 I/O binaries, 1,074 tests, all managed by a single developer
+1. **242,466-line Rust monorepo** with Clean Integration Layer — 63 pure-logic crates, 3 I/O binaries, 1,074 tests, each crate an independently assignable unit of work designed for team-scale parallel development
 2. **11 DSP filters implemented from mathematical foundations** — not wrappers around libraries, but direct implementations of H-infinity, UKF, particle filter, IMM, RBPF, wavelet, Hilbert, Kalman algorithms
 3. **Flash loan liquidation bot** operating across 6 EVM chains simultaneously — zero capital required, custom Solidity contract for atomic borrow-liquidate-swap-repay
 4. **20 Solana Anchor programs** spanning DeFi (AMM, lending, yield, liquidation, leverage), gaming (6 types), prediction markets, NFT, and governance
@@ -360,7 +375,7 @@ Individual crypto and prediction market traders lack access to:
 
 1. **Full-stack ownership**: From Solidity contracts to Rust engines to React dashboards — no third-party dependencies for core trading logic. This means faster iteration, no vendor lock-in, and complete control over the execution path
 2. **Rust performance**: Signal processing and execution in Rust (not Python) enables sub-second pipeline cycles. The MM engine completes a full quoting cycle in under 2 seconds
-3. **AI-augmented development**: 115 MCP tools + agent orchestration system enables a single developer to maintain 14 products. The development velocity of a team, the coherence of a single architect
+3. **AI-augmented development**: 115 MCP tools + Agent Orchestra enable a lean founder-led team to maintain 14 products with the velocity of an 8–12 person engineering team. This infrastructure persists as a competitive advantage as the team grows — it is not a workaround, it is the operating model
 4. **Privacy-first**: Self-hosted by default. Strategy logic never leaves the user's infrastructure. No telemetry, no cloud dependency for core functionality
 5. **Battle-tested**: Real money deployed on Polymarket (including a failed strategy that led to a data-driven pivot) — not theoretical, not backtested-only
 
@@ -375,10 +390,51 @@ Individual crypto and prediction market traders lack access to:
 - 3 production servers across 3 regions
 - 11 self-hosted infrastructure services
 - 1,860+ automated tests
-- Single founder, full-stack operation
+- Founder-led, AI-augmented team — architected for scaling to 20 people
+- Architecture-first design: CIL, trait plugins, MCP tools, codified conventions enable parallel team growth
 
 **Website**: https://tech.happykokoro.com
 **GitHub**: github.com/happykokoro (organization), github.com/anescaper (personal)
+
+---
+
+## Scalability & Growth Architecture
+
+The platform was not built to remain a one-person operation — it was architected from day one to scale from 1 to 20 people, with AI agents filling the gap until funding allows hiring. Every structural decision serves this goal.
+
+### AI-Augmented Development Infrastructure
+
+Not a hack, but a deliberate capability multiplier that persists as a competitive advantage even as the team grows:
+
+- **Agent Orchestra**: Manages teams of AI coding agents with automated merge/build/test pipelines. A new engineer joining the team inherits this infrastructure immediately — their PRs enter the same review and integration pipeline that has been running since the codebase's inception.
+- **115 MCP tools**: The entire platform is API-accessible for AI agents and human operators alike. Any team member can operate the system through structured tool interfaces without needing to understand every service boundary.
+- **Claude Dev Pipeline**: Parallel development skill with atomic PRs and dependency-aware merging — encodes hard-won lessons about how to work on a large monorepo without producing conflicts.
+- **Claude Init**: Auto-generates project configuration for new repos — zero onboarding friction when the team expands to new services.
+
+### Codified Knowledge — The Codebase as Training Material
+
+- **Clean Integration Layer (CIL)**: 63 pure-logic crates with zero I/O means any developer can understand and test business logic in isolation. A new hire given `factor-X` to implement needs to understand only the `AlphaFactor` trait interface, not the full pipeline.
+- **Trait-based architecture**: New implementations plug into existing interfaces — add a new AlphaFactor, a new ExecutionBackend, a new ProtocolAdapter — without touching the rest of the system.
+- **1,860+ tests as executable documentation**: The test suite defines correct behavior precisely. New contributors have a verifiable contract from day one.
+- **constitution.md**: Defines 8 core architectural principles, anti-patterns, and a decision framework in the monorepo. Architectural intent is documented, not just code.
+
+### Hiring Plan Architecture
+
+The system is explicitly designed so each boundary becomes a hire boundary:
+
+- **Each crate is an independently assignable unit**: A new Rust developer can own a single `factor-X` or `exec-Y` crate with a well-defined interface and complete test coverage.
+- **Frontend developers work independently**: 200+ pages with stable API contracts — no coordination required with the backend team to ship UI features.
+- **DevOps engineers own server boundaries**: Three servers with self-documenting Docker Compose files and full monitoring already in place.
+- **MCP tool layer enables AI delegation**: Operational tasks can be handled by AI agents before hiring humans for them, extending the runway.
+
+### Scalability Milestones
+
+| Stage     | Team Size    | Focus                                                                                                            |
+| --------- | ------------ | ---------------------------------------------------------------------------------------------------------------- |
+| Current   | Founder + AI | Revenue from Kokoro MM and Alpha Lab. AI agents handle parallel development.                                     |
+| Near-term | 3–5 people   | First hires: one Rust backend, one frontend, one DevOps. Each owns a server or service boundary.                 |
+| Mid-term  | 5–10 people  | Domain specialists: quant researcher (factor development), blockchain specialist (multi-chain), product manager. |
+| Growth    | 10–20 people | Team leads per product line. Agent Orchestra scales to coordinate multiple human+AI teams simultaneously.        |
 
 ---
 
@@ -394,7 +450,7 @@ The Kokoro portfolio is positioned at the intersection of multiple simultaneousl
 
 - **AI coding tools: $12.8B market with viral MCP adoption.** The AI coding tools market reached $12.8B in early 2026, projected to exceed $100B by 2030. 85% of developers regularly use AI tools. The Model Context Protocol hit 97 million monthly SDK downloads in March 2026 (up from 2M at November 2024 launch), with 6,400+ registered servers. Claude Code became the most-used AI coding tool in developer surveys within 10 months of launch. Kokoro's 115 MCP tools are one of the largest known domain-specific MCP implementations.
 
-- **Solo founder era: Anthropic CEO's prediction is playing out.** Dario Amodei stated 70–80% odds of the first $1B one-person company by 2026 or shortly after, specifically naming "proprietary trading" and "developer tools" as the most likely sectors. Solo-founded startups have risen from 23.7% of new companies in 2019 to 36.3% by mid-2025. Base44 (solo founder) sold to Wix for $80M in under six months. Kokoro builds exactly what Amodei described, with 10–50x the capital efficiency of an equivalent team-based operation.
+- **Founder-led AI-augmented era: Anthropic CEO's prediction is playing out.** Dario Amodei stated 70–80% odds of the first $1B founder-led company by 2026 or shortly after, specifically naming "proprietary trading" and "developer tools" as the most likely sectors. Solo-founded startups have risen from 23.7% of new companies in 2019 to 36.3% by mid-2025. Base44 (solo founder) sold to Wix for $80M in under six months. Kokoro builds exactly what Amodei described — the infrastructure proven at founder scale, architected to grow to team scale, with 10–50x capital efficiency versus a comparable team-based operation at the current stage.
 
 This portfolio is not ahead of one trend — it is at the convergence of all five.
 

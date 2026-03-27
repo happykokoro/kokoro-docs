@@ -16,7 +16,7 @@ The platform implements quantitative signal processing (Kalman filters, H-infini
 
 115 AI tool interfaces across two MCP servers expose the platform for autonomous operation — research, backtesting, execution, and system management can all be delegated to AI agents through structured API contracts.
 
-530,000+ lines of production code. 1,860+ automated tests. Built and operated by a single founder leveraging AI-augmented development workflows.
+530,000+ lines of production code. 1,860+ automated tests. Built by a technical founder with a 9-year journey from cryptocurrency mining hardware and hash algorithm design to distributed SaaS platforms — architected from day one for team scaling through AI-augmented development, trait-based plugin systems, and codified operational knowledge.
 
 ---
 
@@ -80,9 +80,11 @@ The Kokoro portfolio is not positioned at the edge of one growing market — it 
 
 **AI coding tools and the MCP ecosystem are at breakout velocity.** The AI coding tools market reached $12.8B in 2026, projected to exceed $100B by 2030. 85% of developers now regularly use AI tools. The Model Context Protocol hit 97 million monthly SDK downloads in March 2026 — up from 2 million at its November 2024 launch — with 6,400+ registered servers and adoption by OpenAI (ChatGPT), Google, and the Linux Foundation. Kokoro's 115 MCP tools represent one of the largest known domain-specific MCP implementations anywhere.
 
-**The solo founder era is arriving on schedule.** Anthropic CEO Dario Amodei has stated 70–80% odds of the first $1B one-person company emerging by 2026 or shortly after — and specifically named "proprietary trading" and "developer tools" as the most likely sectors. Solo-founded startups have surged from 23.7% of new companies in 2019 to 36.3% by mid-2025. Base44, a solo-founder product, sold to Wix for $80M in under six months. Kokoro Tech builds exactly what Amodei described: proprietary trading infrastructure and developer tools, operated by a single founder with 10–50x capital efficiency over a comparable team-based operation.
+**The founder-led AI-augmented era is arriving on schedule.** Anthropic CEO Dario Amodei has stated 70–80% odds of the first $1B founder-led company emerging by 2026 or shortly after — and specifically named "proprietary trading" and "developer tools" as the most likely sectors. Founder-led startups have surged from 23.7% of new companies in 2019 to 36.3% by mid-2025. Base44, a solo-founder product, sold to Wix for $80M in under six months. Kokoro Tech builds exactly what Amodei described: proprietary trading infrastructure and developer tools, with 10–50x capital efficiency at the current stage — and the architecture, hiring-ready codebase boundaries, and AI-augmented development infrastructure to scale deliberately as revenue and funding allow.
 
-Kokoro sits at the intersection of all four of these trends simultaneously.
+**The platform is investment-ready.** The architecture was built to scale: 63 independently testable crates each representing an assignable unit of work, trait-based interfaces that let specialists plug in without understanding the full system, 115 MCP tools that expose every service boundary for AI and human operators, and Agent Orchestra that coordinates parallel development across agents and will coordinate teams. The AI-augmented development infrastructure is not a substitute for hiring — it is what makes hiring efficient. The first 3–5 hires each own a clearly defined boundary: one Rust crate owner, one frontend engineer, one DevOps engineer per server. The path from current state to 20-person team is defined by the architecture, not deferred to future design work.
+
+Kokoro sits at the intersection of all five of these trends simultaneously.
 
 ---
 

@@ -306,15 +306,26 @@ If Phase 8 multi-venue routing launches by month 18 and captures even modest Kal
 
 ## 9. Team & Operations
 
-### Solo Founder, AI-Augmented
+### Technical Founder, AI-Augmented
 
-Kokoro MM was designed, built, and deployed by a single developer with full-stack systems engineering capability across Rust, TypeScript, Solidity, and Go. The development timeline demonstrates the efficiency of AI-augmented development: the core platform (18 Rust crates, 36 frontend pages, 17 MCP tools, 690 tests, full deployment) was built and deployed in approximately two weeks of calendar time.
+Kokoro MM was designed, built, and deployed by a technical founder with full-stack systems engineering capability across Rust, TypeScript, Solidity, and Go — and a 9-year career arc from hardware mining rig design to distributed SaaS systems. The development timeline demonstrates the efficiency of AI-augmented development: the core platform (18 Rust crates, 36 frontend pages, 17 MCP tools, 690 tests, full deployment) was built and deployed in approximately two weeks of calendar time.
 
 This is not an accident. The development workflow is systematically augmented by AI at every layer:
 
-- **MCP Tools** — 17 Kokoro MM MCP tools expose the full platform API to Claude, enabling autonomous research, strategy optimization, and operations tasks without manual API calls. An operator can ask the AI to "analyze quoting performance on BTC 5-minute markets for the past week and suggest parameter adjustments" and receive a structured analysis with specific recommendations.
-- **Agent Orchestra** — The multi-agent orchestration system (`agent-orchestra`) can deploy multiple Claude Code instances as parallel development agents, each working on an isolated git worktree, with automated build and test verification before merge. This was used to complete multiple development phases of Kokoro Alpha Lab in parallel and will be used for Phase 8 scaling work.
+- **MCP Tools** — 17 Kokoro MM MCP tools expose the full platform API to Claude, enabling autonomous research, strategy optimization, and operations tasks without manual API calls. An operator can ask the AI to "analyze quoting performance on BTC 5-minute markets for the past week and suggest parameter adjustments" and receive a structured analysis with specific recommendations. These tools are also the operational interface for any future team member — human or AI.
+- **Agent Orchestra** — The multi-agent orchestration system (`agent-orchestra`) can deploy multiple Claude Code instances as parallel development agents, each working on an isolated git worktree, with automated build and test verification before merge. This was used to complete multiple development phases of Kokoro Alpha Lab in parallel and will be used for Phase 8 scaling work. The same pipeline accommodates human engineers — it is a hybrid human+AI orchestration platform, not an AI-only tool.
 - **Kokoro Pipeline** — An automated development pipeline engine in active development that provides structured multi-phase workflows (research → plan → execute → audit → report) for systematic feature development.
+
+### Scalability Architecture: How the Layered Crates Enable Team Growth
+
+Kokoro MM's four-layer architecture (L0–L3) was deliberately designed so each layer is a natural specialist boundary:
+
+- **L0 (mm-types, mm-proto, mm-traits)**: Pure domain types and interfaces. Any team member working on the codebase starts here to understand the contracts.
+- **L1 (domain logic: mm-market, mm-strategy, mm-order, mm-data, mm-identity)**: The business logic layer. A quant engineer or Rust specialist can own `mm-strategy` — the Avellaneda-Stoikov quoting logic, adverse selection detection, inventory management — without touching infrastructure.
+- **L2 (infrastructure: mm-polymarket, mm-polygon, mm-db, mm-redis)**: Venue integration and persistence. A blockchain specialist can own `mm-polymarket` and `mm-polygon` — the Polymarket SDK, CTF operations, on-chain interactions — as a self-contained boundary.
+- **L3 (services: mm-engine, mm-datahub, mm-gateway)**: The running services. A DevOps or systems engineer can own deployment, monitoring, and scaling of these three service binaries without understanding the quoting math.
+
+The 17 MCP tools expose all operational decisions — strategy management, position inspection, engine health, parameter tuning — as a structured interface. Operational delegation to AI agents before those tasks justify a human hire extends the runway and makes the first DevOps hire higher-leverage when it happens.
 
 ### Operations Model
 
