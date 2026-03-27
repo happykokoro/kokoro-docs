@@ -12,7 +12,7 @@ The core monorepo (65 Rust crates, 3 application binaries) is surrounded by sate
 
 Services communicate across 3 cloud servers (Singapore, Ireland, London) via a self-built WireGuard mesh VPN — all cross-server traffic stays on the encrypted 10.10.0.0/24 subnet, making physical server boundaries transparent to the application layer. Within the Singapore server alone, Docker Compose orchestrates 12+ containers. Across the full mesh, 10 named streaming data channels carry real-time events between services in dual JSON/protobuf format, enabling gradual protocol migration without downtime.
 
-The platform implements quantitative signal processing (Kalman filters, H-infinity filters, particle filters, UKF, wavelet analysis, GARCH volatility modeling), market making (Avellaneda-Stoikov quoting), portfolio optimization (Markowitz mean-variance, Kelly criterion), and risk management (VaR, CVaR, circuit breakers) — all as composable, independently testable modules. Statistical modeling covers GARCH, Hurst exponent, copulas, Brownian Bridge path conditioning, and conformal prediction. Options pricing includes Black-Scholes and Monte Carlo simulation.
+The platform implements quantitative signal processing (11 optimal estimation and integral transform algorithms including spectral analysis, wavelet decomposition, and sequential Monte Carlo methods), stochastic volatility modeling (GARCH-family models — empirically validated as most effective in live testing), market making (Avellaneda-Stoikov quoting), portfolio optimization (Markowitz mean-variance, Kelly criterion), and risk management (VaR, CVaR, composable circuit breakers) — all as composable, independently testable modules. Statistical modeling covers Hurst exponent regime detection, copula dependence structures, Brownian Bridge path conditioning (validated against 11,348 markets), and conformal prediction. Options pricing includes Black-Scholes and Monte Carlo simulation with importance sampling.
 
 115 AI tool interfaces across two MCP servers expose the platform for autonomous operation — research, backtesting, execution, and system management can all be delegated to AI agents through structured API contracts.
 
@@ -44,7 +44,7 @@ The same technology stack that powers the Kokoro platform is available as commer
 
 **DevOps & Operations Consulting** — CI/CD pipeline design (GitHub Actions), container orchestration (Docker Compose, Kubernetes experience), multi-server deployment and coordination, database administration (PostgreSQL, Redis, SQLite), and production monitoring and alerting setup.
 
-**Quantitative Finance Consulting** — Signal processing system design (Kalman filters, particle filters, wavelet analysis from mathematical foundations), risk management framework implementation (VaR, CVaR, circuit breakers), backtesting infrastructure development, and market making system architecture (Avellaneda-Stoikov).
+**Quantitative Finance Consulting** — Signal processing system design (optimal estimation, integral transforms, spectral analysis from mathematical foundations), stochastic volatility modeling (GARCH-family, empirically validated), risk management framework implementation (VaR, CVaR, circuit breakers), backtesting infrastructure development, and market making system architecture (Avellaneda-Stoikov).
 
 ---
 
