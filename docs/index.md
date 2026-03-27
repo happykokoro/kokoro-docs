@@ -16,7 +16,7 @@ The platform implements quantitative signal processing (Kalman filters, H-infini
 
 115 AI tool interfaces across two MCP servers expose the platform for autonomous operation — research, backtesting, execution, and system management can all be delegated to AI agents through structured API contracts.
 
-530,000+ lines of production code. 1,860+ automated tests. Built by a technical founder with a 9-year journey from cryptocurrency mining hardware and hash algorithm design to distributed SaaS platforms — architected from day one for team scaling through AI-augmented development, trait-based plugin systems, and codified operational knowledge.
+530,000+ lines of production code. 1,860+ automated tests. Built by a technical founder with a 9-year journey rooted in a rare dual-degree foundation — Vehicle Engineering (control theory, Automatic Control Principles, Signals & Systems) and Financial Engineering (portfolio theory, derivatives pricing, risk management) — through cryptocurrency mining algorithm development, professional software engineering, and a first quantitative trading robot built during graduate school, to a distributed SaaS platform that is the direct culmination of that cross-disciplinary preparation. The signal processing pipeline comes from control systems education. The financial modeling comes from a Financial Engineering degree. The platform was architected from day one for team scaling through AI-augmented development, trait-based plugin systems, and codified operational knowledge.
 
 ---
 

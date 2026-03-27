@@ -6,7 +6,9 @@
 
 ## Professional Summary
 
-Technical founder with 9 years of experience spanning hardware cryptocurrency mining systems, enterprise server operations, graduate-level software engineering, and the design and deployment of a 14-product distributed SaaS platform. The journey runs from PCB-adjacent mining rig design and hash algorithm optimization during the 2017 crypto boom, through professional server administration (Jenkins, Kubernetes, SSH), through enterprise PHP/Laravel development during graduate studies, to founding Kokoro Tech in 2025 and building a production-grade quantitative trading and blockchain infrastructure ecosystem with AI-augmented development workflows.
+Technical founder with 9 years of experience spanning formal dual-degree education in Vehicle Engineering (control theory, signals & systems) and Financial Engineering (portfolio theory, derivatives pricing, risk management), hardware cryptocurrency mining algorithm development, professional software development and server operations, and the design and deployment of a 14-product distributed SaaS platform. The journey runs from undergraduate control systems coursework that directly produced the signal processing expertise in the platform, through hands-on mining algorithm development during the 2017 crypto boom, through professional programming and server administration (Jenkins, Kubernetes, SSH), through graduate-level PHP/Laravel enterprise development and the first quantitative trading robot (the direct precursor to Kokoro Alpha Lab), to founding Kokoro Tech in 2025 and scaling that grad school prototype into a production-grade quantitative trading and blockchain infrastructure ecosystem with AI-augmented development workflows.
+
+The platform's signal processing pipeline — 11 production-grade DSP filters including H-infinity, UKF, particle filter, wavelet CWT, and Hilbert transform — originates from formal academic training in Automatic Control Principles and Signals & Systems, the foundational courses of Vehicle Engineering. The financial modeling — Black-Scholes, Markowitz MVO, VaR/CVaR, Kelly criterion, options pricing — originates from a double degree in Financial Engineering. This is academically grounded quant infrastructure, not self-taught approximation.
 
 What appears as 14 separate projects is, in practice, one logical distributed system: 7+ coordinated repositories sharing versioned type contracts (tagged semantic releases), communicating across 3 cloud servers via an encrypted WireGuard mesh VPN, connected by 10 real-time streaming data channels, and exposed through 115 AI tool interfaces for autonomous operation.
 
@@ -18,18 +20,18 @@ Specializes in high-performance Rust systems for financial applications, multi-r
 
 ## Project Timeline
 
-| Period            | Focus                    | Key Deliverables                                                                                                       |
-| ----------------- | ------------------------ | ---------------------------------------------------------------------------------------------------------------------- |
-| 2017              | University + crypto boom | Mining rig design (thermal, power, PCB considerations), hash algorithm optimization, crypto mining hardware+software   |
-| 2017-2021         | Undergraduate CS         | Hardware projects, mining algorithm research, CS foundations across systems, networking, and algorithms                |
-| 2021-2022         | Server administration    | Jenkins CI/CD, Kubernetes cluster management, SSH-based manual ops, blockchain foundations (Go), coding interview prep |
-| 2022-2024         | Graduate studies         | PHP Laravel enterprise applications (Eloquent ORM, Pest testing, Breeze auth), server scheduling and maintenance       |
-| 2025 Q1           | Kokoro Protocol          | 20 Anchor programs on Solana (DeFi, gaming, prediction markets)                                                        |
-| 2025 Q2-Q3        | Kokoro Alpha Lab         | 242K-line Rust monorepo, signal processing pipeline, multi-asset trading                                               |
-| 2025 Q4           | Infrastructure buildout  | Self-hosted services, Docker orchestration, monitoring stack                                                           |
-| 2026 Q1 (Jan-Feb) | Ecosystem expansion      | Liquidation bot (6 EVM chains), wallet monitor, pricing service, polymarket bot (8-profile fleet), copy trader         |
-| 2026 Q1 (Mar)     | SaaS products            | Kokoro MM (Polymarket AMM), Kokoro Pipeline (dev automation), Kokoro VPN (WireGuard mesh)                              |
-| 2026 Q1 (Mar)     | Developer tools          | agent-orchestra, claude-init, claude-dev-pipeline, 115 MCP tools                                                       |
+| Period            | Focus                       | Key Deliverables                                                                                                                                                                                                                                                   |
+| ----------------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 2017-2021         | Undergraduate (dual degree) | Vehicle Engineering (control theory, signals & systems) + Financial Engineering (economics, portfolio theory, derivatives). Mining algorithm development during the 2017 crypto boom; partnership ended when blockchain systems updated and partners moved abroad. |
+| 2021-2022         | Professional programmer     | Software development + server administration (Jenkins, Kubernetes, SSH-based manual ops, coding interview prep)                                                                                                                                                    |
+| 2022-2024         | Graduate studies            | PHP Laravel enterprise applications (Eloquent ORM, Pest testing, Breeze auth). Built first automated trading quantitative robot — the direct precursor to Kokoro Alpha Lab.                                                                                        |
+| 2025-2026         | Founded Kokoro Tech         | Scaled the grad school quant robot into a 530K-line distributed platform spanning 7 repos, 3 servers, and 14 products                                                                                                                                              |
+| 2025 Q1           | Kokoro Protocol             | 20 Anchor programs on Solana (DeFi, gaming, prediction markets)                                                                                                                                                                                                    |
+| 2025 Q2-Q3        | Kokoro Alpha Lab            | 242K-line Rust monorepo, signal processing pipeline, multi-asset trading                                                                                                                                                                                           |
+| 2025 Q4           | Infrastructure buildout     | Self-hosted services, Docker orchestration, monitoring stack                                                                                                                                                                                                       |
+| 2026 Q1 (Jan-Feb) | Ecosystem expansion         | Liquidation bot (6 EVM chains), wallet monitor, pricing service, polymarket bot (8-profile fleet), copy trader                                                                                                                                                     |
+| 2026 Q1 (Mar)     | SaaS products               | Kokoro MM (Polymarket AMM), Kokoro Pipeline (dev automation), Kokoro VPN (WireGuard mesh)                                                                                                                                                                          |
+| 2026 Q1 (Mar)     | Developer tools             | agent-orchestra, claude-init, claude-dev-pipeline, 115 MCP tools                                                                                                                                                                                                   |
 
 > Built by a technical founder leveraging AI-augmented development workflows — architecture designed from day one for team scaling.
 
@@ -93,20 +95,43 @@ Specializes in high-performance Rust systems for financial applications, multi-r
 
 ## Professional Experience
 
-### Undergraduate Research — Mining Rig Design & Crypto Algorithm Engineering (2017-2021)
+### Undergraduate — Vehicle Engineering & Financial Engineering (2017-2021)
 
-The career began in 2017 — the year of the first massive Ethereum and cryptocurrency bull run — when the founder entered university and encountered the intersection of hardware and cryptographic systems firsthand. As part of undergraduate hardware projects, designed and built mining rigs for the 2017-2018 crypto boom. This was genuine hardware-software intersection work:
+The career began in 2017, when the founder entered university carrying both a primary degree in Vehicle Engineering and a double degree in Financial Engineering — and immediately encountered the 2017 Ethereum bull run. The combination of formal academic training and hands-on crypto engagement set the trajectory for everything that followed.
 
-- **Mining rig hardware design**: PCB design considerations, thermal management systems, power efficiency calculations — understanding the physical constraints of sustained computational workloads
-- **Hash algorithm optimization**: Studied and optimized SHA-256 and Ethash (memory-hard PoW) implementations, exploring the tradeoffs between parallelism, memory bandwidth, and power consumption
-- **Economics and systems thinking**: Running mining operations requires understanding difficulty adjustments, profitability curves, and network dynamics — an early exposure to the quantitative modeling that would define the Kokoro ecosystem
+**Vehicle Engineering (Primary Degree) — Control Theory and Signal Processing Foundations**
 
-This experience is not in any public repository — it was university project work and physical hardware. But it planted the seed for the entire Kokoro ecosystem: the thesis that crypto-economic systems can be analyzed, modeled, and engaged with programmatically. Every project since has followed from that initial insight.
+The Vehicle Engineering curriculum centered on control systems — the mathematical discipline that governs how dynamic systems are modeled, analyzed, and stabilized. Key coursework:
 
-### Server Administrator (Post-Graduation, 2021-2022)
+- **Automatic Control Principles**: PID controllers, transfer functions, state-space models, feedback systems, stability analysis. These are the mathematical foundations of the Kalman filter family.
+- **Signals & Systems**: Fourier transforms, Laplace transforms, frequency domain analysis, filter design, convolution. These are the mathematical foundations of the wavelet CWT, Hilbert transform, and the full DSP filter pipeline in Kokoro Alpha Lab.
 
-Following graduation, worked as a server administrator managing production infrastructure in the pre-AI era. Responsibilities included:
+The 11 signal processing filters in the platform — H-infinity, UKF, particle filter, IMM, RBPF, wavelet CWT, Hilbert transform, Mellin transform, and more — are direct applications of control theory coursework. The H-infinity filter is a control-theoretic estimator (minimax optimal under bounded disturbances). The UKF extends the Kalman filter using sigma point transforms taught in state-space estimation courses. This is formally trained expertise, not self-study.
 
+**Financial Engineering (Double Degree) — Quantitative Finance Foundations**
+
+The Financial Engineering degree provided structured academic training in:
+
+- **Economics and Financial Mathematics**: Stochastic processes, Ito's lemma, Brownian motion — the mathematical foundations of options pricing and algorithmic trading
+- **Portfolio Theory**: Markowitz mean-variance optimization, the efficient frontier, CAPM — the exact frameworks implemented in the `quant-core` crate
+- **Derivatives Pricing**: Black-Scholes model and Greeks, options strategies — the textbook knowledge behind the Black-Scholes and Monte Carlo implementations
+- **Risk Management**: VaR, CVaR, stress testing, scenario analysis — the frameworks behind the composable risk gate architecture
+
+The founder also grew up in a family with extensive experience in stocks and investment, meaning financial markets were familiar territory long before formal study. The Financial Engineering degree formalized and deepened that background.
+
+**Mining Algorithm Development (2017 Crypto Boom)**
+
+During undergraduate years, worked as a developer on cryptocurrency mining machine algorithms — real software engineering at the intersection of cryptography, hardware, and economic systems:
+
+- **Mining rig hardware**: PCB design considerations, thermal management systems, power efficiency calculations — understanding physical constraints of sustained computational workloads
+- **Hash algorithm optimization**: Studied and optimized SHA-256 and Ethash (memory-hard PoW) implementations, exploring tradeoffs between parallelism, memory bandwidth, and power consumption
+- **Partnership end**: The mining algorithm work ended when blockchain systems updated (algorithm changes forced hardware obsolescence) and partners moved abroad — but the crypto developer expertise remained
+
+### Professional Programmer & Server Administrator (2021-2022)
+
+Following graduation, worked as both a programmer and server administrator — software development alongside production infrastructure management in the pre-AI era. Responsibilities included:
+
+- **Software development**: Active programming work building and maintaining production applications
 - **CI/CD pipeline management** using Jenkins — build, test, and deployment automation
 - **Container orchestration** with Kubernetes — cluster management, pod scheduling, service discovery
 - **Manual server maintenance** via SSH — health checks, monitoring setup, log analysis, troubleshooting
@@ -114,7 +139,28 @@ Following graduation, worked as a server administrator managing production infra
 - **Documentation discipline** — shell commands documented in physical notebooks for reference during maintenance
 - **Monitoring and health checks** via UI management panels and manual inspection
 
-This foundational hands-on operations experience — where every deployment was manual and every command was memorized — directly informed the current infrastructure design. The progression from notebook-documented shell commands to AI-orchestrated 22-agent parallel development represents a complete evolution in software engineering methodology.
+This foundational hands-on experience — where every deployment was manual and every command was memorized — directly informed the current infrastructure design. The progression from notebook-documented shell commands to AI-orchestrated 22-agent parallel development represents a complete evolution in software engineering methodology.
+
+### Graduate Studies — Enterprise Software & First Quant Robot (2022-2024)
+
+Graduate studies brought enterprise PHP/Laravel development alongside a project that would change everything: the first automated trading quantitative robot.
+
+- **PHP Laravel enterprise applications**: Eloquent ORM, Breeze authentication, Blade templating, Pest testing, MySQL, Artisan CLI — production-grade enterprise PHP at the architectural level
+- **First quantitative trading robot**: Built the direct precursor to Kokoro Alpha Lab during grad school. This was not an academic toy — it was a working automated trading system, and it was never abandoned. It evolved, grew, and became the 530,000-line distributed platform that Kokoro Tech runs today.
+
+The grad school robot is the origin point. Kokoro Alpha Lab is that robot scaled.
+
+---
+
+## Education
+
+| Degree                     | Field                 | Period    | Key Coursework / Focus                                                                                                                                                                                                                        |
+| -------------------------- | --------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Bachelor's (Primary)       | Vehicle Engineering   | 2017-2021 | Automatic Control Principles, Signals & Systems, control theory (PID, transfer functions, state-space models, feedback systems, stability analysis), signal processing (Fourier/Laplace transforms, filter design, frequency domain analysis) |
+| Bachelor's (Double Degree) | Financial Engineering | 2017-2021 | Economics, Financial Mathematics, Portfolio Theory (Markowitz MVO), Derivatives Pricing (Black-Scholes), Risk Management (VaR/CVaR), stochastic processes                                                                                     |
+| Master's                   | Graduate Studies      | 2022-2024 | Enterprise Software Engineering (PHP/Laravel), Quantitative Trading Systems (first automated trading robot — precursor to Kokoro Alpha Lab)                                                                                                   |
+
+> The Vehicle Engineering coursework is the direct academic origin of the signal processing pipeline. The Financial Engineering coursework is the direct academic origin of the quantitative finance implementations. This is formally trained expertise applied to a new domain — not self-study.
 
 ---
 

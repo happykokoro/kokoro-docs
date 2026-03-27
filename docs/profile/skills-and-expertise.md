@@ -48,6 +48,8 @@
 
 **Expertise Level**: Expert — implements production-grade DSP filters from mathematical foundations.
 
+> **Academic Origin**: This signal processing expertise is not self-taught. It originates from formal undergraduate training in Vehicle Engineering — specifically the core courses Automatic Control Principles (PID controllers, transfer functions, state-space models, feedback systems, stability analysis) and Signals & Systems (Fourier transforms, Laplace transforms, frequency domain analysis, filter design, convolution). The Kalman filter, H-infinity filter, and the full DSP pipeline are direct applications of control theory education applied to financial time series. This is academically grounded signal processing.
+
 | Filter/Algorithm                  | Mathematical Foundation                           | Implementation Details                                                                                                                                             |
 | --------------------------------- | ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **H-infinity filter**             | Minimax optimal estimation under bounded noise    | 4-state (position/velocity/acceleration/jerk), innovation gating, tick-rate adaptive R matrix scaling, state covariance inflation. 3× cascade in `factor-enhanced` |
@@ -86,6 +88,8 @@
 | **Synthetic options chain** | Options chain generation via Black-Scholes for assets without listed options markets. Synthetic expiration slices (options-data crate)                   |
 
 ### Portfolio Optimization & Risk Management
+
+> **Academic Origin**: Portfolio optimization, derivatives pricing, and risk management foundations originate from a formal Financial Engineering double degree. Markowitz MVO, Black-Scholes, VaR/CVaR, and Kelly criterion were textbook coursework before becoming production implementations. The founder also grew up in a family with extensive stock market and investment experience, providing practical financial market context throughout formal education.
 
 | Technique                      | Implementation                                                                                                                                      |
 | ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------- |

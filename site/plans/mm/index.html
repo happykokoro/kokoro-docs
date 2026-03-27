@@ -1354,10 +1354,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solo-founder-ai-augmented" class="md-nav__link">
+  <a href="#technical-founder-ai-augmented" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Solo Founder, AI-Augmented
+        Technical Founder, AI-Augmented
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scalability-architecture-how-the-layered-crates-enable-team-growth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scalability Architecture: How the Layered Crates Enable Team Growth
       
     </span>
   </a>
@@ -2046,10 +2057,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solo-founder-ai-augmented" class="md-nav__link">
+  <a href="#technical-founder-ai-augmented" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Solo Founder, AI-Augmented
+        Technical Founder, AI-Augmented
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scalability-architecture-how-the-layered-crates-enable-team-growth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scalability Architecture: How the Layered Crates Enable Team Growth
       
     </span>
   </a>
@@ -2505,14 +2527,23 @@ Kokoro Tech | https://mm.happykokoro.com | March 2026</p>
 <p>If Phase 8 multi-venue routing launches by month 18 and captures even modest Kalshi volume, the addressable market expands significantly. Kalshi's CFTC regulation opens US institutional participation — a segment that currently cannot participate in Polymarket at scale due to regulatory uncertainty. A single institutional client operating at scale on AUTOPILOT could generate $500–$2,000/month in subscription plus profit sharing revenue, and institutional clients churn at much lower rates than retail.</p>
 <hr />
 <h2 id="9-team-operations">9. Team &amp; Operations<a class="headerlink" href="#9-team-operations" title="Permanent link">&para;</a></h2>
-<h3 id="solo-founder-ai-augmented">Solo Founder, AI-Augmented<a class="headerlink" href="#solo-founder-ai-augmented" title="Permanent link">&para;</a></h3>
-<p>Kokoro MM was designed, built, and deployed by a single developer with full-stack systems engineering capability across Rust, TypeScript, Solidity, and Go. The development timeline demonstrates the efficiency of AI-augmented development: the core platform (18 Rust crates, 36 frontend pages, 17 MCP tools, 690 tests, full deployment) was built and deployed in approximately two weeks of calendar time.</p>
+<h3 id="technical-founder-ai-augmented">Technical Founder, AI-Augmented<a class="headerlink" href="#technical-founder-ai-augmented" title="Permanent link">&para;</a></h3>
+<p>Kokoro MM was designed, built, and deployed by a technical founder with full-stack systems engineering capability across Rust, TypeScript, Solidity, and Go — and a 9-year career arc from hardware mining rig design to distributed SaaS systems. The development timeline demonstrates the efficiency of AI-augmented development: the core platform (18 Rust crates, 36 frontend pages, 17 MCP tools, 690 tests, full deployment) was built and deployed in approximately two weeks of calendar time.</p>
 <p>This is not an accident. The development workflow is systematically augmented by AI at every layer:</p>
 <ul>
-<li><strong>MCP Tools</strong> — 17 Kokoro MM MCP tools expose the full platform API to Claude, enabling autonomous research, strategy optimization, and operations tasks without manual API calls. An operator can ask the AI to "analyze quoting performance on BTC 5-minute markets for the past week and suggest parameter adjustments" and receive a structured analysis with specific recommendations.</li>
-<li><strong>Agent Orchestra</strong> — The multi-agent orchestration system (<code>agent-orchestra</code>) can deploy multiple Claude Code instances as parallel development agents, each working on an isolated git worktree, with automated build and test verification before merge. This was used to complete multiple development phases of Kokoro Alpha Lab in parallel and will be used for Phase 8 scaling work.</li>
+<li><strong>MCP Tools</strong> — 17 Kokoro MM MCP tools expose the full platform API to Claude, enabling autonomous research, strategy optimization, and operations tasks without manual API calls. An operator can ask the AI to "analyze quoting performance on BTC 5-minute markets for the past week and suggest parameter adjustments" and receive a structured analysis with specific recommendations. These tools are also the operational interface for any future team member — human or AI.</li>
+<li><strong>Agent Orchestra</strong> — The multi-agent orchestration system (<code>agent-orchestra</code>) can deploy multiple Claude Code instances as parallel development agents, each working on an isolated git worktree, with automated build and test verification before merge. This was used to complete multiple development phases of Kokoro Alpha Lab in parallel and will be used for Phase 8 scaling work. The same pipeline accommodates human engineers — it is a hybrid human+AI orchestration platform, not an AI-only tool.</li>
 <li><strong>Kokoro Pipeline</strong> — An automated development pipeline engine in active development that provides structured multi-phase workflows (research → plan → execute → audit → report) for systematic feature development.</li>
 </ul>
+<h3 id="scalability-architecture-how-the-layered-crates-enable-team-growth">Scalability Architecture: How the Layered Crates Enable Team Growth<a class="headerlink" href="#scalability-architecture-how-the-layered-crates-enable-team-growth" title="Permanent link">&para;</a></h3>
+<p>Kokoro MM's four-layer architecture (L0–L3) was deliberately designed so each layer is a natural specialist boundary:</p>
+<ul>
+<li><strong>L0 (mm-types, mm-proto, mm-traits)</strong>: Pure domain types and interfaces. Any team member working on the codebase starts here to understand the contracts.</li>
+<li><strong>L1 (domain logic: mm-market, mm-strategy, mm-order, mm-data, mm-identity)</strong>: The business logic layer. A quant engineer or Rust specialist can own <code>mm-strategy</code> — the Avellaneda-Stoikov quoting logic, adverse selection detection, inventory management — without touching infrastructure.</li>
+<li><strong>L2 (infrastructure: mm-polymarket, mm-polygon, mm-db, mm-redis)</strong>: Venue integration and persistence. A blockchain specialist can own <code>mm-polymarket</code> and <code>mm-polygon</code> — the Polymarket SDK, CTF operations, on-chain interactions — as a self-contained boundary.</li>
+<li><strong>L3 (services: mm-engine, mm-datahub, mm-gateway)</strong>: The running services. A DevOps or systems engineer can own deployment, monitoring, and scaling of these three service binaries without understanding the quoting math.</li>
+</ul>
+<p>The 17 MCP tools expose all operational decisions — strategy management, position inspection, engine health, parameter tuning — as a structured interface. Operational delegation to AI agents before those tasks justify a human hire extends the runway and makes the first DevOps hire higher-leverage when it happens.</p>
 <h3 id="operations-model">Operations Model<a class="headerlink" href="#operations-model" title="Permanent link">&para;</a></h3>
 <p>Production operations are managed through the following tooling:</p>
 <ul>

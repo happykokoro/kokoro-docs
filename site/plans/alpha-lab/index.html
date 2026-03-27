@@ -1381,6 +1381,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#scalability-architecture-how-the-codebase-enables-team-growth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scalability Architecture: How the Codebase Enables Team Growth
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#operations-model" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1409,10 +1420,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#single-founder-risk" class="md-nav__link">
+  <a href="#key-person-concentration-risk" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Single Founder Risk
+        Key-Person Concentration Risk
       
     </span>
   </a>
@@ -2156,6 +2167,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#scalability-architecture-how-the-codebase-enables-team-growth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scalability Architecture: How the Codebase Enables Team Growth
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#operations-model" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2184,10 +2206,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#single-founder-risk" class="md-nav__link">
+  <a href="#key-person-concentration-risk" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Single Founder Risk
+        Key-Person Concentration Risk
       
     </span>
   </a>
@@ -2438,7 +2460,7 @@ Everything in Level 2 plus: unlimited backtest concurrency, WASM plugin deployme
 <hr />
 <h2 id="7-technical-moat">7. Technical Moat<a class="headerlink" href="#7-technical-moat" title="Permanent link">&para;</a></h2>
 <h3 id="codebase-scale-and-depth">Codebase Scale and Depth<a class="headerlink" href="#codebase-scale-and-depth" title="Permanent link">&para;</a></h3>
-<p>The 242,466-line Rust codebase with 65 crates represents 8–12 months of full-time development. For a competitor starting from scratch, replicating this would require a team of 3–5 senior engineers over 12–18 months, representing a minimum investment of $1.5–3M in engineering labor at market rates. A solo developer replicating this timeline, even with AI augmentation, would take several years.</p>
+<p>The 242,466-line Rust codebase with 65 crates represents 8–12 months of full-time development. For a competitor starting from scratch, replicating this would require a team of 3–5 senior engineers over 12–18 months, representing a minimum investment of $1.5–3M in engineering labor at market rates. A developer replicating this timeline, even with AI augmentation, would take several years.</p>
 <p>More importantly, the codebase's depth is not uniformly distributed. The signal processing implementations — H-infinity filter, UKF, RBPF, wavelet CWT — are non-trivial mathematical systems requiring domain expertise to implement correctly. The expert aggregator using the Hedge algorithm with multiplicative weights, the conformal prediction calibration system, the Nelder-Mead parameter optimization — these are not commodity implementations. They reflect a combination of mathematical knowledge and engineering execution that is genuinely rare.</p>
 <h3 id="clean-integration-layer-architecture">Clean Integration Layer Architecture<a class="headerlink" href="#clean-integration-layer-architecture" title="Permanent link">&para;</a></h3>
 <p>The CIL pattern — 63 pure-logic crates with zero I/O, enforced by Rust's trait system and workspace structure — is an architectural pattern that pays compounding dividends over time. It means:</p>
@@ -2454,7 +2476,7 @@ Everything in Level 2 plus: unlimited backtest concurrency, WASM plugin deployme
 <h3 id="battle-tested-risk-management">Battle-Tested Risk Management<a class="headerlink" href="#battle-tested-risk-management" title="Permanent link">&para;</a></h3>
 <p>The risk management system was designed under real-money trading conditions. The Polymarket bot's live trading failure — $55 lost in 12 minutes with a structural down-bias discovered only in live conditions — led directly to the circuit breaker design, the conformal prediction calibration system, and the per-asset risk gate parameterization. Risk infrastructure built this way tends to be qualitatively better than risk infrastructure built theoretically, because failure modes were discovered empirically.</p>
 <h3 id="ai-augmented-development-velocity">AI-Augmented Development Velocity<a class="headerlink" href="#ai-augmented-development-velocity" title="Permanent link">&para;</a></h3>
-<p>The platform includes 98 MCP tools that make the entire codebase and runtime state accessible to Claude Code for automated research and debugging. Combined with the Agent Orchestra system (multi-agent parallel development with automated merge, build, and test pipelines), a single developer can maintain a codebase of this scale with the iteration speed of a small team. This development velocity is itself a competitive moat — the ability to ship new factors, fix bugs, and respond to user requests faster than a larger team with coordination overhead.</p>
+<p>The platform includes 98 MCP tools that make the entire codebase and runtime state accessible to Claude Code for automated research and debugging. Combined with the Agent Orchestra system (multi-agent parallel development with automated merge, build, and test pipelines), a lean founder-led team can maintain a codebase of this scale with the iteration speed of a much larger organization. This development velocity is itself a competitive moat — the ability to ship new factors, fix bugs, and respond to user requests faster than competitors with traditional coordination overhead. Importantly, this advantage persists as the team grows: Agent Orchestra scales to coordinate human+AI teams, and the MCP tools remain the operational interface regardless of team size.</p>
 <hr />
 <h2 id="8-financial-projections">8. Financial Projections<a class="headerlink" href="#8-financial-projections" title="Permanent link">&para;</a></h2>
 <p><em>The following projections are hypothetical estimates for planning purposes. They are not actuals, not forward-looking statements, and not representations of achievable outcomes. They are scenario analyses based on industry benchmarks for developer-focused SaaS products.</em></p>
@@ -2622,19 +2644,64 @@ Everything in Level 2 plus: unlimited backtest concurrency, WASM plugin deployme
 <hr />
 <h2 id="9-team-and-operations">9. Team and Operations<a class="headerlink" href="#9-team-and-operations" title="Permanent link">&para;</a></h2>
 <h3 id="founding-team">Founding Team<a class="headerlink" href="#founding-team" title="Permanent link">&para;</a></h3>
-<p>Kokoro Alpha Lab is built and operated by a single founder — a full-stack systems engineer and quantitative developer who has single-handedly designed, implemented, deployed, and maintained the entire platform. The 242,466-line Rust codebase, the 107-page frontend, the 98-tool MCP server, the Docker-orchestrated production deployment on DigitalOcean Singapore — all represent the work of one person.</p>
-<p>This is not a liability unique to an early-stage company; it reflects a deliberate technical strategy. AI-augmented development workflows — specifically the Agent Orchestra system (multi-agent Claude Code orchestration), the 98-tool MCP server for autonomous platform interaction, and the <code>claude-dev-pipeline</code> skill for parallel feature development — provide development velocity equivalent to a team of 3–5 engineers while maintaining the architectural coherence that only a single-architect codebase can sustain.</p>
+<p>Kokoro Alpha Lab is built and operated by a technical founder — a full-stack systems engineer and quantitative developer with a 9-year career arc from hardware cryptocurrency mining systems to distributed SaaS platforms. The 242,466-line Rust codebase, the 107-page frontend, the 98-tool MCP server, the Docker-orchestrated production deployment on DigitalOcean Singapore — all represent the work of a founder who deliberately built the architecture for team growth from the start.</p>
+<p>The AI-augmented development infrastructure — the Agent Orchestra system (multi-agent Claude Code orchestration), the 98-tool MCP server for autonomous platform interaction, and the <code>claude-dev-pipeline</code> skill for parallel feature development — provides development velocity equivalent to a team of 3–5 engineers. But this infrastructure is not a permanent substitute for hiring; it is the infrastructure that makes hiring efficient. When the first Rust engineer joins, they inherit an orchestration pipeline, a complete test suite, and a codebase where each of 63 crates is independently testable. When the first frontend engineer joins, they find stable API contracts and over 200 existing pages as a reference. This is what investment-ready architecture looks like.</p>
 <p>The founder brings expertise across: Rust systems programming (330,000+ lines across 100+ crates), quantitative finance (11 DSP filter implementations, 24 alpha factors, backtesting infrastructure), blockchain and DeFi engineering (6 EVM chains, 20 Anchor programs, complete Polymarket SDK), full-stack web development (200+ API endpoints, 200+ frontend pages), and infrastructure and DevOps (3-server deployment across 3 cloud providers, self-built WireGuard mesh VPN).</p>
+<h3 id="scalability-architecture-how-the-codebase-enables-team-growth">Scalability Architecture: How the Codebase Enables Team Growth<a class="headerlink" href="#scalability-architecture-how-the-codebase-enables-team-growth" title="Permanent link">&para;</a></h3>
+<p>The Clean Integration Layer (CIL) architecture is not just a technical discipline — it is a hiring architecture. Each of the 63 pure-logic crates is an independently assignable unit of work:</p>
+<ul>
+<li><strong>Factor crates</strong> (<code>factor-momentum</code>, <code>factor-regime</code>, <code>factor-equity</code>, etc.): A new quant researcher or Rust engineer can own a single factor crate. The <code>AlphaFactor</code> trait defines the interface contract. The test suite provides acceptance criteria. The crate compiles independently with zero I/O dependencies. Onboarding to productive contribution is measured in days.</li>
+<li><strong>Execution backend crates</strong> (<code>exec-alpaca</code>, <code>exec-ib</code>, <code>chain-adapter</code>): A blockchain specialist or systems engineer can own the execution layer for a specific venue or chain without touching the signal processing or risk management layers.</li>
+<li><strong>Frontend pages</strong>: The 107-route frontend has stable API contracts backed by the 98 MCP tools. A frontend specialist can ship pages independently without coordinating with the Rust team.</li>
+<li><strong>Infrastructure boundary</strong>: The DigitalOcean Singapore server is a self-contained boundary. A DevOps engineer can own it — Docker Compose files are self-documenting, Prometheus and Grafana provide complete observability, and the WireGuard mesh handles inter-server routing transparently.</li>
+</ul>
 <h3 id="operations-model">Operations Model<a class="headerlink" href="#operations-model" title="Permanent link">&para;</a></h3>
-<p><strong>Development</strong>: All feature development, bug fixes, and infrastructure work done by the founder using AI-augmented workflows. New crates and features are developed in git worktrees using the Agent Orchestra system for parallel execution where possible. The typical cycle: research phase (identify requirements, review codebase), implementation (parallel agents if multiple independent features), review (automated code review agent), merge and test, deploy.</p>
+<p><strong>Development</strong>: Feature development uses AI-augmented workflows. New crates and features are developed in git worktrees using the Agent Orchestra system for parallel execution. The typical cycle: research phase (identify requirements, review codebase), implementation (parallel agents if multiple independent features), review (automated code review agent), merge and test, deploy. This same pipeline accommodates human engineers at every step — it was designed for hybrid human+AI teams, not just AI-only operation.</p>
 <p><strong>Customer support</strong>: Initially handled directly by the founder. At scale, a help documentation site and Discord community reduce direct support load. Enterprise customers receive dedicated Slack or Discord channel support as part of their contract.</p>
 <p><strong>Infrastructure</strong>: The current three-server deployment (DigitalOcean Singapore as primary, AWS Ireland and AWS London for secondary services) connected via self-built WireGuard mesh provides a solid foundation. Scaling compute for additional users is straightforward given the Rust binary's low per-request overhead. Horizontal scaling requires adding a load balancer and shared PostgreSQL instance — standard work.</p>
-<p><strong>Hiring plan</strong>: At approximately $500K ARR, the case for a first hire (customer success/developer relations) becomes compelling. At $1M ARR, a second engineer to parallelize feature development accelerates the roadmap. The founder's architectural clarity means a new engineer can be productive quickly — the CIL architecture and 1,074-test suite provide clear guardrails.</p>
+<p><strong>Hiring plan</strong>: The path is defined by the architecture.</p>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>ARR Trigger</th>
+<th>First Hire</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Near-term</td>
+<td>$250K</td>
+<td>Customer success / devrel</td>
+<td>Reduce founder time on support, grow the community</td>
+</tr>
+<tr>
+<td>Growth</td>
+<td>$500K</td>
+<td>Rust backend engineer</td>
+<td>Own <code>factor-X</code> and <code>exec-Y</code> crate development — plug into existing pipeline</td>
+</tr>
+<tr>
+<td>Scale</td>
+<td>$1M</td>
+<td>Quant researcher</td>
+<td>Full-time factor research and backtesting — owns the research environment</td>
+</tr>
+<tr>
+<td>Expansion</td>
+<td>$2M</td>
+<td>Frontend + DevOps</td>
+<td>Accelerate product surface and infrastructure — own their boundaries</td>
+</tr>
+</tbody>
+</table>
+<p>Each hire boundary is already defined in the codebase. The architecture is not waiting for investment to become team-ready — it is team-ready today.</p>
 <hr />
 <h2 id="10-risks-and-mitigations">10. Risks and Mitigations<a class="headerlink" href="#10-risks-and-mitigations" title="Permanent link">&para;</a></h2>
-<h3 id="single-founder-risk">Single Founder Risk<a class="headerlink" href="#single-founder-risk" title="Permanent link">&para;</a></h3>
-<p><strong>Risk</strong>: Bus factor of 1. Illness, burnout, or disengagement stops all development and support.</p>
-<p><strong>Mitigation</strong>: The AI-augmented development system reduces the cognitive and physical load of maintaining the codebase. The Agent Orchestra system enables queued development work to proceed with minimal active supervision. Documentation of architecture decisions is embedded in the CLAUDE.md system, making the codebase accessible to a replacement engineer or future hire. At the earliest opportunity, a trusted co-founder or senior engineer should be brought on to reduce key-person dependency.</p>
+<h3 id="key-person-concentration-risk">Key-Person Concentration Risk<a class="headerlink" href="#key-person-concentration-risk" title="Permanent link">&para;</a></h3>
+<p><strong>Risk</strong>: In the current founder-led phase, key technical decisions and operational knowledge are concentrated with the founder. Illness, burnout, or a transition period could slow development.</p>
+<p><strong>Mitigation</strong>: The architecture is the mitigation. The CIL's 63 independently testable crates, the 1,074-test suite, the <code>constitution.md</code> architectural intent document, and the CLAUDE.md system mean the codebase is accessible to a new engineer without extended knowledge transfer. The Agent Orchestra system enables development work to proceed with minimal active supervision. The MCP tools expose all operational tasks through a structured interface. The hiring plan above defines the path to reducing key-person concentration as soon as revenue allows.</p>
 <h3 id="market-adoption-risk">Market Adoption Risk<a class="headerlink" href="#market-adoption-risk" title="Permanent link">&para;</a></h3>
 <p><strong>Risk</strong>: The product is technically deep but inaccessible to its target market. Quant developers are sophisticated buyers who evaluate tools rigorously. A tool that takes weeks to understand will not be adopted.</p>
 <p><strong>Mitigation</strong>: The free tier strategy allows risk-free evaluation. The onboarding wizard, interactive factor playground, and tutorial content reduce time-to-first-value. The MCP integration means users familiar with Claude Code can interact with the platform immediately without learning a proprietary UI. The documentation investment (factor reference, API docs, tutorial articles) directly addresses this risk.</p>
@@ -2645,7 +2712,7 @@ Everything in Level 2 plus: unlimited backtest concurrency, WASM plugin deployme
 <p><strong>Risk</strong>: A well-funded competitor (Quantopian successor, QuantConnect with a self-hosted offering, or a crypto-native quant platform) enters the market with a larger engineering team.</p>
 <p><strong>Mitigation</strong>: The CIL architecture and WASM plugin ecosystem create structural switching costs once adopted. The technical depth of the DSP filter implementations is defensible — replicating them requires domain expertise that cannot be purchased quickly. The community and marketplace flywheel (once activated) creates network effects that compound over time. Speed of iteration via AI-augmented development is a durable advantage because it is embedded in the development workflow, not just a temporary sprint.</p>
 <h3 id="technical-debt-and-maintenance-risk">Technical Debt and Maintenance Risk<a class="headerlink" href="#technical-debt-and-maintenance-risk" title="Permanent link">&para;</a></h3>
-<p><strong>Risk</strong>: A 242,000-line codebase maintained by one person accumulates subtle technical debt. The Redis Streams dual JSON/proto migration, the gRPC cross-binary communication, the 65-crate workspace dependency graph — each is a potential failure mode under production load.</p>
+<p><strong>Risk</strong>: A 242,000-line codebase maintained by a lean founder-led team can accumulate subtle technical debt, especially under production load. The Redis Streams dual JSON/proto migration, the gRPC cross-binary communication, the 65-crate workspace dependency graph — each is a potential failure mode under production load.</p>
 <p><strong>Mitigation</strong>: The 1,074-test suite provides regression coverage. The CIL architecture limits coupling between components. The Redis Streams migration to proto format was designed with backward compatibility (dual-format auto-detection at the consumer level). The platform has been running in production continuously, which means the most common failure modes have been encountered and fixed. Systematic monitoring (Prometheus metrics, Grafana dashboards, structured logging via the tracing crate) provides early warning of degradation.</p>
 <h3 id="execution-and-funding-risk">Execution and Funding Risk<a class="headerlink" href="#execution-and-funding-risk" title="Permanent link">&para;</a></h3>
 <p><strong>Risk</strong>: The platform requires investment in go-to-market, documentation, and customer success to convert from a technically impressive project to a sustainable business. Without external funding, growth is constrained by the founder's time.</p>
