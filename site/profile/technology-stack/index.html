@@ -2263,7 +2263,7 @@
 
 <h1 id="technology-stack-complete-inventory">Technology Stack — Complete Inventory<a class="headerlink" href="#technology-stack-complete-inventory" title="Permanent link">&para;</a></h1>
 <blockquote>
-<p>Comprehensive catalog of every language, framework, library, tool, protocol, and service used across the Kokoro ecosystem. Organized by category with specific version numbers, usage context, and which projects employ each technology.</p>
+<p>Comprehensive catalog of every language, framework, library, tool, protocol, and service used across the Kokoro ecosystem. Organized by category with specific version numbers, usage context, and which projects employ each technology. Aligned with 2026 CNCF cloud-native standards.</p>
 </blockquote>
 <hr />
 <h2 id="1-programming-languages">1. Programming Languages<a class="headerlink" href="#1-programming-languages" title="Permanent link">&para;</a></h2>
@@ -2315,7 +2315,7 @@
 <tbody>
 <tr>
 <td><strong>PHP</strong></td>
-<td>Laravel 11 enterprise projects (graduate studies), Blade templating, Composer</td>
+<td>Laravel 11 enterprise projects, Blade templating, Composer</td>
 </tr>
 <tr>
 <td><strong>Solidity</strong></td>
@@ -2380,6 +2380,7 @@
 </table>
 <hr />
 <h2 id="2-rust-ecosystem-deep-expertise">2. Rust Ecosystem (Deep Expertise)<a class="headerlink" href="#2-rust-ecosystem-deep-expertise" title="Permanent link">&para;</a></h2>
+<p>Rust is the primary systems language across the platform. As of 2026, Rust is described as "non-negotiable for serious HFT" in industry discourse, with the first TokioConf announced for 2026 and projects like MeV-RS demonstrating Rust's role in production DeFi MEV infrastructure. The platform's 330,000+ lines of production Rust represent a direct investment in this trajectory.</p>
 <h3 id="async-runtime-networking">Async Runtime &amp; Networking<a class="headerlink" href="#async-runtime-networking" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -2393,17 +2394,17 @@
 <tr>
 <td><code>tokio</code></td>
 <td>1.x</td>
-<td>Primary async runtime across all Rust projects. Features: <code>full</code> (rt-multi-thread, io, net, time, macros, sync, signal, fs)</td>
+<td>De facto async runtime (28K+ GitHub stars, first TokioConf 2026). Features: <code>full</code> (rt-multi-thread, io, net, time, macros, sync, signal, fs)</td>
 </tr>
 <tr>
 <td><code>axum</code></td>
 <td>0.8</td>
-<td>HTTP framework for all REST APIs (alpha-lab, kokoro-mm, liquidation-bot, polymarket-bot, vpn, pricing-service)</td>
+<td>HTTP framework for all REST APIs (alpha-lab, kokoro-mm, liquidation-bot, polymarket-bot, vpn, pricing-service). tower::Service middleware composability.</td>
 </tr>
 <tr>
 <td><code>tower</code> / <code>tower-http</code></td>
 <td>0.4 / 0.6</td>
-<td>Middleware stack: CORS, rate limiting, tracing, compression, timeout</td>
+<td>Middleware stack: CORS, rate limiting, tracing, compression, timeout — composable without modifying handler signatures</td>
 </tr>
 <tr>
 <td><code>reqwest</code></td>
@@ -3402,6 +3403,7 @@
 </table>
 <hr />
 <h2 id="8-infrastructure-devops">8. Infrastructure &amp; DevOps<a class="headerlink" href="#8-infrastructure-devops" title="Permanent link">&para;</a></h2>
+<p>Aligned with 2026 CNCF cloud-native standards (89% organizational adoption, 80% running Kubernetes in production). The platform implements Event-Driven Architecture (Redis Streams), API Gateway (Platform binary), Circuit Breaker (AtomicBool risk gates), and Service Mesh (WireGuard) patterns across 3 cloud regions.</p>
 <h3 id="containerization-orchestration">Containerization &amp; Orchestration<a class="headerlink" href="#containerization-orchestration" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -3421,7 +3423,7 @@
 </tr>
 <tr>
 <td><strong>Kubernetes</strong></td>
-<td>Container orchestration, cluster management (professional server admin role)</td>
+<td>Container orchestration knowledge (prior professional experience); K8s not used in current deployment — Docker Compose is sufficient at current scale</td>
 </tr>
 <tr>
 <td><strong>Caddy</strong></td>
@@ -3456,7 +3458,7 @@
 </tr>
 <tr>
 <td><strong>Jenkins</strong></td>
-<td>CI/CD pipeline management (professional server admin role)</td>
+<td>CI/CD pipeline management (prior production experience)</td>
 </tr>
 <tr>
 <td><strong>rsync</strong></td>

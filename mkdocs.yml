@@ -58,13 +58,13 @@ nav:
       - Projects Portfolio: profile/projects-portfolio.md
       - Skills & Expertise: profile/skills-and-expertise.md
       - Coding Style & Architecture: profile/coding-style.md
-      - Resume Profile: profile/resume.md
+      - Technical Capabilities: profile/resume.md
   - Articles:
       - Technology Deep Dive: articles/technology-stack.md
       - Projects Deep Dive: articles/projects-portfolio.md
       - Skills & Expertise: articles/skills-and-expertise.md
       - Architecture Philosophy: articles/coding-style.md
-      - Founder Profile: articles/resume.md
+      - Architecture Overview: articles/resume.md
   - Business Plans:
       - Kokoro Alpha Lab: plans/alpha-lab.md
       - Kokoro MM: plans/mm.md
