@@ -1,0 +1,2546 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Deep technology studio — quantitative trading, blockchain infrastructure, AI developer tools">
+      
+      
+      
+        <link rel="canonical" href="https://docs.happykokoro.com/articles/technology-stack/">
+      
+      
+        <link rel="prev" href="../../profile/resume/">
+      
+      
+        <link rel="next" href="../projects-portfolio/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Technology Deep Dive - Kokoro Tech</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#the-kokoro-technology-stack-a-complete-technical-architecture-review" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Kokoro Tech" class="md-header__button md-logo" aria-label="Kokoro Tech" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Kokoro Tech
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Technology Deep Dive
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/happykokoro" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    happykokoro
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../profile/technology-stack/" class="md-tabs__link">
+          
+  
+  
+  Technical Profile
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Articles
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../plans/alpha-lab/" class="md-tabs__link">
+          
+  
+  
+  Business Plans
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Kokoro Tech" class="md-nav__button md-logo" aria-label="Kokoro Tech" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Kokoro Tech
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/happykokoro" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    happykokoro
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Technical Profile
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Technical Profile
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../profile/technology-stack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Technology Stack
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../profile/projects-portfolio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projects Portfolio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../profile/skills-and-expertise/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills & Expertise
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../profile/coding-style/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coding Style & Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../profile/resume/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resume Profile
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Articles
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Articles
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Technology Deep Dive
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Technology Deep Dive
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview-a-polyglot-multi-chain-financial-engineering-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview: A Polyglot, Multi-Chain Financial Engineering Platform
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-programming-languages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Programming Languages
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Programming Languages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-four-primary-languages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Four Primary Languages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secondary-and-specialist-languages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Secondary and Specialist Languages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#historical-and-academic-languages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Historical and Academic Languages
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-the-rust-ecosystem-in-depth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. The Rust Ecosystem in Depth
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. The Rust Ecosystem in Depth">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#asynchronous-runtime-and-networking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Asynchronous Runtime and Networking
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#serialization-and-data-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Serialization and Data Representation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database-and-state-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Database and State Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blockchain-and-cryptographic-primitives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Blockchain and Cryptographic Primitives
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathematics-and-signal-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mathematics and Signal Processing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-handling-and-observability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Error Handling and Observability
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-the-typescript-and-javascript-ecosystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. The TypeScript and JavaScript Ecosystem
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. The TypeScript and JavaScript Ecosystem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#frontend-framework-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frontend Framework Architecture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ui-component-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UI Component Architecture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-visualization-and-charting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Visualization and Charting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#state-management-and-real-time-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        State Management and Real-Time Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mcp-and-ai-tool-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MCP and AI Tool Integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nodejs-backend-and-cms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Node.js Backend and CMS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-infrastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing Infrastructure
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-the-python-ecosystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. The Python Ecosystem
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. The Python Ecosystem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#web-framework-and-api-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Web Framework and API Layer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quantitative-finance-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quantitative Finance Libraries
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blockchain-and-trading-clients" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Blockchain and Trading Clients
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#orchestration-and-templating" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Orchestration and Templating
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-the-go-ecosystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. The Go Ecosystem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-solana-and-blockchain-infrastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Solana and Blockchain Infrastructure
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Solana and Blockchain Infrastructure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#on-chain-program-architecture-kokoro-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        On-Chain Program Architecture (kokoro-protocol)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dex-integration-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DEX Integration Layer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evm-chain-coverage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EVM Chain Coverage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prediction-market-integrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prediction Market Integrations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exchange-data-feed-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exchange Data Feed Architecture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wasm-strategy-plugin-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WASM Strategy Plugin System
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-database-and-storage-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Database and Storage Architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-infrastructure-and-devops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Infrastructure and DevOps
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Infrastructure and DevOps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#containerization-and-service-orchestration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Containerization and Service Orchestration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#continuous-integration-and-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Continuous Integration and Deployment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#infrastructure-as-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Infrastructure as Code
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#monitoring-and-observability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monitoring and Observability
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#networking-and-security-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Networking and Security Architecture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#self-hosted-service-ecosystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Self-Hosted Service Ecosystem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloud-infrastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cloud Infrastructure
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-ai-machine-learning-and-agent-infrastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. AI, Machine Learning, and Agent Infrastructure
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. AI, Machine Learning, and Agent Infrastructure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#claude-code-integration-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Claude Code Integration Architecture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai-and-machine-learning-techniques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AI and Machine Learning Techniques
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-protocols-and-standards" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Protocols and Standards
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-scale-and-totals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Scale and Totals
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../projects-portfolio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projects Deep Dive
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../skills-and-expertise/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills & Expertise
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../coding-style/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Philosophy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../resume/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Founder Profile
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Business Plans
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Business Plans
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plans/alpha-lab/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kokoro Alpha Lab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plans/mm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kokoro MM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plans/liquidation-bot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kokoro Liquidation Bot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plans/vpn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kokoro VPN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plans/trading-bots/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Trading Bots
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plans/developer-tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Developer Tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview-a-polyglot-multi-chain-financial-engineering-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview: A Polyglot, Multi-Chain Financial Engineering Platform
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-programming-languages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Programming Languages
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Programming Languages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-four-primary-languages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Four Primary Languages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secondary-and-specialist-languages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Secondary and Specialist Languages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#historical-and-academic-languages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Historical and Academic Languages
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-the-rust-ecosystem-in-depth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. The Rust Ecosystem in Depth
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. The Rust Ecosystem in Depth">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#asynchronous-runtime-and-networking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Asynchronous Runtime and Networking
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#serialization-and-data-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Serialization and Data Representation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database-and-state-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Database and State Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blockchain-and-cryptographic-primitives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Blockchain and Cryptographic Primitives
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathematics-and-signal-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mathematics and Signal Processing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-handling-and-observability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Error Handling and Observability
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-the-typescript-and-javascript-ecosystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. The TypeScript and JavaScript Ecosystem
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. The TypeScript and JavaScript Ecosystem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#frontend-framework-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frontend Framework Architecture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ui-component-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UI Component Architecture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-visualization-and-charting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Visualization and Charting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#state-management-and-real-time-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        State Management and Real-Time Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mcp-and-ai-tool-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MCP and AI Tool Integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nodejs-backend-and-cms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Node.js Backend and CMS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-infrastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing Infrastructure
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-the-python-ecosystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. The Python Ecosystem
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. The Python Ecosystem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#web-framework-and-api-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Web Framework and API Layer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quantitative-finance-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quantitative Finance Libraries
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blockchain-and-trading-clients" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Blockchain and Trading Clients
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#orchestration-and-templating" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Orchestration and Templating
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-the-go-ecosystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. The Go Ecosystem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-solana-and-blockchain-infrastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Solana and Blockchain Infrastructure
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Solana and Blockchain Infrastructure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#on-chain-program-architecture-kokoro-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        On-Chain Program Architecture (kokoro-protocol)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dex-integration-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DEX Integration Layer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evm-chain-coverage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EVM Chain Coverage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prediction-market-integrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prediction Market Integrations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exchange-data-feed-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exchange Data Feed Architecture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wasm-strategy-plugin-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WASM Strategy Plugin System
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-database-and-storage-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Database and Storage Architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-infrastructure-and-devops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Infrastructure and DevOps
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Infrastructure and DevOps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#containerization-and-service-orchestration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Containerization and Service Orchestration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#continuous-integration-and-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Continuous Integration and Deployment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#infrastructure-as-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Infrastructure as Code
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#monitoring-and-observability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monitoring and Observability
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#networking-and-security-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Networking and Security Architecture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#self-hosted-service-ecosystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Self-Hosted Service Ecosystem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloud-infrastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cloud Infrastructure
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-ai-machine-learning-and-agent-infrastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. AI, Machine Learning, and Agent Infrastructure
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. AI, Machine Learning, and Agent Infrastructure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#claude-code-integration-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Claude Code Integration Architecture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai-and-machine-learning-techniques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AI and Machine Learning Techniques
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-protocols-and-standards" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Protocols and Standards
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-scale-and-totals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Scale and Totals
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="the-kokoro-technology-stack-a-complete-technical-architecture-review">The Kokoro Technology Stack: A Complete Technical Architecture Review<a class="headerlink" href="#the-kokoro-technology-stack-a-complete-technical-architecture-review" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>This article provides a comprehensive, in-depth examination of every language, framework, library, protocol, and infrastructure component deployed across the Kokoro ecosystem. It is written for senior engineers, chief technology officers, and technical investors who need to assess the depth, coherence, and production-readiness of the stack from first principles.</p>
+</blockquote>
+<hr />
+<h2 id="overview-a-polyglot-multi-chain-financial-engineering-platform">Overview: A Polyglot, Multi-Chain Financial Engineering Platform<a class="headerlink" href="#overview-a-polyglot-multi-chain-financial-engineering-platform" title="Permanent link">&para;</a></h2>
+<p>The Kokoro ecosystem is not a single product but a constellation of interconnected systems spanning automated trading, decentralized finance, market-making, quantitative research, and developer tooling. The technology choices across these systems reflect a deliberate philosophy: use the right tool for each job without sacrificing coherence. Rust handles anything where performance, safety, or concurrency is non-negotiable. TypeScript powers every user-facing interface and AI-integration layer. Python is reserved for rapid quantitative research and orchestration. Go underpins the staking backend where concurrency primitives and ecosystem maturity matter most. Solidity and the Anchor framework govern on-chain logic where the execution environment is immutable by design.</p>
+<p>The result is approximately 264,000 lines of Rust, 100,000 lines of TypeScript, 15,000 lines of Go, and 10,000 lines of Python in active production use, spread across more than ten repositories. This article walks through every layer of that stack in technical depth.</p>
+<hr />
+<h2 id="1-programming-languages">1. Programming Languages<a class="headerlink" href="#1-programming-languages" title="Permanent link">&para;</a></h2>
+<h3 id="the-four-primary-languages">The Four Primary Languages<a class="headerlink" href="#the-four-primary-languages" title="Permanent link">&para;</a></h3>
+<p><strong>Rust</strong> is the dominant language of the ecosystem, accounting for roughly 264,000 lines of production code. It is used at the expert level across eight separate repositories: the kokoro-alpha-lab monorepo (approximately 242,000 lines across 65 crates), the kokoro-mm market-making platform (63,000 lines across 20 crates), the kokoro-polymarket-bot trading bot (15,500 lines), the kokoro-liquidation-bot (5,100 lines across 8 crates), and the supporting services — kokoro-wallet-monitor, kokoro-pricing-service, kokoro-vpn, and the payment service embedded in the monorepo. The choice of Rust is not merely stylistic: the signal processing pipelines, Kalman filters, and portfolio optimizers in alpha-lab demand zero-cost abstractions and predictable latency; the liquidation bot requires memory safety when managing flash loan execution paths on mainnet Ethereum; and the market-making engine needs to handle concurrent WebSocket order book updates without race conditions. Rust's ownership model enforces these constraints at compile time rather than at runtime, which is exactly the right trade-off for financial software.</p>
+<p><strong>TypeScript</strong> accounts for approximately 100,000 lines and is the exclusive language for all frontend work and AI-integration tooling. The alpha-lab frontend, the kokoro-mm frontend, the kokoro-tech marketing site, and the kokoro-staking frontend are all Next.js applications written in TypeScript. The lab-mcp repository — a Model Context Protocol server exposing 98 platform tools to Claude — is also TypeScript. The kokoro-pipeline project, which handles developer workflow automation and marketplace billing, is a full Node.js TypeScript application. TypeScript's static type system makes it the natural companion to Rust-backed APIs: types defined in OpenAPI or manually mirrored from Rust structs give the frontend the same compile-time correctness guarantees at the boundary layer.</p>
+<p><strong>Python</strong> serves as the language for rapid quantitative research and multi-agent orchestration, with approximately 10,000 lines across three active projects. The kokoro-copy-trader and the polymarket-bot strategy service are FastAPI applications running statistical inference, Hurst exponent computation, and GARCH volatility modeling. The agent-orchestra project, which coordinates parallel Claude Code agents across multiple git worktrees with automated merge and build pipelines, is written entirely in Python using its async ecosystem. The claude-init tool — a zero-dependency CLI for generating project scaffolding — is also Python. Python's dominance in scientific computing (numpy, scipy, scikit-learn) and its REPL-friendly iteration cycle make it the right choice for research scripts and orchestration glue, even though it would be wholly inappropriate for the latency-sensitive Rust services.</p>
+<p><strong>Go</strong> backs the kokoro-staking platform with approximately 15,000 lines of application code. Go was chosen here for a specific reason: the staking backend makes concurrent cross-chain RPC queries against more than a dozen blockchain networks, and Go's <code>errgroup</code> concurrency primitive handles partial failures across those parallel requests more ergonomically than equivalent Rust or Python patterns. The <code>pgx/v5</code> PostgreSQL driver, the <code>gin</code> HTTP framework, and <code>shopspring/decimal</code> for arbitrary-precision financial arithmetic are all mature, well-maintained Go packages that make this a pragmatic choice for a service where concurrency and database performance are the primary concerns.</p>
+<h3 id="secondary-and-specialist-languages">Secondary and Specialist Languages<a class="headerlink" href="#secondary-and-specialist-languages" title="Permanent link">&para;</a></h3>
+<p>Several additional languages fill specific roles that neither the primary four nor general-purpose tooling can satisfy.</p>
+<p><strong>Solidity</strong> is used in the kokoro-liquidation-bot for the <code>FlashLiquidator.sol</code> contract, which implements the IERC3156 flash loan callback interface. On-chain Solidity is unavoidable when the logic must execute atomically within a single Ethereum transaction — flash loan initiation, collateral swap, debt repayment, and profit capture all happen inside a single contract call that reverts entirely if any step fails.</p>
+<p><strong>SQL</strong> is written directly in many places rather than hidden behind ORMs. The kokoro-mm codebase alone contains 58 migration pairs managed by SQLx, and the alpha-lab monorepo maintains its own schema evolution. Raw SQL is used deliberately: the query planner behavior of PostgreSQL 16 is more predictable when the developer controls the query text than when an ORM generates it from object graphs.</p>
+<p><strong>Shell and Bash</strong> appear in the claude-dev-pipeline skill, deployment scripts, and GitHub Actions workflows. These are kept minimal — complex logic is pushed into Rust or Python binaries — but shell remains irreplaceable for composing Unix utilities in CI pipelines.</p>
+<p><strong>TOML</strong>, while not a Turing-complete language, deserves mention because it structures two important artifacts: the Cargo workspace configuration files that define the 65-crate monorepo dependency graph, and the strategy artifact definitions in alpha-lab where human-readable configuration is a requirement.</p>
+<p><strong>YAML</strong> is the configuration language for Docker Compose service definitions, GitHub Actions CI pipeline declarations, and agent-orchestra team templates. The separation of YAML configuration from executable code is intentional: infrastructure topology and agent team compositions should be editable by operators without recompiling any binary.</p>
+<h3 id="historical-and-academic-languages">Historical and Academic Languages<a class="headerlink" href="#historical-and-academic-languages" title="Permanent link">&para;</a></h3>
+<p>Java (Spring framework), C/C++, Dart (Flutter), Kotlin, and Pug appear in the technology inventory as background competencies or legacy dependencies. Java and C/C++ reflect academic and professional foundations. Dart and Kotlin represent mobile development experience. Pug appears as a templating dependency in a blockchain-demo fork. None of these are active in current production systems.</p>
+<hr />
+<h2 id="2-the-rust-ecosystem-in-depth">2. The Rust Ecosystem in Depth<a class="headerlink" href="#2-the-rust-ecosystem-in-depth" title="Permanent link">&para;</a></h2>
+<p>The Rust dependency graph across the Kokoro ecosystem is extensive and carefully curated. What follows is a detailed account of every major crate category, what each library does at a technical level, and where it is deployed.</p>
+<h3 id="asynchronous-runtime-and-networking">Asynchronous Runtime and Networking<a class="headerlink" href="#asynchronous-runtime-and-networking" title="Permanent link">&para;</a></h3>
+<p>The entire Rust service layer is built on <strong>tokio 1.x</strong> with the <code>full</code> feature flag, which enables the multi-threaded work-stealing runtime (<code>rt-multi-thread</code>), async I/O and networking primitives, timers, macros (<code>tokio::select!</code>, <code>tokio::spawn</code>), synchronization primitives (<code>Mutex</code>, <code>RwLock</code>, <code>Semaphore</code>, <code>Notify</code>), signal handling, and filesystem access. Tokio is the only serious choice for Rust async I/O at production scale; its work-stealing scheduler and zero-cost <code>async/await</code> compilation model mean that the alpha-lab's 10 concurrent Redis Stream consumers, the liquidation-bot's parallel chain pollers, and the market-maker's WebSocket connections all run efficiently on a small thread pool without the overhead of spawning an OS thread per task.</p>
+<p><strong>axum 0.8</strong> is the HTTP framework for every REST API in the ecosystem: alpha-lab, kokoro-mm, liquidation-bot, polymarket-bot, kokoro-vpn, and the pricing service. Axum is built directly on top of tokio and hyper and uses a type-safe extractor pattern — request body, headers, path parameters, and query strings are parsed and validated by the type system before handler code runs. This eliminates an entire class of runtime errors at API boundaries. Axum was chosen over alternatives like actix-web because its integration with the tower middleware ecosystem is first-class, and because it composes naturally with the rest of the tokio stack.</p>
+<p><strong>tower and tower-http</strong> provide the middleware layer that wraps every axum router. The tower-http crate specifically adds CORS policy enforcement, per-route rate limiting, distributed tracing integration, response compression, and request timeout enforcement as reusable <code>Layer</code> implementations. These cross-cutting concerns are composed declaratively rather than wired inline in handler code, which keeps individual route handlers focused on business logic.</p>
+<p><strong>reqwest 0.12</strong> is the async HTTP client for all outbound API calls: Binance REST endpoints for OHLC candles and funding rates, Polymarket Gamma API for round discovery, Alpaca equity data REST endpoints, and Pyth Network oracle price feeds. Version 0.12 is current and aligns with the hyper 1.x release.</p>
+<p><strong>tonic 0.13</strong> and <strong>prost 0.13</strong> together implement gRPC communication between the three primary alpha-lab services — Lab, Engine, and Platform — which run as separate binaries but communicate over a local gRPC channel. Tonic generates client and server stubs from <code>.proto</code> files compiled by prost, giving the inter-service API the same typed contract guarantees as the REST layer. This is particularly important for the signal pipeline: a <code>Signal</code> message produced in Lab and consumed by Engine must survive serialization with zero ambiguity about field types and defaults.</p>
+<p><strong>tokio-tungstenite</strong> handles long-lived WebSocket connections to external data feeds: Binance spot and futures streams, the Polymarket CLOB order book, Deribit options volatility streams, and Solana program log subscriptions. WebSocket connections for financial data require careful reconnection logic — tokio-tungstenite provides the async read/write halves needed to implement exponential backoff reconnect with state preservation.</p>
+<h3 id="serialization-and-data-representation">Serialization and Data Representation<a class="headerlink" href="#serialization-and-data-representation" title="Permanent link">&para;</a></h3>
+<p><strong>serde 1.x</strong> is the universal serialization framework. Every domain type — orders, positions, signals, candles, strategy artifacts — carries <code>#[derive(Serialize, Deserialize)]</code> derived implementations. Serde's zero-cost abstraction means serialization of a struct compiles to the same machine code as hand-written encoding, with no runtime reflection.</p>
+<p><strong>serde_json 1.x</strong> handles JSON encoding for REST API request and response bodies, Redis Streams message values, and configuration files. JSON is chosen for external-facing APIs and human-readable configs because it is the lingua franca of web services; internally, Protocol Buffers replace JSON on the hot path.</p>
+<p><strong>prost 0.13</strong> appears twice in the dependency graph: as the gRPC message generator via tonic, and independently as the serialization codec for Redis Streams. The Redis Streams migration moved all 10 active streams in alpha-lab to a dual-format architecture where messages can be published and consumed in both JSON and protobuf encoding simultaneously. This enables a zero-downtime migration path: consumers can be upgraded to the proto codec one by one without breaking existing JSON consumers.</p>
+<p><strong>bincode</strong> provides binary serialization for performance-critical internal paths where neither human readability nor cross-language interoperability is required. Binary encoding is typically an order of magnitude faster to produce and consume than JSON and produces significantly smaller payloads, which matters for high-frequency signal data.</p>
+<p><strong>toml 0.8</strong> parses strategy artifact configuration files in alpha-lab. TOML is preferred over JSON for human-authored configuration because it supports comments, has cleaner multiline string syntax, and is less error-prone to write by hand.</p>
+<h3 id="database-and-state-management">Database and State Management<a class="headerlink" href="#database-and-state-management" title="Permanent link">&para;</a></h3>
+<p><strong>sqlx 0.8</strong> is the async PostgreSQL driver used across alpha-lab, kokoro-mm, and kokoro-vpn. Its defining feature is compile-time query verification: SQL query strings embedded in Rust source code are checked against the live database schema at compile time via the <code>sqlx::query!</code> and <code>sqlx::query_as!</code> macros. Type mismatches between Rust types and PostgreSQL column types become compiler errors rather than runtime panics. The kokoro-mm codebase manages 21 separate query modules and 58 migration pairs entirely through sqlx, giving the database schema the same level of version control rigor as application code.</p>
+<p><strong>redis 1.1</strong> (maintained as a custom fork with 0.27 compatibility shims) is the client for Redis 7.x, used as the primary message bus across all services. The alpha-lab architecture runs 10 named Redis Streams — one per major data domain — with consumer groups managed via <code>XREADGROUP</code> and <code>XACK</code>. Consumer group semantics guarantee exactly-once delivery within a group and enable independent consumer lag monitoring per stream. The kokoro-mm system uses Redis pub/sub alongside Streams for SSE event broadcasting to frontend clients.</p>
+<p><strong>rusqlite</strong> provides synchronous SQLite access in polymarket-bot (positions, signals, trade history) and kokoro-vpn. SQLite is the right choice for single-process workloads where an embedded database is sufficient and the operational overhead of a PostgreSQL server is not justified.</p>
+<p><strong>dashmap 6.x</strong> is the lock-free concurrent <code>HashMap</code> implementation used throughout the codebase as the primary shared-state primitive. In alpha-lab it backs the signal store, the strategy blackboard, the correlation matrix cache, and the portfolio orchestrator's position tracking. In the liquidation-bot it holds the <code>known_borrowers</code> map shared between the discovery thread, the health-factor polling loop, and the API handler. DashMap uses shard-based locking internally, achieving near-linear read throughput as thread count increases — a critical property for services where dozens of async tasks read shared state concurrently.</p>
+<h3 id="blockchain-and-cryptographic-primitives">Blockchain and Cryptographic Primitives<a class="headerlink" href="#blockchain-and-cryptographic-primitives" title="Permanent link">&para;</a></h3>
+<p><strong>alloy 1.x</strong> is the modern Ethereum interaction library, used in the liquidation-bot for building flash loan transactions, calling on-chain smart contract methods, and ABI-encoding calldata via the <code>sol!</code> macro. Alloy supersedes ethers-rs and provides a cleaner API for transaction building, provider multiplexing, and contract interaction. The kokoro-mm Polygon adapter also uses alloy for EVM chain interaction.</p>
+<p><strong>ethers and k256</strong> are retained in the polymarket-bot for ECDSA signing of EIP-712 structured data — specifically for signing Polymarket CLOB orders. EIP-712 defines how Ethereum wallets sign off-chain typed data in a way that is verifiable on-chain; k256 provides the secp256k1 elliptic curve primitives needed to produce these signatures.</p>
+<p><strong>solana-sdk 2.2</strong> handles Solana transaction construction, keypair management, and RPC interaction in the wallet-monitor service, which tracks Solana wallet activity and DEX interactions.</p>
+<p><strong>anchor-lang 0.30.1</strong> is the Solana program development framework used to build kokoro-protocol's 20 on-chain programs. Anchor generates the account validation, serialization boilerplate, and IDL (Interface Definition Language) file that TypeScript clients use to call programs. Version 0.30.1 is current as of the time of writing.</p>
+<p><strong>jsonwebtoken</strong> generates and validates JWT (JSON Web Tokens) for session authentication across all API servers. JWTs are stateless bearer tokens — the server encodes claims (user ID, tier, expiry) into a signed token, eliminating the need for a session database lookup on every authenticated request.</p>
+<p><strong>argon2</strong> handles password hashing in kokoro-mm and kokoro-vpn. Argon2id is the winner of the Password Hashing Competition and is the current NIST recommendation; it provides configurable memory, parallelism, and iteration cost parameters that make brute-force attacks computationally infeasible.</p>
+<p><strong>hmac and sha2</strong> implement HMAC-SHA256, used for authenticating requests to the Polymarket CLOB API, which requires a keyed message authentication code on each API call.</p>
+<p><strong>aes-gcm</strong> and <strong>hkdf</strong> together implement the wallet key management in kokoro-mm. Wallet private keys are encrypted at rest using AES-256-GCM (Authenticated Encryption with Associated Data), and each user's encryption key is derived from a master key using HKDF-SHA256 (HMAC-based Key Derivation Function). This means compromising a single user's derived key does not expose the master key or other users' keys — a standard defense-in-depth pattern for multi-tenant key management.</p>
+<h3 id="mathematics-and-signal-processing">Mathematics and Signal Processing<a class="headerlink" href="#mathematics-and-signal-processing" title="Permanent link">&para;</a></h3>
+<p>The quantitative layer of alpha-lab relies on a carefully selected set of scientific computing crates, each serving a distinct mathematical role.</p>
+<p><strong>nalgebra 0.34</strong> is the linear algebra library underlying the entire signal processing stack. It provides dense matrix and vector types with statically-verified dimensionality, used for: Kalman filter state transition matrices and covariance updates; Markowitz Mean-Variance Optimization via Cholesky decomposition of the covariance matrix; Unscented Kalman Filter (UKF) sigma point generation; and Particle Filter resampling weight normalization.</p>
+<p><strong>statrs 0.18</strong> provides statistical distribution implementations — Normal, Student-t, Chi-squared — with CDF (Cumulative Distribution Function), PDF (Probability Density Function), and quantile functions. These are used in Value-at-Risk calculations (where the Normal or Student-t quantile determines the loss threshold at a given confidence level) and in hypothesis testing within the signal evaluation pipeline.</p>
+<p><strong>rustfft</strong> provides Fast Fourier Transform computation for pairwise factor correlation analysis and the Hilbert transform, which converts a real-valued time series into its analytic signal representation (useful for instantaneous amplitude and phase extraction in cyclical markets).</p>
+<p><strong>good_lp 1.8</strong> with the <code>minilp</code> feature provides a linear programming solver for portfolio optimization problems that require hard allocation constraints, such as maximum per-asset weight bounds or sector exposure limits. LP solvers are more appropriate than gradient-based optimizers for these piecewise-linear constrained problems.</p>
+<p><strong>rand 0.8</strong> provides cryptographically-seeded pseudo-random number generation for Monte Carlo simulation (option pricing, scenario generation), particle filter resampling, and random search in hyperparameter optimization.</p>
+<p><strong>criterion 0.5</strong> is the benchmarking framework used to measure pipeline latency, compiled as <code>pipeline_bench.rs</code>. Criterion performs statistically rigorous timing measurements, using Welch's t-test to determine whether observed performance differences are statistically significant rather than noise.</p>
+<p><strong>petgraph</strong> provides directed graph data structures and algorithms used in wallet-monitor for fund-flow graph analysis. Transaction graphs between wallets are represented as directed graphs; Louvain community detection identifies clusters of wallets that move funds together, which is a primary signal for Sybil identification.</p>
+<h3 id="error-handling-and-observability">Error Handling and Observability<a class="headerlink" href="#error-handling-and-observability" title="Permanent link">&para;</a></h3>
+<p><strong>anyhow 1.x</strong> and <strong>thiserror 2.x</strong> are used together following a deliberate boundary: anyhow provides ergonomic <code>Result&lt;T&gt;</code> propagation inside application code (using the <code>?</code> operator to convert any error into a boxed <code>anyhow::Error</code>), while thiserror derives typed error enums at crate API boundaries where callers need to match on specific error variants.</p>
+<p><strong>tracing 0.1 and tracing-subscriber 0.3</strong> provide structured, span-based logging across all Rust services. The tracing crate allows code to emit events with structured key-value fields (<code>tracing::info!(order_id = %id, side = %side, "order accepted")</code>) and to open spans that represent units of work. The tracing-subscriber layer collects these events and formats them as JSON log lines or human-readable output, with full span context preserved. This structured approach is essential for correlating log events across concurrent async tasks where traditional line-based logging loses context.</p>
+<p><strong>chrono 0.4</strong> handles all datetime arithmetic: timestamp conversion between Unix milliseconds and <code>NaiveDateTime</code>, candle period boundary calculation, and cron-style scheduling for periodic rebalancing tasks.</p>
+<p><strong>clap 4.x</strong> provides declarative CLI argument parsing, used in kokoro-vpn and equivalent tools. Clap derives the argument structure from Rust structs and enums, generating help text and error messages automatically.</p>
+<p><strong>uuid 1.x</strong> generates Version 4 (random) UUIDs for order identifiers, position identifiers, and session tokens throughout the platform. UUIDs are 128-bit random identifiers with negligible collision probability and are safe to generate in distributed systems without coordination.</p>
+<hr />
+<h2 id="3-the-typescript-and-javascript-ecosystem">3. The TypeScript and JavaScript Ecosystem<a class="headerlink" href="#3-the-typescript-and-javascript-ecosystem" title="Permanent link">&para;</a></h2>
+<h3 id="frontend-framework-architecture">Frontend Framework Architecture<a class="headerlink" href="#frontend-framework-architecture" title="Permanent link">&para;</a></h3>
+<p>All user-facing interfaces are built on <strong>Next.js</strong> versions 15.x and 16.x, using <strong>React 19.x</strong> as the underlying UI library. Next.js was chosen over plain React for several practical reasons: its file-system-based routing eliminates boilerplate router configuration; its built-in API routes allow lightweight backend logic (like proxy routes for CORS management) to live alongside the frontend; and its static export mode (<code>next export</code>) enables the kokoro-tech marketing site to be deployed as a simple directory of HTML, CSS, and JavaScript files with no Node.js process required at runtime. React 19 introduces concurrent rendering features that improve perceived performance for data-intensive trading dashboards.</p>
+<p><strong>Vite 6.x</strong> is used as the build tool for kokoro-vpn's desktop client, where the Tauri integration requires a different build pipeline than Next.js provides. Vite's near-instant hot module replacement and fast production builds make it the preferred choice outside the Next.js context.</p>
+<h3 id="ui-component-architecture">UI Component Architecture<a class="headerlink" href="#ui-component-architecture" title="Permanent link">&para;</a></h3>
+<p>The UI component strategy is layered: <strong>Radix UI</strong> primitives (<code>@radix-ui/*</code> packages) provide unstyled, accessibility-compliant interactive components — Dialog, Dropdown Menu, Tooltip, Switch, Tabs, Select, and others — while <strong>shadcn/ui</strong> applies pre-designed Tailwind CSS styles on top of Radix in the alpha-lab frontend. This separation of behavior (Radix) from styling (Tailwind) means that accessibility guarantees (keyboard navigation, ARIA attributes, focus management) are provided by a well-tested library while visual design remains fully customizable.</p>
+<p><strong>Tailwind CSS v4</strong> is the utility-first CSS framework used across all frontends. Version 4 introduces a new CSS-native configuration system that removes the <code>tailwind.config.js</code> file in favor of CSS custom properties, reducing build toolchain complexity. Tailwind's utility class approach is particularly effective for trading interfaces where dense, information-rich layouts require precise spacing and typography control that semantic CSS abstractions make difficult.</p>
+<p><strong>Framer Motion</strong> provides declarative animation primitives used for scroll-triggered animations on the kokoro-tech marketing site and UI transitions in the trading dashboards. Framer Motion's layout animation system handles animated list reordering and component mount/unmount transitions without manual keyframe management.</p>
+<p><strong>Three.js</strong> appears in the technology stack inventory as a 3D rendering capability, reflecting familiarity with WebGL-based visualization.</p>
+<p><strong>@tauri-apps/api v2</strong> is the bridge between the kokoro-vpn's JavaScript frontend and the native Rust backend process managed by the Tauri framework. Tauri builds desktop applications by embedding a web view for the UI and a Rust binary for native system access, achieving native performance for VPN tunnel management while using a web-based UI toolkit.</p>
+<h3 id="data-visualization-and-charting">Data Visualization and Charting<a class="headerlink" href="#data-visualization-and-charting" title="Permanent link">&para;</a></h3>
+<p>The data visualization stack is intentionally diverse because different chart types require fundamentally different rendering approaches.</p>
+<p><strong>lightweight-charts 5.x</strong> (TradingView's open-source charting library) renders OHLC candlestick charts and price series in the alpha-lab frontend and kokoro-mm tick page. Lightweight-charts uses an HTML5 Canvas renderer optimized for financial time series — it can render thousands of candlesticks at 60 frames per second while streaming live tick updates, which a DOM-based SVG renderer cannot achieve.</p>
+<p><strong>Recharts 2.x and 3.x</strong> provides React component wrappers for common dashboard chart types — line charts, area charts, bar charts — used for P&amp;L visualization and equity curve displays. Recharts renders to SVG and integrates naturally with React's data flow model.</p>
+<p><strong>Chart.js 4.x with react-chartjs-2</strong> provides a second general-purpose charting option in the alpha-lab frontend, used for chart types where Chart.js's rendering model is more convenient than Recharts.</p>
+<p><strong>Plotly.js 3.x with react-plotly.js</strong> handles scientific and quantitative visualizations: scatter plots with regression lines, heatmaps for correlation matrices, and statistical distribution plots. Plotly's built-in support for logarithmic scales, error bars, and multi-axis layouts makes it appropriate for quant research output.</p>
+<p><strong>D3 7.x</strong> is used for custom data visualizations where neither Recharts nor Plotly provides sufficient control. D3 operates at the level of SVG elements and data binding — it is more verbose than chart libraries but enables arbitrary visualization designs.</p>
+<p><strong>@xyflow/react (React Flow) 12.x</strong> provides the node-graph canvas editor used in kokoro-mm's strategy builder and kokoro-pipeline's workflow designer. React Flow renders an interactive directed graph where nodes represent strategy components and edges represent data flow — a visual programming paradigm for composing trading strategies from modular building blocks.</p>
+<h3 id="state-management-and-real-time-data">State Management and Real-Time Data<a class="headerlink" href="#state-management-and-real-time-data" title="Permanent link">&para;</a></h3>
+<p><strong>Zustand 5.x</strong> manages client-side application state in kokoro-mm, where multiple UI components need shared access to strategies, open orders, active rounds, current positions, and live tick data. Zustand uses a minimal store API — a store is a plain JavaScript object with getter and setter functions — that avoids the boilerplate of Redux while providing the same predictable state update semantics.</p>
+<p><strong>SWR 2.x</strong> (Stale-While-Revalidate) handles data fetching with automatic caching, deduplication, and background revalidation in kokoro-mm hooks. SWR's model is simple: return cached data immediately, revalidate in the background, and update the UI when fresh data arrives. This gives trading interfaces a fast initial render without stale data persisting indefinitely.</p>
+<p><strong>EventSource (native browser API)</strong> with a custom exponential backoff reconnect implementation provides the alpha-lab frontend's real-time streaming data connection via Server-Sent Events. The <code>useSSE</code> hook wraps the native EventSource with automatic reconnection, making the connection resilient to network interruptions without the bidirectional complexity of WebSocket.</p>
+<h3 id="mcp-and-ai-tool-integration">MCP and AI Tool Integration<a class="headerlink" href="#mcp-and-ai-tool-integration" title="Permanent link">&para;</a></h3>
+<p><strong>@modelcontextprotocol/sdk 1.12+</strong> implements the Model Context Protocol server that exposes platform capabilities to Claude AI agents. The lab-mcp repository implements 98 MCP tools; the kokoro-mm MCP service implements 17 tools — 115 total across the ecosystem. MCP allows Claude to call platform APIs (run a backtest, fetch signal history, deploy a bot, check system health) as tool calls within a conversation, enabling AI-assisted trading strategy development and platform management.</p>
+<p><strong>Zod 3.x</strong> validates the input schema for every MCP tool at runtime. Zod schemas define the exact shape and type constraints for tool arguments, and validation errors are returned to the AI caller as structured error messages that can be corrected and retried.</p>
+<h3 id="nodejs-backend-and-cms">Node.js Backend and CMS<a class="headerlink" href="#nodejs-backend-and-cms" title="Permanent link">&para;</a></h3>
+<p><strong>Express</strong> serves the API layer in kokoro-pipeline's developer console. <strong>Prisma</strong> provides a type-safe PostgreSQL ORM with 30+ data models for the pipeline's marketplace, billing, and workflow management features — a higher-level abstraction than sqlx is appropriate here because kokoro-pipeline is a developer tooling product rather than a low-latency financial service.</p>
+<p><strong>Payload CMS 3.77</strong> is the headless content management system backing the happykokoro.com website. Payload provides a self-hosted admin interface for managing site content and handles the contact form submission pipeline, forwarding messages via the Resend email adapter.</p>
+<p><strong>Commander</strong> provides CLI argument parsing for the kokoro-pipeline command-line interface.</p>
+<p><strong>Stripe</strong> handles billing and payment processing in the kokoro-pipeline marketplace, managing subscription tiers, usage-based billing, and webhook-based payment event processing.</p>
+<h3 id="testing-infrastructure">Testing Infrastructure<a class="headerlink" href="#testing-infrastructure" title="Permanent link">&para;</a></h3>
+<p><strong>Vitest</strong> runs unit tests for the kokoro-mm frontend and kokoro-tech. Vitest uses the same configuration file format as Vite and has a Jest-compatible API, making migration from Jest straightforward while providing faster test execution through Vite's transform pipeline.</p>
+<p><strong>@testing-library/react</strong> provides component testing utilities that query the DOM by accessibility role, label text, and visible content rather than by CSS selector or component internals — encouraging tests that verify user-visible behavior rather than implementation details.</p>
+<p><strong>Playwright</strong> runs end-to-end browser tests against the happykokoro.com website, automating real browser interactions to verify that the contact form, navigation, and rendering all work correctly in a real browser environment.</p>
+<hr />
+<h2 id="4-the-python-ecosystem">4. The Python Ecosystem<a class="headerlink" href="#4-the-python-ecosystem" title="Permanent link">&para;</a></h2>
+<h3 id="web-framework-and-api-layer">Web Framework and API Layer<a class="headerlink" href="#web-framework-and-api-layer" title="Permanent link">&para;</a></h3>
+<p><strong>FastAPI</strong> serves as the REST API framework for the polymarket-bot strategy service (running on port 8100) and the kokoro-copy-trader (port 4500). FastAPI is built on Starlette and Pydantic and provides automatic OpenAPI documentation generation, type-annotated request and response models, and native async support via Python's <code>asyncio</code>. It is the clear choice for Python API servers that need to coexist with CPU-bound scientific computing.</p>
+<p><strong>Uvicorn</strong> is the ASGI server that runs FastAPI applications. ASGI (Asynchronous Server Gateway Interface) is the modern successor to WSGI, enabling true async request handling in Python web applications.</p>
+<p><strong>Pydantic v2</strong> handles all request and response validation. Pydantic v2 is a ground-up rewrite of v1 with a Rust-based validation engine (<code>pydantic-core</code>), providing dramatically faster validation for high-throughput API endpoints.</p>
+<h3 id="quantitative-finance-libraries">Quantitative Finance Libraries<a class="headerlink" href="#quantitative-finance-libraries" title="Permanent link">&para;</a></h3>
+<p>The Python quant layer assembles a standard but carefully chosen scientific stack.</p>
+<p><strong>arch</strong> fits GARCH(1,1) models to volatility time series using Maximum Likelihood Estimation. GARCH(1,1) — Generalized Autoregressive Conditional Heteroskedasticity — models the time-varying variance of financial returns, capturing the empirical phenomenon of volatility clustering where large price moves tend to follow large price moves. This model is used in the polymarket-bot strategy service to estimate current market volatility for position sizing.</p>
+<p><strong>scipy.stats</strong> provides the Student-t distribution CDF and other statistical functions. The Student-t distribution has heavier tails than the Normal distribution and better fits financial return distributions, particularly important for tail risk estimation.</p>
+<p><strong>scikit-learn (sklearn)</strong> provides Principal Component Analysis (PCA) for factor model decomposition in the polymarket-bot. PCA decomposes a matrix of correlated market features into uncorrelated principal components, reducing dimensionality and identifying the dominant risk factors driving price movements.</p>
+<p><strong>nolds</strong> calculates the Hurst exponent, which measures the long-range dependence and fractal characteristics of a time series. A Hurst exponent above 0.5 indicates a trending series; below 0.5 indicates mean-reversion. This metric is used to classify market regimes and select appropriate strategy modes.</p>
+<p><strong>pywt</strong> provides wavelet transforms for time-frequency analysis of price series. Unlike the Fourier transform, which decomposes a signal into pure sinusoids, the wavelet transform provides a time-localized frequency decomposition — useful for detecting regime changes where the dominant frequency content of a market shifts.</p>
+<p><strong>numpy</strong> is the foundational numerical computing library, providing the array primitives and linear algebra routines that all other scientific Python libraries build upon.</p>
+<h3 id="blockchain-and-trading-clients">Blockchain and Trading Clients<a class="headerlink" href="#blockchain-and-trading-clients" title="Permanent link">&para;</a></h3>
+<p><strong>py-clob-client</strong> is the official Polymarket CLOB (Central Limit Order Book) API client for Python, used in kokoro-copy-trader to place, cancel, and monitor orders on the Polymarket prediction market exchange.</p>
+<p><strong>httpx</strong> provides async HTTP client capabilities equivalent to Python's requests library but with full <code>asyncio</code> support, used for outbound API calls in the Python services.</p>
+<p><strong>websockets</strong> manages WebSocket connections for real-time market data feeds in the Python trading services.</p>
+<h3 id="orchestration-and-templating">Orchestration and Templating<a class="headerlink" href="#orchestration-and-templating" title="Permanent link">&para;</a></h3>
+<p><strong>aiosqlite</strong> provides async SQLite access for the agent-orchestra dashboard, storing agent run history, worktree states, and pipeline execution records without blocking the async event loop.</p>
+<p><strong>PyYAML</strong> parses the YAML team definition files that agent-orchestra uses to configure multi-agent pipelines — specifying which agents to spawn, their roles, and the coordination protocol between them.</p>
+<p><strong>Jinja2</strong> renders the HTML dashboard served by agent-orchestra, templating dynamic data (agent status, worktree states, approval cards) into the web interface.</p>
+<hr />
+<h2 id="5-the-go-ecosystem">5. The Go Ecosystem<a class="headerlink" href="#5-the-go-ecosystem" title="Permanent link">&para;</a></h2>
+<p>The kokoro-staking backend is the primary Go project, and its dependency graph reflects Go's strengths in networked, concurrent systems.</p>
+<p><strong>Gin</strong> is the HTTP framework, providing a minimal but fast router for the staking API. Gin's context-based middleware composition and clean handler signature make it the most popular Go web framework for API-first services.</p>
+<p><strong>pgx/v5</strong> is the high-performance PostgreSQL driver, used directly rather than through a Go ORM. Like sqlx in Rust, pgx provides prepared statement support and connection pooling at the driver level.</p>
+<p><strong>go-ethereum</strong> provides Ethereum chain interaction capabilities for the staking service, which needs to read on-chain staking contract state and submit transactions.</p>
+<p><strong>Cobra</strong> provides the CLI framework for any command-line tooling in the Go ecosystem.</p>
+<p><strong>shopspring/decimal</strong> is a critical dependency for a financial application: Go's native <code>float64</code> type uses IEEE 754 floating-point arithmetic, which introduces rounding errors in financial calculations (0.1 + 0.2 ≠ 0.3 in floating-point). The shopspring/decimal package provides arbitrary-precision decimal arithmetic that handles financial rounding correctly.</p>
+<p><strong>errgroup</strong> (from <code>golang.org/x/sync</code>) enables concurrent goroutine groups where partial failures are collected and returned together. The staking backend uses this for fan-out cross-chain queries — querying 13+ blockchain networks simultaneously where any subset may time out or return errors — with a single clean failure boundary.</p>
+<p><strong>Zap</strong> provides structured JSON logging from Uber's engineering team, analogous to the <code>tracing</code> crate in the Rust services.</p>
+<p><strong>Prometheus</strong> client library instruments every RPC call in the staking service with request duration histograms and error counters, feeding the centralized Prometheus scrape endpoint.</p>
+<hr />
+<h2 id="6-solana-and-blockchain-infrastructure">6. Solana and Blockchain Infrastructure<a class="headerlink" href="#6-solana-and-blockchain-infrastructure" title="Permanent link">&para;</a></h2>
+<h3 id="on-chain-program-architecture-kokoro-protocol">On-Chain Program Architecture (kokoro-protocol)<a class="headerlink" href="#on-chain-program-architecture-kokoro-protocol" title="Permanent link">&para;</a></h3>
+<p>The kokoro-protocol repository contains 20 Solana programs written in Rust using the <strong>Anchor 0.30.1</strong> framework. Anchor dramatically reduces the boilerplate required to write Solana programs: it provides the <code>#[program]</code> and <code>#[derive(Accounts)]</code> macros that automatically generate account ownership validation, signer verification, and discriminator checking — the most common source of security vulnerabilities in hand-written Solana programs.</p>
+<p>The 20 programs are organized into five functional categories. The six infrastructure programs — <code>platform_treasury</code>, <code>platform_token</code>, <code>user_vault</code>, <code>house_pool</code>, <code>reward_pool</code>, and <code>governance</code> — form the financial backbone: token minting and redemption, user fund custody, liquidity pool management, and on-chain governance voting. The five DeFi programs — <code>dex_amm</code>, <code>lending_protocol</code>, <code>yield_vaults</code>, <code>liquidation_engine</code>, and <code>leveraged_betting</code> — implement core DeFi primitives. The seven casino and gaming programs provide provably fair game logic for dice, crash, coin flip, slots, sports betting, d20 rolls, and escrow management. The prediction market program and NFT auction program complete the suite.</p>
+<p><strong>SPL Token</strong> and <strong>SPL Associated Token Account</strong> are the Solana Program Library standards for fungible tokens and user token accounts, used throughout the protocol for the platform token mint and redemption flows.</p>
+<h3 id="dex-integration-layer">DEX Integration Layer<a class="headerlink" href="#dex-integration-layer" title="Permanent link">&para;</a></h3>
+<p>The wallet-monitor and pricing-service interact with four Solana DEXes through direct account state parsing and API integration.</p>
+<p><strong>Jupiter V6</strong> is Solana's dominant swap aggregator, and the integration covers its swap routing API, quote API with slippage estimation and depth analysis, and execution path selection. Jupiter routes swaps across all major Solana liquidity sources, so integrating Jupiter effectively integrates the entire Solana DeFi liquidity landscape.</p>
+<p><strong>Raydium AMM</strong> integration parses pool account state directly from the Solana ledger to detect swap transactions and read current pool prices.</p>
+<p><strong>Orca Whirlpool</strong> integration tracks concentrated liquidity positions and detects swap events in the Orca concentrated liquidity AMM.</p>
+<p><strong>Pump.fun</strong> is monitored by program ID detection — the wallet-monitor identifies when wallets interact with the Pump.fun memecoin launchpad, which is a meaningful signal about wallet risk appetite.</p>
+<p><strong>Uniswap V3</strong> integration appears in the liquidation-bot, which uses <code>exactInputSingle</code> for collateral-to-debt asset swaps as part of the flash liquidation path. The integration uses QuoterV2 on-chain quotes for accurate pre-trade price estimation and handles fee tier selection (0.05%, 0.3%, 1%) based on the asset pair being swapped.</p>
+<h3 id="evm-chain-coverage">EVM Chain Coverage<a class="headerlink" href="#evm-chain-coverage" title="Permanent link">&para;</a></h3>
+<p>The liquidation-bot monitors undercollateralized positions across six EVM-compatible chains. <strong>Ethereum mainnet</strong> runs Aave V3 and Compound V3. <strong>Base</strong> runs four protocols: Aave V3, Seamless (an Aave V3 fork with its own parameter set), Compound V3, and Moonwell (a Compound V2 fork with Base-native incentives). <strong>Arbitrum</strong> and <strong>Polygon</strong> each run Aave V3 and Compound V3. <strong>Optimism</strong> and <strong>Avalanche</strong> both run Aave V3. The pluggable <code>ProtocolAdapter</code> trait in the liquidation-bot codebase allows new protocols and chains to be added without modifying the core execution or discovery logic.</p>
+<h3 id="prediction-market-integrations">Prediction Market Integrations<a class="headerlink" href="#prediction-market-integrations" title="Permanent link">&para;</a></h3>
+<p><strong>Polymarket</strong> is integrated at two levels. The CLOB (Central Limit Order Book) API integration is the deepest: it covers REST endpoint scanning for market discovery, WebSocket streaming for real-time order book updates, EIP-712 typed data signing for order construction, HMAC-SHA256 authentication for private endpoints, fill detection, and CTF (Conditional Token Framework) operations — <code>splitPosition</code>, <code>mergePositions</code>, and <code>redeem</code> — for managing binary outcome tokens on Polygon. The Gamma API provides higher-level market metadata and round discovery. This integration depth is present in both kokoro-mm and kokoro-polymarket-bot.</p>
+<p><strong>Kalshi</strong> and <strong>Manifold</strong> are integrated as venue router adapters in kokoro-mm's market provider abstraction layer, enabling the strategy engine to route orders to the most favorable liquidity venue across multiple prediction markets.</p>
+<h3 id="exchange-data-feed-architecture">Exchange Data Feed Architecture<a class="headerlink" href="#exchange-data-feed-architecture" title="Permanent link">&para;</a></h3>
+<p>The system ingests market data from five external sources, each serving a distinct data role. <strong>Binance</strong> provides spot prices, perpetual futures funding rates, open interest, and funding rate predictions via both WebSocket streams (for real-time tick data) and REST endpoints (for historical data). <strong>Coinbase</strong> provides spot reference prices via REST. <strong>Deribit</strong> streams options implied volatility data via WebSocket, which feeds the options pricing models in alpha-lab. <strong>Pyth Network</strong> provides oracle price feeds for both on-chain and off-chain consumption, used as reference prices in strategy logic. <strong>Alpaca</strong> provides equity market bar data and real-time quotes via both REST and WebSocket, consumed by the <code>exec-alpaca</code> crate in alpha-lab.</p>
+<h3 id="wasm-strategy-plugin-system">WASM Strategy Plugin System<a class="headerlink" href="#wasm-strategy-plugin-system" title="Permanent link">&para;</a></h3>
+<p>Alpha-lab implements a WebAssembly-based plugin architecture for user-compiled strategy factors, consisting of three components. The <code>wasm32-unknown-unknown</code> compilation target allows Rust code to be compiled to WASM bytecode without any system dependencies. The <code>factor-sdk</code> crate provides the <code>kokoro_factor!</code> macro, which generates the WASM export function signatures and boilerplate needed for a user's factor function to be callable from the host runtime. The <code>factor-wasm</code> crate hosts compiled WASM modules at runtime as native <code>AlphaFactor</code> trait objects, using a WASM runtime (such as Wasmtime or Wasmer) to execute sandboxed user code within the alpha-lab signal pipeline. This architecture allows users to write custom alpha factors in Rust, compile them to WASM, and upload them to the platform without ever running untrusted native code.</p>
+<hr />
+<h2 id="7-database-and-storage-architecture">7. Database and Storage Architecture<a class="headerlink" href="#7-database-and-storage-architecture" title="Permanent link">&para;</a></h2>
+<p>The storage layer uses three complementary databases, each selected for a specific access pattern.</p>
+<p><strong>PostgreSQL 16</strong> is the primary OLTP (Online Transaction Processing) database for all persistent, relational data. In alpha-lab it stores backtest results, portfolio events, and position history. In kokoro-mm it manages 21 query modules covering strategies, orders, rounds, positions, wallet keys, user accounts, and billing data, with 58 migration pairs tracking the schema evolution. In kokoro-staking it stores staking positions and reward calculations. In kokoro-pipeline it backs the Prisma ORM with 30+ models for marketplace, billing, and user management. PostgreSQL 16 was chosen for its mature ACID guarantees, rich query planner, JSONB support for schema-flexible data, and the excellent Rust (sqlx) and Go (pgx) driver ecosystems.</p>
+<p><strong>Redis 7.x</strong> serves as the message bus and real-time event backbone. The alpha-lab architecture uses 10 named Redis Streams — one per data domain (signals, candles, fills, portfolio events, etc.) — with consumer groups managed via <code>XREADGROUP</code> and <code>XACK</code>. Consumer group semantics ensure that each message is processed exactly once per consumer group, and that unacknowledged messages are redeliverable after a timeout if a consumer crashes. Kokoro-mm uses Redis pub/sub for broadcasting real-time events to the SSE (Server-Sent Events) endpoint that frontend clients subscribe to. The dual-format proto migration added Protocol Buffer encoding alongside JSON on all 10 streams, enabling a zero-downtime codec migration.</p>
+<p><strong>SQLite</strong> is used for lightweight, single-process persistence where PostgreSQL's client-server architecture would add unnecessary operational complexity. The polymarket-bot stores trade history and signal records in SQLite via rusqlite. Kokoro-vpn uses sqlx with SQLite for its tunnel and peer configuration database. Kokoro-copy-trader and the happykokoro.com Payload CMS instance also use SQLite.</p>
+<p><strong>JSONL (JSON Lines)</strong> append-only event logs provide an immutable audit trail for the alpha-lab event store and liquidation-bot P&amp;L recording. Appending to a file is faster than any database write for high-frequency event recording, and JSONL files are trivially processable by standard Unix tools and Python scripts.</p>
+<hr />
+<h2 id="8-infrastructure-and-devops">8. Infrastructure and DevOps<a class="headerlink" href="#8-infrastructure-and-devops" title="Permanent link">&para;</a></h2>
+<h3 id="containerization-and-service-orchestration">Containerization and Service Orchestration<a class="headerlink" href="#containerization-and-service-orchestration" title="Permanent link">&para;</a></h3>
+<p>Every production service runs in a Docker container with a multi-stage build: the first stage compiles the Rust binary (or Node.js bundle) in a full build environment; the second stage copies only the compiled binary and runtime dependencies into a minimal base image, producing containers that are typically under 100MB. This dramatically reduces attack surface and image pull times.</p>
+<p><strong>Docker Compose</strong> orchestrates services on all three production servers. The kokoro-services repository defines 11 utility containers (the self-hosted services described below). Each application repo has its own <code>docker-compose.yml</code> for local development and production deployment.</p>
+<p><strong>Caddy</strong> handles reverse proxying and automatic TLS on the AWS Ireland server running kokoro-mm. Caddy integrates with Let's Encrypt automatically: it requests, receives, and renews TLS certificates without configuration, eliminating the manual certificate rotation work that Nginx requires.</p>
+<p><strong>Nginx</strong> handles reverse proxying on the main DigitalOcean server, where the more complex multi-service routing and existing configuration warranted its continued use.</p>
+<p><strong>PM2</strong> manages Node.js process lifecycles for any Node.js services that run outside Docker, providing process supervision, log aggregation, and automatic restart on crash.</p>
+<p><strong>systemd</strong> manages long-running native service processes — the VPN daemon and certain bot processes — at the operating system level.</p>
+<h3 id="continuous-integration-and-deployment">Continuous Integration and Deployment<a class="headerlink" href="#continuous-integration-and-deployment" title="Permanent link">&para;</a></h3>
+<p>Every repository runs <strong>GitHub Actions</strong> CI pipelines triggered on push and pull request. Rust pipelines execute <code>cargo build --release</code>, <code>cargo clippy -D warnings</code> (treating all lint warnings as errors), <code>cargo fmt --check</code> (enforcing consistent formatting), <code>cargo deny check</code> (license compliance and vulnerability audit), and the full test suite. TypeScript pipelines run <code>npm run build</code> and test suites. These gates prevent untested or lint-failing code from being merged.</p>
+<p>Deployment tooling is appropriately minimal. <strong>rsync</strong> deploys the kokoro-tech static site by synchronizing the built output directory to the production server. <strong>SCP</strong> deploys compiled binaries for the copy-trader and liquidation-bot. Neither approach requires a container registry or deployment platform for services where simplicity is more valuable than rollback sophistication.</p>
+<p><strong>cargo-deny</strong> deserves particular mention as a CI gate: it checks all transitive Rust dependencies against known vulnerability databases and license compatibility matrices, ensuring that no dependency with a security advisory or an incompatible license can be merged into the codebase.</p>
+<h3 id="infrastructure-as-code">Infrastructure as Code<a class="headerlink" href="#infrastructure-as-code" title="Permanent link">&para;</a></h3>
+<p><strong>Terraform</strong> provisions the DigitalOcean droplets and AWS EC2 instances used in production, with the kokoro-vpn infrastructure as the primary managed resource. Infrastructure as code ensures that server configurations are reproducible and version-controlled.</p>
+<h3 id="monitoring-and-observability">Monitoring and Observability<a class="headerlink" href="#monitoring-and-observability" title="Permanent link">&para;</a></h3>
+<p>The observability stack provides full-stack visibility from individual request latency to service health.</p>
+<p><strong>Prometheus</strong> scrapes metrics from all Rust services via the tower-http metrics middleware, which automatically instruments every HTTP request with duration histograms, status code counters, and in-flight request gauges. The Go staking service also instruments every RPC call individually. Prometheus stores metrics as time-series data optimized for range queries and alerting.</p>
+<p><strong>Grafana</strong> visualizes Prometheus metrics as dashboards, with the primary oncall latency dashboard available at <code>grafana.internal/d/api-latency</code>. Grafana's alerting system fires notifications when latency or error rate thresholds are breached.</p>
+<p><strong>OpenTelemetry</strong> provides distributed tracing, allowing a single user request to be followed across service boundaries — from the frontend through the REST API through the gRPC internal service call — as a single trace with timing for each span.</p>
+<p><strong>Uptime Kuma</strong> (self-hosted, port 3003) monitors service availability by making periodic HTTP health checks against all production endpoints, providing uptime history and alerting on downtime.</p>
+<p><strong>Umami</strong> (self-hosted, port 3001) provides GDPR-compliant web analytics for the public-facing frontends without sending user data to third-party analytics services.</p>
+<h3 id="networking-and-security-architecture">Networking and Security Architecture<a class="headerlink" href="#networking-and-security-architecture" title="Permanent link">&para;</a></h3>
+<p>The three production servers — DigitalOcean Singapore, AWS Ireland, and AWS London — are connected by a <strong>WireGuard</strong> VPN mesh. WireGuard operates in two topologies: a hub-and-spoke mode (10.8.0.0/24) where all traffic flows through a central node, and a full-mesh mode (10.10.0.0/24) where each server maintains direct tunnels to all others. WireGuard's cryptographic design uses Noise Protocol Framework handshakes with Curve25519 key exchange and ChaCha20-Poly1305 encryption, providing modern authenticated encryption with significantly less attack surface than OpenVPN or IPSec.</p>
+<p><strong>Cloudflare</strong> sits in front of all public-facing services, providing DNS resolution, CDN edge caching, and DDoS attack mitigation. Cloudflare's network absorbs volumetric attacks before they reach the origin servers.</p>
+<p><strong>Let's Encrypt</strong> (via Caddy's ACME integration) manages TLS certificate lifecycle automatically, ensuring all HTTPS connections use valid, up-to-date certificates without manual intervention.</p>
+<p>The authentication and key management stack is defense-in-depth: <strong>TOTP RFC 6238</strong> provides time-based one-time passwords for two-factor authentication in kokoro-mm; <strong>AES-256-GCM</strong> encrypts wallet private keys at rest; <strong>HKDF-SHA256</strong> derives per-user encryption keys from a master secret; <strong>Argon2id</strong> hashes passwords with configurable memory and CPU cost; <strong>JWT</strong> provides stateless session tokens; and <strong>HMAC-SHA256</strong> authenticates API calls to external services.</p>
+<p><strong>Flashbots</strong> MEV protection is used for Ethereum liquidation transactions in the liquidation-bot. Flashbots allows transactions to be submitted to validators privately via a bundle submission mechanism, bypassing the public mempool and preventing front-running bots from detecting and sandwiching profitable liquidation transactions.</p>
+<p><strong>SOPS</strong> (Secrets OPerationS) manages encrypted configuration files, allowing secrets to be stored in version control in encrypted form and decrypted at deployment time using cloud key management service keys.</p>
+<h3 id="self-hosted-service-ecosystem">Self-Hosted Service Ecosystem<a class="headerlink" href="#self-hosted-service-ecosystem" title="Permanent link">&para;</a></h3>
+<p>The kokoro-services repository defines eleven self-hosted utility services running on the DigitalOcean server, each serving a specific internal operational need. <strong>Umami</strong> (port 3001) provides privacy-first web analytics. <strong>Gitea</strong> (port 3002) is a self-hosted Git server for repositories that should not be publicly accessible. <strong>Uptime Kuma</strong> (port 3003) monitors all service endpoints. <strong>Excalidraw</strong> (port 3004) is a collaborative whiteboard for architecture diagrams. <strong>Homepage</strong> (port 3005) is a service dashboard aggregating status across all internal tools. <strong>Shlink</strong> with its web UI (ports 8080 and 8081) provides URL shortening for internal links. <strong>PrivateBin</strong> (port 8082) is an encrypted paste bin for sharing sensitive text internally. <strong>Linkding</strong> (port 9090) is a self-hosted bookmark manager. <strong>Syncthing</strong> (port 8384) handles file synchronization between development machines and servers.</p>
+<h3 id="cloud-infrastructure">Cloud Infrastructure<a class="headerlink" href="#cloud-infrastructure" title="Permanent link">&para;</a></h3>
+<p>The production infrastructure spans two cloud providers across three regions.</p>
+<p>The <strong>DigitalOcean</strong> server (4 vCPU / 8 GB RAM, Singapore region) is the main production hub, hosting the alpha-lab Lab, Engine, and Platform services, the Next.js frontend, the lab-mcp server, the payment service, Prometheus, Grafana, and all the self-hosted utility services described above. Its Singapore location provides low latency to Southeast Asian users and acceptable latency to the Asian cryptocurrency markets the alpha-lab monitors.</p>
+<p>Two <strong>AWS EC2</strong> instances handle the remaining services. A <code>t3.medium</code> (2 vCPU / 4 GB RAM) in the Ireland (<code>eu-west-1</code>) region runs kokoro-mm and kokoro-polymarket-bot, with low latency to European Polymarket users and the AWS network backbone. A <code>t3.small</code> (2 vCPU / 2 GB RAM) in the London (<code>eu-west-2</code>) region runs kokoro-copy-trader and stores market data, co-located with the AWS London zone for proximity to UK financial market data sources.</p>
+<hr />
+<h2 id="9-ai-machine-learning-and-agent-infrastructure">9. AI, Machine Learning, and Agent Infrastructure<a class="headerlink" href="#9-ai-machine-learning-and-agent-infrastructure" title="Permanent link">&para;</a></h2>
+<h3 id="claude-code-integration-architecture">Claude Code Integration Architecture<a class="headerlink" href="#claude-code-integration-architecture" title="Permanent link">&para;</a></h3>
+<p>The ecosystem has deep integration with Claude Code as an AI development tool and autonomous agent platform. The <strong>Claude Code CLI</strong> is the primary development interface, used with the <code>--dangerously-skip-permissions</code> flag to enable fully autonomous operation in non-interactive pipeline mode.</p>
+<p>The <strong>Model Context Protocol (MCP)</strong> server infrastructure exposes 115 platform tools to Claude across two MCP servers: 98 tools in lab-mcp and 17 tools in kokoro-mm's embedded MCP service. These tools cover the full operational surface of both platforms — running backtests, inspecting signal history, deploying bots, checking system health, managing strategies, and monitoring positions. Claude can invoke these tools as function calls within a conversation, enabling AI-assisted strategy development where the AI can iteratively run experiments, observe results, and refine strategies without human intervention at each step.</p>
+<p><strong>Claude Code Skills</strong> are custom workflow definitions (following the SKILL.md protocol) that encode complex multi-step operations: <code>dev-pipeline</code> for parallel multi-agent code generation, <code>signal-pipeline</code> for signal processing workflows, <code>risk-management</code> for portfolio risk analysis, <code>kalman-filter</code> for filter configuration, <code>polymarket-arbitrage</code> for arbitrage opportunity analysis, <code>anchor-patterns</code> for Solana program patterns, and <code>dex-integration</code> for DEX adapter implementation.</p>
+<p><strong>agent-orchestra</strong> is the multi-agent coordination platform, running orchestrated Claude Code agent teams — feature-dev (3-agent architect/implementer/reviewer), build-fix (single-agent focused compilation), code-review, debug, and research — across parallel git worktrees with automated merge, build, and test pipelines. The General Manager (GM) module automates the full lifecycle: launch → wait → analyze → merge → build → test, with an approval gate that pauses for human decision on merge conflicts or test failures.</p>
+<h3 id="ai-and-machine-learning-techniques">AI and Machine Learning Techniques<a class="headerlink" href="#ai-and-machine-learning-techniques" title="Permanent link">&para;</a></h3>
+<p>The alpha-lab signal processing pipeline implements several machine learning and statistical techniques directly in Rust.</p>
+<p>The <strong>DQN (Deep Q-Network)</strong> implementation in the <code>factor-ai</code> crate includes an experience replay buffer for breaking correlation between training samples, a Q-network for action-value estimation, and epsilon-greedy exploration for balancing exploitation of known good actions against exploration of new ones. This reinforcement learning agent can learn trading policies from simulated market experience.</p>
+<p>The <strong>LLM Integration</strong> in the <code>copilot</code> crate provides four AI-assisted tools: a factor advisor that explains why a given factor is or is not generating signal, a risk explainer that translates portfolio risk metrics into natural language, a strategy generator that proposes new strategy configurations from performance data, and a trace analyzer that diagnoses why a strategy is underperforming.</p>
+<p><strong>Conformal Prediction</strong> provides statistically calibrated prediction intervals in both alpha-lab and kokoro-mm. Rather than returning a point prediction, conformal prediction returns a set of outcomes that contains the true outcome with a user-specified coverage probability (95% by default). This is achieved through a rolling calibration set that tracks historical prediction errors and sets quantile-based bounds on future predictions.</p>
+<p><strong>Expert Aggregator</strong> (in the <code>prediction</code> crate) implements the Hedge algorithm — a multiplicative weights update rule — to combine predictions from multiple independent forecasting models. Each model's weight is updated multiplicatively based on its prediction errors, applying an exponential loss penalty for confident wrong predictions. This ensemble approach is more robust than any single forecasting model.</p>
+<p><strong>PCA factor decomposition</strong> in the polymarket-bot Python strategy service uses scikit-learn to reduce a high-dimensional feature set (derived from market data) into a small number of uncorrelated principal components, improving model generalization by removing multicollinearity.</p>
+<hr />
+<h2 id="10-protocols-and-standards">10. Protocols and Standards<a class="headerlink" href="#10-protocols-and-standards" title="Permanent link">&para;</a></h2>
+<p>The ecosystem implements and adheres to a comprehensive set of networking, financial, and security standards.</p>
+<p><strong>EIP-712</strong> (Ethereum Improvement Proposal 712) defines the typed structured data signing scheme used for Polymarket CLOB order construction. EIP-712 allows Ethereum accounts to sign off-chain structured data — such as a limit order with price, size, and expiry — in a format that is both human-readable in wallet UIs and verifiable on-chain. This is the standard for all decentralized exchange order signing.</p>
+<p><strong>ERC-1155</strong> is the multi-token standard governing Conditional Token Framework (CTF) position tokens on Polygon — the on-chain representation of Polymarket prediction market positions. Each market outcome is a distinct ERC-1155 token ID.</p>
+<p><strong>gRPC</strong> with <strong>Protocol Buffers proto3</strong> provides the internal service communication bus between the Lab, Engine, and Platform services in alpha-lab, as well as the dual-format Redis Streams serialization layer.</p>
+<p><strong>SSE (Server-Sent Events)</strong> and <strong>WebSocket</strong> cover the real-time data streaming requirements, with SSE used for server-to-client push (signal updates, tick data, news feeds) and WebSocket used for bidirectional exchange data feeds.</p>
+<p><strong>JSON-RPC</strong> is the wire protocol for Ethereum and Solana RPC node communication — the standard interface exposed by all EVM nodes (via Infura, Alchemy, or public providers) and Solana validators.</p>
+<p><strong>TOTP RFC 6238</strong> implements the time-based one-time password algorithm for two-factor authentication, generating a 6-digit code that changes every 30 seconds based on the current Unix time and a shared secret.</p>
+<p><strong>FIX Protocol</strong> is stubbed in kokoro-mm Phase 8 scope for institutional connectivity. FIX (Financial Information eXchange) is the industry standard messaging protocol for institutional order routing and execution reporting.</p>
+<p><strong>SCIM 2.0</strong>, <strong>SAML</strong>, and <strong>OIDC</strong> are specified in kokoro-pipeline's enterprise features for identity provisioning and single sign-on.</p>
+<p><strong>IERC3156</strong> is the ERC standard for flash loan callback interfaces, implemented by the <code>FlashLiquidator.sol</code> contract in the liquidation-bot. IERC3156 defines the <code>onFlashLoan</code> callback signature that flash loan providers (Aave, Morpho) call after disbursing the loan, within which the borrower must execute their arbitrage or liquidation logic and repay the loan plus fee.</p>
+<hr />
+<h2 id="11-scale-and-totals">11. Scale and Totals<a class="headerlink" href="#11-scale-and-totals" title="Permanent link">&para;</a></h2>
+<p>To close, a summary of the ecosystem's breadth.</p>
+<p>Seven programming languages are in active production use: Rust, TypeScript, Python, Go, Solidity, SQL, and Shell. The Rust workspace carries 50 or more unique crate dependencies; the npm packages across all frontends number 80 or more; the Python library count stands at 15 or more; and the Go module count is 8 or more.</p>
+<p>Three databases serve the storage layer: PostgreSQL 16 for relational persistence, Redis 7 for message streaming and real-time events, and SQLite for lightweight embedded persistence.</p>
+<p>Eight blockchain networks are actively monitored or transacted on: Ethereum, Base, Arbitrum, Polygon, Optimism, Avalanche, and Solana — with Cosmos and 13 additional chains via the kokoro-staking platform. Eight DeFi protocols are integrated: Aave V3, Compound V3, Seamless, Moonwell, Jupiter, Raydium, Orca, and Pump.fun. Five exchange integrations feed market data: Binance, Coinbase, Deribit, Pyth Network, and Polymarket. Twenty on-chain Anchor programs are deployed in kokoro-protocol.</p>
+<p>The AI integration layer exposes 115 MCP tools to Claude across two servers. The production deployment runs 12 or more Docker containers across two cloud providers (AWS and DigitalOcean) in three geographic regions (Singapore, Ireland, London), connected by a WireGuard VPN mesh and protected by Cloudflare at the edge.</p>
+<p>The stack represents a coherent, production-tested architecture for a multi-product quantitative finance and decentralized finance platform, with deliberate language selection, defense-in-depth security, and full observability from request metrics to distributed traces.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/happykokoro" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://tech.happykokoro.com" target="_blank" rel="noopener" title="tech.happykokoro.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2m-5.15 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56M14.34 14H9.66c-.1-.66-.16-1.32-.16-2s.06-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2M12 19.96c-.83-1.2-1.5-2.53-1.91-3.96h3.82c-.41 1.43-1.08 2.76-1.91 3.96M8 8H5.08A7.92 7.92 0 0 1 9.4 4.44C8.8 5.55 8.35 6.75 8 8m-2.92 8H8c.35 1.25.8 2.45 1.4 3.56A8 8 0 0 1 5.08 16m-.82-2C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2M12 4.03c.83 1.2 1.5 2.54 1.91 3.97h-3.82c.41-1.43 1.08-2.77 1.91-3.97M18.92 8h-2.95a15.7 15.7 0 0 0-1.38-3.56c1.84.63 3.37 1.9 4.33 3.56M12 2C6.47 2 2 6.5 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
