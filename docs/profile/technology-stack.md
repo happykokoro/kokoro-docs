@@ -1,6 +1,6 @@
 # Technology Stack — Complete Inventory
 
-> Comprehensive catalog of every language, framework, library, tool, protocol, and service used across the Kokoro ecosystem. Organized by category with specific version numbers, usage context, and which projects employ each technology.
+> Comprehensive catalog of every language, framework, library, tool, protocol, and service used across the Kokoro ecosystem. Organized by category with specific version numbers, usage context, and which projects employ each technology. Aligned with 2026 CNCF cloud-native standards.
 
 ---
 
@@ -19,7 +19,7 @@
 
 | Language         | Context                                                                                  |
 | ---------------- | ---------------------------------------------------------------------------------------- |
-| **PHP**          | Laravel 11 enterprise projects (graduate studies), Blade templating, Composer            |
+| **PHP**          | Laravel 11 enterprise projects, Blade templating, Composer                               |
 | **Solidity**     | FlashLiquidator.sol (kokoro-liquidation-bot), on-chain contracts                         |
 | **SQL**          | PostgreSQL schemas, SQLx migrations (58 migration pairs in kokoro-mm alone), raw queries |
 | **Shell / Bash** | claude-dev-pipeline skill, deployment scripts, CI/CD workflows                           |
@@ -42,18 +42,20 @@
 
 ## 2. Rust Ecosystem (Deep Expertise)
 
+Rust is the primary systems language across the platform. As of 2026, Rust is described as "non-negotiable for serious HFT" in industry discourse, with the first TokioConf announced for 2026 and projects like MeV-RS demonstrating Rust's role in production DeFi MEV infrastructure. The platform's 330,000+ lines of production Rust represent a direct investment in this trajectory.
+
 ### Async Runtime & Networking
 
-| Crate                  | Version   | Usage                                                                                                                       |
-| ---------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------- |
-| `tokio`                | 1.x       | Primary async runtime across all Rust projects. Features: `full` (rt-multi-thread, io, net, time, macros, sync, signal, fs) |
-| `axum`                 | 0.8       | HTTP framework for all REST APIs (alpha-lab, kokoro-mm, liquidation-bot, polymarket-bot, vpn, pricing-service)              |
-| `tower` / `tower-http` | 0.4 / 0.6 | Middleware stack: CORS, rate limiting, tracing, compression, timeout                                                        |
-| `reqwest`              | 0.12      | HTTP client for external API calls (Binance, Polymarket, Alpaca, Pyth)                                                      |
-| `tonic`                | 0.13      | gRPC server/client (alpha-lab Lab↔Engine↔Platform communication)                                                            |
-| `prost`                | 0.13      | Protocol Buffer code generation for gRPC message types                                                                      |
-| `hyper`                | 1.x       | Underlying HTTP implementation (via axum/reqwest)                                                                           |
-| `tokio-tungstenite`    | —         | WebSocket client for exchange data feeds (Binance, CLOB, Deribit, Solana)                                                   |
+| Crate                  | Version   | Usage                                                                                                                                                    |
+| ---------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `tokio`                | 1.x       | De facto async runtime (28K+ GitHub stars, first TokioConf 2026). Features: `full` (rt-multi-thread, io, net, time, macros, sync, signal, fs)            |
+| `axum`                 | 0.8       | HTTP framework for all REST APIs (alpha-lab, kokoro-mm, liquidation-bot, polymarket-bot, vpn, pricing-service). tower::Service middleware composability. |
+| `tower` / `tower-http` | 0.4 / 0.6 | Middleware stack: CORS, rate limiting, tracing, compression, timeout — composable without modifying handler signatures                                   |
+| `reqwest`              | 0.12      | HTTP client for external API calls (Binance, Polymarket, Alpaca, Pyth)                                                                                   |
+| `tonic`                | 0.13      | gRPC server/client (alpha-lab Lab↔Engine↔Platform communication)                                                                                         |
+| `prost`                | 0.13      | Protocol Buffer code generation for gRPC message types                                                                                                   |
+| `hyper`                | 1.x       | Underlying HTTP implementation (via axum/reqwest)                                                                                                        |
+| `tokio-tungstenite`    | —         | WebSocket client for exchange data feeds (Binance, CLOB, Deribit, Solana)                                                                                |
 
 ### Serialization & Data
 
@@ -343,24 +345,26 @@
 
 ## 8. Infrastructure & DevOps
 
+Aligned with 2026 CNCF cloud-native standards (89% organizational adoption, 80% running Kubernetes in production). The platform implements Event-Driven Architecture (Redis Streams), API Gateway (Platform binary), Circuit Breaker (AtomicBool risk gates), and Service Mesh (WireGuard) patterns across 3 cloud regions.
+
 ### Containerization & Orchestration
 
-| Tool               | Usage                                                                                 |
-| ------------------ | ------------------------------------------------------------------------------------- |
-| **Docker**         | All production services containerized. Multi-stage builds for Rust binaries           |
-| **Docker Compose** | Service orchestration on all 3 servers. kokoro-services defines 11 utility containers |
-| **Kubernetes**     | Container orchestration, cluster management (professional server admin role)          |
-| **Caddy**          | Reverse proxy with automatic HTTPS/TLS (kokoro-mm on AWS Ireland)                     |
-| **Nginx**          | Reverse proxy (DigitalOcean main server)                                              |
-| **PM2**            | Node.js process management                                                            |
-| **systemd**        | Service management for VPN, bot processes                                             |
+| Tool               | Usage                                                                                                                                                 |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Docker**         | All production services containerized. Multi-stage builds for Rust binaries                                                                           |
+| **Docker Compose** | Service orchestration on all 3 servers. kokoro-services defines 11 utility containers                                                                 |
+| **Kubernetes**     | Container orchestration knowledge (prior professional experience); K8s not used in current deployment — Docker Compose is sufficient at current scale |
+| **Caddy**          | Reverse proxy with automatic HTTPS/TLS (kokoro-mm on AWS Ireland)                                                                                     |
+| **Nginx**          | Reverse proxy (DigitalOcean main server)                                                                                                              |
+| **PM2**            | Node.js process management                                                                                                                            |
+| **systemd**        | Service management for VPN, bot processes                                                                                                             |
 
 ### CI/CD
 
 | Tool               | Usage                                                                                                                                    |
 | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------- |
 | **GitHub Actions** | CI pipelines: `cargo build --release`, `cargo clippy -D warnings`, `cargo fmt --check`, `cargo deny check`, `npm run build`, test suites |
-| **Jenkins**        | CI/CD pipeline management (professional server admin role)                                                                               |
+| **Jenkins**        | CI/CD pipeline management (prior production experience)                                                                                  |
 | **rsync**          | Static site deployment (kokoro-tech → production server)                                                                                 |
 | **SCP**            | Binary deployment (copy-trader, liquidation-bot)                                                                                         |
 

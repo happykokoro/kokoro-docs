@@ -48,21 +48,21 @@
 
 **Expertise Level**: Expert — implements production-grade DSP filters from mathematical foundations.
 
-> **Academic Origin**: This signal processing expertise is not self-taught. It originates from formal undergraduate training in Vehicle Engineering — specifically the core courses Automatic Control Principles (PID controllers, transfer functions, state-space models, feedback systems, stability analysis) and Signals & Systems (Fourier transforms, Laplace transforms, frequency domain analysis, filter design, convolution). The Kalman filter, H-infinity filter, and the full DSP pipeline are direct applications of control theory education applied to financial time series. This is academically grounded signal processing.
+The H-infinity filter implementation follows the minimax optimal estimation framework (IEEE Transactions on Signal Processing): the estimator minimizes the worst-case ratio of estimation error energy to disturbance energy over all bounded disturbance sequences — making it robust to non-Gaussian noise conditions where classical Kalman filtering degrades. The UKF implementation uses the sigma point transform for nonlinear state propagation. The prediction crate's expert aggregator with conformal prediction bounds approaches the KalmanNet frontier (IEEE 2021): neural network aided Kalman filtering for partially known dynamics.
 
-| Filter/Algorithm                  | Mathematical Foundation                           | Implementation Details                                                                                                                                             |
-| --------------------------------- | ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **H-infinity filter**             | Minimax optimal estimation under bounded noise    | 4-state (position/velocity/acceleration/jerk), innovation gating, tick-rate adaptive R matrix scaling, state covariance inflation. 3× cascade in `factor-enhanced` |
-| **Unscented Kalman Filter (UKF)** | Sigma point transform for nonlinear systems       | nalgebra Cholesky decomposition for sigma point generation, mean-reversion velocity model, acceleration decay                                                      |
-| **Particle filter**               | Sequential Monte Carlo with importance resampling | Used in both `dsp-filters` (general purpose) and `prediction` (RBPF variant with per-particle regime labels)                                                       |
-| **IMM filter**                    | Interacting Multiple Models                       | 3 regimes (Trending: persistent velocity, Ranging: mean-reverting, Volatile: random walk). Markov transition matrix, model probability mixing                      |
-| **RBPF**                          | Rao-Blackwellized Particle Filter                 | Marginalizes linear states analytically (Kalman), samples discrete regime labels with particles                                                                    |
-| **Dual Kalman**                   | Coupled state estimation                          | Price + log-volatility: vol estimate feeds back into Q matrix of price Kalman                                                                                      |
-| **Morlet wavelet CWT**            | Continuous wavelet transform                      | 20 log-spaced scales for multi-resolution time-frequency analysis                                                                                                  |
-| **Hilbert transform**             | Analytic signal construction                      | Via FFT: zero negative frequencies, inverse FFT → instantaneous amplitude/phase/frequency                                                                          |
-| **Mellin transform**              | Scale-invariant analysis                          | Implemented for financial time series                                                                                                                              |
-| **2-state Kalman**                | Classical Kalman filter                           | Price + velocity states for noise smoothing (pricing-service)                                                                                                      |
-| **EWMA**                          | Exponentially Weighted Moving Average             | Configurable lambda for volatility estimation (kokoro-mm spread calculator)                                                                                        |
+| Filter/Algorithm                  | Mathematical Foundation                                         | Implementation Details                                                                                                                                             |
+| --------------------------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **H-infinity filter**             | Minimax optimal estimation under bounded noise (IEEE Trans. SP) | 4-state (position/velocity/acceleration/jerk), innovation gating, tick-rate adaptive R matrix scaling, state covariance inflation. 3× cascade in `factor-enhanced` |
+| **Unscented Kalman Filter (UKF)** | Sigma point transform for nonlinear systems                     | nalgebra Cholesky decomposition for sigma point generation, mean-reversion velocity model, acceleration decay                                                      |
+| **Particle filter**               | Sequential Monte Carlo with importance resampling               | Used in both `dsp-filters` (general purpose) and `prediction` (RBPF variant with per-particle regime labels)                                                       |
+| **IMM filter**                    | Interacting Multiple Models                                     | 3 regimes (Trending: persistent velocity, Ranging: mean-reverting, Volatile: random walk). Markov transition matrix, model probability mixing                      |
+| **RBPF**                          | Rao-Blackwellized Particle Filter                               | Marginalizes linear states analytically (Kalman), samples discrete regime labels with particles                                                                    |
+| **Dual Kalman**                   | Coupled state estimation                                        | Price + log-volatility: vol estimate feeds back into Q matrix of price Kalman                                                                                      |
+| **Morlet wavelet CWT**            | Continuous wavelet transform                                    | 20 log-spaced scales for multi-resolution time-frequency analysis                                                                                                  |
+| **Hilbert transform**             | Analytic signal construction                                    | Via FFT: zero negative frequencies, inverse FFT → instantaneous amplitude/phase/frequency                                                                          |
+| **Mellin transform**              | Scale-invariant analysis                                        | Implemented for financial time series                                                                                                                              |
+| **2-state Kalman**                | Classical Kalman filter                                         | Price + velocity states for noise smoothing (pricing-service)                                                                                                      |
+| **EWMA**                          | Exponentially Weighted Moving Average                           | Configurable lambda for volatility estimation (kokoro-mm spread calculator)                                                                                        |
 
 ### Statistical Modeling
 
@@ -88,8 +88,6 @@
 | **Synthetic options chain** | Options chain generation via Black-Scholes for assets without listed options markets. Synthetic expiration slices (options-data crate)                   |
 
 ### Portfolio Optimization & Risk Management
-
-> **Academic Origin**: Portfolio optimization, derivatives pricing, and risk management foundations originate from a formal Financial Engineering double degree. Markowitz MVO, Black-Scholes, VaR/CVaR, and Kelly criterion were textbook coursework before becoming production implementations. The founder also grew up in a family with extensive stock market and investment experience, providing practical financial market context throughout formal education.
 
 | Technique                      | Implementation                                                                                                                                      |
 | ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -188,7 +186,9 @@
 
 ### Backend Architecture
 
-- **Axum expertise**: All Rust HTTP services use Axum 0.8 with tower middleware (CORS, rate limiting, tracing, metrics). kokoro-mm has 69 routes across 24 modules.
+Aligned with 2026 cloud-native best practices (CNCF: 89% organizational adoption, 80% running Kubernetes in production), the backend architecture implements the standard cloud-native patterns: API Gateway (Platform binary), Event-Driven Architecture (Redis Streams), Circuit Breaker (`AtomicBool` flags), and CQRS-like read/write separation (Lab vs Engine binaries).
+
+- **Axum 0.8 expertise**: All Rust HTTP services use Axum 0.8 with tower::Service middleware composability (CORS, rate limiting, tracing, compression, auth) — timeouts and auth added without modifying handler signatures. kokoro-mm has 69 routes across 24 modules.
 - **Express/Node.js**: kokoro-pipeline console (50+ route modules, Prisma ORM, 30+ models)
 - **FastAPI**: polymarket-bot strategy service (port 8100), kokoro-copy-trader (port 4500)
 - **Gin (Go)**: kokoro-staking backend with interface-segregated adapters
@@ -211,7 +211,7 @@
 ### Database Design
 
 - **PostgreSQL**: Complex schemas with 21 query modules (kokoro-mm), 30+ Prisma models (kokoro-pipeline), repository pattern with async traits and in-memory stubs for testing
-- **Redis Streams**: 10 active streams with consumer groups, dual JSON/proto format, XREADGROUP + ACK, XPENDING monitoring
+- **Redis Streams**: 10 active streams with consumer groups, dual JSON/proto format, XREADGROUP + ACK, XPENDING monitoring. The persistence + consumer group + ordering properties of Redis Streams (vs simple Pub/Sub) follow 2026 real-time streaming best practices. The dual-format JSON→proto migration pattern was executed across all 10 streams as a zero-downtime protocol evolution.
 - **SQLite**: Lightweight persistence where appropriate (polymarket-bot, VPN, copy-trader, CMS)
 - **Migration management**: SQLx migrations (58 pairs in kokoro-mm), Prisma migrations, JSONL append-only event logs
 
