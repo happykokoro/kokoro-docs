@@ -4,7 +4,6 @@
 
 **Version**: 1.0 — March 2026
 **Author**: Kokoro Tech
-**Confidential**
 
 ---
 
@@ -491,5 +490,10 @@ The infrastructure is built. The research is done. The lessons are learned. The 
 
 ---
 
-_Kokoro Tech — https://tech.happykokoro.com_
-_GitHub: github.com/happykokoro (org), github.com/anescaper (personal)_
+---
+
+**Next steps:** [Contact us →](../services/contact.md) | [How We Work →](../services/how-we-work.md) | [View technical profile →](../profile/resume.md)
+
+---
+
+_Kokoro Tech — [tech.happykokoro.com](https://tech.happykokoro.com) · [GitHub](https://github.com/happykokoro) · [Contact](../services/contact.md)_

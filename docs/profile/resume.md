@@ -52,7 +52,7 @@
 ### AI Agent Systems & Developer Tooling
 
 - **MCP Protocol mastery**: Built 2 MCP servers with 115 tools total, exposing full trading platform APIs to AI agents for autonomous research and execution
-- **Agent orchestration**: Built `agent-orchestra` — Python platform managing AI coding agent agent teams with WebSocket dashboard, 7-phase automated lifecycle, worktree isolation, approval gates, critical error auto-kill
+- **Agent orchestration**: Built `agent-orchestra` — Python platform managing AI agent teams with WebSocket dashboard, 7-phase automated lifecycle, worktree isolation, approval gates, critical error auto-kill
 - **Development pipeline**: `claude-dev-pipeline` skill implementing 4-phase parallel execution (research → team → review → merge) with atomic PRs and dependency-aware merge order
 - **AI coding agent tooling**: `claude-init` CLI (1,229 lines Python, zero deps) auto-generates `.claude/` config for any project by detecting language (9), framework (18), and project structure
 - **Custom skills**: 7 domain-specific AI coding agent skills (dev-pipeline, signal-pipeline, risk-management, kalman-filter, polymarket-arbitrage, anchor-patterns, dex-integration)
@@ -210,16 +210,16 @@ Proto `.proto` files in `services/proto/` are the source of truth; generated Rus
 
 ### Live / Deployed Products (8)
 
-| Product                    | Stack                                             | Description                                                                                                                                    |
-| -------------------------- | ------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Kokoro Alpha Lab**       | Rust (242K LOC), 65 crates, 1074 tests            | Multi-asset quantitative trading research platform with 24 alpha factors, 11 DSP filters, role-based signal composition, multi-chain execution |
-| **Kokoro MM**              | Rust (63K LOC) + Next.js 16, 18 crates, 690 tests | Polymarket AMM SaaS with Avellaneda-Stoikov quoting, 4 strategies, autopilot mode, tier-gated billing                                          |
-| **Kokoro Liquidation Bot** | Rust (5.1K LOC) + Solidity                        | Multi-chain DeFi liquidation engine: 6 EVM chains, 4 protocols, flash loan execution, zero capital                                             |
-| **Kokoro VPN**             | Rust + Tauri v2                                   | Self-hosted WireGuard platform: client VPN + mesh VPN, desktop app, firewall ACL, Prometheus monitoring                                        |
-| **Kokoro Protocol**        | Rust/Anchor (20 programs)                         | On-chain DeFi platform: AMM, lending, yield vaults, 7 casino games, prediction market, governance                                              |
-| **Kokoro Tech**            | Next.js 16, static export                         | Company website at tech.happykokoro.com                                                                                                        |
-| **HappyKokoro**            | Next.js 15 + Payload CMS                          | Company website and blog with CMS, contact form, project showcase                                                                              |
-| **Kokoro Services**        | Docker Compose                                    | 11 self-hosted productivity services                                                                                                           |
+| Product                    | Stack                                                       | Description                                                                                                                                    |
+| -------------------------- | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Kokoro Alpha Lab**       | Rust (242K LOC), 65 crates (alpha-lab monorepo), 1074 tests | Multi-asset quantitative trading research platform with 24 alpha factors, 11 DSP filters, role-based signal composition, multi-chain execution |
+| **Kokoro MM**              | Rust (63K LOC) + Next.js 16, 18 crates, 690 tests           | Polymarket AMM SaaS with Avellaneda-Stoikov quoting, 4 strategies, autopilot mode, tier-gated billing                                          |
+| **Kokoro Liquidation Bot** | Rust (5.1K LOC) + Solidity                                  | Multi-chain DeFi liquidation engine: 6 EVM chains, 4 protocols, flash loan execution, zero capital                                             |
+| **Kokoro VPN**             | Rust + Tauri v2                                             | Self-hosted WireGuard platform: client VPN + mesh VPN, desktop app, firewall ACL, Prometheus monitoring                                        |
+| **Kokoro Protocol**        | Rust/Anchor (20 programs)                                   | On-chain DeFi platform: AMM, lending, yield vaults, 7 casino games, prediction market, governance                                              |
+| **Kokoro Tech**            | Next.js 16, static export                                   | Company website at tech.happykokoro.com                                                                                                        |
+| **HappyKokoro**            | Next.js 15 + Payload CMS                                    | Company website and blog with CMS, contact form, project showcase                                                                              |
+| **Kokoro Services**        | Docker Compose                                              | 11 self-hosted productivity services                                                                                                           |
 
 ### Trading Bots (2)
 
@@ -232,7 +232,7 @@ Proto `.proto` files in `services/proto/` are the source of truth; generated Rus
 
 | Tool                    | Stack                       | Purpose                                                                  |
 | ----------------------- | --------------------------- | ------------------------------------------------------------------------ |
-| **Agent Orchestra**     | Python + Rust               | Multi-agent AI coding agent orchestration with WebSocket dashboard           |
+| **Agent Orchestra**     | Python + Rust               | Multi-agent AI coding agent orchestration with WebSocket dashboard       |
 | **Claude Init**         | Python (zero deps)          | Auto-generate .claude/ config for any project                            |
 | **Claude Dev Pipeline** | Markdown skill              | Parallel agent development with atomic PRs                               |
 | **Kokoro Pipeline**     | Rust → TypeScript migration | Dev pipeline engine with visual designer, marketplace, multi-tenant SaaS |
@@ -266,21 +266,21 @@ Proto `.proto` files in `services/proto/` are the source of truth; generated Rus
 
 ### Scale Metrics
 
-| Metric                         | Value                                                   |
-| ------------------------------ | ------------------------------------------------------- |
-| Total production code          | 530,000+ lines (Rust, TypeScript, Python, Go, Solidity) |
-| Rust code specifically         | 330,000+ lines across 100+ crates                       |
-| Automated tests                | 1,860+ across all projects                              |
-| MCP tools built                | 115 (98 + 17)                                           |
-| REST API endpoints             | 200+                                                    |
-| Frontend pages/routes          | 200+                                                    |
-| Anchor programs                | 20                                                      |
-| Blockchain chains integrated   | 23 (6 EVM + Solana + 17 staking)                        |
-| DeFi protocols integrated      | 8+                                                      |
-| Exchange data feeds            | 5 (Binance, Coinbase, Deribit, Pyth, Polymarket)        |
-| Production servers             | 3 (connected via WireGuard mesh)                        |
-| Docker containers (production) | 12+                                                     |
-| Self-hosted services           | 11                                                      |
+| Metric                         | Value                                                       |
+| ------------------------------ | ----------------------------------------------------------- |
+| Total production code          | 530,000+ lines (Rust, TypeScript, Python, Go, Solidity)     |
+| Rust code specifically         | 330,000+ lines across 100+ crates (across all repositories) |
+| Automated tests                | 1,860+ across all projects                                  |
+| MCP tools built                | 115 (98 + 17)                                               |
+| REST API endpoints             | 200+                                                        |
+| Frontend pages/routes          | 200+                                                        |
+| Anchor programs                | 20                                                          |
+| Blockchain chains integrated   | 23 (6 EVM + Solana + 17 staking)                            |
+| DeFi protocols integrated      | 8+                                                          |
+| Exchange data feeds            | 5 (Binance, Coinbase, Deribit, Pyth, Polymarket)            |
+| Production servers             | 3 (connected via WireGuard mesh)                            |
+| Docker containers (production) | 12+                                                         |
+| Self-hosted services           | 11                                                          |
 
 ### Performance Characteristics
 
@@ -362,7 +362,7 @@ Real numbers extracted from production code — not estimates.
 2. **11 DSP filters from mathematical foundations** — direct implementations of H-infinity (IEEE minimax optimal), UKF (sigma point transform), particle filter (Sequential Monte Carlo), IMM, RBPF, wavelet CWT, Hilbert transform
 3. **Flash loan liquidation** across 6 EVM chains simultaneously — zero capital required, custom Solidity contract for atomic borrow-liquidate-swap-repay sequence
 4. **20 Solana Anchor programs** spanning DeFi (AMM, lending, yield, liquidation, leverage), gaming (6 types), prediction markets, NFT, and governance
-5. **Multi-agent development orchestration** — Agent Orchestra manages AI coding agent agent teams with automated merge, build, test pipeline; used to build Phase 2 of alpha-lab with 6 parallel agents
+5. **Multi-agent development orchestration** — Agent Orchestra manages AI agent teams with automated merge, build, test pipeline; used to build Phase 2 of alpha-lab with 6 parallel agents
 6. **Dual-format Redis Streams migration** — zero-downtime JSON→proto transition across 10 streams with auto-detection at consumer level
 7. **Self-built WireGuard mesh VPN** connecting 3 servers across 3 cloud providers (DigitalOcean Singapore, AWS Ireland, AWS London) with per-node ACL firewall generation
 8. **8-profile trading bot fleet** — single binary running 8 parallel strategy pipelines sharing one data feed, each with different quant models (GARCH, Hurst, Brownian Bridge, bilateral MM)
@@ -434,3 +434,15 @@ AI Agent Systems:      MCP servers, agent orchestration, skill protocols, WASM p
 | **GitHub (Personal)**     | https://github.com/anescaper   |
 | **Company Website**       | https://tech.happykokoro.com   |
 | **Portfolio**             | https://happykokoro.com        |
+
+---
+
+→ [Read the full article version](../articles/resume.md)
+
+---
+
+**Next steps:** [Explore our services →](../services/overview.md) | [Contact us →](../services/contact.md)
+
+---
+
+_Kokoro Tech — [tech.happykokoro.com](https://tech.happykokoro.com) · [GitHub](https://github.com/happykokoro) · [Contact](../services/contact.md)_

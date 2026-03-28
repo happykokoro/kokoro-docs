@@ -611,6 +611,62 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../services/how-we-work/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How We Work
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../services/contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -3500,7 +3556,7 @@ Phase 8 stubs: strikes, multi-venue, arbitrage scan, FIX protocol, WASM strategy
 <strong>Language</strong>: TypeScript (Express + React/Vite)
 <strong>Status</strong>: Active development (Rust→TS migration)</p>
 <h3 id="purpose_6">Purpose<a class="headerlink" href="#purpose_6" title="Permanent link">&para;</a></h3>
-<p>Full-featured automated development pipeline engine orchestrating Claude Code agents through structured multi-phase workflows, with React web console, visual pipeline designer, and SaaS platform layer.</p>
+<p>Full-featured automated development pipeline engine orchestrating AI agents through structured multi-phase workflows, with React web console, visual pipeline designer, and SaaS platform layer.</p>
 <h3 id="architecture_3">Architecture<a class="headerlink" href="#architecture_3" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Express API (port 5555) + PostgreSQL (Prisma, 30+ models) + React/Vite frontend (port 3000)</li>
@@ -3518,12 +3574,12 @@ Phase 8 stubs: strikes, multi-venue, arbitrage scan, FIX protocol, WASM strategy
 <strong>Language</strong>: Python + Rust
 <strong>Status</strong>: Production (used for parallel development)</p>
 <h3 id="purpose_7">Purpose<a class="headerlink" href="#purpose_7" title="Permanent link">&para;</a></h3>
-<p>Multi-agent orchestration platform managing Claude Code agent teams through automated pipelines: launch → monitor → merge → build → test → report.</p>
+<p>Multi-agent orchestration platform managing AI agent teams through automated pipelines: launch → monitor → merge → build → test → report.</p>
 <h3 id="architecture_4">Architecture<a class="headerlink" href="#architecture_4" title="Permanent link">&para;</a></h3>
 <ul>
 <li>FastAPI + WebSocket dashboard (<code>/ws/status</code>, <code>/ws/logs</code>, <code>/ws/teams</code>, <code>/ws/gm</code>)</li>
 <li><code>GeneralManager</code>: 7-phase lifecycle (launching → waiting → analyzing → merging → building → testing → completed)</li>
-<li><code>TeamLauncher</code>: spawns Claude CLI subprocesses, monitors stdout, auto-kills on ENOSPC/OOM</li>
+<li><code>TeamLauncher</code>: spawns AI agent CLI subprocesses, monitors stdout, auto-kills on ENOSPC/OOM</li>
 <li>Git worktree isolation: each agent gets isolated branch, merge-on-completion</li>
 <li>Team templates: feature-dev (3 agents: architect/implementer/reviewer), build-fix (1 agent), code-review, debug, research</li>
 <li>Approval gate: pipeline pauses on merge conflicts, build failures, test failures</li>
@@ -3636,6 +3692,12 @@ Phase 8 stubs: strikes, multi-venue, arbitrage scan, FIX protocol, WASM strategy
 <p><strong>Claude Dev Pipeline</strong> — Markdown skill (SKILL.md protocol). 4-phase parallel pipeline: research → team execution (1 agent = 1 worktree = 1 PR) → review + fix loops → dependency-aware merge. Single human approval gate.</p>
 <p><strong>Kokoro Services</strong> — Docker Compose config for 11 self-hosted services (Umami, Gitea, Shlink, Uptime Kuma, PrivateBin, Excalidraw, Linkding, Syncthing, Homepage).</p>
 <p><strong>HappyKokoro</strong> — Next.js 15, Payload CMS 3.77, SQLite. Company website and blog. CMS-driven: pages, posts, projects, search. Resend email adapter for contact form.</p>
+<hr />
+<p>→ <a href="../../articles/projects-portfolio/">Read the full article version</a></p>
+<hr />
+<p><strong>Next steps:</strong> <a href="../../services/overview/">Explore our services →</a> | <a href="../resume/">View technical profile →</a> | <a href="../../services/contact/">Contact us →</a></p>
+<hr />
+<p><em>Kokoro Tech — <a href="https://tech.happykokoro.com">tech.happykokoro.com</a> · <a href="https://github.com/happykokoro">GitHub</a> · <a href="../../services/contact/">Contact</a></em></p>
 
 
 

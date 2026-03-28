@@ -394,3 +394,11 @@ The absence of direct competition is a current advantage that could narrow. If P
 ---
 
 _Prepared March 2026. Kokoro Tech — https://tech.happykokoro.com_
+
+---
+
+**Next steps:** [Contact us →](../services/contact.md) | [How We Work →](../services/how-we-work.md) | [View technical profile →](../profile/resume.md)
+
+---
+
+_Kokoro Tech — [tech.happykokoro.com](https://tech.happykokoro.com) · [GitHub](https://github.com/happykokoro) · [Contact](../services/contact.md)_

@@ -504,6 +504,10 @@ The primary risk is platform concentration — everything runs on Claude. The mi
 
 ---
 
-_Kokoro Tech — deep technology studio building quantitative trading infrastructure, blockchain protocols, and AI-augmented developer tools._
-_Website: https://tech.happykokoro.com_
-_GitHub: https://github.com/happykokoro | https://github.com/anescaper_
+---
+
+**Next steps:** [Contact us →](../services/contact.md) | [How We Work →](../services/how-we-work.md) | [View technical profile →](../profile/resume.md)
+
+---
+
+_Kokoro Tech — [tech.happykokoro.com](https://tech.happykokoro.com) · [GitHub](https://github.com/happykokoro) · [Contact](../services/contact.md)_

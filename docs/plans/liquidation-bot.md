@@ -2,7 +2,7 @@
 
 **Prepared by**: Kokoro Tech
 **Date**: March 2026
-**Classification**: Confidential
+**Date**: March 2026
 
 ---
 
@@ -424,3 +424,11 @@ The structural opportunity is durable. DeFi lending will continue to require liq
 The long-term business case — licensing the infrastructure to DeFi protocol teams — converts the technical investment into a recurring revenue stream that is largely independent of market volatility. Protocol launches are constant; their need for reliable liquidation coverage is structural. Kokoro's ability to onboard a new protocol in days, not months, is the key commercial differentiator.
 
 The recommended immediate action is to fund the live execution infrastructure investment (~$2,500 in initial capital for contract deployment and gas reserve plus ~$200/month for paid RPC), activate live mode on Ethereum mainnet with Flashbots Protect, and begin accumulating the realized P&L track record that anchors all subsequent commercial conversations.
+
+---
+
+**Next steps:** [Contact us →](../services/contact.md) | [How We Work →](../services/how-we-work.md) | [View technical profile →](../profile/resume.md)
+
+---
+
+_Kokoro Tech — [tech.happykokoro.com](https://tech.happykokoro.com) · [GitHub](https://github.com/happykokoro) · [Contact](../services/contact.md)_

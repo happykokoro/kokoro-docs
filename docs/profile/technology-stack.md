@@ -25,7 +25,7 @@
 | **Shell / Bash** | claude-dev-pipeline skill, deployment scripts, CI/CD workflows                           |
 | **TOML**         | Cargo workspace configs, strategy artifact definitions                                   |
 | **YAML**         | Docker Compose configs, GitHub Actions CI, agent-orchestra team definitions              |
-| **Markdown**     | AI coding agent skills (SKILL.md protocol), documentation                                    |
+| **Markdown**     | AI coding agent skills (SKILL.md protocol), documentation                                |
 | **JavaScript**   | Legacy/utility scripts, agentPlan                                                        |
 
 ### Historical / Academic
@@ -430,12 +430,12 @@ Aligned with 2026 CNCF cloud-native standards (89% organizational adoption, 80% 
 
 ### AI coding agent Integration
 
-| Tool                   | Usage                                                                                                                                                           |
-| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Tool                       | Usage                                                                                                                                                           |
+| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **AI coding agent CLI**    | Primary development tool. `--dangerously-skip-permissions` for autonomous agent operation                                                                       |
-| **MCP Protocol**       | 115 total MCP tools (98 in lab-mcp + 17 in kokoro-mm MCP) exposing platform APIs to AI agents                                                                      |
+| **MCP Protocol**           | 115 total MCP tools (98 in lab-mcp + 17 in kokoro-mm MCP) exposing platform APIs to AI agents                                                                   |
 | **AI coding agent Skills** | Custom skills: dev-pipeline (parallel agent execution), signal-pipeline, risk-management, kalman-filter, polymarket-arbitrage, anchor-patterns, dex-integration |
-| **Agent Teams**        | Orchestrated via agent-orchestra: feature-dev (3 agents), build-fix (1 agent), code-review, debug, research                                                     |
+| **Agent Teams**            | Orchestrated via agent-orchestra: feature-dev (3 agents), build-fix (1 agent), code-review, debug, research                                                     |
 
 ### AI Models & Techniques
 
@@ -491,3 +491,15 @@ Aligned with 2026 CNCF cloud-native standards (89% organizational adoption, 80% 
 | Anchor Programs                      | 20                                                                                                      |
 | Docker Containers (production)       | 12+                                                                                                     |
 | CI/CD Pipelines                      | GitHub Actions across all repos                                                                         |
+
+---
+
+→ [Read the full article version](../articles/technology-stack.md)
+
+---
+
+**Next steps:** [Explore our services →](../services/overview.md) | [View technical profile →](../profile/resume.md) | [Contact us →](../services/contact.md)
+
+---
+
+_Kokoro Tech — [tech.happykokoro.com](https://tech.happykokoro.com) · [GitHub](https://github.com/happykokoro) · [Contact](../services/contact.md)_

@@ -611,6 +611,62 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../services/how-we-work/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How We Work
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../services/contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2372,11 +2428,11 @@
 </ul>
 <h3 id="ai-agent-systems-developer-tooling">AI Agent Systems &amp; Developer Tooling<a class="headerlink" href="#ai-agent-systems-developer-tooling" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>MCP Protocol mastery</strong>: Built 2 MCP servers with 115 tools total, exposing full trading platform APIs to Claude for autonomous research and execution</li>
-<li><strong>Agent orchestration</strong>: Built <code>agent-orchestra</code> — Python platform managing Claude Code agent teams with WebSocket dashboard, 7-phase automated lifecycle, worktree isolation, approval gates, critical error auto-kill</li>
+<li><strong>MCP Protocol mastery</strong>: Built 2 MCP servers with 115 tools total, exposing full trading platform APIs to AI agents for autonomous research and execution</li>
+<li><strong>Agent orchestration</strong>: Built <code>agent-orchestra</code> — Python platform managing AI agent teams with WebSocket dashboard, 7-phase automated lifecycle, worktree isolation, approval gates, critical error auto-kill</li>
 <li><strong>Development pipeline</strong>: <code>claude-dev-pipeline</code> skill implementing 4-phase parallel execution (research → team → review → merge) with atomic PRs and dependency-aware merge order</li>
-<li><strong>Claude Code tooling</strong>: <code>claude-init</code> CLI (1,229 lines Python, zero deps) auto-generates <code>.claude/</code> config for any project by detecting language (9), framework (18), and project structure</li>
-<li><strong>Custom skills</strong>: 7 domain-specific Claude Code skills (dev-pipeline, signal-pipeline, risk-management, kalman-filter, polymarket-arbitrage, anchor-patterns, dex-integration)</li>
+<li><strong>AI coding agent tooling</strong>: <code>claude-init</code> CLI (1,229 lines Python, zero deps) auto-generates <code>.claude/</code> config for any project by detecting language (9), framework (18), and project structure</li>
+<li><strong>Custom skills</strong>: 7 domain-specific AI coding agent skills (dev-pipeline, signal-pipeline, risk-management, kalman-filter, polymarket-arbitrage, anchor-patterns, dex-integration)</li>
 </ul>
 <hr />
 <h2 id="service-capabilities">Service Capabilities<a class="headerlink" href="#service-capabilities" title="Permanent link">&para;</a></h2>
@@ -2393,7 +2449,7 @@ Expert-level Rust engineering at 330,000+ lines of production code means client 
 <p><strong>Infrastructure &amp; DevOps → Infrastructure as a Service</strong>
 3 production servers across 3 continents (Singapore, Ireland, London), connected by a self-built WireGuard mesh VPN. Docker Compose stacks, Prometheus/Grafana observability, Caddy auto-HTTPS, Cloudflare DDoS protection, SOPS secrets management. Client infrastructure deployments are modeled on what runs in production — not on textbook diagrams.</p>
 <p><strong>AI Agent Systems → AI-Augmented Development &amp; MCP Tooling</strong>
-115 MCP tools built across two production servers expose every platform capability to AI agents. Agent Orchestra manages multi-agent Claude Code teams with automated pipelines. The result: development cycles that are measurably faster than traditional outsourcing with the same or higher quality bar. Clients can commission MCP server development, agent orchestration setup, or AI-augmented development workflow consulting as standalone services.</p>
+115 MCP tools built across two production servers expose every platform capability to AI agents. Agent Orchestra manages multi-agent AI coding agent teams with automated pipelines. The result: development cycles that are measurably faster than traditional outsourcing with the same or higher quality bar. Clients can commission MCP server development, agent orchestration setup, or AI-augmented development workflow consulting as standalone services.</p>
 <h3 id="the-ai-augmented-delivery-advantage">The AI-Augmented Delivery Advantage<a class="headerlink" href="#the-ai-augmented-delivery-advantage" title="Permanent link">&para;</a></h3>
 <p>Traditional outsourcing delivers at the speed of human developer throughput. Kokoro Tech's AI-augmented workflow runs research, implementation, review, and testing phases in parallel — the same pipeline used to build the Kokoro platform. Phase 2 of the alpha-lab monorepo was built by 6 parallel AI agents coordinated through Agent Orchestra in a single session. This is not theoretical: it is the default delivery mode.</p>
 <p>The practical outcome for clients: faster time-to-delivery, lower per-feature cost, higher consistency across the codebase, and a structured audit trail from the agent orchestration pipeline.</p>
@@ -2581,7 +2637,7 @@ Expert-level Rust engineering at 330,000+ lines of production code means client 
 <tbody>
 <tr>
 <td><strong>Kokoro Alpha Lab</strong></td>
-<td>Rust (242K LOC), 65 crates, 1074 tests</td>
+<td>Rust (242K LOC), 65 crates (alpha-lab monorepo), 1074 tests</td>
 <td>Multi-asset quantitative trading research platform with 24 alpha factors, 11 DSP filters, role-based signal composition, multi-chain execution</td>
 </tr>
 <tr>
@@ -2656,7 +2712,7 @@ Expert-level Rust engineering at 330,000+ lines of production code means client 
 <tr>
 <td><strong>Agent Orchestra</strong></td>
 <td>Python + Rust</td>
-<td>Multi-agent Claude Code orchestration with WebSocket dashboard</td>
+<td>Multi-agent AI coding agent orchestration with WebSocket dashboard</td>
 </tr>
 <tr>
 <td><strong>Claude Init</strong></td>
@@ -2772,7 +2828,7 @@ Expert-level Rust engineering at 330,000+ lines of production code means client 
 </tr>
 <tr>
 <td>Rust code specifically</td>
-<td>330,000+ lines across 100+ crates</td>
+<td>330,000+ lines across 100+ crates (across all repositories)</td>
 </tr>
 <tr>
 <td>Automated tests</td>
@@ -2898,7 +2954,7 @@ Expert-level Rust engineering at 330,000+ lines of production code means client 
 <li><strong>11 DSP filters from mathematical foundations</strong> — direct implementations of H-infinity (IEEE minimax optimal), UKF (sigma point transform), particle filter (Sequential Monte Carlo), IMM, RBPF, wavelet CWT, Hilbert transform</li>
 <li><strong>Flash loan liquidation</strong> across 6 EVM chains simultaneously — zero capital required, custom Solidity contract for atomic borrow-liquidate-swap-repay sequence</li>
 <li><strong>20 Solana Anchor programs</strong> spanning DeFi (AMM, lending, yield, liquidation, leverage), gaming (6 types), prediction markets, NFT, and governance</li>
-<li><strong>Multi-agent development orchestration</strong> — Agent Orchestra manages Claude Code agent teams with automated merge, build, test pipeline; used to build Phase 2 of alpha-lab with 6 parallel agents</li>
+<li><strong>Multi-agent development orchestration</strong> — Agent Orchestra manages AI agent teams with automated merge, build, test pipeline; used to build Phase 2 of alpha-lab with 6 parallel agents</li>
 <li><strong>Dual-format Redis Streams migration</strong> — zero-downtime JSON→proto transition across 10 streams with auto-detection at consumer level</li>
 <li><strong>Self-built WireGuard mesh VPN</strong> connecting 3 servers across 3 cloud providers (DigitalOcean Singapore, AWS Ireland, AWS London) with per-node ACL firewall generation</li>
 <li><strong>8-profile trading bot fleet</strong> — single binary running 8 parallel strategy pipelines sharing one data feed, each with different quant models (GARCH, Hurst, Brownian Bridge, bilateral MM)</li>
@@ -2906,7 +2962,7 @@ Expert-level Rust engineering at 330,000+ lines of production code means client 
 <h3 id="open-source-contributions">Open Source Contributions<a class="headerlink" href="#open-source-contributions" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>claude-init</strong> — Auto-generate .claude/ configuration for any project (public, GitHub)</li>
-<li><strong>claude-dev-pipeline</strong> — Parallel development pipeline skill for Claude Code (public, MIT license)</li>
+<li><strong>claude-dev-pipeline</strong> — Parallel development pipeline skill for AI coding agent (public, MIT license)</li>
 <li><strong>kokoro-vpn</strong> — Self-hosted WireGuard VPN platform (public, MIT license)</li>
 </ul>
 <hr />
@@ -2923,7 +2979,7 @@ Expert-level Rust engineering at 330,000+ lines of production code means client 
 <a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>Database:    PostgreSQL (SQLx/Prisma), Redis Streams, SQLite
 <a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>Blockchain:  Solana SDK, Anchor, Alloy (EVM), Jupiter, Raydium, Orca
 <a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>Charting:    TradingView, Recharts, Plotly, D3, React Flow
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>AI/ML:       MCP Protocol, Claude API, DQN, WASM plugins
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>AI/ML:       MCP Protocol, LLM API, DQN, WASM plugins
 <a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>Math:        nalgebra, statrs, rustfft, good_lp, criterion
 <a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>Testing:     cargo test, Vitest, Playwright, criterion benchmarks
 </code></pre></div>
@@ -2974,6 +3030,12 @@ Expert-level Rust engineering at 330,000+ lines of production code means client 
 </tr>
 </tbody>
 </table>
+<hr />
+<p>→ <a href="../../articles/resume/">Read the full article version</a></p>
+<hr />
+<p><strong>Next steps:</strong> <a href="../../services/overview/">Explore our services →</a> | <a href="../../services/contact/">Contact us →</a></p>
+<hr />
+<p><em>Kokoro Tech — <a href="https://tech.happykokoro.com">tech.happykokoro.com</a> · <a href="https://github.com/happykokoro">GitHub</a> · <a href="../../services/contact/">Contact</a></em></p>
 
 
 

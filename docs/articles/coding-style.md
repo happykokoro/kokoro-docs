@@ -1,5 +1,7 @@
 # Coding Style and Architecture Philosophy: Engineering Decisions Across 300,000+ Lines of Production Code
 
+> _This is the long-form article. For the structured reference, see [Coding Style & Architecture](../profile/coding-style.md)._
+
 This document is a detailed examination of the architectural patterns, coding conventions, and engineering trade-offs present across the Kokoro codebase — a multi-language, multi-project system totaling over 300,000 lines of production code spanning Rust, TypeScript, Python, Go, Solidity, and Protocol Buffers. What follows is not a style guide. It is an account of specific decisions made under specific constraints, along with honest reasoning about what those constraints were and why each choice was the right one at the time.
 
 ---
@@ -24,13 +26,13 @@ There is one known violation: the `event-store` crate uses `std::fs` directly fo
 
 The CIL pattern was chosen over three serious alternatives, each of which was genuinely considered.
 
-**Hexagonal architecture** (ports and adapters) achieves a similar separation but with significantly more ceremony for a solo developer. Each port requires a trait, an adapter, and a test double — three times the surface area of CIL's single rule. The cognitive overhead of maintaining that scaffolding across 63 crates would have slowed iteration without improving the testability guarantees.
+**Hexagonal architecture** (ports and adapters) achieves a similar separation but with significantly more ceremony for a lean team. Each port requires a trait, an adapter, and a test double — three times the surface area of CIL's single rule. The cognitive overhead of maintaining that scaffolding across 63 crates would have slowed iteration without improving the testability guarantees.
 
 **Domain-Driven Design with bounded contexts** maps poorly to a trading pipeline where signals flow linearly through factors, then composition, then risk gating, then execution. DDD's bounded context model assumes relatively autonomous domains with well-defined message contracts between them. A linear signal pipeline does not have that topology — CIL's layered dependency model matches the actual data flow far better.
 
 **The actor model** — something like `actix` actors with message passing — introduces message-passing overhead that is entirely unnecessary when the pipeline is synchronous within each tick. CIL crates are called directly as ordinary function calls. There is no queue, no mailbox, no serialization cost between stages. The actor model would have added complexity and latency with no benefit in this context.
 
-For a solo developer building a production trading system, the simplest correct architecture wins. CIL is the simplest architecture that achieves the testability and separation-of-concerns properties required.
+For a lean engineering team building a production trading system, the simplest correct architecture wins. CIL is the simplest architecture that achieves the testability and separation-of-concerns properties required.
 
 ### The Single-Binary MVP for SaaS Products
 
@@ -552,6 +554,14 @@ The patterns described above reflect a consistent set of values: prefer simplici
 
 The CIL pattern is simple to explain and trivially enforceable by the Rust compiler. The two-tier error handling strategy is simple to follow once the distinction between application code and library boundaries is clear. The concurrency primitive selection table represents a set of decisions made once and then applied consistently. The test philosophy — pure functions, inline data, feature-gated expensive tests — eliminates an entire category of test infrastructure complexity.
 
-None of these decisions are novel. What is notable is the consistency with which they are applied across a codebase that spans five languages, twelve Docker services, and hundreds of thousands of lines of production code written under the time and resource constraints of a solo developer building multiple production systems simultaneously.
+None of these decisions are novel. What is notable is the consistency with which they are applied across a codebase that spans five languages, twelve Docker services, and hundreds of thousands of lines of production code — built and maintained by a lean engineering team operating multiple production systems simultaneously.
 
 Consistency at this scale is itself an architectural property. It means that the patterns described here are not aspirational — they are observably present in the code, across every project, at every layer of the stack.
+
+---
+
+**Next steps:** [Explore our services →](../services/overview.md) | [View technical profile →](../profile/resume.md) | [Contact us →](../services/contact.md)
+
+---
+
+_Kokoro Tech — [tech.happykokoro.com](https://tech.happykokoro.com) · [GitHub](https://github.com/happykokoro) · [Contact](../services/contact.md)_

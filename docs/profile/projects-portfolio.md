@@ -499,7 +499,7 @@ Features: tier-gating per tool, service-availability guards, Zod schema validati
 
 ### Purpose
 
-Full-featured automated development pipeline engine orchestrating AI coding agent agents through structured multi-phase workflows, with React web console, visual pipeline designer, and SaaS platform layer.
+Full-featured automated development pipeline engine orchestrating AI agents through structured multi-phase workflows, with React web console, visual pipeline designer, and SaaS platform layer.
 
 ### Architecture
 
@@ -522,7 +522,7 @@ Full-featured automated development pipeline engine orchestrating AI coding agen
 
 ### Purpose
 
-Multi-agent orchestration platform managing AI coding agent agent teams through automated pipelines: launch → monitor → merge → build → test → report.
+Multi-agent orchestration platform managing AI agent teams through automated pipelines: launch → monitor → merge → build → test → report.
 
 ### Architecture
 
@@ -682,3 +682,15 @@ PostgreSQL with orders, merchants, codes, events, webhook_deliveries tables.
 **Kokoro Services** — Docker Compose config for 11 self-hosted services (Umami, Gitea, Shlink, Uptime Kuma, PrivateBin, Excalidraw, Linkding, Syncthing, Homepage).
 
 **HappyKokoro** — Next.js 15, Payload CMS 3.77, SQLite. Company website and blog. CMS-driven: pages, posts, projects, search. Resend email adapter for contact form.
+
+---
+
+→ [Read the full article version](../articles/projects-portfolio.md)
+
+---
+
+**Next steps:** [Explore our services →](../services/overview.md) | [View technical profile →](../profile/resume.md) | [Contact us →](../services/contact.md)
+
+---
+
+_Kokoro Tech — [tech.happykokoro.com](https://tech.happykokoro.com) · [GitHub](https://github.com/happykokoro) · [Contact](../services/contact.md)_

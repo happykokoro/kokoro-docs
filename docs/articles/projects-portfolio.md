@@ -1,5 +1,7 @@
 # The Kokoro Ecosystem: A Technical Deep Dive into Twenty Production Systems
 
+> _This is the long-form article. For the structured reference, see [Projects Portfolio](../profile/projects-portfolio.md)._
+
 > A comprehensive engineering analysis of the Kokoro project portfolio — covering quantitative trading infrastructure, DeFi automation, developer tooling, and supporting platforms. Written for senior engineers, CTOs, and technical investors evaluating the depth and cohesion of this technology stack.
 
 ---
@@ -347,7 +349,7 @@ The implementation includes tier gating per tool (some tools require Level2 or P
 
 ### Purpose
 
-Kokoro Pipeline is a full-featured automated development pipeline engine that orchestrates AI coding agent agents through structured multi-phase software development workflows. It provides a React web console with a visual pipeline designer and a SaaS platform layer for multi-tenant deployment.
+Kokoro Pipeline is a full-featured automated development pipeline engine that orchestrates AI agents through structured multi-phase software development workflows. It provides a React web console with a visual pipeline designer and a SaaS platform layer for multi-tenant deployment.
 
 ### Architecture
 
@@ -510,3 +512,11 @@ Twenty projects built by a single developer over a focused period represent an u
 This coherence is the product of upfront architectural investment: defining clean abstractions, enforcing dependency boundaries, and resisting the temptation to copy-paste logic across projects. The result is a codebase that, despite its scale — over 300,000 lines of Rust across the primary projects, plus tens of thousands of lines of TypeScript and Python — remains navigable and extensible. New asset classes, strategies, and execution venues can be added as additive operations rather than requiring cross-cutting refactors. The Clean Integration Layer in Alpha Lab, the trait-based adapter pattern in the Liquidation Bot, the interface-segregated plugin architecture in Kokoro Staking — these are not incidental design choices but consistent applications of the same architectural principles across every project in the portfolio.
 
 For senior engineers evaluating this work, the signal is in the architectural decisions: zero I/O in pure crates, trait-based dispatch everywhere that runtime flexibility is needed, lock-free concurrent data structures at performance boundaries, dual JSON/protobuf encoding for migration safety, and client-side signing as a security-first default. These are the decisions of an engineer who has thought carefully about the problems that arise at scale and built ahead of them.
+
+---
+
+**Next steps:** [Explore our services →](../services/overview.md) | [View technical profile →](../profile/resume.md) | [Contact us →](../services/contact.md)
+
+---
+
+_Kokoro Tech — [tech.happykokoro.com](https://tech.happykokoro.com) · [GitHub](https://github.com/happykokoro) · [Contact](../services/contact.md)_

@@ -1,3 +1,8 @@
+---
+title: "Kokoro Tech — Quantitative Trading Infrastructure & AI Development"
+description: "Global technology studio building institutional-grade quantitative trading tools, blockchain infrastructure, and AI-augmented development services"
+---
+
 # Kokoro Tech
 
 **Distributed quantitative trading infrastructure, blockchain protocols, and AI-augmented developer tools. Architecture documented following ISO/IEC/IEEE 42010:2022 conventions.**
@@ -8,7 +13,7 @@
 
 A distributed SaaS platform spanning 7+ coordinated repositories — not 14 isolated projects, but one logical system with clearly defined service boundaries, shared type contracts, and encrypted inter-server communication.
 
-The core monorepo (65 Rust crates, 3 application binaries) is surrounded by satellite repositories extracted as they reached operational maturity: an independent frontend, two upstream data microservices, a dedicated MCP tool server, and two consumer-side trading applications that depend on shared library releases. All repositories coordinate through a shared type crate versioned with semantic tags, ensuring type safety across repository boundaries without tight coupling.
+The core monorepo (65 Rust crates (alpha-lab monorepo), 3 application binaries) is surrounded by satellite repositories extracted as they reached operational maturity: an independent frontend, two upstream data microservices, a dedicated MCP tool server, and two consumer-side trading applications that depend on shared library releases. All repositories coordinate through a shared type crate versioned with semantic tags, ensuring type safety across repository boundaries without tight coupling.
 
 Services communicate across 3 cloud servers (Singapore, Ireland, London) via a self-built WireGuard mesh VPN — all cross-server traffic stays on the encrypted 10.10.0.0/24 subnet, making physical server boundaries transparent to the application layer. Within the Singapore server alone, Docker Compose orchestrates 12+ containers. Across the full mesh, 10 named streaming data channels carry real-time events between services in dual JSON/protobuf format, enabling gradual protocol migration without downtime.
 
@@ -72,6 +77,10 @@ Long-form prose versions of the technical profile — suitable for reading, shar
 - [**Architecture Philosophy**](articles/coding-style.md) — How and why the code is structured the way it is
 - [**Architecture Overview**](articles/resume.md) — System architecture, signal processing methodology, and distributed systems design
 
+### For Investors & Partners
+
+Evaluating Kokoro Tech for investment or partnership? Start with our [business plans](plans/alpha-lab.md) for detailed market analysis, financial projections, and technical moat documentation across 6 product lines.
+
 ### Business Plans
 
 Comprehensive business plans for each product line — market analysis, revenue models, financial projections.
@@ -85,18 +94,28 @@ Comprehensive business plans for each product line — market analysis, revenue 
 
 ---
 
+## Open Source
+
+| Project                                                                 | Description                                          |
+| ----------------------------------------------------------------------- | ---------------------------------------------------- |
+| [claude-init](https://github.com/anescaper/claude-init)                 | Auto-generate AI agent configuration for any project |
+| [claude-dev-pipeline](https://github.com/anescaper/claude-dev-pipeline) | Parallel development pipeline with atomic PRs        |
+| [kokoro-vpn](https://github.com/happykokoro/kokoro-vpn)                 | Self-hosted WireGuard VPN platform (MIT license)     |
+
+---
+
 ## Key Numbers
 
-| Metric                | Value                             |
-| --------------------- | --------------------------------- |
-| Total production code | 530,000+ lines                    |
-| Rust code             | 330,000+ lines across 100+ crates |
-| Products              | 14 active                         |
-| Automated tests       | 1,860+                            |
-| Blockchain chains     | 23 integrated                     |
-| MCP tools             | 115                               |
-| Anchor programs       | 20 on Solana                      |
-| Production servers    | 3 (Singapore, Ireland, London)    |
+| Metric                | Value                                                       |
+| --------------------- | ----------------------------------------------------------- |
+| Total production code | 530,000+ lines                                              |
+| Rust code             | 330,000+ lines across 100+ crates (across all repositories) |
+| Products              | 14 active                                                   |
+| Automated tests       | 1,860+                                                      |
+| Blockchain chains     | 23 integrated                                               |
+| MCP tools             | 115                                                         |
+| Anchor programs       | 20 on Solana                                                |
+| Production servers    | 3 (Singapore, Ireland, London)                              |
 
 ---
 
@@ -116,9 +135,22 @@ The Kokoro platform is not positioned at the edge of one growing market — it s
 
 ---
 
-## Links
+**Looking to join?** Read our [culture and values](philosophy/culture.md#who-were-looking-for) and reach out.
 
-- **Company Website**: [tech.happykokoro.com](https://tech.happykokoro.com)
-- **Portfolio**: [happykokoro.com](https://happykokoro.com)
-- **GitHub (Org)**: [github.com/happykokoro](https://github.com/happykokoro)
-- **GitHub (Personal)**: [github.com/anescaper](https://github.com/anescaper)
+---
+
+## Get Started
+
+| I want to...                  | Start here                                                                 |
+| ----------------------------- | -------------------------------------------------------------------------- |
+| Commission custom development | [Services Overview](services/overview.md) → [Contact](services/contact.md) |
+| Evaluate for investment       | [Business Plans](plans/alpha-lab.md)                                       |
+| Review the technology         | [Technical Profile](profile/resume.md)                                     |
+| Join the team                 | [Culture & Values](philosophy/culture.md)                                  |
+| Explore the architecture      | [Architecture Overview](articles/resume.md)                                |
+
+**Links:** [GitHub](https://github.com/happykokoro) · [Website](https://tech.happykokoro.com) · [Portfolio](https://happykokoro.com)
+
+---
+
+_Kokoro Tech — [tech.happykokoro.com](https://tech.happykokoro.com) · [GitHub](https://github.com/happykokoro) · [Contact](services/contact.md)_

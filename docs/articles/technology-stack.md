@@ -1,5 +1,7 @@
 # The Kokoro Technology Stack: A Complete Technical Architecture Review
 
+> _This is the long-form article. For the structured reference, see [Technology Stack](../profile/technology-stack.md)._
+
 > This article provides a comprehensive, in-depth examination of every language, framework, library, protocol, and infrastructure component deployed across the Kokoro ecosystem. It is written for senior engineers, chief technology officers, and technical investors who need to assess the depth, coherence, and production-readiness of the stack from first principles.
 
 ---
@@ -20,7 +22,7 @@ The result is approximately 264,000 lines of Rust, 100,000 lines of TypeScript, 
 
 **TypeScript** accounts for approximately 100,000 lines and is the exclusive language for all frontend work and AI-integration tooling. The alpha-lab frontend, the kokoro-mm frontend, the kokoro-tech marketing site, and the kokoro-staking frontend are all Next.js applications written in TypeScript. The lab-mcp repository — a Model Context Protocol server exposing 98 platform tools to AI agents — is also TypeScript. The kokoro-pipeline project, which handles developer workflow automation and marketplace billing, is a full Node.js TypeScript application. TypeScript's static type system makes it the natural companion to Rust-backed APIs: types defined in OpenAPI or manually mirrored from Rust structs give the frontend the same compile-time correctness guarantees at the boundary layer.
 
-**Python** serves as the language for rapid quantitative research and multi-agent orchestration, with approximately 10,000 lines across three active projects. The kokoro-copy-trader and the polymarket-bot strategy service are FastAPI applications running statistical inference, Hurst exponent computation, and GARCH volatility modeling. The agent-orchestra project, which coordinates parallel AI coding agent agents across multiple git worktrees with automated merge and build pipelines, is written entirely in Python using its async ecosystem. The claude-init tool — a zero-dependency CLI for generating project scaffolding — is also Python. Python's dominance in scientific computing (numpy, scipy, scikit-learn) and its REPL-friendly iteration cycle make it the right choice for research scripts and orchestration glue, even though it would be wholly inappropriate for the latency-sensitive Rust services.
+**Python** serves as the language for rapid quantitative research and multi-agent orchestration, with approximately 10,000 lines across three active projects. The kokoro-copy-trader and the polymarket-bot strategy service are FastAPI applications running statistical inference, Hurst exponent computation, and GARCH volatility modeling. The agent-orchestra project, which coordinates parallel AI agent teams across multiple git worktrees with automated merge and build pipelines, is written entirely in Python using its async ecosystem. The claude-init tool — a zero-dependency CLI for generating project scaffolding — is also Python. Python's dominance in scientific computing (numpy, scipy, scikit-learn) and its REPL-friendly iteration cycle make it the right choice for research scripts and orchestration glue, even though it would be wholly inappropriate for the latency-sensitive Rust services.
 
 **Go** backs the kokoro-staking platform with approximately 15,000 lines of application code. Go was chosen here for a specific reason: the staking backend makes concurrent cross-chain RPC queries against more than a dozen blockchain networks, and Go's `errgroup` concurrency primitive handles partial failures across those parallel requests more ergonomically than equivalent Rust or Python patterns. The `pgx/v5` PostgreSQL driver, the `gin` HTTP framework, and `shopspring/decimal` for arbitrary-precision financial arithmetic are all mature, well-maintained Go packages that make this a pragmatic choice for a service where concurrency and database performance are the primary concerns.
 
@@ -408,7 +410,7 @@ The **Model Context Protocol (MCP)** server infrastructure exposes 115 platform 
 
 **AI coding agent Skills** are custom workflow definitions (following the SKILL.md protocol) that encode complex multi-step operations: `dev-pipeline` for parallel multi-agent code generation, `signal-pipeline` for signal processing workflows, `risk-management` for portfolio risk analysis, `kalman-filter` for filter configuration, `polymarket-arbitrage` for arbitrage opportunity analysis, `anchor-patterns` for Solana program patterns, and `dex-integration` for DEX adapter implementation.
 
-**agent-orchestra** is the multi-agent coordination platform, running orchestrated AI coding agent agent teams — feature-dev (3-agent architect/implementer/reviewer), build-fix (single-agent focused compilation), code-review, debug, and research — across parallel git worktrees with automated merge, build, and test pipelines. The General Manager (GM) module automates the full lifecycle: launch → wait → analyze → merge → build → test, with an approval gate that pauses for human decision on merge conflicts or test failures.
+**agent-orchestra** is the multi-agent coordination platform, running orchestrated AI agent teams — feature-dev (3-agent architect/implementer/reviewer), build-fix (single-agent focused compilation), code-review, debug, and research — across parallel git worktrees with automated merge, build, and test pipelines. The General Manager (GM) module automates the full lifecycle: launch → wait → analyze → merge → build → test, with an approval gate that pauses for human decision on merge conflicts or test failures.
 
 ### AI and Machine Learning Techniques
 
@@ -463,3 +465,11 @@ Eight blockchain networks are actively monitored or transacted on: Ethereum, Bas
 The AI integration layer exposes 115 MCP tools to AI agents across two servers. The production deployment runs 12 or more Docker containers across two cloud providers (AWS and DigitalOcean) in three geographic regions (Singapore, Ireland, London), connected by a WireGuard VPN mesh and protected by Cloudflare at the edge.
 
 The stack represents a coherent, production-tested architecture for a multi-product quantitative finance and decentralized finance platform, with deliberate language selection, defense-in-depth security, and full observability from request metrics to distributed traces.
+
+---
+
+**Next steps:** [Explore our services →](../services/overview.md) | [View technical profile →](../profile/resume.md) | [Contact us →](../services/contact.md)
+
+---
+
+_Kokoro Tech — [tech.happykokoro.com](https://tech.happykokoro.com) · [GitHub](https://github.com/happykokoro) · [Contact](../services/contact.md)_

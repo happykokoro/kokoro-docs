@@ -1,5 +1,7 @@
 # Kokoro Tech: Architecture Overview
 
+> _This is the long-form article. For the structured reference, see [Technical Capabilities](../profile/resume.md)._
+
 ## A Distributed Quantitative Trading and Blockchain Infrastructure Platform
 
 Kokoro Tech is a distributed quantitative trading and blockchain infrastructure platform spanning 530,000+ lines of production code across 7+ coordinated repositories, 3 cloud regions, and 14 independently deployable products. This document describes how the system is architected, why specific engineering decisions were made, and how the platform aligns with contemporary standards in distributed systems, signal processing, and cloud-native operations.
@@ -14,7 +16,7 @@ What appears at first glance to be a portfolio of fourteen separate products is,
 
 ### The Repository Federation Pattern
 
-The core of the platform is a Rust monorepo (`kokoro-alpha-lab`, 242,466 lines, 65 crates, 1,074 tests) organized around a principle called the Clean Integration Layer (CIL). The CIL separates all business logic from all I/O: 63 crates under `crates/` contain pure trading logic with zero I/O dependencies, while only 3 application binaries in `apps/` interact with the outside world.
+The core of the platform is a Rust monorepo (`kokoro-alpha-lab`, 242,466 lines, 65 crates (alpha-lab monorepo), 1,074 tests) organized around a principle called the Clean Integration Layer (CIL). The CIL separates all business logic from all I/O: 63 crates under `crates/` contain pure trading logic with zero I/O dependencies, while only 3 application binaries in `apps/` interact with the outside world.
 
 ```
 apps/lab      (port 4100) — Research: factor pipeline, backtesting, HTTP API, gRPC :50051, SSE
@@ -153,6 +155,39 @@ The circuit breaker trips after 5 consecutive on-chain reverts, protecting again
 
 ## Infrastructure and Operations
 
+## System Topology
+
+```
+┌─────────────────────────────────────────────────────────┐
+│                   WireGuard Mesh VPN                     │
+│                   (10.10.0.0/24)                         │
+│                                                          │
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  │
+│  │  Singapore    │  │   Ireland    │  │   London     │  │
+│  │  (10.10.0.1)  │  │  (10.10.0.2) │  │  (10.10.0.3) │  │
+│  │              │  │              │  │              │  │
+│  │ Alpha Lab    │  │ Kokoro MM    │  │ Copy Trader  │  │
+│  │ Engine       │  │ Polymarket   │  │ Market Data  │  │
+│  │ Platform     │  │   Bot        │  │              │  │
+│  │ Wallet Mon.  │  │              │  │              │  │
+│  │ Pricing Svc  │  │              │  │              │  │
+│  │ Payment Svc  │  │              │  │              │  │
+│  │ Frontend     │  │              │  │              │  │
+│  │ MCP (98)     │  │ MCP (17)     │  │              │  │
+│  │ Redis        │  │ PostgreSQL   │  │ SQLite       │  │
+│  │ PostgreSQL   │  │ Redis        │  │              │  │
+│  │ Prometheus   │  │ Caddy        │  │              │  │
+│  │ Grafana      │  │              │  │              │  │
+│  │ 12+ Docker   │  │              │  │              │  │
+│  └──────────────┘  └──────────────┘  └──────────────┘  │
+│                                                          │
+│  ← Redis Streams (10 channels, dual JSON/proto) →       │
+│  ← gRPC (Lab:4100 ↔ Engine:4200 ↔ Platform:4000) →    │
+│  ← REST APIs at external boundaries →                   │
+│  ← SSE for frontend real-time streaming →               │
+└─────────────────────────────────────────────────────────┘
+```
+
 ### Three-Server WireGuard Mesh
 
 The three production servers — DigitalOcean Singapore (primary, 12+ containers), AWS Ireland (Kokoro MM, liquidation bot), AWS London (copy trader) — form a WireGuard mesh VPN on the 10.10.0.0/24 subnet. Per-node firewall ACL rules are generated programmatically from the VPN configuration, ensuring that service exposure follows from architectural intent rather than manual firewall management.
@@ -202,7 +237,7 @@ This failure-and-recovery cycle is the expected pattern in research-driven quant
 | Metric                       | Value                                                                                           |
 | ---------------------------- | ----------------------------------------------------------------------------------------------- |
 | Total production code        | 530,000+ lines (Rust, TypeScript, Python, Go, Solidity)                                         |
-| Rust code                    | 330,000+ lines across 100+ crates                                                               |
+| Rust code                    | 330,000+ lines across 100+ crates (across all repositories)                                     |
 | Automated tests              | 1,860+ across all repositories                                                                  |
 | MCP tools                    | 115 (98 lab-mcp + 17 kokoro-mm)                                                                 |
 | REST API endpoints           | 200+                                                                                            |
@@ -270,3 +305,11 @@ The full observability stack (Prometheus on all services, Grafana dashboards, Op
 **Company Website:** https://tech.happykokoro.com
 
 **Portfolio:** https://happykokoro.com
+
+---
+
+**Next steps:** [Explore our services →](../services/overview.md) | [View technical profile →](../profile/resume.md) | [Contact us →](../services/contact.md)
+
+---
+
+_Kokoro Tech — [tech.happykokoro.com](https://tech.happykokoro.com) · [GitHub](https://github.com/happykokoro) · [Contact](../services/contact.md)_

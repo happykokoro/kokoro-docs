@@ -611,6 +611,62 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../services/how-we-work/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How We Work
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../services/contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2512,6 +2568,9 @@
 
 
 <h1 id="coding-style-and-architecture-philosophy-engineering-decisions-across-300000-lines-of-production-code">Coding Style and Architecture Philosophy: Engineering Decisions Across 300,000+ Lines of Production Code<a class="headerlink" href="#coding-style-and-architecture-philosophy-engineering-decisions-across-300000-lines-of-production-code" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><em>This is the long-form article. For the structured reference, see <a href="../../profile/coding-style/">Coding Style &amp; Architecture</a>.</em></p>
+</blockquote>
 <p>This document is a detailed examination of the architectural patterns, coding conventions, and engineering trade-offs present across the Kokoro codebase — a multi-language, multi-project system totaling over 300,000 lines of production code spanning Rust, TypeScript, Python, Go, Solidity, and Protocol Buffers. What follows is not a style guide. It is an account of specific decisions made under specific constraints, along with honest reasoning about what those constraints were and why each choice was the right one at the time.</p>
 <hr />
 <h2 id="1-architecture-philosophy">1. Architecture Philosophy<a class="headerlink" href="#1-architecture-philosophy" title="Permanent link">&para;</a></h2>
@@ -2525,10 +2584,10 @@
 <p>The enforcement mechanism is also trivially simple: it does not require a framework, a set of annotations, or any kind of abstract factory. The rule is just "does this crate import <code>tokio</code>, <code>reqwest</code>, <code>sqlx</code>, or <code>std::fs</code>? If yes, it is not a <code>crates/</code> member." The Cargo dependency graph enforces this structurally — if a pure crate tries to add a network dependency, the layering invariant fails at the dependency resolution level, before any code compiles.</p>
 <p>There is one known violation: the <code>event-store</code> crate uses <code>std::fs</code> directly for append-only JSONL logging. This is tracked as tech debt and will be migrated to PostgreSQL when event replay requirements grow. The violation is acknowledged because an append-only file write was too operationally simple to justify a full trait abstraction at the time it was written. Honesty about these decisions matters more than pretending the codebase is perfectly clean.</p>
 <p>The CIL pattern was chosen over three serious alternatives, each of which was genuinely considered.</p>
-<p><strong>Hexagonal architecture</strong> (ports and adapters) achieves a similar separation but with significantly more ceremony for a solo developer. Each port requires a trait, an adapter, and a test double — three times the surface area of CIL's single rule. The cognitive overhead of maintaining that scaffolding across 63 crates would have slowed iteration without improving the testability guarantees.</p>
+<p><strong>Hexagonal architecture</strong> (ports and adapters) achieves a similar separation but with significantly more ceremony for a lean team. Each port requires a trait, an adapter, and a test double — three times the surface area of CIL's single rule. The cognitive overhead of maintaining that scaffolding across 63 crates would have slowed iteration without improving the testability guarantees.</p>
 <p><strong>Domain-Driven Design with bounded contexts</strong> maps poorly to a trading pipeline where signals flow linearly through factors, then composition, then risk gating, then execution. DDD's bounded context model assumes relatively autonomous domains with well-defined message contracts between them. A linear signal pipeline does not have that topology — CIL's layered dependency model matches the actual data flow far better.</p>
 <p><strong>The actor model</strong> — something like <code>actix</code> actors with message passing — introduces message-passing overhead that is entirely unnecessary when the pipeline is synchronous within each tick. CIL crates are called directly as ordinary function calls. There is no queue, no mailbox, no serialization cost between stages. The actor model would have added complexity and latency with no benefit in this context.</p>
-<p>For a solo developer building a production trading system, the simplest correct architecture wins. CIL is the simplest architecture that achieves the testability and separation-of-concerns properties required.</p>
+<p>For a lean engineering team building a production trading system, the simplest correct architecture wins. CIL is the simplest architecture that achieves the testability and separation-of-concerns properties required.</p>
 <h3 id="the-single-binary-mvp-for-saas-products">The Single-Binary MVP for SaaS Products<a class="headerlink" href="#the-single-binary-mvp-for-saas-products" title="Permanent link">&para;</a></h3>
 <p>The architecture philosophy shifts substantially for SaaS products like <code>kokoro-mm</code> and <code>kokoro-vpn</code>. Here, all logical services collapse into a single process with direct function call IPC rather than network-based inter-service communication.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// mm-bin/src/main.rs (408 lines)</span>
@@ -2891,8 +2950,12 @@
 <h2 id="closing-observations">Closing Observations<a class="headerlink" href="#closing-observations" title="Permanent link">&para;</a></h2>
 <p>The patterns described above reflect a consistent set of values: prefer simplicity that is provably correct over sophistication that requires discipline to use correctly; make constraints enforced by tooling rather than convention; and match architectural complexity to actual operational requirements rather than anticipated ones.</p>
 <p>The CIL pattern is simple to explain and trivially enforceable by the Rust compiler. The two-tier error handling strategy is simple to follow once the distinction between application code and library boundaries is clear. The concurrency primitive selection table represents a set of decisions made once and then applied consistently. The test philosophy — pure functions, inline data, feature-gated expensive tests — eliminates an entire category of test infrastructure complexity.</p>
-<p>None of these decisions are novel. What is notable is the consistency with which they are applied across a codebase that spans five languages, twelve Docker services, and hundreds of thousands of lines of production code written under the time and resource constraints of a solo developer building multiple production systems simultaneously.</p>
+<p>None of these decisions are novel. What is notable is the consistency with which they are applied across a codebase that spans five languages, twelve Docker services, and hundreds of thousands of lines of production code — built and maintained by a lean engineering team operating multiple production systems simultaneously.</p>
 <p>Consistency at this scale is itself an architectural property. It means that the patterns described here are not aspirational — they are observably present in the code, across every project, at every layer of the stack.</p>
+<hr />
+<p><strong>Next steps:</strong> <a href="../../services/overview/">Explore our services →</a> | <a href="../../profile/resume/">View technical profile →</a> | <a href="../../services/contact/">Contact us →</a></p>
+<hr />
+<p><em>Kokoro Tech — <a href="https://tech.happykokoro.com">tech.happykokoro.com</a> · <a href="https://github.com/happykokoro">GitHub</a> · <a href="../../services/contact/">Contact</a></em></p>
 
 
 

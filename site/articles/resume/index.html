@@ -611,6 +611,62 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../services/how-we-work/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How We Work
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../services/contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1302,7 +1358,18 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Infrastructure and Operations">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-topology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        System Topology
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="System Topology">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1984,7 +2051,18 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Infrastructure and Operations">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-topology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        System Topology
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="System Topology">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2168,6 +2246,9 @@
 
 
 <h1 id="kokoro-tech-architecture-overview">Kokoro Tech: Architecture Overview<a class="headerlink" href="#kokoro-tech-architecture-overview" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><em>This is the long-form article. For the structured reference, see <a href="../../profile/resume/">Technical Capabilities</a>.</em></p>
+</blockquote>
 <h2 id="a-distributed-quantitative-trading-and-blockchain-infrastructure-platform">A Distributed Quantitative Trading and Blockchain Infrastructure Platform<a class="headerlink" href="#a-distributed-quantitative-trading-and-blockchain-infrastructure-platform" title="Permanent link">&para;</a></h2>
 <p>Kokoro Tech is a distributed quantitative trading and blockchain infrastructure platform spanning 530,000+ lines of production code across 7+ coordinated repositories, 3 cloud regions, and 14 independently deployable products. This document describes how the system is architected, why specific engineering decisions were made, and how the platform aligns with contemporary standards in distributed systems, signal processing, and cloud-native operations.</p>
 <p>Architecture documented following ISO/IEC/IEEE 42010:2022 conventions. Technical content at the level of engineering review, not product marketing.</p>
@@ -2175,7 +2256,7 @@
 <h2 id="system-architecture-one-logical-platform-across-seven-repositories">System Architecture: One Logical Platform Across Seven Repositories<a class="headerlink" href="#system-architecture-one-logical-platform-across-seven-repositories" title="Permanent link">&para;</a></h2>
 <p>What appears at first glance to be a portfolio of fourteen separate products is, in practice, one interconnected distributed system with fourteen independently deployable nodes. The architecture was designed around this distinction from the beginning — the question was never "how do we build fourteen things" but "how do we build one coherent system that happens to have fourteen deployment units."</p>
 <h3 id="the-repository-federation-pattern">The Repository Federation Pattern<a class="headerlink" href="#the-repository-federation-pattern" title="Permanent link">&para;</a></h3>
-<p>The core of the platform is a Rust monorepo (<code>kokoro-alpha-lab</code>, 242,466 lines, 65 crates, 1,074 tests) organized around a principle called the Clean Integration Layer (CIL). The CIL separates all business logic from all I/O: 63 crates under <code>crates/</code> contain pure trading logic with zero I/O dependencies, while only 3 application binaries in <code>apps/</code> interact with the outside world.</p>
+<p>The core of the platform is a Rust monorepo (<code>kokoro-alpha-lab</code>, 242,466 lines, 65 crates (alpha-lab monorepo), 1,074 tests) organized around a principle called the Clean Integration Layer (CIL). The CIL separates all business logic from all I/O: 63 crates under <code>crates/</code> contain pure trading logic with zero I/O dependencies, while only 3 application binaries in <code>apps/</code> interact with the outside world.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>apps/lab      (port 4100) — Research: factor pipeline, backtesting, HTTP API, gRPC :50051, SSE
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>apps/engine   (port 4200) — Execution: frozen strategy, real order execution, gRPC :50052
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>apps/platform (port 4000) — Gateway: auth, billing, tier gates, gRPC→REST proxy
@@ -2249,6 +2330,36 @@
 <p>The circuit breaker trips after 5 consecutive on-chain reverts, protecting against systematic execution failures (gas estimation errors, price feed staleness, or protocol-level edge cases).</p>
 <hr />
 <h2 id="infrastructure-and-operations">Infrastructure and Operations<a class="headerlink" href="#infrastructure-and-operations" title="Permanent link">&para;</a></h2>
+<h2 id="system-topology">System Topology<a class="headerlink" href="#system-topology" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>┌─────────────────────────────────────────────────────────┐
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>│                   WireGuard Mesh VPN                     │
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>│                   (10.10.0.0/24)                         │
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>│                                                          │
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  │
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>│  │  Singapore    │  │   Ireland    │  │   London     │  │
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>│  │  (10.10.0.1)  │  │  (10.10.0.2) │  │  (10.10.0.3) │  │
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>│  │              │  │              │  │              │  │
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>│  │ Alpha Lab    │  │ Kokoro MM    │  │ Copy Trader  │  │
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>│  │ Engine       │  │ Polymarket   │  │ Market Data  │  │
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>│  │ Platform     │  │   Bot        │  │              │  │
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>│  │ Wallet Mon.  │  │              │  │              │  │
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>│  │ Pricing Svc  │  │              │  │              │  │
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>│  │ Payment Svc  │  │              │  │              │  │
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>│  │ Frontend     │  │              │  │              │  │
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>│  │ MCP (98)     │  │ MCP (17)     │  │              │  │
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>│  │ Redis        │  │ PostgreSQL   │  │ SQLite       │  │
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>│  │ PostgreSQL   │  │ Redis        │  │              │  │
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>│  │ Prometheus   │  │ Caddy        │  │              │  │
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>│  │ Grafana      │  │              │  │              │  │
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>│  │ 12+ Docker   │  │              │  │              │  │
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>│  └──────────────┘  └──────────────┘  └──────────────┘  │
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>│                                                          │
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>│  ← Redis Streams (10 channels, dual JSON/proto) →       │
+<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>│  ← gRPC (Lab:4100 ↔ Engine:4200 ↔ Platform:4000) →    │
+<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>│  ← REST APIs at external boundaries →                   │
+<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>│  ← SSE for frontend real-time streaming →               │
+<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a>└─────────────────────────────────────────────────────────┘
+</code></pre></div>
 <h3 id="three-server-wireguard-mesh">Three-Server WireGuard Mesh<a class="headerlink" href="#three-server-wireguard-mesh" title="Permanent link">&para;</a></h3>
 <p>The three production servers — DigitalOcean Singapore (primary, 12+ containers), AWS Ireland (Kokoro MM, liquidation bot), AWS London (copy trader) — form a WireGuard mesh VPN on the 10.10.0.0/24 subnet. Per-node firewall ACL rules are generated programmatically from the VPN configuration, ensuring that service exposure follows from architectural intent rather than manual firewall management.</p>
 <p>The mesh makes physical server boundaries transparent to the application layer. Services on different servers address each other by mesh IP — no service discovery, no external DNS, no load balancer between internal services. Cross-region latency is the only performance consideration; protocol-level routing is eliminated.</p>
@@ -2290,7 +2401,7 @@
 </tr>
 <tr>
 <td>Rust code</td>
-<td>330,000+ lines across 100+ crates</td>
+<td>330,000+ lines across 100+ crates (across all repositories)</td>
 </tr>
 <tr>
 <td>Automated tests</td>
@@ -2351,7 +2462,7 @@
 <p>Three projects from this portfolio are publicly available:</p>
 <ul>
 <li><strong>claude-init</strong> — Auto-generates <code>.claude/</code> configuration directories for any project by detecting language (9 options) and framework (18 options). Zero external dependencies. Available on GitHub.</li>
-<li><strong>claude-dev-pipeline</strong> — Parallel development pipeline skill for Claude Code implementing 4-phase execution (research → team → review → merge). MIT license.</li>
+<li><strong>claude-dev-pipeline</strong> — Parallel development pipeline skill for AI coding agent implementing 4-phase execution (research → team → review → merge). MIT license.</li>
 <li><strong>kokoro-vpn</strong> — Self-hosted WireGuard VPN platform with Tauri v2 desktop client. MIT license.</li>
 </ul>
 <hr />
@@ -2365,7 +2476,7 @@
 <p>This architecture pattern means client customizations do not require forking the core platform — they plug in at the defined extension points. Client code is isolated from platform internals, meaning platform upgrades do not break client customizations and client customizations do not destabilize the platform core.</p>
 <h3 id="mcp-tools-demonstrate-structured-ai-interface-capability-for-any-domain">MCP Tools Demonstrate Structured AI Interface Capability for Any Domain<a class="headerlink" href="#mcp-tools-demonstrate-structured-ai-interface-capability-for-any-domain" title="Permanent link">&para;</a></h3>
 <p>The 115 MCP tools across two production servers are the clearest demonstration that Kokoro Tech can build structured AI tool interfaces for any domain. Each tool follows the same pattern: a well-typed schema, a documented contract, a production API call behind it. The lab-mcp server has 98 tools covering signal pipeline state, backtesting, factor analysis, execution, and system management. The kokoro-mm MCP server has 17 tools for the market making platform.</p>
-<p>For clients building AI-powered products — whether in trading, enterprise SaaS, developer tools, or any other domain — this is the capability: a complete MCP server implementation from protocol layer to domain logic, tested and production-ready. The same tooling that allows Claude to autonomously manage the Kokoro platform can be built for any structured domain.</p>
+<p>For clients building AI-powered products — whether in trading, enterprise SaaS, developer tools, or any other domain — this is the capability: a complete MCP server implementation from protocol layer to domain logic, tested and production-ready. The same tooling that allows AI agents to autonomously manage the Kokoro platform can be built for any structured domain.</p>
 <h3 id="multi-region-infrastructure-proves-operational-capability-at-global-scale">Multi-Region Infrastructure Proves Operational Capability at Global Scale<a class="headerlink" href="#multi-region-infrastructure-proves-operational-capability-at-global-scale" title="Permanent link">&para;</a></h3>
 <p>Three production servers (DigitalOcean Singapore, AWS Ireland, AWS London) connected by a self-built WireGuard mesh VPN are not an architectural aspiration — they are an operational reality. The mesh was built, configured, and has run without incident across a multi-year development cycle. Per-node ACL firewall rules are generated programmatically. Cross-region latency is the only variable; routing is eliminated.</p>
 <p>For clients requiring global deployment — latency-sensitive trading systems, geographically distributed SaaS platforms, multi-region data pipelines — Kokoro Tech has already solved the infrastructure design problem in production. The design can be adapted and deployed for client environments without starting from first principles.</p>
@@ -2376,6 +2487,10 @@
 <p><strong>GitHub (Personal):</strong> https://github.com/anescaper</p>
 <p><strong>Company Website:</strong> https://tech.happykokoro.com</p>
 <p><strong>Portfolio:</strong> https://happykokoro.com</p>
+<hr />
+<p><strong>Next steps:</strong> <a href="../../services/overview/">Explore our services →</a> | <a href="../../profile/resume/">View technical profile →</a> | <a href="../../services/contact/">Contact us →</a></p>
+<hr />
+<p><em>Kokoro Tech — <a href="https://tech.happykokoro.com">tech.happykokoro.com</a> · <a href="https://github.com/happykokoro">GitHub</a> · <a href="../../services/contact/">Contact</a></em></p>
 
 
 

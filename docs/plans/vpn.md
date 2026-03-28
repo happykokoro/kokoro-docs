@@ -487,3 +487,11 @@ Kokoro VPN occupies a defensible and growing niche: the developer and infrastruc
 The product is already production-tested. The technology is sound. The market is real and growing. The monetization strategy is conservative and proven for open-source developer tools. The risks are real but manageable.
 
 The path forward is execution: publish the repository, build the community, launch managed hosting, and let the product's quality drive growth.
+
+---
+
+**Next steps:** [Contact us →](../services/contact.md) | [How We Work →](../services/how-we-work.md) | [View technical profile →](../profile/resume.md)
+
+---
+
+_Kokoro Tech — [tech.happykokoro.com](https://tech.happykokoro.com) · [GitHub](https://github.com/happykokoro) · [Contact](../services/contact.md)_

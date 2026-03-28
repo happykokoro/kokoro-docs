@@ -2,7 +2,6 @@
 
 **Prepared by**: Kokoro Tech
 **Date**: March 2026
-**Confidentiality**: Proprietary — not for distribution
 
 ---
 
@@ -427,4 +426,12 @@ The financial projections are modest and deliberately conservative. Reaching $50
 
 ---
 
-_This document is confidential and intended for internal planning and investor review only. All financial projections are hypothetical and based on industry benchmarks, not historical actuals. Forward-looking statements involve risk and uncertainty. Actual results may differ materially._
+_All financial projections are hypothetical and based on industry benchmarks, not historical actuals. Forward-looking statements involve risk and uncertainty. Actual results may differ materially._
+
+---
+
+**Next steps:** [Contact us →](../services/contact.md) | [How We Work →](../services/how-we-work.md) | [View technical profile →](../profile/resume.md)
+
+---
+
+_Kokoro Tech — [tech.happykokoro.com](https://tech.happykokoro.com) · [GitHub](https://github.com/happykokoro) · [Contact](../services/contact.md)_

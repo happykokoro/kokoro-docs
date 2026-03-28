@@ -611,6 +611,62 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../services/how-we-work/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How We Work
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../services/contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1338,10 +1394,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#claude-code-mastery" class="md-nav__link">
+  <a href="#ai-coding-agent-mastery" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Claude Code Mastery
+        AI coding agent Mastery
       
     </span>
   </a>
@@ -2214,10 +2270,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#claude-code-mastery" class="md-nav__link">
+  <a href="#ai-coding-agent-mastery" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Claude Code Mastery
+        AI coding agent Mastery
       
     </span>
   </a>
@@ -2445,6 +2501,7 @@
 
 <h1 id="technical-capabilities-whitepaper-skills-domain-expertise">Technical Capabilities Whitepaper: Skills &amp; Domain Expertise<a class="headerlink" href="#technical-capabilities-whitepaper-skills-domain-expertise" title="Permanent link">&para;</a></h1>
 <blockquote>
+<p><em>This is the long-form article. For the structured reference, see <a href="../../profile/skills-and-expertise/">Skills &amp; Expertise</a>.</em></p>
 <p>This document provides a comprehensive account of technical skills, domain expertise, algorithmic knowledge, and engineering methodology demonstrated across the Kokoro project portfolio. Each capability is substantiated by concrete implementation evidence drawn from production systems.</p>
 </blockquote>
 <hr />
@@ -2576,10 +2633,10 @@
 <p>The production infrastructure spans three servers: sg-main on DigitalOcean Singapore hosting the Alpha-lab platform, trading bots, monitoring infrastructure, and self-hosted services; ie-poly on AWS EC2 Ireland hosting Kokoro MM and the Polymarket bot; and uk-pay on AWS EC2 London hosting the copy trader and market data services. All three are connected via a WireGuard mesh on the 10.10.0.0/24 private subnet, enabling inter-server API calls that never traverse the public internet.</p>
 <hr />
 <h2 id="6-ai-and-agent-systems">6. AI and Agent Systems<a class="headerlink" href="#6-ai-and-agent-systems" title="Permanent link">&para;</a></h2>
-<h3 id="claude-code-mastery">Claude Code Mastery<a class="headerlink" href="#claude-code-mastery" title="Permanent link">&para;</a></h3>
-<p>Two MCP (Model Context Protocol) servers have been built from scratch, exposing 115 total tools that provide Claude with programmatic access to the trading platform's full API surface. This enables Claude to autonomously inspect live market data, query signal states, examine positions, and reason about trading decisions without requiring human intermediation for data access.</p>
-<p>Custom Claude Code skills have been developed for structured workflow automation in trading-specific domains: <code>dev-pipeline</code>, <code>signal-pipeline</code>, <code>risk-management</code>, <code>kalman-filter</code>, <code>polymarket-arbitrage</code>, <code>anchor-patterns</code>, and <code>dex-integration</code>. These skills encode domain-specific patterns that would otherwise require lengthy prompting to communicate.</p>
-<p>The agent-orchestra project is a ground-up Python implementation of a Claude subagent orchestration dashboard. It manages Claude CLI subprocesses with WebSocket-based real-time monitoring of each agent's output. The system supports configurable team templates — feature-dev (three agents: architect, implementer, reviewer), build-fix (single focused agent), code-review, debug, and research — with approval gates that pause the pipeline for human review on merge conflicts, build failures, and test failures. Each agent works in an isolated git worktree on its own branch, and completions trigger automatic merge with dependency-aware ordering. A shared <code>CARGO_TARGET_DIR</code> prevents redundant compilation across concurrent agents, and critical error detection (ENOSPC and OOM) triggers automatic process termination before the server runs out of disk or memory.</p>
+<h3 id="ai-coding-agent-mastery">AI coding agent Mastery<a class="headerlink" href="#ai-coding-agent-mastery" title="Permanent link">&para;</a></h3>
+<p>Two MCP (Model Context Protocol) servers have been built from scratch, exposing 115 total tools that provide AI agents with programmatic access to the trading platform's full API surface. This enables AI agents to autonomously inspect live market data, query signal states, examine positions, and reason about trading decisions without requiring human intermediation for data access.</p>
+<p>Custom AI coding agent skills have been developed for structured workflow automation in trading-specific domains: <code>dev-pipeline</code>, <code>signal-pipeline</code>, <code>risk-management</code>, <code>kalman-filter</code>, <code>polymarket-arbitrage</code>, <code>anchor-patterns</code>, and <code>dex-integration</code>. These skills encode domain-specific patterns that would otherwise require lengthy prompting to communicate.</p>
+<p>The agent-orchestra project is a ground-up Python implementation of an AI subagent orchestration dashboard. It manages AI agent CLI subprocesses with WebSocket-based real-time monitoring of each agent's output. The system supports configurable team templates — feature-dev (three agents: architect, implementer, reviewer), build-fix (single focused agent), code-review, debug, and research — with approval gates that pause the pipeline for human review on merge conflicts, build failures, and test failures. Each agent works in an isolated git worktree on its own branch, and completions trigger automatic merge with dependency-aware ordering. A shared <code>CARGO_TARGET_DIR</code> prevents redundant compilation across concurrent agents, and critical error detection (ENOSPC and OOM) triggers automatic process termination before the server runs out of disk or memory.</p>
 <p>The <code>claude-dev-pipeline</code> skill implements a four-phase parallel execution model with atomic PR creation and dependency-aware merge ordering, enabling complex multi-crate feature development to be orchestrated through a single command.</p>
 <h3 id="ml-and-ai-implementations">ML and AI Implementations<a class="headerlink" href="#ml-and-ai-implementations" title="Permanent link">&para;</a></h3>
 <p>A Deep Q-Network (DQN) implementation in the <code>factor-ai</code> crate of alpha-lab uses an experience replay buffer to break temporal correlations in the training data, a Q-network for function approximation of the action-value function, and epsilon-greedy exploration with annealing. This provides a reinforcement learning foundation for factor selection and portfolio management under non-stationary market conditions.</p>
@@ -2638,6 +2695,10 @@
 <p>Server maintenance and scheduling expertise is demonstrated daily across three production servers in the Kokoro infrastructure. The DigitalOcean Singapore server hosts the primary trading platform (Docker Compose stack of 12+ containers), the AWS Ireland server runs Kokoro MM and its market-making engine, and the AWS London server supports the copy-trading and market data services. All three are managed through the same operational patterns: systemd service units define the lifecycle for backend Rust binaries and Node.js processes; PM2 manages Node.js processes in the copy-trader and pipeline services; Docker's restart policies and health checks handle containerized service recovery automatically. Cron jobs schedule periodic workloads including price feed refreshes, Louvain graph re-clustering (hourly), P&amp;L aggregation snapshots, and database maintenance tasks. Log management uses structured output (JSON lines via the tracing crate) with rotation policies to prevent unbounded disk growth. SSL certificate lifecycle is automated through Caddy's built-in ACME client on the public endpoints and Cloudflare's DNS management for all domains. PostgreSQL and Redis persistence are maintained with backup procedures and health monitoring. The three servers are coordinated via a WireGuard mesh VPN on the 10.10.0.0/24 subnet, ensuring that inter-service API calls between Singapore, Ireland, and London never traverse the public internet. This hands-on operational experience — not just deployment but ongoing scheduling, maintenance, and incident response — is the difference between knowing how to build systems and knowing how to run them.</p>
 <hr />
 <p><em>This whitepaper documents technical capabilities as demonstrated across production implementations. All claims are grounded in specific codebases and implementation artifacts within the Kokoro project portfolio.</em></p>
+<hr />
+<p><strong>Next steps:</strong> <a href="../../services/overview/">Explore our services →</a> | <a href="../../profile/resume/">View technical profile →</a> | <a href="../../services/contact/">Contact us →</a></p>
+<hr />
+<p><em>Kokoro Tech — <a href="https://tech.happykokoro.com">tech.happykokoro.com</a> · <a href="https://github.com/happykokoro">GitHub</a> · <a href="../../services/contact/">Contact</a></em></p>
 
 
 

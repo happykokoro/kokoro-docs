@@ -1,3 +1,8 @@
+---
+title: "Services — Custom Development, AI Consulting, Infrastructure"
+description: "Software outsourcing, blockchain development, quantitative finance consulting, and AI-augmented development services for global enterprises"
+---
+
 # Services
 
 **Production-proven technology, delivered globally.**
@@ -189,7 +194,18 @@ CI/CD, container orchestration, and production operations engineering.
 
 **Foundation:**
 
-Before AI-augmented development became the primary workflow, server administration was performed entirely manually in a professional role — Jenkins CI/CD, Kubernetes orchestration, direct SSH session management, physical notebook documentation. This hands-on operational discipline underpins the current infrastructure practice. The difference is throughput: AI-augmented operations deliver more, faster, with the same operational discipline.
+The infrastructure practice is grounded in professional experience with Jenkins CI/CD, Kubernetes orchestration, and production server management — combined with modern AI-augmented operations. This hands-on operational discipline underpins current infrastructure delivery: the patterns, tooling, and operational knowledge transfer directly to client deployments.
+
+---
+
+## Live Products & Proof of Work
+
+| Product               | URL                                                      | Description                                        |
+| --------------------- | -------------------------------------------------------- | -------------------------------------------------- |
+| **Kokoro MM**         | [mm.happykokoro.com](https://mm.happykokoro.com)         | Live Polymarket AMM platform                       |
+| **Kokoro Tech**       | [tech.happykokoro.com](https://tech.happykokoro.com)     | Company website                                    |
+| **GitHub (org)**      | [github.com/happykokoro](https://github.com/happykokoro) | Open-source repositories                           |
+| **GitHub (personal)** | [github.com/anescaper](https://github.com/anescaper)     | Developer tools (claude-init, claude-dev-pipeline) |
 
 ---
 
@@ -266,7 +282,7 @@ The AI-augmented development methodology is not a marketing claim — it is the 
 
 ### What It Means in Practice
 
-**115 MCP tools** expose every service boundary of the platform through structured API contracts accessible to AI agents. Research, backtesting, execution, system health monitoring, and infrastructure management can all be delegated to AI agents agents through these tools. This creates a feedback loop: the platform builds tools that make its own development faster, which enables building more tools.
+**115 MCP tools** expose every service boundary of the platform through structured API contracts accessible to AI agents. Research, backtesting, execution, system health monitoring, and infrastructure management can all be delegated to AI agents through these tools. This creates a feedback loop: the platform builds tools that make its own development faster, which enables building more tools.
 
 **Agent Orchestra** manages parallel AI coding agent teams with WebSocket real-time monitoring, git worktree isolation per agent, dependency-aware merge ordering, automated build-test-report pipelines, and approval gates on merge conflicts or build failures. This infrastructure was used to build Phase 2 of the alpha-lab monorepo — 6 parallel agents working simultaneously, each on an isolated branch, with automated merge and build verification.
 
@@ -288,3 +304,11 @@ Clients commissioning development from Kokoro Tech are not paying for an enginee
 | **Portfolio**             | https://happykokoro.com        |
 | **GitHub (Organization)** | https://github.com/happykokoro |
 | **GitHub (Personal)**     | https://github.com/anescaper   |
+
+---
+
+**Next steps:** [How We Work →](../services/how-we-work.md) | [View technical profile →](../profile/resume.md) | [Contact us →](../services/contact.md)
+
+---
+
+_Kokoro Tech — [tech.happykokoro.com](https://tech.happykokoro.com) · [GitHub](https://github.com/happykokoro) · [Contact](../services/contact.md)_

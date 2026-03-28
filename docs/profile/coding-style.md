@@ -368,7 +368,7 @@ type HealthChecker interface {
 - Domain-Driven Design packages: DDD's bounded contexts map poorly to a trading pipeline where signals flow linearly through factors → composition → risk → execution. CIL's layered model matches the data flow.
 - Actor model (e.g., actix actors): message-passing overhead is unnecessary when the pipeline is synchronous within each tick. CIL crates are called directly, not via message queues.
 
-**Rationale**: For a solo developer, the simplest correct architecture wins. CIL's enforcement mechanism is trivial: "does this crate import tokio, reqwest, sqlx, or std::fs? If yes, it's not a crate/ member." No framework needed, no annotations, no abstract factories. The compiler enforces the boundary via Cargo dependency resolution.
+**Rationale**: For a lean engineering team, the simplest correct architecture wins. CIL's enforcement mechanism is trivial: "does this crate import tokio, reqwest, sqlx, or std::fs? If yes, it's not a crate/ member." No framework needed, no annotations, no abstract factories. The compiler enforces the boundary via Cargo dependency resolution.
 
 ### Dynamic Dispatch Over Generics (Factors)
 
@@ -538,7 +538,7 @@ Kubernetes was intentionally not adopted — the operational complexity of K8s c
 
 ## 11. Docker & Deployment Conventions
 
-> **Background**: The containerization conventions here are grounded in professional Kubernetes experience predating the current projects. Before Docker Compose became the deployment target, production infrastructure was managed with Kubernetes — cluster management, pod scheduling, service discovery — operated entirely via SSH and documented shell commands. The current Docker Compose approach is a deliberate simplicity trade-off for a solo operator, not a lack of familiarity with orchestration at scale.
+> **Background**: The containerization conventions here are grounded in professional Kubernetes experience predating the current projects. Before Docker Compose became the deployment target, production infrastructure was managed with Kubernetes — cluster management, pod scheduling, service discovery — operated entirely via SSH and documented shell commands. The current Docker Compose approach is a deliberate simplicity trade-off for a small team, not a lack of familiarity with orchestration at scale.
 
 ### Multi-Stage Rust Builds
 
@@ -571,3 +571,15 @@ CMD ["<target>"]
 - Network: single default network per compose file, explicit port mapping only for externally-accessible services
 - Environment: `.env` file for secrets, never committed to git; `.env.example` committed with placeholder values
 - Restart policy: `restart: unless-stopped` for all production services
+
+---
+
+→ [Read the full article version](../articles/coding-style.md)
+
+---
+
+**Next steps:** [Explore our services →](../services/overview.md) | [View technical profile →](../profile/resume.md) | [Contact us →](../services/contact.md)
+
+---
+
+_Kokoro Tech — [tech.happykokoro.com](https://tech.happykokoro.com) · [GitHub](https://github.com/happykokoro) · [Contact](../services/contact.md)_

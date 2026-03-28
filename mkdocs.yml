@@ -58,6 +58,8 @@ nav:
       - Culture & Values: philosophy/culture.md
   - Services:
       - Overview: services/overview.md
+      - How We Work: services/how-we-work.md
+      - Contact: services/contact.md
   - Technical Profile:
       - Technology Stack: profile/technology-stack.md
       - Projects Portfolio: profile/projects-portfolio.md

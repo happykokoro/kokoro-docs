@@ -116,7 +116,7 @@ The platform is not theoretical. It runs on three continents. It processes live 
 
 Kokoro Tech is not looking for passengers. We are looking for people who find the mission worth the intensity it requires: institutional-grade financial infrastructure that serves individuals, built by a team small enough that every person's work is visible in the architecture.
 
-If that sounds right, reach out.
+If that sounds right, reach out. Send your GitHub profile and a note about what excites you to inquiry@happykokoro.com or open a discussion at [github.com/happykokoro](https://github.com/happykokoro).
 
 ---
 
@@ -134,4 +134,10 @@ That is the standard against which this work is measured.
 
 ---
 
-_Kokoro Tech — [tech.happykokoro.com](https://tech.happykokoro.com)_
+---
+
+**Next steps:** [Explore our services →](../services/overview.md) | [View technical profile →](../profile/resume.md) | [Contact us →](../services/contact.md)
+
+---
+
+_Kokoro Tech — [tech.happykokoro.com](https://tech.happykokoro.com) · [GitHub](https://github.com/happykokoro) · [Contact](../services/contact.md)_

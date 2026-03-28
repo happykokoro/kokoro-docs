@@ -611,6 +611,62 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../services/how-we-work/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How We Work
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../services/contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1453,10 +1509,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#claude-code-integration-architecture" class="md-nav__link">
+  <a href="#ai-coding-agent-integration-architecture" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Claude Code Integration Architecture
+        AI coding agent Integration Architecture
       
     </span>
   </a>
@@ -2395,10 +2451,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#claude-code-integration-architecture" class="md-nav__link">
+  <a href="#ai-coding-agent-integration-architecture" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Claude Code Integration Architecture
+        AI coding agent Integration Architecture
       
     </span>
   </a>
@@ -2465,6 +2521,7 @@
 
 <h1 id="the-kokoro-technology-stack-a-complete-technical-architecture-review">The Kokoro Technology Stack: A Complete Technical Architecture Review<a class="headerlink" href="#the-kokoro-technology-stack-a-complete-technical-architecture-review" title="Permanent link">&para;</a></h1>
 <blockquote>
+<p><em>This is the long-form article. For the structured reference, see <a href="../../profile/technology-stack/">Technology Stack</a>.</em></p>
 <p>This article provides a comprehensive, in-depth examination of every language, framework, library, protocol, and infrastructure component deployed across the Kokoro ecosystem. It is written for senior engineers, chief technology officers, and technical investors who need to assess the depth, coherence, and production-readiness of the stack from first principles.</p>
 </blockquote>
 <hr />
@@ -2475,8 +2532,8 @@
 <h2 id="1-programming-languages">1. Programming Languages<a class="headerlink" href="#1-programming-languages" title="Permanent link">&para;</a></h2>
 <h3 id="the-four-primary-languages">The Four Primary Languages<a class="headerlink" href="#the-four-primary-languages" title="Permanent link">&para;</a></h3>
 <p><strong>Rust</strong> is the dominant language of the ecosystem, accounting for roughly 264,000 lines of production code. It is used at the expert level across eight separate repositories: the kokoro-alpha-lab monorepo (approximately 242,000 lines across 65 crates), the kokoro-mm market-making platform (63,000 lines across 20 crates), the kokoro-polymarket-bot trading bot (15,500 lines), the kokoro-liquidation-bot (5,100 lines across 8 crates), and the supporting services — kokoro-wallet-monitor, kokoro-pricing-service, kokoro-vpn, and the payment service embedded in the monorepo. The choice of Rust is not merely stylistic: the signal processing pipelines, Kalman filters, and portfolio optimizers in alpha-lab demand zero-cost abstractions and predictable latency; the liquidation bot requires memory safety when managing flash loan execution paths on mainnet Ethereum; and the market-making engine needs to handle concurrent WebSocket order book updates without race conditions. Rust's ownership model enforces these constraints at compile time rather than at runtime, which is exactly the right trade-off for financial software.</p>
-<p><strong>TypeScript</strong> accounts for approximately 100,000 lines and is the exclusive language for all frontend work and AI-integration tooling. The alpha-lab frontend, the kokoro-mm frontend, the kokoro-tech marketing site, and the kokoro-staking frontend are all Next.js applications written in TypeScript. The lab-mcp repository — a Model Context Protocol server exposing 98 platform tools to Claude — is also TypeScript. The kokoro-pipeline project, which handles developer workflow automation and marketplace billing, is a full Node.js TypeScript application. TypeScript's static type system makes it the natural companion to Rust-backed APIs: types defined in OpenAPI or manually mirrored from Rust structs give the frontend the same compile-time correctness guarantees at the boundary layer.</p>
-<p><strong>Python</strong> serves as the language for rapid quantitative research and multi-agent orchestration, with approximately 10,000 lines across three active projects. The kokoro-copy-trader and the polymarket-bot strategy service are FastAPI applications running statistical inference, Hurst exponent computation, and GARCH volatility modeling. The agent-orchestra project, which coordinates parallel Claude Code agents across multiple git worktrees with automated merge and build pipelines, is written entirely in Python using its async ecosystem. The claude-init tool — a zero-dependency CLI for generating project scaffolding — is also Python. Python's dominance in scientific computing (numpy, scipy, scikit-learn) and its REPL-friendly iteration cycle make it the right choice for research scripts and orchestration glue, even though it would be wholly inappropriate for the latency-sensitive Rust services.</p>
+<p><strong>TypeScript</strong> accounts for approximately 100,000 lines and is the exclusive language for all frontend work and AI-integration tooling. The alpha-lab frontend, the kokoro-mm frontend, the kokoro-tech marketing site, and the kokoro-staking frontend are all Next.js applications written in TypeScript. The lab-mcp repository — a Model Context Protocol server exposing 98 platform tools to AI agents — is also TypeScript. The kokoro-pipeline project, which handles developer workflow automation and marketplace billing, is a full Node.js TypeScript application. TypeScript's static type system makes it the natural companion to Rust-backed APIs: types defined in OpenAPI or manually mirrored from Rust structs give the frontend the same compile-time correctness guarantees at the boundary layer.</p>
+<p><strong>Python</strong> serves as the language for rapid quantitative research and multi-agent orchestration, with approximately 10,000 lines across three active projects. The kokoro-copy-trader and the polymarket-bot strategy service are FastAPI applications running statistical inference, Hurst exponent computation, and GARCH volatility modeling. The agent-orchestra project, which coordinates parallel AI agent teams across multiple git worktrees with automated merge and build pipelines, is written entirely in Python using its async ecosystem. The claude-init tool — a zero-dependency CLI for generating project scaffolding — is also Python. Python's dominance in scientific computing (numpy, scipy, scikit-learn) and its REPL-friendly iteration cycle make it the right choice for research scripts and orchestration glue, even though it would be wholly inappropriate for the latency-sensitive Rust services.</p>
 <p><strong>Go</strong> backs the kokoro-staking platform with approximately 15,000 lines of application code. Go was chosen here for a specific reason: the staking backend makes concurrent cross-chain RPC queries against more than a dozen blockchain networks, and Go's <code>errgroup</code> concurrency primitive handles partial failures across those parallel requests more ergonomically than equivalent Rust or Python patterns. The <code>pgx/v5</code> PostgreSQL driver, the <code>gin</code> HTTP framework, and <code>shopspring/decimal</code> for arbitrary-precision financial arithmetic are all mature, well-maintained Go packages that make this a pragmatic choice for a service where concurrency and database performance are the primary concerns.</p>
 <h3 id="secondary-and-specialist-languages">Secondary and Specialist Languages<a class="headerlink" href="#secondary-and-specialist-languages" title="Permanent link">&para;</a></h3>
 <p>Several additional languages fill specific roles that neither the primary four nor general-purpose tooling can satisfy.</p>
@@ -2556,7 +2613,7 @@
 <p><strong>SWR 2.x</strong> (Stale-While-Revalidate) handles data fetching with automatic caching, deduplication, and background revalidation in kokoro-mm hooks. SWR's model is simple: return cached data immediately, revalidate in the background, and update the UI when fresh data arrives. This gives trading interfaces a fast initial render without stale data persisting indefinitely.</p>
 <p><strong>EventSource (native browser API)</strong> with a custom exponential backoff reconnect implementation provides the alpha-lab frontend's real-time streaming data connection via Server-Sent Events. The <code>useSSE</code> hook wraps the native EventSource with automatic reconnection, making the connection resilient to network interruptions without the bidirectional complexity of WebSocket.</p>
 <h3 id="mcp-and-ai-tool-integration">MCP and AI Tool Integration<a class="headerlink" href="#mcp-and-ai-tool-integration" title="Permanent link">&para;</a></h3>
-<p><strong>@modelcontextprotocol/sdk 1.12+</strong> implements the Model Context Protocol server that exposes platform capabilities to Claude AI agents. The lab-mcp repository implements 98 MCP tools; the kokoro-mm MCP service implements 17 tools — 115 total across the ecosystem. MCP allows Claude to call platform APIs (run a backtest, fetch signal history, deploy a bot, check system health) as tool calls within a conversation, enabling AI-assisted trading strategy development and platform management.</p>
+<p><strong>@modelcontextprotocol/sdk 1.12+</strong> implements the Model Context Protocol server that exposes platform capabilities to AI agents. The lab-mcp repository implements 98 MCP tools; the kokoro-mm MCP service implements 17 tools — 115 total across the ecosystem. MCP allows AI agents to call platform APIs (run a backtest, fetch signal history, deploy a bot, check system health) as tool calls within a conversation, enabling AI-assisted trading strategy development and platform management.</p>
 <p><strong>Zod 3.x</strong> validates the input schema for every MCP tool at runtime. Zod schemas define the exact shape and type constraints for tool arguments, and validation errors are returned to the AI caller as structured error messages that can be corrected and retried.</p>
 <h3 id="nodejs-backend-and-cms">Node.js Backend and CMS<a class="headerlink" href="#nodejs-backend-and-cms" title="Permanent link">&para;</a></h3>
 <p><strong>Express</strong> serves the API layer in kokoro-pipeline's developer console. <strong>Prisma</strong> provides a type-safe PostgreSQL ORM with 30+ data models for the pipeline's marketplace, billing, and workflow management features — a higher-level abstraction than sqlx is appropriate here because kokoro-pipeline is a developer tooling product rather than a low-latency financial service.</p>
@@ -2666,11 +2723,11 @@
 <p>Two <strong>AWS EC2</strong> instances handle the remaining services. A <code>t3.medium</code> (2 vCPU / 4 GB RAM) in the Ireland (<code>eu-west-1</code>) region runs kokoro-mm and kokoro-polymarket-bot, with low latency to European Polymarket users and the AWS network backbone. A <code>t3.small</code> (2 vCPU / 2 GB RAM) in the London (<code>eu-west-2</code>) region runs kokoro-copy-trader and stores market data, co-located with the AWS London zone for proximity to UK financial market data sources.</p>
 <hr />
 <h2 id="9-ai-machine-learning-and-agent-infrastructure">9. AI, Machine Learning, and Agent Infrastructure<a class="headerlink" href="#9-ai-machine-learning-and-agent-infrastructure" title="Permanent link">&para;</a></h2>
-<h3 id="claude-code-integration-architecture">Claude Code Integration Architecture<a class="headerlink" href="#claude-code-integration-architecture" title="Permanent link">&para;</a></h3>
-<p>The ecosystem has deep integration with Claude Code as an AI development tool and autonomous agent platform. The <strong>Claude Code CLI</strong> is the primary development interface, used with the <code>--dangerously-skip-permissions</code> flag to enable fully autonomous operation in non-interactive pipeline mode.</p>
-<p>The <strong>Model Context Protocol (MCP)</strong> server infrastructure exposes 115 platform tools to Claude across two MCP servers: 98 tools in lab-mcp and 17 tools in kokoro-mm's embedded MCP service. These tools cover the full operational surface of both platforms — running backtests, inspecting signal history, deploying bots, checking system health, managing strategies, and monitoring positions. Claude can invoke these tools as function calls within a conversation, enabling AI-assisted strategy development where the AI can iteratively run experiments, observe results, and refine strategies without human intervention at each step.</p>
-<p><strong>Claude Code Skills</strong> are custom workflow definitions (following the SKILL.md protocol) that encode complex multi-step operations: <code>dev-pipeline</code> for parallel multi-agent code generation, <code>signal-pipeline</code> for signal processing workflows, <code>risk-management</code> for portfolio risk analysis, <code>kalman-filter</code> for filter configuration, <code>polymarket-arbitrage</code> for arbitrage opportunity analysis, <code>anchor-patterns</code> for Solana program patterns, and <code>dex-integration</code> for DEX adapter implementation.</p>
-<p><strong>agent-orchestra</strong> is the multi-agent coordination platform, running orchestrated Claude Code agent teams — feature-dev (3-agent architect/implementer/reviewer), build-fix (single-agent focused compilation), code-review, debug, and research — across parallel git worktrees with automated merge, build, and test pipelines. The General Manager (GM) module automates the full lifecycle: launch → wait → analyze → merge → build → test, with an approval gate that pauses for human decision on merge conflicts or test failures.</p>
+<h3 id="ai-coding-agent-integration-architecture">AI coding agent Integration Architecture<a class="headerlink" href="#ai-coding-agent-integration-architecture" title="Permanent link">&para;</a></h3>
+<p>The ecosystem has deep integration with AI coding agent as an AI development tool and autonomous agent platform. The <strong>AI coding agent CLI</strong> is the primary development interface, used with the <code>--dangerously-skip-permissions</code> flag to enable fully autonomous operation in non-interactive pipeline mode.</p>
+<p>The <strong>Model Context Protocol (MCP)</strong> server infrastructure exposes 115 platform tools to AI agents across two MCP servers: 98 tools in lab-mcp and 17 tools in kokoro-mm's embedded MCP service. These tools cover the full operational surface of both platforms — running backtests, inspecting signal history, deploying bots, checking system health, managing strategies, and monitoring positions. AI agents can invoke these tools as function calls within a conversation, enabling AI-assisted strategy development where the AI can iteratively run experiments, observe results, and refine strategies without human intervention at each step.</p>
+<p><strong>AI coding agent Skills</strong> are custom workflow definitions (following the SKILL.md protocol) that encode complex multi-step operations: <code>dev-pipeline</code> for parallel multi-agent code generation, <code>signal-pipeline</code> for signal processing workflows, <code>risk-management</code> for portfolio risk analysis, <code>kalman-filter</code> for filter configuration, <code>polymarket-arbitrage</code> for arbitrage opportunity analysis, <code>anchor-patterns</code> for Solana program patterns, and <code>dex-integration</code> for DEX adapter implementation.</p>
+<p><strong>agent-orchestra</strong> is the multi-agent coordination platform, running orchestrated AI agent teams — feature-dev (3-agent architect/implementer/reviewer), build-fix (single-agent focused compilation), code-review, debug, and research — across parallel git worktrees with automated merge, build, and test pipelines. The General Manager (GM) module automates the full lifecycle: launch → wait → analyze → merge → build → test, with an approval gate that pauses for human decision on merge conflicts or test failures.</p>
 <h3 id="ai-and-machine-learning-techniques">AI and Machine Learning Techniques<a class="headerlink" href="#ai-and-machine-learning-techniques" title="Permanent link">&para;</a></h3>
 <p>The alpha-lab signal processing pipeline implements several machine learning and statistical techniques directly in Rust.</p>
 <p>The <strong>DQN (Deep Q-Network)</strong> implementation in the <code>factor-ai</code> crate includes an experience replay buffer for breaking correlation between training samples, a Q-network for action-value estimation, and epsilon-greedy exploration for balancing exploitation of known good actions against exploration of new ones. This reinforcement learning agent can learn trading policies from simulated market experience.</p>
@@ -2696,8 +2753,12 @@
 <p>Seven programming languages are in active production use: Rust, TypeScript, Python, Go, Solidity, SQL, and Shell. The Rust workspace carries 50 or more unique crate dependencies; the npm packages across all frontends number 80 or more; the Python library count stands at 15 or more; and the Go module count is 8 or more.</p>
 <p>Three databases serve the storage layer: PostgreSQL 16 for relational persistence, Redis 7 for message streaming and real-time events, and SQLite for lightweight embedded persistence.</p>
 <p>Eight blockchain networks are actively monitored or transacted on: Ethereum, Base, Arbitrum, Polygon, Optimism, Avalanche, and Solana — with Cosmos and 13 additional chains via the kokoro-staking platform. Eight DeFi protocols are integrated: Aave V3, Compound V3, Seamless, Moonwell, Jupiter, Raydium, Orca, and Pump.fun. Five exchange integrations feed market data: Binance, Coinbase, Deribit, Pyth Network, and Polymarket. Twenty on-chain Anchor programs are deployed in kokoro-protocol.</p>
-<p>The AI integration layer exposes 115 MCP tools to Claude across two servers. The production deployment runs 12 or more Docker containers across two cloud providers (AWS and DigitalOcean) in three geographic regions (Singapore, Ireland, London), connected by a WireGuard VPN mesh and protected by Cloudflare at the edge.</p>
+<p>The AI integration layer exposes 115 MCP tools to AI agents across two servers. The production deployment runs 12 or more Docker containers across two cloud providers (AWS and DigitalOcean) in three geographic regions (Singapore, Ireland, London), connected by a WireGuard VPN mesh and protected by Cloudflare at the edge.</p>
 <p>The stack represents a coherent, production-tested architecture for a multi-product quantitative finance and decentralized finance platform, with deliberate language selection, defense-in-depth security, and full observability from request metrics to distributed traces.</p>
+<hr />
+<p><strong>Next steps:</strong> <a href="../../services/overview/">Explore our services →</a> | <a href="../../profile/resume/">View technical profile →</a> | <a href="../../services/contact/">Contact us →</a></p>
+<hr />
+<p><em>Kokoro Tech — <a href="https://tech.happykokoro.com">tech.happykokoro.com</a> · <a href="https://github.com/happykokoro">GitHub</a> · <a href="../../services/contact/">Contact</a></em></p>
 
 
 

@@ -1,5 +1,7 @@
 # Technical Capabilities Whitepaper: Skills & Domain Expertise
 
+> _This is the long-form article. For the structured reference, see [Skills & Expertise](../profile/skills-and-expertise.md)._
+
 > This document provides a comprehensive account of technical skills, domain expertise, algorithmic knowledge, and engineering methodology demonstrated across the Kokoro project portfolio. Each capability is substantiated by concrete implementation evidence drawn from production systems.
 
 ---
@@ -383,3 +385,11 @@ Server maintenance and scheduling expertise is demonstrated daily across three p
 ---
 
 _This whitepaper documents technical capabilities as demonstrated across production implementations. All claims are grounded in specific codebases and implementation artifacts within the Kokoro project portfolio._
+
+---
+
+**Next steps:** [Explore our services →](../services/overview.md) | [View technical profile →](../profile/resume.md) | [Contact us →](../services/contact.md)
+
+---
+
+_Kokoro Tech — [tech.happykokoro.com](https://tech.happykokoro.com) · [GitHub](https://github.com/happykokoro) · [Contact](../services/contact.md)_

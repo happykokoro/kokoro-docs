@@ -611,6 +611,62 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../services/how-we-work/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How We Work
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../services/contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -3047,12 +3103,13 @@
 
 <h1 id="the-kokoro-ecosystem-a-technical-deep-dive-into-twenty-production-systems">The Kokoro Ecosystem: A Technical Deep Dive into Twenty Production Systems<a class="headerlink" href="#the-kokoro-ecosystem-a-technical-deep-dive-into-twenty-production-systems" title="Permanent link">&para;</a></h1>
 <blockquote>
+<p><em>This is the long-form article. For the structured reference, see <a href="../../profile/projects-portfolio/">Projects Portfolio</a>.</em></p>
 <p>A comprehensive engineering analysis of the Kokoro project portfolio — covering quantitative trading infrastructure, DeFi automation, developer tooling, and supporting platforms. Written for senior engineers, CTOs, and technical investors evaluating the depth and cohesion of this technology stack.</p>
 </blockquote>
 <hr />
 <h2 id="prologue-a-distributed-architecture-not-a-collection">Prologue: A Distributed Architecture, Not a Collection<a class="headerlink" href="#prologue-a-distributed-architecture-not-a-collection" title="Permanent link">&para;</a></h2>
 <p>The projects described in this document are not independent experiments. They form a deliberate, interlocking distributed system built around a central thesis: that quantitative trading — across crypto, traditional equities, prediction markets, and DeFi — can be unified under a single coherent software architecture rather than scattered across siloed tools.</p>
-<p>At the core sits Kokoro Alpha Lab, a 242,000-line Rust monorepo that defines the data types, traits, algorithms, and execution abstractions upon which nearly every other project depends. Surrounding it are execution-specialized derivatives — Kokoro MM for market making, the Polymarket Bot for directional trading, the Liquidation Bot for DeFi arbitrage — each consuming shared libraries from the monorepo's <code>shared-types</code> crate. The infrastructure layer includes a wallet monitor feeding on-chain intelligence upstream, a pricing service normalizing multi-DEX data, and an MCP tool server that exposes the entire research platform to AI-assisted workflows. The developer tooling — Agent Orchestra, Kokoro Pipeline, and Claude Init — handles the engineering process itself, enabling a single developer to manage a codebase of this scale through automated multi-agent collaboration. Taken together, these projects represent a vertically integrated trading technology operation.</p>
+<p>At the core sits Kokoro Alpha Lab, a 242,000-line Rust monorepo that defines the data types, traits, algorithms, and execution abstractions upon which nearly every other project depends. Surrounding it are execution-specialized derivatives — Kokoro MM for market making, the Polymarket Bot for directional trading, the Liquidation Bot for DeFi arbitrage — each consuming shared libraries from the monorepo's <code>shared-types</code> crate. The infrastructure layer includes a wallet monitor feeding on-chain intelligence upstream, a pricing service normalizing multi-DEX data, and an MCP tool server that exposes the entire research platform to AI-assisted workflows. The developer tooling — Agent Orchestra, Kokoro Pipeline, and claude-init — handles the engineering process itself, enabling a single developer to manage a codebase of this scale through automated multi-agent collaboration. Taken together, these projects represent a vertically integrated trading technology operation.</p>
 <p>The platform covers six distinct technical domains, each with production-depth implementations. Quantitative signal processing implements 11 filter types from first principles — H-infinity, UKF, particle filter, IMM, RBPF, wavelet CWT, Hilbert transform, dual Kalman, and more — alongside 24 alpha factor implementations spanning crypto, equities, forex, and prediction markets. Market making is grounded in the Avellaneda-Stoikov model for inventory-adjusted optimal quoting. DeFi liquidation uses flash loan arbitrage across 6 EVM chains with zero capital required. Prediction market trading spans multiple strategy families including GARCH volatility modeling, Hurst exponent regime classification, and Brownian Bridge path conditioning. Multi-chain blockchain integration covers Solana (20 Anchor programs) and 6 EVM chains (Ethereum, Base, Arbitrum, Polygon, Optimism, Avalanche). Options pricing implements Black-Scholes with full Greeks and Monte Carlo simulation with variance reduction techniques.</p>
 <h3 id="the-architecture-of-the-ecosystem">The Architecture of the Ecosystem<a class="headerlink" href="#the-architecture-of-the-ecosystem" title="Permanent link">&para;</a></h3>
 <p>The ecosystem is structured as a federated architecture: a core monorepo provides shared domain types and infrastructure primitives, while satellite services are extracted into independent repositories when they reach operational maturity and have stable, proven interfaces. This extraction pattern is deliberate — start in the monorepo where iteration is fast and the interface is fluid, prove the interface under real workload, then extract to its own repository with a pinned <code>shared-types</code> dependency once the contract is stable. The wallet monitor, pricing service, and frontend all followed this path.</p>
@@ -3232,10 +3289,10 @@
 <strong>Language</strong>: TypeScript (Express + React/Vite)
 <strong>Status</strong>: Active development — Rust-to-TypeScript migration in progress</p>
 <h3 id="purpose_1">Purpose<a class="headerlink" href="#purpose_1" title="Permanent link">&para;</a></h3>
-<p>Kokoro Pipeline is a full-featured automated development pipeline engine that orchestrates Claude Code agents through structured multi-phase software development workflows. It provides a React web console with a visual pipeline designer and a SaaS platform layer for multi-tenant deployment.</p>
+<p>Kokoro Pipeline is a full-featured automated development pipeline engine that orchestrates AI agents through structured multi-phase software development workflows. It provides a React web console with a visual pipeline designer and a SaaS platform layer for multi-tenant deployment.</p>
 <h3 id="architecture_2">Architecture<a class="headerlink" href="#architecture_2" title="Permanent link">&para;</a></h3>
 <p>The backend is an Express API on port 5555, backed by PostgreSQL with a Prisma ORM schema of 30+ models. The React/Vite frontend runs on port 3000. The central component is the <code>PipelineEngine</code>: a six-phase orchestrator that takes a development task from specification to completion. The phases are: research (understanding the codebase and requirements), plan (generating a structured implementation plan), execute (running agents to implement the plan), audit (reviewing what was built), assemble (integrating changes), and report (summarizing what was accomplished and what remains). Each phase can be retried independently, and the pipeline supports branching on audit failures with automated fix loops.</p>
-<p>The agent dispatcher interface abstracts over different AI backends: local Claude Code instances, OpenAI API agents, and Gemini API agents can all be used interchangeably or in combination. The <code>WorktreeManager</code> creates isolated git worktrees for each agent, preventing concurrent modifications from conflicting and making each agent's changes reviewable as a discrete unit.</p>
+<p>The agent dispatcher interface abstracts over different AI backends: local AI coding agent instances, OpenAI API agents, and Gemini API agents can all be used interchangeably or in combination. The <code>WorktreeManager</code> creates isolated git worktrees for each agent, preventing concurrent modifications from conflicting and making each agent's changes reviewable as a discrete unit.</p>
 <p>The React Flow visual designer provides 40+ node types, allowing users to design pipeline topologies graphically. Rather than hand-writing JSON pipeline configurations, users connect nodes representing research tasks, implementation phases, audit checks, and merge operations into a directed acyclic graph.</p>
 <p>Nineteen skills codify specialized development capabilities: <code>design-architect</code> for system design, <code>implement-features</code> for code generation, <code>generate-tests</code> for test authoring, <code>qa-validate</code> for quality validation, <code>scaffold-project</code> for project bootstrapping, <code>production-adapt</code> for deploying changes to production, <code>contract-audit</code> for smart contract security review, <code>financial-risk-review</code> for risk assessment, five codebase analysis skills (ingest, map, analyze, document, evaluate, plan), <code>tech-lead-audit</code> for architectural review, <code>fullstack-pipeline</code> for end-to-end feature development, and <code>auto-dev-task</code> for autonomous task completion.</p>
 <p>Pipeline modes address different development scenarios. Greenfield creates new projects from scratch. Incremental adds features to existing codebases. Hotfix focuses on targeted bug resolution. Reverse analyzes an existing codebase to generate documentation and a model of its structure. Reverse-then-Forward first analyzes the existing system and then plans and executes forward changes, grounding the implementation plan in the discovered reality rather than assumptions.</p>
@@ -3250,7 +3307,7 @@
 <h3 id="architecture_3">Architecture<a class="headerlink" href="#architecture_3" title="Permanent link">&para;</a></h3>
 <p>The system runs as a FastAPI server with a WebSocket dashboard providing four real-time event streams: <code>/ws/status</code> for overall system state, <code>/ws/logs</code> for agent output, <code>/ws/teams</code> for team activity, and <code>/ws/gm</code> for General Manager decisions and approval requests.</p>
 <p>The <code>GeneralManager</code> is the central automation engine. It orchestrates a seven-phase lifecycle: launching (spawning agent subprocesses), waiting (monitoring for completion), analyzing (reviewing each agent's output for success or failure), merging (integrating agent branches into the main branch), building (compiling the result), testing (running the test suite), and completing (archiving the session). The GM pauses at an approval gate whenever it encounters merge conflicts, build failures, or test failures, broadcasting a decision card via <code>/ws/gm</code> and waiting for human input before proceeding.</p>
-<p>The <code>TeamLauncher</code> spawns Claude CLI subprocesses with configurable flags, including <code>--dangerously-skip-permissions</code> for fully autonomous operation. It monitors stdout for progress and auto-kills processes that emit out-of-disk (ENOSPC) or out-of-memory (OOM) error messages. Git worktree isolation gives each agent a separate branch and filesystem location, preventing concurrent write conflicts. Upon completion, each agent's worktree branch is merged back. A shared <code>CARGO_TARGET_DIR</code> across all worktrees prevents N×disk-size compilation artifacts — without this, a 6-agent Rust build would produce 6 copies of the target directory, exhausting disk rapidly. SQLite provides session persistence.</p>
+<p>The <code>TeamLauncher</code> spawns AI agent CLI subprocesses with configurable flags, including <code>--dangerously-skip-permissions</code> for fully autonomous operation. It monitors stdout for progress and auto-kills processes that emit out-of-disk (ENOSPC) or out-of-memory (OOM) error messages. Git worktree isolation gives each agent a separate branch and filesystem location, preventing concurrent write conflicts. Upon completion, each agent's worktree branch is merged back. A shared <code>CARGO_TARGET_DIR</code> across all worktrees prevents N×disk-size compilation artifacts — without this, a 6-agent Rust build would produce 6 copies of the target directory, exhausting disk rapidly. SQLite provides session persistence.</p>
 <p>Five team templates define common collaboration patterns. <code>feature-dev</code> uses three agents in a hierarchical pattern: an architect agent designs the implementation approach, an implementer agent writes the code, and a reviewer agent audits the result. <code>build-fix</code> uses a single focused agent tasked purely with making the code compile — the empirical finding is that the three-agent architecture is overkill for compiler error resolution. <code>code-review</code>, <code>debug</code>, and <code>research</code> templates support their respective tasks. The team template selection is context-dependent: a new feature benefits from the architect/implementer/reviewer hierarchy, while a compilation failure just needs one agent reading the error messages.</p>
 <hr />
 <h2 id="11-kokoro-vpn">11. Kokoro VPN<a class="headerlink" href="#11-kokoro-vpn" title="Permanent link">&para;</a></h2>
@@ -3308,7 +3365,7 @@
 <h3 id="kokoro-tech">Kokoro Tech<a class="headerlink" href="#kokoro-tech" title="Permanent link">&para;</a></h3>
 <p>The company marketing website at https://tech.happykokoro.com is built with Next.js 16 as a static export, Tailwind v4, and a dark theme. It contains 18 components with scroll animations. Two primary pages cover the 9 Kokoro products with a vision roadmap and a 250+ item technology stack inventory, plus a services catalog with 28 categories. Deployment is handled via rsync to the DigitalOcean server.</p>
 <h3 id="claude-init">Claude Init<a class="headerlink" href="#claude-init" title="Permanent link">&para;</a></h3>
-<p>Claude Init is a Python single-file CLI (1,229 lines, zero dependencies beyond the standard library) that bootstraps a complete Claude Code configuration for any project. It inspects project files — <code>Cargo.toml</code>, <code>package.json</code>, <code>go.mod</code>, <code>pyproject.toml</code>, and framework-specific indicators — to detect the language and framework, then generates a <code>.claude/</code> directory containing a CLAUDE.md with project-specific instructions, a <code>settings.json</code> with appropriate tool permissions, agent configurations, and skill definitions. The zero-dependency design means it runs anywhere Python runs without requiring a virtualenv or pip install. Supported languages are 9 (Rust, Python, TypeScript, JavaScript, Go, Java, Ruby, Elixir, Dart, Solana) and 18 frameworks (Next.js, React, Vue, Angular, Express, Fastify, FastAPI, Django, Flask, Axum, Actix, Anchor, Bevy, Leptos, Svelte, Astro, Remix).</p>
+<p>Claude Init is a Python single-file CLI (1,229 lines, zero dependencies beyond the standard library) that bootstraps a complete AI coding agent configuration for any project. It inspects project files — <code>Cargo.toml</code>, <code>package.json</code>, <code>go.mod</code>, <code>pyproject.toml</code>, and framework-specific indicators — to detect the language and framework, then generates a <code>.claude/</code> directory containing a CLAUDE.md with project-specific instructions, a <code>settings.json</code> with appropriate tool permissions, agent configurations, and skill definitions. The zero-dependency design means it runs anywhere Python runs without requiring a virtualenv or pip install. Supported languages are 9 (Rust, Python, TypeScript, JavaScript, Go, Java, Ruby, Elixir, Dart, Solana) and 18 frameworks (Next.js, React, Vue, Angular, Express, Fastify, FastAPI, Django, Flask, Axum, Actix, Anchor, Bevy, Leptos, Svelte, Astro, Remix).</p>
 <h3 id="claude-dev-pipeline">Claude Dev Pipeline<a class="headerlink" href="#claude-dev-pipeline" title="Permanent link">&para;</a></h3>
 <p>Claude Dev Pipeline is a Markdown skill file implementing the SKILL.md protocol. It defines a four-phase parallel development workflow: a research phase where an agent ingests the codebase and requirements, a team execution phase where each agent operates in its own git worktree and produces its own PR, review-and-fix loops where agent output is audited and corrected, and a dependency-aware merge phase that orders PR merges according to the dependency graph of the changes. A single human approval gate at the end of the review phase is the only required human intervention. This skill serves as the high-level orchestration protocol that Agent Orchestra implements at the tooling level.</p>
 <h3 id="kokoro-services">Kokoro Services<a class="headerlink" href="#kokoro-services" title="Permanent link">&para;</a></h3>
@@ -3320,6 +3377,10 @@
 <p>Twenty projects built by a single developer over a focused period represent an unusual technical achievement. What makes this portfolio notable is not any individual project but the deliberate coherence between them. The Alpha Lab monorepo defines shared types and traits that are consumed by the Wallet Monitor and Pricing Service via <code>shared-types</code>. The quantitative algorithms in <code>quant-core</code> appear in both the Polymarket Bot and Kokoro MM. The EIP-712 signing logic in <code>mm-polymarket</code> is the same signing logic used in the Polymarket Bot's <code>executor</code> crate. The Avellaneda-Stoikov spread calculation in Kokoro MM draws on the same Kalman filtering primitives as the broader DSP infrastructure.</p>
 <p>This coherence is the product of upfront architectural investment: defining clean abstractions, enforcing dependency boundaries, and resisting the temptation to copy-paste logic across projects. The result is a codebase that, despite its scale — over 300,000 lines of Rust across the primary projects, plus tens of thousands of lines of TypeScript and Python — remains navigable and extensible. New asset classes, strategies, and execution venues can be added as additive operations rather than requiring cross-cutting refactors. The Clean Integration Layer in Alpha Lab, the trait-based adapter pattern in the Liquidation Bot, the interface-segregated plugin architecture in Kokoro Staking — these are not incidental design choices but consistent applications of the same architectural principles across every project in the portfolio.</p>
 <p>For senior engineers evaluating this work, the signal is in the architectural decisions: zero I/O in pure crates, trait-based dispatch everywhere that runtime flexibility is needed, lock-free concurrent data structures at performance boundaries, dual JSON/protobuf encoding for migration safety, and client-side signing as a security-first default. These are the decisions of an engineer who has thought carefully about the problems that arise at scale and built ahead of them.</p>
+<hr />
+<p><strong>Next steps:</strong> <a href="../../services/overview/">Explore our services →</a> | <a href="../../profile/resume/">View technical profile →</a> | <a href="../../services/contact/">Contact us →</a></p>
+<hr />
+<p><em>Kokoro Tech — <a href="https://tech.happykokoro.com">tech.happykokoro.com</a> · <a href="https://github.com/happykokoro">GitHub</a> · <a href="../../services/contact/">Contact</a></em></p>
 
 
 

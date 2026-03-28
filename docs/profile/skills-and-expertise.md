@@ -262,7 +262,7 @@ Connected via WireGuard mesh (10.10.0.0/24) for private inter-server communicati
 
 ### Server Scheduling & Maintenance
 
-**Professional foundation**: Before the current AI-augmented workflow, server administration was performed entirely manually in a professional role — Jenkins for CI/CD pipelines, Kubernetes for container orchestration, direct SSH sessions, and shell commands documented in physical notebooks. This hands-on operational discipline forms the foundation of the current infrastructure management practice.
+**Professional foundation**: The infrastructure practice is grounded in professional experience with Jenkins CI/CD, Kubernetes orchestration, and production server management. This hands-on operational discipline forms the foundation of the current AI-augmented infrastructure practice.
 
 - Production server administration across 3 servers (DigitalOcean, 2x AWS)
 - systemd service management for all backend processes
@@ -424,4 +424,16 @@ Connected via WireGuard mesh (10.10.0.0/24) for private inter-server communicati
 - Form validation: inline and FormRequest-based validation
 - Server-side rendering: Blade templating with Bootstrap 5 integration
 - Testing: Pest framework for feature and unit testing
-- Graduate-level study of enterprise PHP patterns and server maintenance
+- Production experience with Laravel 11 enterprise web applications: MVC architecture, Eloquent ORM, Pest testing, Blade templates, enterprise authentication patterns
+
+---
+
+→ [Read the full article version](../articles/skills-and-expertise.md)
+
+---
+
+**Next steps:** [Explore our services →](../services/overview.md) | [View technical profile →](../profile/resume.md) | [Contact us →](../services/contact.md)
+
+---
+
+_Kokoro Tech — [tech.happykokoro.com](https://tech.happykokoro.com) · [GitHub](https://github.com/happykokoro) · [Contact](../services/contact.md)_

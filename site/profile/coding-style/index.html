@@ -611,6 +611,62 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../services/how-we-work/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How We Work
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../services/contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1079,7 +1135,7 @@
   <a href="#claude-init-pattern" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Claude Init Pattern
+        claude-init Pattern
       
     </span>
   </a>
@@ -2217,7 +2273,7 @@
   <a href="#claude-init-pattern" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Claude Init Pattern
+        claude-init Pattern
       
     </span>
   </a>
@@ -2889,7 +2945,7 @@
 <a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">analyze_results</span><span class="p">()</span>
 <a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>        <span class="c1"># ... approval gate on failure</span>
 </code></pre></div>
-<h3 id="claude-init-pattern">Claude Init Pattern<a class="headerlink" href="#claude-init-pattern" title="Permanent link">&para;</a></h3>
+<h3 id="claude-init-pattern">claude-init Pattern<a class="headerlink" href="#claude-init-pattern" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Zero dependencies</strong>: Pure stdlib only (<code>argparse</code>, <code>pathlib</code>, <code>json</code>, <code>os</code>, <code>dataclasses</code>)</li>
 <li><strong>Single file</strong>: 1,229 lines in <code>init.py</code></li>
@@ -2931,7 +2987,7 @@
 <li>Domain-Driven Design packages: DDD's bounded contexts map poorly to a trading pipeline where signals flow linearly through factors → composition → risk → execution. CIL's layered model matches the data flow.</li>
 <li>Actor model (e.g., actix actors): message-passing overhead is unnecessary when the pipeline is synchronous within each tick. CIL crates are called directly, not via message queues.</li>
 </ul>
-<p><strong>Rationale</strong>: For a solo developer, the simplest correct architecture wins. CIL's enforcement mechanism is trivial: "does this crate import tokio, reqwest, sqlx, or std::fs? If yes, it's not a crate/ member." No framework needed, no annotations, no abstract factories. The compiler enforces the boundary via Cargo dependency resolution.</p>
+<p><strong>Rationale</strong>: For a lean engineering team, the simplest correct architecture wins. CIL's enforcement mechanism is trivial: "does this crate import tokio, reqwest, sqlx, or std::fs? If yes, it's not a crate/ member." No framework needed, no annotations, no abstract factories. The compiler enforces the boundary via Cargo dependency resolution.</p>
 <h3 id="dynamic-dispatch-over-generics-factors">Dynamic Dispatch Over Generics (Factors)<a class="headerlink" href="#dynamic-dispatch-over-generics-factors" title="Permanent link">&para;</a></h3>
 <p><strong>Decision</strong>: <code>Box&lt;dyn AlphaFactor&gt;</code> (50+ occurrences) instead of generic monomorphization.</p>
 <p><strong>Rationale</strong>: The factor pipeline needs runtime composability — users configure which factors to run via TOML config files. Generic monomorphization would require compile-time factor selection, preventing dynamic composition. The vtable overhead (~5ns per call) is negligible compared to the microsecond-scale filter computations.</p>
@@ -3178,7 +3234,7 @@
 <hr />
 <h2 id="11-docker-deployment-conventions">11. Docker &amp; Deployment Conventions<a class="headerlink" href="#11-docker-deployment-conventions" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p><strong>Background</strong>: The containerization conventions here are grounded in professional Kubernetes experience predating the current projects. Before Docker Compose became the deployment target, production infrastructure was managed with Kubernetes — cluster management, pod scheduling, service discovery — operated entirely via SSH and documented shell commands. The current Docker Compose approach is a deliberate simplicity trade-off for a solo operator, not a lack of familiarity with orchestration at scale.</p>
+<p><strong>Background</strong>: The containerization conventions here are grounded in professional Kubernetes experience predating the current projects. Before Docker Compose became the deployment target, production infrastructure was managed with Kubernetes — cluster management, pod scheduling, service discovery — operated entirely via SSH and documented shell commands. The current Docker Compose approach is a deliberate simplicity trade-off for a small team, not a lack of familiarity with orchestration at scale.</p>
 </blockquote>
 <h3 id="multi-stage-rust-builds">Multi-Stage Rust Builds<a class="headerlink" href="#multi-stage-rust-builds" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c"># Stage 1: Build</span>
@@ -3210,6 +3266,12 @@
 <li>Environment: <code>.env</code> file for secrets, never committed to git; <code>.env.example</code> committed with placeholder values</li>
 <li>Restart policy: <code>restart: unless-stopped</code> for all production services</li>
 </ul>
+<hr />
+<p>→ <a href="../../articles/coding-style/">Read the full article version</a></p>
+<hr />
+<p><strong>Next steps:</strong> <a href="../../services/overview/">Explore our services →</a> | <a href="../resume/">View technical profile →</a> | <a href="../../services/contact/">Contact us →</a></p>
+<hr />
+<p><em>Kokoro Tech — <a href="https://tech.happykokoro.com">tech.happykokoro.com</a> · <a href="https://github.com/happykokoro">GitHub</a> · <a href="../../services/contact/">Contact</a></em></p>
 
 
 

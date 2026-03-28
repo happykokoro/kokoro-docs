@@ -1,3 +1,8 @@
+---
+title: "Why We Build — Company Philosophy"
+description: "Financial self-sovereignty through engineering: institutional-grade tools for everyone"
+---
+
 # Why We Build: The Kokoro Tech Philosophy
 
 ---
@@ -138,4 +143,10 @@ That is the standard against which this work is measured.
 
 ---
 
-_Kokoro Tech — [tech.happykokoro.com](https://tech.happykokoro.com)_
+---
+
+**Next steps:** [Explore our services →](../services/overview.md) | [View technical profile →](../profile/resume.md) | [Contact us →](../services/contact.md)
+
+---
+
+_Kokoro Tech — [tech.happykokoro.com](https://tech.happykokoro.com) · [GitHub](https://github.com/happykokoro) · [Contact](../services/contact.md)_
