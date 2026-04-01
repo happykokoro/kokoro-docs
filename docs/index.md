@@ -11,7 +11,7 @@ description: "Global technology studio building institutional-grade quantitative
 
 ## What We Build
 
-A distributed SaaS platform spanning 7+ coordinated repositories — not 14 isolated projects, but one logical system with clearly defined service boundaries, shared type contracts, and encrypted inter-server communication.
+A distributed SaaS platform spanning 10+ coordinated repositories — not 16 isolated projects, but one logical system with clearly defined service boundaries, shared type contracts, and encrypted inter-server communication.
 
 The core monorepo (65 Rust crates (alpha-lab monorepo), 3 application binaries) is surrounded by satellite repositories extracted as they reached operational maturity: an independent frontend, two upstream data microservices, a dedicated MCP tool server, and two consumer-side trading applications that depend on shared library releases. All repositories coordinate through a shared type crate versioned with semantic tags, ensuring type safety across repository boundaries without tight coupling.
 
@@ -79,12 +79,14 @@ Long-form prose versions of the technical profile — suitable for reading, shar
 
 ### For Investors & Partners
 
-Evaluating Kokoro Tech for investment or partnership? Start with our [business plans](plans/alpha-lab.md) for detailed market analysis, financial projections, and technical moat documentation across 6 product lines.
+Evaluating Kokoro Tech for investment or partnership? Start with our [business plans](plans/terminal.md) for detailed market analysis, financial projections, and technical moat documentation across 8 product lines.
 
 ### Business Plans
 
 Comprehensive business plans for each product line — market analysis, revenue models, financial projections.
 
+- [**Kokoro Terminal**](plans/terminal.md) — Professional crypto market data terminal ($0-$299/mo SaaS)
+- [**Kokoro Auth**](plans/auth.md) — Unified SSO and subscription management across all products
 - [**Kokoro Alpha Lab**](plans/alpha-lab.md) — Quantitative trading research platform ($49-$499/mo SaaS)
 - [**Kokoro MM**](plans/mm.md) — Polymarket AMM-as-a-Service (first in market)
 - [**Kokoro Liquidation Bot**](plans/liquidation-bot.md) — Zero-capital DeFi liquidation across 6 EVM chains
@@ -108,9 +110,9 @@ Comprehensive business plans for each product line — market analysis, revenue 
 
 | Metric                | Value                                                       |
 | --------------------- | ----------------------------------------------------------- |
-| Total production code | 530,000+ lines                                              |
+| Total production code | 575,000+ lines                                              |
 | Rust code             | 330,000+ lines across 100+ crates (across all repositories) |
-| Products              | 14 active                                                   |
+| Products              | 16 active                                                   |
 | Automated tests       | 1,860+                                                      |
 | Blockchain chains     | 23 integrated                                               |
 | MCP tools             | 115                                                         |

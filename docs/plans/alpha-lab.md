@@ -163,7 +163,9 @@ For firms wanting custom factor implementations, signal pipeline architecture, o
 
 The platform is deployed in production on DigitalOcean Singapore with MAINTENANCE_MODE=true — meaning the infrastructure is live but not actively acquiring new users. The codebase is at 65 crates, 242,466 lines of Rust, 1,074 tests. The frontend has 107 routes covering all major research, execution, and market data workflows. The MCP server exposes 98 tools.
 
-Key capabilities operational: full factor pipeline, backtesting suite, paper trading on crypto and equities, Polymarket execution module, on-chain intelligence, risk management engine, real-time SSE streaming, JWT/TOTP authentication, and tier gating.
+Key capabilities operational: full factor pipeline, backtesting suite, paper trading on crypto and equities, Polymarket execution module, on-chain intelligence, risk management engine, real-time SSE streaming, JWT/TOTP authentication, and tier gating. Authentication is being migrated to Kokoro Auth (unified SSO across all products via RS256 JWT).
+
+**Terminal integration**: Kokoro Alpha Lab serves as the intelligence backend for Kokoro Terminal, the professional crypto market data terminal. The terminal surfaces Alpha Lab's signal processing, factor scores, predictions, and backtesting capabilities through a professional trading interface with 72+ components. This positions Alpha Lab as both a standalone product and the intelligence engine for the broader Kokoro ecosystem.
 
 ### Near-Term (Q2–Q3 2026)
 

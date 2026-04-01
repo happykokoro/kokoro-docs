@@ -7,7 +7,7 @@ description: "Software outsourcing, blockchain development, quantitative finance
 
 **Production-proven technology, delivered globally.**
 
-Kokoro Tech is a deep technology studio that builds and operates quantitative trading infrastructure, blockchain protocols, and AI developer tools at production scale. The same engineering capability behind 530,000+ lines of production code, 14 deployed products, and 3-continent infrastructure is available to global clients as commercial services.
+Kokoro Tech is a deep technology studio that builds and operates quantitative trading infrastructure, blockchain protocols, and AI developer tools at production scale. The same engineering capability behind 575,000+ lines of production code, 16 deployed products, and 3-continent infrastructure is available to global clients as commercial services.
 
 This is not consulting from a whiteboard. Every service category below corresponds to systems we have built, deployed, and operated in production.
 
@@ -203,6 +203,7 @@ The infrastructure practice is grounded in professional experience with Jenkins 
 | Product               | URL                                                      | Description                                        |
 | --------------------- | -------------------------------------------------------- | -------------------------------------------------- |
 | **Kokoro MM**         | [mm.happykokoro.com](https://mm.happykokoro.com)         | Live Polymarket AMM platform                       |
+| **Kokoro Alpha Lab**  | [alpha.happykokoro.com](https://alpha.happykokoro.com)   | Quantitative trading research platform             |
 | **Kokoro Tech**       | [tech.happykokoro.com](https://tech.happykokoro.com)     | Company website                                    |
 | **GitHub (org)**      | [github.com/happykokoro](https://github.com/happykokoro) | Open-source repositories                           |
 | **GitHub (personal)** | [github.com/anescaper](https://github.com/anescaper)     | Developer tools (claude-init, claude-dev-pipeline) |

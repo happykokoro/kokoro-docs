@@ -73,6 +73,8 @@ nav:
       - Architecture Philosophy: articles/coding-style.md
       - Architecture Overview: articles/resume.md
   - Business Plans:
+      - Kokoro Terminal: plans/terminal.md
+      - Kokoro Auth: plans/auth.md
       - Kokoro Alpha Lab: plans/alpha-lab.md
       - Kokoro MM: plans/mm.md
       - Kokoro Liquidation Bot: plans/liquidation-bot.md

@@ -8,12 +8,12 @@
 
 ### Primary Languages (daily production use)
 
-| Language       | Proficiency Level | Lines of Code | Projects                                                                                                                                                                      |
-| -------------- | ----------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Rust**       | Expert            | ~264,000+     | kokoro-alpha-lab (242K), kokoro-mm (63K), kokoro-polymarket-bot (15.5K), kokoro-liquidation-bot (5.1K), kokoro-wallet-monitor, kokoro-pricing-service, kokoro-vpn, kokoro-pay |
-| **TypeScript** | Expert            | ~100,000+     | kokoro-alpha-lab-frontend, kokoro-mm frontend, lab-mcp, kokoro-pipeline, kokoro-tech, kokoro-protocol (tests), kokoro-staking (frontend)                                      |
-| **Python**     | Advanced          | ~10,000+      | agent-orchestra, claude-init, kokoro-copy-trader, kokoro-polymarket-bot (strategy service), research scripts                                                                  |
-| **Go**         | Advanced          | ~15,000+      | kokoro-staking (full backend)                                                                                                                                                 |
+| Language       | Proficiency Level | Lines of Code | Projects                                                                                                                                                                                                      |
+| -------------- | ----------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Rust**       | Expert            | ~264,000+     | kokoro-alpha-lab (242K), kokoro-mm (63K), kokoro-polymarket-bot (15.5K), kokoro-liquidation-bot (5.1K), kokoro-terminal (NAPI modules), kokoro-wallet-monitor, kokoro-pricing-service, kokoro-vpn, kokoro-pay |
+| **TypeScript** | Expert            | ~145,000+     | kokoro-alpha-lab-frontend, kokoro-terminal (45K), kokoro-mm frontend, lab-mcp, kokoro-auth, kokoro-pipeline, kokoro-tech, kokoro-protocol (tests), kokoro-staking (frontend)                                  |
+| **Python**     | Advanced          | ~10,000+      | agent-orchestra, claude-init, kokoro-copy-trader, kokoro-polymarket-bot (strategy service), research scripts                                                                                                  |
+| **Go**         | Advanced          | ~15,000+      | kokoro-staking (full backend)                                                                                                                                                                                 |
 
 ### Secondary Languages (project-specific use)
 
@@ -102,6 +102,13 @@ Rust is the primary systems language across the platform. As of 2026, Rust is de
 | `criterion` | 0.5     | Benchmarking framework for pipeline performance testing                                                          |
 | `petgraph`  | —       | Directed graph analysis: fund-flow graphs, Louvain community detection for Sybil identification (wallet-monitor) |
 
+### Native Addons (NAPI-RS)
+
+| Crate         | Version | Usage                                                                                                                                                     |
+| ------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `napi`        | 2.x     | Rust → Node.js native addon bridge (kokoro-terminal: 10 compute packages — footprint, heatmap, orderbook, TA indicators, TPO, volume delta/profile, VPIN) |
+| `napi-derive` | 2.x     | Procedural macros for NAPI function exports                                                                                                               |
+
 ### Error Handling & Utilities
 
 | Crate                            | Version   | Usage                                                               |
@@ -172,15 +179,21 @@ Rust is the primary systems language across the platform. As of 2026, Rust is de
 | `@modelcontextprotocol/sdk` | 1.12+   | MCP server implementation (lab-mcp: 98 tools, kokoro-mm MCP: 17 tools) |
 | `zod`                       | 3.x     | Runtime schema validation for MCP tool inputs                          |
 
-### Backend (Node.js)
+### Backend (Node.js / Bun)
 
-| Package     | Version | Usage                                             |
-| ----------- | ------- | ------------------------------------------------- |
-| `express`   | —       | API server (kokoro-pipeline console)              |
-| `prisma`    | —       | PostgreSQL ORM with 30+ models (kokoro-pipeline)  |
-| `payload`   | 3.77    | Headless CMS (happykokoro.com website)            |
-| `commander` | —       | CLI framework (kokoro-pipeline)                   |
-| `stripe`    | —       | Billing integration (kokoro-pipeline marketplace) |
+| Package     | Version | Usage                                                                |
+| ----------- | ------- | -------------------------------------------------------------------- |
+| `hono`      | 4.x     | Bun-native HTTP framework (kokoro-auth, kokoro-terminal API gateway) |
+| `bun`       | 1.x     | JavaScript runtime (kokoro-auth, kokoro-terminal)                    |
+| `jose`      | 5.x     | JWT signing/verification with RS256 (kokoro-auth)                    |
+| `postgres`  | 3.x     | PostgreSQL client for Bun (kokoro-auth)                              |
+| `argon2`    | —       | Password hashing with argon2id (kokoro-auth)                         |
+| `otpauth`   | —       | TOTP 2FA implementation (kokoro-auth)                                |
+| `express`   | —       | API server (kokoro-pipeline console)                                 |
+| `prisma`    | —       | PostgreSQL ORM with 30+ models (kokoro-pipeline)                     |
+| `payload`   | 3.77    | Headless CMS (happykokoro.com website)                               |
+| `commander` | —       | CLI framework (kokoro-pipeline)                                      |
+| `stripe`    | —       | Billing integration (kokoro-pipeline, kokoro-auth, kokoro-mm)        |
 
 ### Testing (Frontend)
 
@@ -321,6 +334,13 @@ Rust is the primary systems language across the platform. As of 2026, Rust is de
 | Deribit      | WebSocket                         | Options implied volatility                                     |
 | Pyth Network | WebSocket + REST                  | Oracle price feeds, reference prices                           |
 | Alpaca       | REST + WebSocket                  | Equity bars, real-time quotes (exec-alpaca crate in alpha-lab) |
+
+### EVM Development Toolchain
+
+| Component    | Version | Details                                                                                                 |
+| ------------ | ------- | ------------------------------------------------------------------------------------------------------- |
+| **Foundry**  | Latest  | Solidity development framework — forge build, test, deploy (kokoro-liquidation-bot FlashLiquidator.sol) |
+| **Solidity** | 0.8.x   | Smart contract language for FlashLiquidator, flash loan execution                                       |
 
 ### WASM Toolchain
 
@@ -476,7 +496,7 @@ Aligned with 2026 CNCF cloud-native standards (89% organizational adoption, 80% 
 
 | Category                             | Count                                                                                                   |
 | ------------------------------------ | ------------------------------------------------------------------------------------------------------- |
-| Programming Languages (active)       | 7 (Rust, TypeScript, Python, Go, Solidity, SQL, Shell)                                                  |
+| Programming Languages (active)       | 8 (Rust, TypeScript, Python, Go, Solidity, SQL, Shell, PHP)                                             |
 | Rust Crates (workspace dependencies) | 50+ unique crates                                                                                       |
 | npm Packages (across all frontends)  | 80+ unique packages                                                                                     |
 | Python Libraries                     | 15+                                                                                                     |

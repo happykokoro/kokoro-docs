@@ -26,6 +26,8 @@
 18. [Claude Dev Pipeline](#18-claude-dev-pipeline) — Parallel Development Skill
 19. [Kokoro Services](#19-kokoro-services) — Self-Hosted Infrastructure
 20. [HappyKokoro](#20-happykokoro) — Personal Portfolio Site
+21. [Kokoro Terminal](#21-kokoro-terminal) — Professional Crypto Market Data Terminal
+22. [Kokoro Auth](#22-kokoro-auth) — Unified SSO and Subscription Management
 
 ---
 
@@ -682,6 +684,58 @@ PostgreSQL with orders, merchants, codes, events, webhook_deliveries tables.
 **Kokoro Services** — Docker Compose config for 11 self-hosted services (Umami, Gitea, Shlink, Uptime Kuma, PrivateBin, Excalidraw, Linkding, Syncthing, Homepage).
 
 **HappyKokoro** — Next.js 15, Payload CMS 3.77, SQLite. Company website and blog. CMS-driven: pages, posts, projects, search. Resend email adapter for contact form.
+
+---
+
+## 21. Kokoro Terminal
+
+**Repository**: `happykokoro/kokoro-terminal` (private)
+**Language**: TypeScript + Rust (NAPI) | **LOC**: ~45,000 | **Components**: 72+
+**Status**: Architecture complete, core modules implemented
+
+### Purpose
+
+Professional-grade crypto market data terminal competing with MMT (mmt.gg). Combines real-time multi-exchange data visualization, quantitative signal intelligence from Alpha Lab, trade execution, and an AI copilot in a single browser-based interface. Designed as the parent product of the Kokoro ecosystem — all other services feed intelligence into the terminal.
+
+### Architecture
+
+TypeScript + Bun monorepo with 10 Rust NAPI compute packages for performance-critical operations. Three application services (API gateway via Hono, data ingestion, dev server). Frontend built with Next.js, WebGL/Canvas, and 72+ React components covering professional trading workflows: candlestick charts, footprint charts, heatmaps, order book DOM, volume profiles, TPO/Market Profile, liquidation maps, CVD, VPIN, options Greeks, factor scores, backtesting, AI copilot, and portfolio management.
+
+### Rust NAPI Compute Packages
+
+`footprint-compute`, `heatmap-compute`, `orderbook-engine`, `ta-indicators`, `tpo-engine`, `volume-delta`, `volume-profile`, `vpin-compute`, `api-client`, `shared-types`
+
+### Revenue Model
+
+Free ($0) → Pro ($19/mo) → Trader with execution ($49/mo) → API ($99-299/mo)
+
+### Key Integration
+
+Kokoro Auth for SSO, Alpha Lab for signal intelligence, Lab MCP for AI copilot (98 tools), wallet monitor for on-chain data, pricing service for DEX prices, liquidation bot for DeFi intelligence.
+
+---
+
+## 22. Kokoro Auth
+
+**Repository**: `happykokoro/kokoro-auth` (private)
+**Language**: TypeScript (Bun + Hono) | **LOC**: ~3,000
+**Status**: Production (v1.1.0, deployed as Docker container)
+
+### Purpose
+
+Unified identity provider for all Kokoro products. Single Sign-On, per-product subscription management, 2FA, API key management, and OIDC provider for internal tools. A single Kokoro account gives access to Terminal, MM, Alpha Lab, and future products with separate billing per product.
+
+### Architecture
+
+Bun + Hono server on port 4050. RS256 asymmetric JWT — the auth service holds the private key, products verify with the public key only. PostgreSQL backend with 6 tables (users, product_subscriptions, sessions, api_keys, audit_log, oidc_clients). Stripe integration for subscription billing. Resend for transactional emails.
+
+### Key Features
+
+SSO across all products, RS256 JWT with per-product tier claims, TOTP 2FA, cross-product API keys (`ka_` prefix), OIDC provider for internal tools (Gitea, Grafana), atomic refresh token rotation with reuse detection, login throttling, full audit logging.
+
+### Security
+
+argon2id password hashing (64MB memory, 3 iterations), RS256 2048-bit RSA JWT, SHA-256 hashed refresh tokens and API keys, rate-limited auth endpoints.
 
 ---
 
