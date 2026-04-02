@@ -304,7 +304,7 @@ PROFILE_STRATEGIES = {
 }
 ```
 
-### Agent Orchestra Pattern
+### Multi-Agent Orchestration Pattern
 
 ```python
 # Async orchestration with asyncio

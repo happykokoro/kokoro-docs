@@ -8,14 +8,14 @@
 
 1. [Kokoro Alpha Lab](#1-kokoro-alpha-lab) — Quantitative Trading Research Platform
 2. [Kokoro MM](#2-kokoro-mm) — Polymarket AMM SaaS
-3. [Kokoro Polymarket Bot](#3-kokoro-polymarket-bot) — Multi-Strategy Trading Bot
+3. [Kokoro Polymarket Bot](#3-kokoro-polymarket-bot) — Multi-Strategy Trading Bot (historical, superseded by Kokoro MM)
 4. [Kokoro Liquidation Bot](#4-kokoro-liquidation-bot) — Multi-Chain DeFi Liquidation Engine
 5. [Kokoro Protocol](#5-kokoro-protocol) — On-Chain DeFi Platform (Solana)
 6. [Kokoro Alpha Lab Frontend](#6-kokoro-alpha-lab-frontend) — Trading Dashboard
 7. [Kokoro Staking](#7-kokoro-staking) — Multi-Chain Staking Aggregator
 8. [Lab MCP](#8-lab-mcp) — MCP Tool Server
 9. [Kokoro Pipeline](#9-kokoro-pipeline) — Automated Dev Pipeline Engine
-10. [Agent Orchestra](#10-agent-orchestra) — Multi-Agent Orchestrator
+10. [Multi-Agent Orchestration Platform](#10-multi-agent-orchestration-platform) — Internal Tool
 11. [Kokoro VPN](#11-kokoro-vpn) — Self-Hosted VPN Infrastructure
 12. [Kokoro Copy Trader](#12-kokoro-copy-trader) — Copy Trading Bot
 13. [Kokoro Wallet Monitor](#13-kokoro-wallet-monitor) — Solana Wallet Monitor
@@ -317,10 +317,9 @@ Strategy (6), Market (3), Order (2), Status (2), Copilot (4: explain_round, sugg
 
 ## 3. Kokoro Polymarket Bot
 
-**Repository**: `happykokoro/kokoro-polymarket-bot` (private)
 **Language**: Rust + Python | **Rust LOC**: 15,491 | **Python LOC**: ~1,470
 **Tests**: 72
-**Status**: Stopped (strategy replacement needed — fair-value dislocation strategy failed live)
+**Status**: Historical — directional trading functionality now superseded by Kokoro MM
 
 ### Purpose
 
@@ -516,11 +515,10 @@ Full-featured automated development pipeline engine orchestrating AI agents thro
 
 ---
 
-## 10. Agent Orchestra
+## 10. Multi-Agent Orchestration Platform
 
-**Repository**: `anescaper/agent-orchestra`
 **Language**: Python + Rust
-**Status**: Production (used for parallel development)
+**Status**: Production — internal tool used for parallel development
 
 ### Purpose
 

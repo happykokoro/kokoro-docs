@@ -24,7 +24,7 @@ apps/engine   (port 4200) — Execution: frozen strategy, real order execution, 
 apps/platform (port 4000) — Gateway: auth, billing, tier gates, gRPC→REST proxy
 ```
 
-Satellite repositories were extracted from the core monorepo as they reached operational maturity: `kokoro-alpha-lab-frontend` (Next.js trading dashboard), `kokoro-wallet-monitor` (Solana on-chain intelligence), `kokoro-pricing-service` (multi-DEX price aggregation), `lab-mcp` (TypeScript MCP tool server), `kokoro-polymarket-bot`, and `kokoro-copy-trader`. Each extraction was defined by a stable interface contract — not by arbitrary project boundaries.
+Satellite repositories were extracted from the core monorepo as they reached operational maturity: `kokoro-alpha-lab-frontend` (Next.js trading dashboard), `kokoro-wallet-monitor` (Solana on-chain intelligence), `kokoro-pricing-service` (multi-DEX price aggregation), `lab-mcp` (TypeScript MCP tool server), and `kokoro-copy-trader`. Each extraction was defined by a stable interface contract — not by arbitrary project boundaries.
 
 ### Coordination Mechanisms
 
@@ -210,15 +210,15 @@ The MCP (Model Context Protocol) layer represents a structural investment in ope
 
 The Model Context Protocol reached 97 million monthly SDK downloads in March 2026 (up from 2 million at its November 2024 launch), with 6,400+ registered servers. AI-augmented development is now a recognized engineering methodology. The platform's 115 MCP tools represent one of the largest known domain-specific MCP implementations, and were built as operational infrastructure before the protocol reached widespread adoption.
 
-Agent Orchestra manages parallel development across AI coding agents: git worktree isolation, dependency-aware merge ordering, automated build-test-report pipelines, approval gates on conflicts and failures. The same infrastructure that currently coordinates AI agent teams will coordinate human engineering teams as the platform scales.
+An internal multi-agent orchestration platform manages parallel development across AI coding agents: git worktree isolation, dependency-aware merge ordering, automated build-test-report pipelines, approval gates on conflicts and failures. The same infrastructure that currently coordinates AI agent teams will coordinate human engineering teams as the platform scales.
 
 ---
 
 ## Live Testing and Empirical Validation
 
-### Polymarket Bot Strategy Failure and Post-Mortem
+### Polymarket Bot Strategy Failure and Post-Mortem (Historical)
 
-The Kokoro Polymarket Bot ran live in early 2026. The initial strategy — fair-value dislocation — produced a $55 loss in 12 minutes. The post-mortem is technically instructive:
+A directional Polymarket trading bot (now superseded by Kokoro MM) ran live in early 2026. The initial strategy — fair-value dislocation — produced a $55 loss in 12 minutes. The post-mortem is technically instructive:
 
 The strategy estimated fair value from an ensemble of price signals, then traded markets where current price deviated from the estimate. In backtesting, this appeared profitable. In live trading, it failed structurally.
 

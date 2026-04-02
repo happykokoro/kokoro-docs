@@ -39,7 +39,7 @@ The near-term priority is implementing the Brownian Bridge path conditioning str
 
 ### 2.1 Kokoro Polymarket Bot
 
-**Repository**: `anescaper/My-First-Bot` (public, commented) + `happykokoro/kokoro-polymarket-bot` (private)
+**Repository**: `anescaper/My-First-Bot` (public, commented) + `kokoro-polymarket-bot` (private, historical — directional trading functionality now superseded by Kokoro MM)
 **Stack**: Rust 1.8x + Python 3.12
 **Rust LOC**: 15,491 | **Python LOC**: ~1,470 | **Tests**: 72
 

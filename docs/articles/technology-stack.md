@@ -22,7 +22,7 @@ The result is approximately 264,000 lines of Rust, 100,000 lines of TypeScript, 
 
 **TypeScript** accounts for approximately 100,000 lines and is the exclusive language for all frontend work and AI-integration tooling. The alpha-lab frontend, the kokoro-mm frontend, the kokoro-tech marketing site, and the kokoro-staking frontend are all Next.js applications written in TypeScript. The lab-mcp repository — a Model Context Protocol server exposing 98 platform tools to AI agents — is also TypeScript. The kokoro-pipeline project, which handles developer workflow automation and marketplace billing, is a full Node.js TypeScript application. TypeScript's static type system makes it the natural companion to Rust-backed APIs: types defined in OpenAPI or manually mirrored from Rust structs give the frontend the same compile-time correctness guarantees at the boundary layer.
 
-**Python** serves as the language for rapid quantitative research and multi-agent orchestration, with approximately 10,000 lines across three active projects. The kokoro-copy-trader and the polymarket-bot strategy service are FastAPI applications running statistical inference, Hurst exponent computation, and GARCH volatility modeling. The agent-orchestra project, which coordinates parallel AI agent teams across multiple git worktrees with automated merge and build pipelines, is written entirely in Python using its async ecosystem. The claude-init tool — a zero-dependency CLI for generating project scaffolding — is also Python. Python's dominance in scientific computing (numpy, scipy, scikit-learn) and its REPL-friendly iteration cycle make it the right choice for research scripts and orchestration glue, even though it would be wholly inappropriate for the latency-sensitive Rust services.
+**Python** serves as the language for rapid quantitative research and multi-agent orchestration, with approximately 10,000 lines across three active projects. The kokoro-copy-trader and the polymarket-bot strategy service are FastAPI applications running statistical inference, Hurst exponent computation, and GARCH volatility modeling. An internal multi-agent orchestration tool, which coordinates parallel AI agent teams across multiple git worktrees with automated merge and build pipelines, is written entirely in Python using its async ecosystem. The claude-init tool — a zero-dependency CLI for generating project scaffolding — is also Python. Python's dominance in scientific computing (numpy, scipy, scikit-learn) and its REPL-friendly iteration cycle make it the right choice for research scripts and orchestration glue, even though it would be wholly inappropriate for the latency-sensitive Rust services.
 
 **Go** backs the kokoro-staking platform with approximately 15,000 lines of application code. Go was chosen here for a specific reason: the staking backend makes concurrent cross-chain RPC queries against more than a dozen blockchain networks, and Go's `errgroup` concurrency primitive handles partial failures across those parallel requests more ergonomically than equivalent Rust or Python patterns. The `pgx/v5` PostgreSQL driver, the `gin` HTTP framework, and `shopspring/decimal` for arbitrary-precision financial arithmetic are all mature, well-maintained Go packages that make this a pragmatic choice for a service where concurrency and database performance are the primary concerns.
 
@@ -38,7 +38,7 @@ Several additional languages fill specific roles that neither the primary four n
 
 **TOML**, while not a Turing-complete language, deserves mention because it structures two important artifacts: the Cargo workspace configuration files that define the 65-crate monorepo dependency graph, and the strategy artifact definitions in alpha-lab where human-readable configuration is a requirement.
 
-**YAML** is the configuration language for Docker Compose service definitions, GitHub Actions CI pipeline declarations, and agent-orchestra team templates. The separation of YAML configuration from executable code is intentional: infrastructure topology and agent team compositions should be editable by operators without recompiling any binary.
+**YAML** is the configuration language for Docker Compose service definitions, GitHub Actions CI pipeline declarations, and multi-agent orchestration team templates. The separation of YAML configuration from executable code is intentional: infrastructure topology and agent team compositions should be editable by operators without recompiling any binary.
 
 ### Historical and Academic Languages
 
@@ -242,11 +242,11 @@ The Python quant layer assembles a standard but carefully chosen scientific stac
 
 ### Orchestration and Templating
 
-**aiosqlite** provides async SQLite access for the agent-orchestra dashboard, storing agent run history, worktree states, and pipeline execution records without blocking the async event loop.
+**aiosqlite** provides async SQLite access for the multi-agent orchestration dashboard, storing agent run history, worktree states, and pipeline execution records without blocking the async event loop.
 
-**PyYAML** parses the YAML team definition files that agent-orchestra uses to configure multi-agent pipelines — specifying which agents to spawn, their roles, and the coordination protocol between them.
+**PyYAML** parses the YAML team definition files that the orchestration platform uses to configure multi-agent pipelines — specifying which agents to spawn, their roles, and the coordination protocol between them.
 
-**Jinja2** renders the HTML dashboard served by agent-orchestra, templating dynamic data (agent status, worktree states, approval cards) into the web interface.
+**Jinja2** renders the HTML dashboard served by the orchestration platform, templating dynamic data (agent status, worktree states, approval cards) into the web interface.
 
 ---
 
@@ -410,7 +410,7 @@ The **Model Context Protocol (MCP)** server infrastructure exposes 115 platform 
 
 **AI coding agent Skills** are custom workflow definitions (following the SKILL.md protocol) that encode complex multi-step operations: `dev-pipeline` for parallel multi-agent code generation, `signal-pipeline` for signal processing workflows, `risk-management` for portfolio risk analysis, `kalman-filter` for filter configuration, `polymarket-arbitrage` for arbitrage opportunity analysis, `anchor-patterns` for Solana program patterns, and `dex-integration` for DEX adapter implementation.
 
-**agent-orchestra** is the multi-agent coordination platform, running orchestrated AI agent teams — feature-dev (3-agent architect/implementer/reviewer), build-fix (single-agent focused compilation), code-review, debug, and research — across parallel git worktrees with automated merge, build, and test pipelines. The General Manager (GM) module automates the full lifecycle: launch → wait → analyze → merge → build → test, with an approval gate that pauses for human decision on merge conflicts or test failures.
+**Multi-agent orchestration** is handled by an internal coordination platform, running orchestrated AI agent teams — feature-dev (3-agent architect/implementer/reviewer), build-fix (single-agent focused compilation), code-review, debug, and research — across parallel git worktrees with automated merge, build, and test pipelines. The General Manager (GM) module automates the full lifecycle: launch → wait → analyze → merge → build → test, with an approval gate that pauses for human decision on merge conflicts or test failures.
 
 ### AI and Machine Learning Techniques
 

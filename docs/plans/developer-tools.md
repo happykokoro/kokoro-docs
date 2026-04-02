@@ -8,11 +8,11 @@
 
 ## 1. Executive Summary
 
-Kokoro Developer Tools is a unified ecosystem of AI-augmented development infrastructure built to extend the capabilities of Claude Code — Anthropic's AI coding assistant — into a production-grade, team-scale automation platform. The ecosystem comprises five interconnected tools: Agent Orchestra (multi-agent orchestration with a live WebSocket dashboard), Claude Init (zero-dependency project configuration generator), Claude Dev Pipeline (parallel-agent skill protocol), Lab MCP (98 MCP tools exposing a full quantitative trading platform), and Kokoro MM MCP (17 MCP tools for prediction market operations). Together, they expose 115 Model Context Protocol tools — the largest known domain-specific MCP collection in the wild.
+Kokoro Developer Tools is a unified ecosystem of AI-augmented development infrastructure built to extend the capabilities of Claude Code — Anthropic's AI coding assistant — into a production-grade, team-scale automation platform. The ecosystem comprises five interconnected tools: a multi-agent orchestration platform (with a live WebSocket dashboard), Claude Init (zero-dependency project configuration generator), Claude Dev Pipeline (parallel-agent skill protocol), Lab MCP (98 MCP tools exposing a full quantitative trading platform), and Kokoro MM MCP (17 MCP tools for prediction market operations). Together, they expose 115 Model Context Protocol tools — the largest known domain-specific MCP collection in the wild.
 
 The central thesis is demonstrated, not theoretical: a technical founder used this exact toolchain to design, build, deploy, and maintain 14 production products totaling 530,000+ lines of code across Rust, TypeScript, Python, and Go, with 1,860+ automated tests running across three cloud servers. That is a development velocity that would normally require an engineering team of eight to twelve. Crucially, these tools are not a substitute for building a team — they are the operational backbone that makes growing a team efficient. The tools that enabled this scale are now being productized for the broader Claude Code developer community.
 
-The business operates at the intersection of two high-growth markets: AI coding assistants (projected to reach $12.6 billion by 2028) and the MCP protocol ecosystem (launched October 2024, already adopted by leading IDEs and AI platforms). Revenue comes from four channels: open-source community growth for Claude Init and Claude Dev Pipeline, a premium MCP server marketplace, Agent Orchestra offered as a managed SaaS for engineering teams, and enterprise consulting for organizations adopting Claude Code at scale.
+The business operates at the intersection of two high-growth markets: AI coding assistants (projected to reach $12.6 billion by 2028) and the MCP protocol ecosystem (launched October 2024, already adopted by leading IDEs and AI platforms). Revenue comes from four channels: open-source community growth for Claude Init and Claude Dev Pipeline, a premium MCP server marketplace, Multi-Agent Orchestration Platform offered as a managed SaaS for engineering teams, and enterprise consulting for organizations adopting Claude Code at scale.
 
 The immediate opportunity is narrow but deep: the Claude Code power-user community is small, technical, and underserved by purpose-built tooling. Capturing this community early — through open-source credibility and genuine utility — positions Kokoro Developer Tools as the reference architecture for serious Claude Code deployment before the market becomes crowded.
 
@@ -20,13 +20,12 @@ The immediate opportunity is narrow but deep: the Claude Code power-user communi
 
 ## 2. Product Overview
 
-### 2.1 Agent Orchestra
+### 2.1 Multi-Multi-Agent Orchestration Platformtion Platform
 
-**Repository**: `anescaper/agent-orchestra` (public)
 **Stack**: Python, FastAPI, WebSocket, SQLite
-**Status**: Production — used in active development
+**Status**: Production — used in active development (internal tool)
 
-Agent Orchestra is a multi-agent orchestration platform for Claude Code. It manages teams of Claude agents through a fully automated 7-phase lifecycle: launching, waiting, analyzing, merging, building, testing, and completed. Operators configure team templates (feature-dev with architect/implementer/reviewer agents, build-fix with a single focused agent, code-review, debug, research) and the General Manager module drives the entire pipeline without human intervention until it hits a decision gate.
+The multi-agent orchestration platform is a purpose-built system for Claude Code. It manages teams of Claude agents through a fully automated 7-phase lifecycle: launching, waiting, analyzing, merging, building, testing, and completed. Operators configure team templates (feature-dev with architect/implementer/reviewer agents, build-fix with a single focused agent, code-review, debug, research) and the General Manager module drives the entire pipeline without human intervention until it hits a decision gate.
 
 The architecture centers on git worktree isolation: each agent receives its own branch and directory, eliminating the merge conflicts that arise when multiple agents write to the same working tree simultaneously. After agents complete their tasks, the General Manager merges branches in dependency order, triggers the project build, runs the test suite, and broadcasts results via WebSocket to a React dashboard at `/ws/gm`. If any phase fails — merge conflict, build error, test regression — the pipeline pauses and presents an approval card to the operator rather than proceeding blindly.
 
@@ -37,7 +36,7 @@ Key technical differentiators:
 - **SQLite session persistence** preserves pipeline state across restarts
 - **Approval gate** is a first-class primitive, not an afterthought — the system is designed to pause and require human judgment on ambiguous outcomes rather than auto-proceeding
 
-Proven at scale: Agent Orchestra was used to build Phase 2 of Kokoro Alpha Lab with 6 parallel agents operating simultaneously, contributing work across signal processing, AI factors, Polymarket arbitrage, wallet discovery, frontend, and CI/CD — all merged and integrated in a single session.
+Proven at scale: the orchestration platform was used to build Phase 2 of Kokoro Alpha Lab with 6 parallel agents operating simultaneously, contributing work across signal processing, AI factors, Polymarket arbitrage, wallet discovery, frontend, and CI/CD — all merged and integrated in a single session.
 
 ### 2.2 Claude Init
 
@@ -101,7 +100,7 @@ The five tools form a coherent system rather than a collection of independent ut
 
 1. A new project is created; `claude-init` runs in 30 seconds and configures the entire `.claude/` directory with language-appropriate agents and skills
 2. A feature request arrives; the developer invokes `claude-dev-pipeline` which spins up a research agent, then routes feature agents into isolated worktrees
-3. For large features, `agent-orchestra` takes over — launching multiple specialized agents simultaneously, monitoring them, and driving the merge-build-test pipeline automatically
+3. For large features, the multi-agent orchestration platform takes over — launching multiple specialized agents simultaneously, monitoring them, and driving the merge-build-test pipeline automatically
 4. Once features ship, Lab MCP or MM MCP tools are available in Claude Code sessions for operational queries — checking signal states, verifying backtest results, inspecting live positions — without context-switching to a browser
 
 The MCP tools close the loop between development and operations, making the entire product surface accessible through the same AI interface used to build it.
@@ -138,9 +137,9 @@ As MCP matures, we expect several developments: a curated marketplace (Anthropic
 
 **Aider**: Terminal-based, strong at multi-file edits, active open-source community. No agent orchestration. Popular among developers comfortable with command-line workflows.
 
-**Devin / SWE-agent / OpenHands**: Fully autonomous agents targeting software engineering as a service. These are competitors at the orchestration layer but currently focus on fully autonomous execution with minimal human-in-the-loop control. Agent Orchestra takes the opposite stance: automation with explicit human approval gates.
+**Devin / SWE-agent / OpenHands**: Fully autonomous agents targeting software engineering as a service. These are competitors at the orchestration layer but currently focus on fully autonomous execution with minimal human-in-the-loop control. Multi-Agent Orchestration Platform takes the opposite stance: automation with explicit human approval gates.
 
-**First-party Anthropic tooling**: The primary platform risk. Anthropic could build orchestration tooling directly into Claude Code that renders Agent Orchestra redundant. The mitigation is to build deeply on specific use cases (Rust monorepos, trading platforms, domain-specific MCP servers) where first-party tooling will remain generic.
+**First-party Anthropic tooling**: The primary platform risk. Anthropic could build orchestration tooling directly into Claude Code that renders Multi-Agent Orchestration Platform redundant. The mitigation is to build deeply on specific use cases (Rust monorepos, trading platforms, domain-specific MCP servers) where first-party tooling will remain generic.
 
 The current white space is clear: no competitor offers an integrated ecosystem of (1) project bootstrapping, (2) parallel agent execution methodology, (3) production agent orchestration with approval gates, and (4) domain-rich MCP servers — as a unified, battle-tested package. That is Kokoro's position.
 
@@ -150,7 +149,7 @@ The current white space is clear: no competitor offers an integrated ecosystem o
 
 ### 4.1 Open-Source Community Layer (Free)
 
-Claude Init and Claude Dev Pipeline are and will remain fully open-source under MIT license. These tools have no direct monetization. Their function is trust-building: developers who use Claude Init on their projects are primed to evaluate Agent Orchestra when their team grows and projects become complex enough to need orchestration. Every GitHub star, every fork, every Hacker News post about claude-init is top-of-funnel acquisition for the paid products.
+Claude Init and Claude Dev Pipeline are and will remain fully open-source under MIT license. These tools have no direct monetization. Their function is trust-building: developers who use Claude Init on their projects are primed to evaluate Multi-Agent Orchestration Platform when their team grows and projects become complex enough to need orchestration. Every GitHub star, every fork, every Hacker News post about claude-init is top-of-funnel acquisition for the paid products.
 
 The open-source layer also serves a strategic function in the Anthropic ecosystem. Anthropic has incentives to surface high-quality Claude Code tooling to its user base. A well-maintained open-source repository with genuine utility is more likely to be featured in Anthropic documentation, showcased at developer events, or included in a future MCP marketplace than a purely commercial product.
 
@@ -174,21 +173,21 @@ Kokoro's position in a marketplace context:
 
 Projected marketplace revenue (Year 1): modest — $500 to $2,000 MRR from early adopters as the marketplace concept proves out. Year 2 assumes marketplace establishment: $5,000 to $15,000 MRR across multiple domain servers.
 
-### 4.3 Agent Orchestra SaaS
+### 4.3 Multi-Agent Orchestration Platform SaaS
 
-Agent Orchestra is the highest-value product in the portfolio for enterprise customers. An engineering team running Claude Code at scale needs exactly what Agent Orchestra provides: structured agent lifecycles, team templates for recurring task types, merge-build-test automation, and approval gates that keep humans in control of critical decisions.
+Multi-Agent Orchestration Platform is the highest-value product in the portfolio for enterprise customers. An engineering team running Claude Code at scale needs exactly what Multi-Agent Orchestration Platform provides: structured agent lifecycles, team templates for recurring task types, merge-build-test automation, and approval gates that keep humans in control of critical decisions.
 
 The SaaS model:
 
-**Starter** ($49/month): Solo developers or small teams. Up to 3 concurrent agents per session, 5 team templates, WebSocket dashboard, SQLite persistence. Suitable for the developer who uses Agent Orchestra for their own projects.
+**Starter** ($49/month): Solo developers or small teams. Up to 3 concurrent agents per session, 5 team templates, WebSocket dashboard, SQLite persistence. Suitable for the developer who uses Multi-Agent Orchestration Platform for their own projects.
 
 **Team** ($199/month): Engineering teams of 3-15. Up to 10 concurrent agents, 20 team templates, shared dashboard with team member access, Slack/Discord webhook notifications for pipeline events, priority support. Suitable for teams that have adopted Claude Code and want structured orchestration.
 
 **Enterprise** (Custom, $1,000+/month): Unlimited agents, custom team templates, on-premise deployment option, SSO/SAML integration, audit logging, dedicated support. Suitable for organizations running Claude Code at department or company scale.
 
-Infrastructure cost for SaaS is low: Agent Orchestra is a Python FastAPI application with SQLite storage. It manages subprocesses (the Claude CLI) on the host machine where it is installed. The SaaS component would be the dashboard, team management, billing, and template library — the orchestration engine itself runs locally alongside the Claude processes.
+Infrastructure cost for SaaS is low: Multi-Agent Orchestration Platform is a Python FastAPI application with SQLite storage. It manages subprocesses (the Claude CLI) on the host machine where it is installed. The SaaS component would be the dashboard, team management, billing, and template library — the orchestration engine itself runs locally alongside the Claude processes.
 
-Year 1 financial projection for Agent Orchestra SaaS: 50 Starter subscribers + 10 Team subscribers = $2,450 + $1,990 = ~$4,440 MRR (~$53K ARR). Year 2, assuming continued open-source growth: 200 Starter + 40 Team + 3 Enterprise = $9,800 + $7,960 + $3,000+ = ~$20,760 MRR (~$249K ARR).
+Year 1 financial projection for Multi-Agent Orchestration Platform SaaS: 50 Starter subscribers + 10 Team subscribers = $2,450 + $1,990 = ~$4,440 MRR (~$53K ARR). Year 2, assuming continued open-source growth: 200 Starter + 40 Team + 3 Enterprise = $9,800 + $7,960 + $3,000+ = ~$20,760 MRR (~$249K ARR).
 
 ### 4.4 Enterprise Claude Code Consulting
 
@@ -200,7 +199,7 @@ Consulting service lines:
 
 - **Claude Code Team Setup** ($5,000-$15,000): End-to-end configuration of .claude/ directory, agent definitions, skills, and team workflow for an engineering team
 - **Custom MCP Server Development** ($10,000-$30,000): Building a production-grade MCP server against a client's internal API, including tier gating, Zod validation, and dual transport support
-- **Agent Orchestration Architecture** ($20,000-$50,000): Designing and deploying an Agent Orchestra setup for a team's specific development workflow, including custom team templates and integration with existing CI/CD
+- **Multi-Agent Orchestration Platformtion Architecture** ($20,000-$50,000): Designing and deploying an Multi-Agent Orchestration Platform setup for a team's specific development workflow, including custom team templates and integration with existing CI/CD
 
 Target clients: Series B+ startups that have adopted Claude Code and want to scale it systematically; enterprise engineering departments that have run pilot programs and want to standardize; AI-native software studios building products with heavy Claude Code usage.
 
@@ -215,7 +214,7 @@ Year 1 consulting revenue target: 4-6 engagements at average $15,000 = $60,000-$
 All five tools are functional and in use:
 
 - Claude Init and Claude Dev Pipeline are open-source and published on GitHub
-- Agent Orchestra is running in production for Kokoro's own development work
+- Multi-Agent Orchestration Platform is running in production for Kokoro's own development work
 - Lab MCP (98 tools) and Kokoro MM MCP (17 tools) are deployed and operational
 - Combined 115 MCP tools represent the production surface currently in use
 
@@ -230,7 +229,7 @@ No formal monetization is active. The tools are in an internal-production phase:
 - Interactive mode: CLI prompts for customization rather than pure auto-detection
 - Installation via `pip install claude-init` and `brew install claude-init`
 
-**Agent Orchestra v1.0 (public launch)**
+**Multi-Agent Orchestration Platform v1.0 (public launch)**
 
 - Extract the General Manager into a standalone Python package installable via pip
 - Build a hosted dashboard at orchestrate.happykokoro.com with team management and billing
@@ -251,7 +250,7 @@ No formal monetization is active. The tools are in an internal-production phase:
 
 ### 5.3 6-18 Months (October 2026–September 2027)
 
-**Agent Orchestra Enterprise tier**
+**Multi-Agent Orchestration Platform Enterprise tier**
 
 - On-premise deployment packages (Docker Compose, Kubernetes helm chart)
 - SAML/OIDC SSO integration
@@ -302,7 +301,7 @@ The primary acquisition channel is GitHub. Both claude-init and claude-dev-pipel
 - Document clearly in README and CLAUDE.md how the tools work and why design decisions were made
 - Accept and acknowledge community contributions even when the core is developed internally
 
-A repository with 500+ GitHub stars in the Claude Code tooling space is the equivalent of a warm sales call for Agent Orchestra. The developer who has used claude-init to bootstrap three projects is already familiar with the workflow and has already invested in the Claude Code ecosystem.
+A repository with 500+ GitHub stars in the Claude Code tooling space is the equivalent of a warm sales call for Multi-Agent Orchestration Platform. The developer who has used claude-init to bootstrap three projects is already familiar with the workflow and has already invested in the Claude Code ecosystem.
 
 ### 6.2 Content Marketing
 
@@ -314,7 +313,7 @@ The Kokoro development story is genuinely compelling and has distribution potent
 
 **"The MCP Server That Controls a Trading Platform"** — Technical walkthrough of Lab MCP: how 98 tools are structured, tier gating implementation, Zod validation patterns, dual transport support. Targets developers building their own MCP servers who want a reference architecture.
 
-**Agent Orchestra live demos** — Short video walkthroughs (5-10 minutes) showing a 3-agent feature development session from invocation to merged PR. Visual demonstrations of automated pipelines are consistently high-engagement in developer communities.
+**Multi-Agent Orchestration Platform live demos** — Short video walkthroughs (5-10 minutes) showing a 3-agent feature development session from invocation to merged PR. Visual demonstrations of automated pipelines are consistently high-engagement in developer communities.
 
 ### 6.3 Anthropic Ecosystem Partnerships
 
@@ -332,7 +331,7 @@ Building a close relationship with Anthropic's developer relations team is a hig
 
 **Claude Code Reddit / Discord**: Active communities where developers share configurations, skills, and workflows. Contributing high-quality content to these communities (sharing claude-init configurations, discussing agent orchestration approaches) builds reputation before any explicit product promotion.
 
-**Developer Twitter/X**: Short-form documentation of the development process — screenshots of Agent Orchestra dashboards, GIFs of parallel agents working, before/after metrics — performs well in developer circles and drives GitHub traffic.
+**Developer Twitter/X**: Short-form documentation of the development process — screenshots of Multi-Agent Orchestration Platform dashboards, GIFs of parallel agents working, before/after metrics — performs well in developer circles and drives GitHub traffic.
 
 ---
 
@@ -346,9 +345,9 @@ With 115 tools across two servers, Kokoro has built the most comprehensive domai
 - **Domain depth**: 98 of the tools require a working Kokoro Alpha Lab instance behind them. The tools are only useful because the platform exists. The platform represents years of development. Replicating the tool without replicating the platform produces an empty MCP server.
 - **Live production usage**: The tools are used daily for real operations — checking signal states, deploying strategy artifacts, running backtests. Tools built for a specific, lived use case are qualitatively different from tools built speculatively.
 
-### 7.2 Battle-Tested Agent Orchestration
+### 7.2 Battle-Tested Multi-Agent Orchestration Platformtion
 
-Agent Orchestra was built to solve a specific problem — running 6 parallel agents on a 242,000-line Rust monorepo without running out of disk, producing conflicting merges, or generating code that breaks the build — and it solved it. The specific failure modes it addresses (ENOSPC on large codebases, shared working directory conflicts, unbounded agent scope) are not obvious from first principles. They are learned through repeated production use.
+Multi-Agent Orchestration Platform was built to solve a specific problem — running 6 parallel agents on a 242,000-line Rust monorepo without running out of disk, producing conflicting merges, or generating code that breaks the build — and it solved it. The specific failure modes it addresses (ENOSPC on large codebases, shared working directory conflicts, unbounded agent scope) are not obvious from first principles. They are learned through repeated production use.
 
 The Phase 2 build record is concrete evidence: 6 agents running simultaneously, contributions merged in order, build passing, 180+ tests added. This is not a demo scenario — it is the actual development history of a production codebase.
 
@@ -362,7 +361,7 @@ Custom skills built for specific Kokoro domains — dev-pipeline, signal-pipelin
 
 The most compelling technical moat is the proof-of-concept the portfolio represents. 14 products, 530,000+ lines, 1,860+ tests, built by a technical founder with 9 years of experience from hardware mining rigs to distributed SaaS. This is not a marketing claim — it is verifiable from the GitHub commit history, the deployed production services, and the live public-facing products. The developer tooling enabled this scale.
 
-But the narrative does not end at "founder alone." It continues: the same infrastructure that enabled a lean founder-led team to build at this scale is designed to coordinate a growing human+AI team. Agent Orchestra manages parallel agents today and will manage parallel engineers tomorrow. The MCP tools are the operational interface for the platform now and will be the onboarding interface for new operators as the team grows. The architecture — CIL, trait plugins, codified conventions — means every crate is an assignable unit of work with a defined interface and a test suite as acceptance criteria.
+But the narrative does not end at "founder alone." It continues: the same infrastructure that enabled a lean founder-led team to build at this scale is designed to coordinate a growing human+AI team. Multi-Agent Orchestration Platform manages parallel agents today and will manage parallel engineers tomorrow. The MCP tools are the operational interface for the platform now and will be the onboarding interface for new operators as the team grows. The architecture — CIL, trait plugins, codified conventions — means every crate is an assignable unit of work with a defined interface and a test suite as acceptance criteria.
 
 Other teams wanting to achieve similar leverage have a clear path: adopt the same toolchain. And the Kokoro roadmap demonstrates what comes next: a platform that scales from one technical founder to a coordinated team without architectural debt or operational chaos.
 
@@ -374,14 +373,14 @@ Other teams wanting to achieve similar leverage have a clear path: adopt the sam
 
 **Revenue Sources**:
 
-| Source                                         | Monthly (End of Year 1) | Annual       |
-| ---------------------------------------------- | ----------------------- | ------------ |
-| Agent Orchestra Starter (50 users @ $49)       | $2,450                  | ~$14,700     |
-| Agent Orchestra Team (10 teams @ $199)         | $1,990                  | ~$11,940     |
-| MCP Marketplace subscriptions (early adopters) | $800                    | ~$4,800      |
-| Consulting (4 engagements avg $15K)            | —                       | $60,000      |
-| GitHub Sponsors                                | $300                    | ~$2,400      |
-| **Total**                                      | **~$5,540 MRR**         | **~$93,840** |
+| Source                                                      | Monthly (End of Year 1) | Annual       |
+| ----------------------------------------------------------- | ----------------------- | ------------ |
+| Multi-Agent Orchestration Platform Starter (50 users @ $49) | $2,450                  | ~$14,700     |
+| Multi-Agent Orchestration Platform Team (10 teams @ $199)   | $1,990                  | ~$11,940     |
+| MCP Marketplace subscriptions (early adopters)              | $800                    | ~$4,800      |
+| Consulting (4 engagements avg $15K)                         | —                       | $60,000      |
+| GitHub Sponsors                                             | $300                    | ~$2,400      |
+| **Total**                                                   | **~$5,540 MRR**         | **~$93,840** |
 
 **Cost Structure (Year 1)**:
 
@@ -396,22 +395,22 @@ Year 1 net profit projection: ~$84,000 (before any founder salary)
 
 **Revenue Sources**:
 
-| Source                                           | Monthly (End of Year 2) | Annual         |
-| ------------------------------------------------ | ----------------------- | -------------- |
-| Agent Orchestra Starter (200 users @ $49)        | $9,800                  | ~$78,000       |
-| Agent Orchestra Team (40 teams @ $199)           | $7,960                  | ~$63,700       |
-| Agent Orchestra Enterprise (3 clients @ $1,000+) | $3,000+                 | ~$36,000+      |
-| MCP Marketplace (multiple servers, growing base) | $3,500                  | ~$28,000       |
-| Kokoro Pipeline marketplace commission           | $2,000                  | ~$16,000       |
-| Consulting (8 engagements avg $20K)              | —                       | $160,000       |
-| **Total**                                        | **~$26,260+ MRR**       | **~$381,700+** |
+| Source                                                              | Monthly (End of Year 2) | Annual         |
+| ------------------------------------------------------------------- | ----------------------- | -------------- |
+| Multi-Agent Orchestration Platform Starter (200 users @ $49)        | $9,800                  | ~$78,000       |
+| Multi-Agent Orchestration Platform Team (40 teams @ $199)           | $7,960                  | ~$63,700       |
+| Multi-Agent Orchestration Platform Enterprise (3 clients @ $1,000+) | $3,000+                 | ~$36,000+      |
+| MCP Marketplace (multiple servers, growing base)                    | $3,500                  | ~$28,000       |
+| Kokoro Pipeline marketplace commission                              | $2,000                  | ~$16,000       |
+| Consulting (8 engagements avg $20K)                                 | —                       | $160,000       |
+| **Total**                                                           | **~$26,260+ MRR**       | **~$381,700+** |
 
 ### 8.3 Revenue Model Assumptions
 
 These projections are grounded in specific assumptions:
 
 - Claude Code's user base grows from ~50,000 to ~300,000 active developers between 2026 and 2027 (conservative given Anthropic's growth trajectory and Claude Code's rapid adoption)
-- 2-3% of the Claude Code power-user segment (~5,000-9,000 developers) encounter Agent Orchestra through open-source discovery
+- 2-3% of the Claude Code power-user segment (~5,000-9,000 developers) encounter Multi-Agent Orchestration Platform through open-source discovery
 - 1% of that discovery segment converts to paid Starter tier
 - Consulting demand is inbound-only (from open-source visibility and content marketing), not outbound sales
 - MCP marketplace emerges as a functional channel in H2 2026
@@ -428,27 +427,27 @@ The developer tools ecosystem is built and operated by the same technical founde
 
 The AI-augmented development infrastructure is the operating backbone:
 
-- **Agent Orchestra** manages parallel feature development across the open-source tools and the SaaS products simultaneously — the same system being productized is the system used to build it
+- **Multi-Agent Orchestration Platform** manages parallel feature development across the open-source tools and the SaaS products simultaneously — the same system being productized is the system used to build it
 - **Claude Dev Pipeline** structures every multi-feature development cycle: research, parallel agents, review, merge — encoding the lessons from 18 months of Claude Code usage at scale
 - **115 MCP tools** give any team member (human or AI) the ability to operate the full trading platform without context-switching to a browser — the same operational efficiency offered to customers
 
 ### Developer Tools as Scaling Infrastructure
 
-The critical insight is that Agent Orchestra, the MCP tools, and Claude Dev Pipeline are not just products — they are the infrastructure through which Kokoro Tech itself scales. As the company grows:
+The critical insight is that Multi-Agent Orchestration Platform, the MCP tools, and Claude Dev Pipeline are not just products — they are the infrastructure through which Kokoro Tech itself scales. As the company grows:
 
-- **From 1 to 3 people**: The first hires (a developer advocate, a second engineer) slot into the existing Agent Orchestra pipeline. Their work goes through the same merge-build-test lifecycle as AI agent work. The infrastructure was designed for this.
-- **From 3 to 10 people**: Team leads own Agent Orchestra team templates for their domain. A quant researcher owns the `signal-pipeline` skill and the factors team template. A blockchain specialist owns the `dex-integration` skill. The methodology scales because it is methodology, not just tooling.
+- **From 1 to 3 people**: The first hires (a developer advocate, a second engineer) slot into the existing Multi-Agent Orchestration Platform pipeline. Their work goes through the same merge-build-test lifecycle as AI agent work. The infrastructure was designed for this.
+- **From 3 to 10 people**: Team leads own Multi-Agent Orchestration Platform team templates for their domain. A quant researcher owns the `signal-pipeline` skill and the factors team template. A blockchain specialist owns the `dex-integration` skill. The methodology scales because it is methodology, not just tooling.
 - **From 10 to 20 people**: The MCP tool layer becomes the operational interface for the entire organization. Support engineers use MCP tools to diagnose customer issues. Product managers use MCP tools to understand usage patterns. Engineers use MCP tools to understand system state. The organization operates through the same structured interfaces that AI agents use.
 
 This is the proof point that makes the consulting business credible: Kokoro Tech is not selling a methodology it invented — it is selling the methodology it runs on.
 
 ### Hiring Plan
 
-| Stage  | Revenue Trigger | First Hire                  | Role in Developer Tools                                                      |
-| ------ | --------------- | --------------------------- | ---------------------------------------------------------------------------- |
-| Year 1 | $250K ARR       | Developer advocate / devrel | Grow the claude-init and claude-dev-pipeline communities; own documentation  |
-| Year 2 | $500K ARR       | Second engineer             | Own Agent Orchestra SaaS infrastructure; expand Claude Init language support |
-| Year 2 | $750K ARR       | Sales engineer              | Qualify and close enterprise consulting engagements                          |
+| Stage  | Revenue Trigger | First Hire                  | Role in Developer Tools                                                                         |
+| ------ | --------------- | --------------------------- | ----------------------------------------------------------------------------------------------- |
+| Year 1 | $250K ARR       | Developer advocate / devrel | Grow the claude-init and claude-dev-pipeline communities; own documentation                     |
+| Year 2 | $500K ARR       | Second engineer             | Own Multi-Agent Orchestration Platform SaaS infrastructure; expand Claude Init language support |
+| Year 2 | $750K ARR       | Sales engineer              | Qualify and close enterprise consulting engagements                                             |
 
 ---
 
@@ -456,11 +455,11 @@ This is the proof point that makes the consulting business credible: Kokoro Tech
 
 ### 9.1 Platform Dependency on Anthropic
 
-**Risk**: The entire developer tools ecosystem is built on Claude Code. If Anthropic changes pricing dramatically, restricts API access, deprioritizes Claude Code, or builds competing orchestration tools natively, the value proposition of Agent Orchestra and the Claude-specific aspects of Claude Init are affected.
+**Risk**: The entire developer tools ecosystem is built on Claude Code. If Anthropic changes pricing dramatically, restricts API access, deprioritizes Claude Code, or builds competing orchestration tools natively, the value proposition of Multi-Agent Orchestration Platform and the Claude-specific aspects of Claude Init are affected.
 
 **Mitigation**: Claude Init's language and framework detection is useful independent of which AI coding assistant a developer uses. The CLAUDE.md format is specific to Claude, but the detection logic and scaffolding concept are portable. The medium-term roadmap includes adding support for Cursor rules, Cline configuration, and Copilot instructions as alternative output formats, reducing dependency on any single AI platform.
 
-For Agent Orchestra, the git worktree isolation and automated merge-build-test pipeline are valuable independent of AI agents — they could manage any subprocess-based agent. Building a clean abstraction layer between the orchestration logic and the Claude CLI integration allows for future support of other AI coding agents.
+For Multi-Agent Orchestration Platform, the git worktree isolation and automated merge-build-test pipeline are valuable independent of AI agents — they could manage any subprocess-based agent. Building a clean abstraction layer between the orchestration logic and the Claude CLI integration allows for future support of other AI coding agents.
 
 ### 9.2 MCP Protocol Stability
 
@@ -472,15 +471,15 @@ For Agent Orchestra, the git worktree isolation and automated merge-build-test p
 
 **Risk**: Developers who use the free, open-source tools (Claude Init, Claude Dev Pipeline) never convert to paid products. The community builds forks with enterprise features rather than subscribing.
 
-**Mitigation**: The paid products (Agent Orchestra SaaS, consulting) are genuinely different in kind from the open-source tools, not just the same tools behind a paywall. Agent Orchestra SaaS adds hosted infrastructure, team management, billing integration, and support — none of which can be trivially self-hosted by a developer using the open-source engine. Consulting adds specific expertise that cannot be extracted from documentation alone.
+**Mitigation**: The paid products (Multi-Agent Orchestration Platform SaaS, consulting) are genuinely different in kind from the open-source tools, not just the same tools behind a paywall. Multi-Agent Orchestration Platform SaaS adds hosted infrastructure, team management, billing integration, and support — none of which can be trivially self-hosted by a developer using the open-source engine. Consulting adds specific expertise that cannot be extracted from documentation alone.
 
-The risk of hostile forks is lower for these products than for developer productivity tools generally: Agent Orchestra's value comes from the hosted dashboard and managed infrastructure, not from the orchestration algorithm which is already public.
+The risk of hostile forks is lower for these products than for developer productivity tools generally: Multi-Agent Orchestration Platform's value comes from the hosted dashboard and managed infrastructure, not from the orchestration algorithm which is already public.
 
 ### 9.4 Competition from First-Party Anthropic Tools
 
-**Risk**: Anthropic builds orchestration, configuration generation, or MCP server management directly into Claude Code, making third-party tools like Agent Orchestra and Claude Init obsolete.
+**Risk**: Anthropic builds orchestration, configuration generation, or MCP server management directly into Claude Code, making third-party tools like Multi-Agent Orchestration Platform and Claude Init obsolete.
 
-**Mitigation**: First-party tooling tends to be general; the value of Kokoro's tools is domain-specific depth. Claude Init knows how to generate Anchor-specific skills for Solana programs and Axum-specific configurations for Rust web services — this depth of domain knowledge takes time to accumulate and is not a priority for a general-purpose tool. Similarly, Agent Orchestra's CARGO_TARGET_DIR sharing and Rust monorepo specific optimizations reflect specific choices that a general orchestrator would not make by default.
+**Mitigation**: First-party tooling tends to be general; the value of Kokoro's tools is domain-specific depth. Claude Init knows how to generate Anchor-specific skills for Solana programs and Axum-specific configurations for Rust web services — this depth of domain knowledge takes time to accumulate and is not a priority for a general-purpose tool. Similarly, Multi-Agent Orchestration Platform's CARGO_TARGET_DIR sharing and Rust monorepo specific optimizations reflect specific choices that a general orchestrator would not make by default.
 
 The consulting business is the most defensible against this risk: deep expertise in applying tools to specific technical problems does not become less valuable when the tools improve.
 
@@ -488,7 +487,7 @@ The consulting business is the most defensible against this risk: deep expertise
 
 **Risk**: In the current founder-led phase, key technical decisions and delivery capacity are concentrated with the founder. Illness, burnout, or competing priorities can slow product development, support response times, and consulting delivery simultaneously.
 
-**Mitigation**: The open-source tools are designed to be low-maintenance after release — they are configuration generators and methodology documents, not services that require uptime. Agent Orchestra SaaS, when launched, will require operational attention but is architected to be self-managing for most states. The architecture mitigation is also strong: the CLAUDE.md system, constitution.md, and codified conventions mean the codebase is accessible to a new contributor without extended knowledge transfer.
+**Mitigation**: The open-source tools are designed to be low-maintenance after release — they are configuration generators and methodology documents, not services that require uptime. Multi-Agent Orchestration Platform SaaS, when launched, will require operational attention but is architected to be self-managing for most states. The architecture mitigation is also strong: the CLAUDE.md system, constitution.md, and codified conventions mean the codebase is accessible to a new contributor without extended knowledge transfer.
 
 The consulting business creates the most direct path to the first hire: consulting revenue finances a second technical team member before the SaaS products reach that threshold. Growth in consulting should be paced to the point where it finances hiring before it exceeds the team's capacity.
 

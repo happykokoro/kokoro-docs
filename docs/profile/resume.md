@@ -52,7 +52,7 @@
 ### AI Agent Systems & Developer Tooling
 
 - **MCP Protocol mastery**: Built 2 MCP servers with 115 tools total, exposing full trading platform APIs to AI agents for autonomous research and execution
-- **Agent orchestration**: Built `agent-orchestra` — Python platform managing AI agent teams with WebSocket dashboard, 7-phase automated lifecycle, worktree isolation, approval gates, critical error auto-kill
+- **Agent orchestration**: Built an internal multi-agent orchestration platform — Python system managing AI agent teams with WebSocket dashboard, 7-phase automated lifecycle, worktree isolation, approval gates, critical error auto-kill
 - **Development pipeline**: `claude-dev-pipeline` skill implementing 4-phase parallel execution (research → team → review → merge) with atomic PRs and dependency-aware merge order
 - **AI coding agent tooling**: `claude-init` CLI (1,229 lines Python, zero deps) auto-generates `.claude/` config for any project by detecting language (9), framework (18), and project structure
 - **Custom skills**: 7 domain-specific AI coding agent skills (dev-pipeline, signal-pipeline, risk-management, kalman-filter, polymarket-arbitrage, anchor-patterns, dex-integration)
@@ -81,11 +81,11 @@ Expert-level Rust engineering at 330,000+ lines of production code means client 
 3 production servers across 3 continents (Singapore, Ireland, London), connected by a self-built WireGuard mesh VPN. Docker Compose stacks, Prometheus/Grafana observability, Caddy auto-HTTPS, Cloudflare DDoS protection, SOPS secrets management. Client infrastructure deployments are modeled on what runs in production — not on textbook diagrams.
 
 **AI Agent Systems → AI-Augmented Development & MCP Tooling**
-115 MCP tools built across two production servers expose every platform capability to AI agents. Agent Orchestra manages multi-agent AI coding agent teams with automated pipelines. The result: development cycles that are measurably faster than traditional outsourcing with the same or higher quality bar. Clients can commission MCP server development, agent orchestration setup, or AI-augmented development workflow consulting as standalone services.
+115 MCP tools built across two production servers expose every platform capability to AI agents. An internal multi-agent orchestration platform manages AI coding agent teams with automated pipelines. The result: development cycles that are measurably faster than traditional outsourcing with the same or higher quality bar. Clients can commission MCP server development, agent orchestration setup, or AI-augmented development workflow consulting as standalone services.
 
 ### The AI-Augmented Delivery Advantage
 
-Traditional outsourcing delivers at the speed of human developer throughput. Kokoro Tech's AI-augmented workflow runs research, implementation, review, and testing phases in parallel — the same pipeline used to build the Kokoro platform. Phase 2 of the alpha-lab monorepo was built by 6 parallel AI agents coordinated through Agent Orchestra in a single session. This is not theoretical: it is the default delivery mode.
+Traditional outsourcing delivers at the speed of human developer throughput. Kokoro Tech's AI-augmented workflow runs research, implementation, review, and testing phases in parallel — the same pipeline used to build the Kokoro platform. Phase 2 of the alpha-lab monorepo was built by 6 parallel AI agents coordinated through the multi-agent orchestration platform in a single session. This is not theoretical: it is the default delivery mode.
 
 The practical outcome for clients: faster time-to-delivery, lower per-feature cost, higher consistency across the codebase, and a structured audit trail from the agent orchestration pipeline.
 
@@ -225,17 +225,17 @@ Proto `.proto` files in `services/proto/` are the source of truth; generated Rus
 
 | Bot                       | Stack                     | Strategy                                                                             |
 | ------------------------- | ------------------------- | ------------------------------------------------------------------------------------ |
-| **Kokoro Polymarket Bot** | Rust (15.5K LOC) + Python | 8-profile fleet: GARCH, Hurst, Brownian Bridge, bilateral MM, momentum, regime-aware |
+| **Kokoro Polymarket Bot** | Rust (15.5K LOC) + Python | Historical — superseded by Kokoro MM. 8-profile fleet: GARCH, Hurst, Brownian Bridge |
 | **Kokoro Copy Trader**    | Python 3.12               | Copy trading: discover top traders, mirror positions, hold to resolution             |
 
 ### Developer Tools (4)
 
-| Tool                    | Stack                       | Purpose                                                                  |
-| ----------------------- | --------------------------- | ------------------------------------------------------------------------ |
-| **Agent Orchestra**     | Python + Rust               | Multi-agent AI coding agent orchestration with WebSocket dashboard       |
-| **Claude Init**         | Python (zero deps)          | Auto-generate .claude/ config for any project                            |
-| **Claude Dev Pipeline** | Markdown skill              | Parallel agent development with atomic PRs                               |
-| **Kokoro Pipeline**     | Rust → TypeScript migration | Dev pipeline engine with visual designer, marketplace, multi-tenant SaaS |
+| Tool                     | Stack                       | Purpose                                                                  |
+| ------------------------ | --------------------------- | ------------------------------------------------------------------------ |
+| **Multi-Agent Platform** | Python + Rust               | Internal multi-agent orchestration tool with WebSocket dashboard         |
+| **Claude Init**          | Python (zero deps)          | Auto-generate .claude/ config for any project                            |
+| **Claude Dev Pipeline**  | Markdown skill              | Parallel agent development with atomic PRs                               |
+| **Kokoro Pipeline**      | Rust → TypeScript migration | Dev pipeline engine with visual designer, marketplace, multi-tenant SaaS |
 
 ### Multi-Chain Staking (1)
 
@@ -247,18 +247,18 @@ Proto `.proto` files in `services/proto/` are the source of truth; generated Rus
 
 ## Current Status
 
-| Product                | Status                | Notes                                                          |
-| ---------------------- | --------------------- | -------------------------------------------------------------- |
-| Kokoro Alpha Lab       | Deployed (production) | DigitalOcean Singapore, MAINTENANCE_MODE=true                  |
-| Kokoro MM              | Deployed (production) | AWS Ireland, https://mm.happykokoro.com                        |
-| Kokoro Liquidation Bot | Deployed (paper mode) | DigitalOcean, ~270 borrowers monitored                         |
-| Kokoro VPN             | Deployed (production) | 3-node WireGuard mesh active                                   |
-| Kokoro Polymarket Bot  | Stopped               | Fair-value strategy failed live, Brownian Bridge pivot pending |
-| Kokoro Copy Trader     | Deployed (paper mode) | AWS London, $100 bankroll                                      |
-| Kokoro Protocol        | Development           | Localnet/devnet, not mainnet                                   |
-| Kokoro Staking         | Plan only             | Architecture designed, 17 chain adapters coded                 |
-| Kokoro Pipeline        | Active development    | Rust→TypeScript migration in progress                          |
-| Other services         | Various               | Wallet monitor, pricing service, payment service all deployed  |
+| Product                | Status                | Notes                                                         |
+| ---------------------- | --------------------- | ------------------------------------------------------------- |
+| Kokoro Alpha Lab       | Deployed (production) | DigitalOcean Singapore, MAINTENANCE_MODE=true                 |
+| Kokoro MM              | Deployed (production) | AWS Ireland, https://mm.happykokoro.com                       |
+| Kokoro Liquidation Bot | Deployed (paper mode) | DigitalOcean, ~270 borrowers monitored                        |
+| Kokoro VPN             | Deployed (production) | 3-node WireGuard mesh active                                  |
+| Kokoro Polymarket Bot  | Historical            | Superseded by Kokoro MM                                       |
+| Kokoro Copy Trader     | Deployed (paper mode) | AWS London, $100 bankroll                                     |
+| Kokoro Protocol        | Development           | Localnet/devnet, not mainnet                                  |
+| Kokoro Staking         | Plan only             | Architecture designed, 17 chain adapters coded                |
+| Kokoro Pipeline        | Active development    | Rust→TypeScript migration in progress                         |
+| Other services         | Various               | Wallet monitor, pricing service, payment service all deployed |
 
 ---
 
@@ -362,7 +362,7 @@ Real numbers extracted from production code — not estimates.
 2. **11 DSP filters from mathematical foundations** — direct implementations of H-infinity (IEEE minimax optimal), UKF (sigma point transform), particle filter (Sequential Monte Carlo), IMM, RBPF, wavelet CWT, Hilbert transform
 3. **Flash loan liquidation** across 6 EVM chains simultaneously — zero capital required, custom Solidity contract for atomic borrow-liquidate-swap-repay sequence
 4. **20 Solana Anchor programs** spanning DeFi (AMM, lending, yield, liquidation, leverage), gaming (6 types), prediction markets, NFT, and governance
-5. **Multi-agent development orchestration** — Agent Orchestra manages AI agent teams with automated merge, build, test pipeline; used to build Phase 2 of alpha-lab with 6 parallel agents
+5. **Multi-agent development orchestration** — an internal orchestration platform manages AI agent teams with automated merge, build, test pipeline; used to build Phase 2 of alpha-lab with 6 parallel agents
 6. **Dual-format Redis Streams migration** — zero-downtime JSON→proto transition across 10 streams with auto-detection at consumer level
 7. **Self-built WireGuard mesh VPN** connecting 3 servers across 3 cloud providers (DigitalOcean Singapore, AWS Ireland, AWS London) with per-node ACL firewall generation
 8. **8-profile trading bot fleet** — single binary running 8 parallel strategy pipelines sharing one data feed, each with different quant models (GARCH, Hurst, Brownian Bridge, bilateral MM)

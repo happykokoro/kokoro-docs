@@ -10,7 +10,7 @@
 
 The projects described in this document are not independent experiments. They form a deliberate, interlocking distributed system built around a central thesis: that quantitative trading — across crypto, traditional equities, prediction markets, and DeFi — can be unified under a single coherent software architecture rather than scattered across siloed tools.
 
-At the core sits Kokoro Alpha Lab, a 242,000-line Rust monorepo that defines the data types, traits, algorithms, and execution abstractions upon which nearly every other project depends. Surrounding it are execution-specialized derivatives — Kokoro MM for market making, the Polymarket Bot for directional trading, the Liquidation Bot for DeFi arbitrage — each consuming shared libraries from the monorepo's `shared-types` crate. The infrastructure layer includes a wallet monitor feeding on-chain intelligence upstream, a pricing service normalizing multi-DEX data, and an MCP tool server that exposes the entire research platform to AI-assisted workflows. The developer tooling — Agent Orchestra, Kokoro Pipeline, and claude-init — handles the engineering process itself, enabling a single developer to manage a codebase of this scale through automated multi-agent collaboration. Taken together, these projects represent a vertically integrated trading technology operation.
+At the core sits Kokoro Alpha Lab, a 242,000-line Rust monorepo that defines the data types, traits, algorithms, and execution abstractions upon which nearly every other project depends. Surrounding it are execution-specialized derivatives — Kokoro MM for market making, the Polymarket Bot for directional trading, the Liquidation Bot for DeFi arbitrage — each consuming shared libraries from the monorepo's `shared-types` crate. The infrastructure layer includes a wallet monitor feeding on-chain intelligence upstream, a pricing service normalizing multi-DEX data, and an MCP tool server that exposes the entire research platform to AI-assisted workflows. The developer tooling — including a multi-agent orchestration platform, Kokoro Pipeline, and claude-init — handles the engineering process itself, enabling a single developer to manage a codebase of this scale through automated multi-agent collaboration. Taken together, these projects represent a vertically integrated trading technology operation.
 
 The platform covers six distinct technical domains, each with production-depth implementations. Quantitative signal processing implements 11 filter types from first principles — H-infinity, UKF, particle filter, IMM, RBPF, wavelet CWT, Hilbert transform, dual Kalman, and more — alongside 24 alpha factor implementations spanning crypto, equities, forex, and prediction markets. Market making is grounded in the Avellaneda-Stoikov model for inventory-adjusted optimal quoting. DeFi liquidation uses flash loan arbitrage across 6 EVM chains with zero capital required. Prediction market trading spans multiple strategy families including GARCH volatility modeling, Hurst exponent regime classification, and Brownian Bridge path conditioning. Multi-chain blockchain integration covers Solana (20 Anchor programs) and 6 EVM chains (Ethereum, Base, Arbitrum, Polygon, Optimism, Avalanche). Options pricing implements Black-Scholes with full Greeks and Monte Carlo simulation with variance reduction techniques.
 
@@ -179,10 +179,9 @@ Seventeen MCP tools expose Kokoro MM's capabilities to AI-assisted workflows. Si
 
 ## 3. Kokoro Polymarket Bot
 
-**Repository**: `happykokoro/kokoro-polymarket-bot` (private)
 **Language**: Rust + Python | **Rust LOC**: 15,491 | **Python LOC**: ~1,470
 **Tests**: 72
-**Status**: Stopped — strategy replacement required
+**Status**: Historical — directional trading functionality now superseded by Kokoro MM
 
 ### Purpose and Architecture
 
@@ -367,15 +366,14 @@ The SaaS layer includes multi-tenant organization support, GitHub OAuth for auth
 
 ---
 
-## 10. Agent Orchestra
+## 10. Multi-Agent Orchestration Platform
 
-**Repository**: `anescaper/agent-orchestra`
 **Language**: Python + Rust
-**Status**: Production — actively used for parallel development
+**Status**: Production — internal tool actively used for parallel development
 
 ### Purpose
 
-Agent Orchestra is the multi-agent orchestration platform that enables a single developer to manage parallel implementation efforts across multiple git worktrees. It was built to support the development of the Kokoro Alpha Lab monorepo, where multiple independent crates could be developed simultaneously by separate agent instances.
+The multi-agent orchestration platform enables a single developer to manage parallel implementation efforts across multiple git worktrees. It was built to support the development of the Kokoro Alpha Lab monorepo, where multiple independent crates could be developed simultaneously by separate agent instances.
 
 ### Architecture
 
@@ -493,7 +491,7 @@ Claude Init is a Python single-file CLI (1,229 lines, zero dependencies beyond t
 
 ### Claude Dev Pipeline
 
-Claude Dev Pipeline is a Markdown skill file implementing the SKILL.md protocol. It defines a four-phase parallel development workflow: a research phase where an agent ingests the codebase and requirements, a team execution phase where each agent operates in its own git worktree and produces its own PR, review-and-fix loops where agent output is audited and corrected, and a dependency-aware merge phase that orders PR merges according to the dependency graph of the changes. A single human approval gate at the end of the review phase is the only required human intervention. This skill serves as the high-level orchestration protocol that Agent Orchestra implements at the tooling level.
+Claude Dev Pipeline is a Markdown skill file implementing the SKILL.md protocol. It defines a four-phase parallel development workflow: a research phase where an agent ingests the codebase and requirements, a team execution phase where each agent operates in its own git worktree and produces its own PR, review-and-fix loops where agent output is audited and corrected, and a dependency-aware merge phase that orders PR merges according to the dependency graph of the changes. A single human approval gate at the end of the review phase is the only required human intervention. This skill serves as the high-level orchestration protocol that the multi-agent platform implements at the tooling level.
 
 ### Kokoro Services
 

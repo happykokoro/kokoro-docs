@@ -12,7 +12,7 @@
 | -------------- | ----------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Rust**       | Expert            | ~264,000+     | kokoro-alpha-lab (242K), kokoro-mm (63K), kokoro-polymarket-bot (15.5K), kokoro-liquidation-bot (5.1K), kokoro-terminal (NAPI modules), kokoro-wallet-monitor, kokoro-pricing-service, kokoro-vpn, kokoro-pay |
 | **TypeScript** | Expert            | ~145,000+     | kokoro-alpha-lab-frontend, kokoro-terminal (45K), kokoro-mm frontend, lab-mcp, kokoro-auth, kokoro-pipeline, kokoro-tech, kokoro-protocol (tests), kokoro-staking (frontend)                                  |
-| **Python**     | Advanced          | ~10,000+      | agent-orchestra, claude-init, kokoro-copy-trader, kokoro-polymarket-bot (strategy service), research scripts                                                                                                  |
+| **Python**     | Advanced          | ~10,000+      | multi-agent orchestration (internal tool), claude-init, kokoro-copy-trader, polymarket-bot strategy service (historical), research scripts                                                                    |
 | **Go**         | Advanced          | ~15,000+      | kokoro-staking (full backend)                                                                                                                                                                                 |
 
 ### Secondary Languages (project-specific use)
@@ -24,7 +24,7 @@
 | **SQL**          | PostgreSQL schemas, SQLx migrations (58 migration pairs in kokoro-mm alone), raw queries |
 | **Shell / Bash** | claude-dev-pipeline skill, deployment scripts, CI/CD workflows                           |
 | **TOML**         | Cargo workspace configs, strategy artifact definitions                                   |
-| **YAML**         | Docker Compose configs, GitHub Actions CI, agent-orchestra team definitions              |
+| **YAML**         | Docker Compose configs, GitHub Actions CI, multi-agent orchestration team definitions    |
 | **Markdown**     | AI coding agent skills (SKILL.md protocol), documentation                                |
 | **JavaScript**   | Legacy/utility scripts, agentPlan                                                        |
 
@@ -236,11 +236,11 @@ Rust is the primary systems language across the platform. As of 2026, Rust is de
 
 ### AI / Orchestration
 
-| Package     | Version | Usage                                               |
-| ----------- | ------- | --------------------------------------------------- |
-| `aiosqlite` | —       | Async SQLite for agent-orchestra dashboard          |
-| `pyyaml`    | —       | YAML config parsing (agent-orchestra)               |
-| `jinja2`    | —       | HTML template rendering (agent-orchestra dashboard) |
+| Package     | Version | Usage                                                |
+| ----------- | ------- | ---------------------------------------------------- |
+| `aiosqlite` | —       | Async SQLite for multi-agent orchestration dashboard |
+| `pyyaml`    | —       | YAML config parsing (orchestration platform)         |
+| `jinja2`    | —       | HTML template rendering (orchestration dashboard)    |
 
 ---
 
@@ -455,7 +455,7 @@ Aligned with 2026 CNCF cloud-native standards (89% organizational adoption, 80% 
 | **AI coding agent CLI**    | Primary development tool. `--dangerously-skip-permissions` for autonomous agent operation                                                                       |
 | **MCP Protocol**           | 115 total MCP tools (98 in lab-mcp + 17 in kokoro-mm MCP) exposing platform APIs to AI agents                                                                   |
 | **AI coding agent Skills** | Custom skills: dev-pipeline (parallel agent execution), signal-pipeline, risk-management, kalman-filter, polymarket-arbitrage, anchor-patterns, dex-integration |
-| **Agent Teams**            | Orchestrated via agent-orchestra: feature-dev (3 agents), build-fix (1 agent), code-review, debug, research                                                     |
+| **Agent Teams**            | Orchestrated via internal platform: feature-dev (3 agents), build-fix (1 agent), code-review, debug, research                                                   |
 
 ### AI Models & Techniques
 

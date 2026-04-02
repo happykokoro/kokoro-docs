@@ -310,7 +310,7 @@ The decorator registers the strategy class by name at import time, making it ava
 
 ### Agent Orchestration
 
-The Agent Orchestra's general manager is structured as a seven-phase async pipeline:
+The multi-agent orchestration platform's general manager is structured as a seven-phase async pipeline:
 
 ```python
 class GeneralManager:

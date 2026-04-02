@@ -284,7 +284,7 @@ Connected via WireGuard mesh (10.10.0.0/24) for private inter-server communicati
 
 - **MCP Protocol**: Built 2 MCP servers (115 total tools) exposing trading platform APIs to AI agents for autonomous operation
 - **Custom skills**: Built production skills for AI coding agent (dev-pipeline, signal-pipeline, risk-management, kalman-filter, polymarket-arbitrage, anchor-patterns, dex-integration)
-- **Agent orchestration**: Built agent-orchestra from scratch — Python dashboard managing AI agent CLI subprocesses with WebSocket real-time monitoring
+- **Agent orchestration**: Built an internal multi-agent orchestration platform from scratch — Python dashboard managing AI agent CLI subprocesses with WebSocket real-time monitoring
 - **Team patterns**: Designed team templates (feature-dev: 3 agents, build-fix: 1 agent, code-review, debug, research) with approval gates
 - **Worktree isolation**: Each agent gets isolated git branch, merge-on-completion, shared CARGO_TARGET_DIR
 - **Production pipeline**: `claude-dev-pipeline` skill implements 4-phase parallel execution with atomic PRs and dependency-aware merge order
