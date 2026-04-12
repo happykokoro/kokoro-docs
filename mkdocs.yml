@@ -1,6 +1,6 @@
 site_name: Kokoro Tech
-site_description: Deep technology studio — quantitative trading, blockchain infrastructure, AI developer tools
-site_url: https://docs.happykokoro.com
+site_description: Under development. Not yet validated.
+site_url: https://happykokoro.github.io/kokoro-docs/
 
 theme:
   name: material
@@ -21,20 +21,16 @@ theme:
     text: Inter
     code: JetBrains Mono
   features:
-    - navigation.tabs
-    - navigation.sections
-    - navigation.expand
     - navigation.top
     - search.suggest
     - search.highlight
     - content.code.copy
-    - content.tabs.link
     - toc.follow
   icon:
     repo: fontawesome/brands/github
 
-repo_url: https://github.com/happykokoro
-repo_name: happykokoro
+repo_url: https://github.com/happykokoro/kokoro-docs
+repo_name: happykokoro/kokoro-docs
 
 markdown_extensions:
   - pymdownx.highlight:
@@ -53,38 +49,3 @@ markdown_extensions:
 
 nav:
   - Home: index.md
-  - Philosophy:
-      - Why We Build: philosophy/vision.md
-      - Culture & Values: philosophy/culture.md
-  - Services:
-      - Overview: services/overview.md
-      - How We Work: services/how-we-work.md
-      - Contact: services/contact.md
-  - Technical Profile:
-      - Technology Stack: profile/technology-stack.md
-      - Projects Portfolio: profile/projects-portfolio.md
-      - Skills & Expertise: profile/skills-and-expertise.md
-      - Coding Style & Architecture: profile/coding-style.md
-      - Technical Capabilities: profile/resume.md
-  - Articles:
-      - Technology Deep Dive: articles/technology-stack.md
-      - Projects Deep Dive: articles/projects-portfolio.md
-      - Skills & Expertise: articles/skills-and-expertise.md
-      - Architecture Philosophy: articles/coding-style.md
-      - Architecture Overview: articles/resume.md
-  - Business Plans:
-      - Kokoro Terminal: plans/terminal.md
-      - Kokoro Auth: plans/auth.md
-      - Kokoro Alpha Lab: plans/alpha-lab.md
-      - Kokoro MM: plans/mm.md
-      - Kokoro Liquidation Bot: plans/liquidation-bot.md
-      - Kokoro VPN: plans/vpn.md
-      - Trading Bots: plans/trading-bots.md
-      - Developer Tools: plans/developer-tools.md
-
-extra:
-  social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/happykokoro
-    - icon: material/web
-      link: https://tech.happykokoro.com
