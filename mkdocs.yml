@@ -1,51 +1,15 @@
 site_name: Kokoro Tech
-site_description: Under development. Not yet validated.
 site_url: https://happykokoro.github.io/kokoro-docs/
-
+repo_url: https://github.com/happykokoro/kokoro-docs
 theme:
   name: material
-  palette:
-    - scheme: slate
-      primary: deep purple
-      accent: amber
-      toggle:
-        icon: material/brightness-4
-        name: Switch to light mode
-    - scheme: default
-      primary: deep purple
-      accent: amber
-      toggle:
-        icon: material/brightness-7
-        name: Switch to dark mode
-  font:
-    text: Inter
-    code: JetBrains Mono
-  features:
-    - navigation.top
-    - search.suggest
-    - search.highlight
-    - content.code.copy
-    - toc.follow
-  icon:
-    repo: fontawesome/brands/github
-
-repo_url: https://github.com/happykokoro/kokoro-docs
-repo_name: happykokoro/kokoro-docs
-
-markdown_extensions:
-  - pymdownx.highlight:
-      anchor_linenums: true
-  - pymdownx.superfences
-  - pymdownx.tabbed:
-      alternate_style: true
-  - pymdownx.details
-  - pymdownx.mark
-  - admonition
-  - tables
-  - attr_list
-  - md_in_html
-  - toc:
-      permalink: true
-
 nav:
   - Home: index.md
+  - Projects:
+    - Kokoro Terminal: projects/terminal.md
+    - Kokoro Auth: projects/auth.md
+    - Kokoro VPN: projects/vpn.md
+    - Kokoro Pay: projects/pay.md
+    - Kokoro Constitution: projects/constitution.md
+    - Kokoro Claude Skills: projects/claude-skills.md
+

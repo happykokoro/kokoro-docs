@@ -1,5 +1,8 @@
 # kokoro-docs
 
-Under development. Not yet validated.
+Documentation site for Kokoro Tech, served at https://happykokoro.github.io/kokoro-docs/.
 
-This repository previously published a MkDocs site describing the Kokoro Tech portfolio at happykokoro.github.io/kokoro-docs/. That content has been removed because it made architecture, deployment, and commercial claims about projects that have not been individually validated. The site now contains only a placeholder landing page.
+This site covers only projects that have been individually verified. All projects are under development and have not been validated for production use.
+
+Built with MkDocs and the Material theme.
+
