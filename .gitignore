@@ -1,0 +1,16 @@
+# MkDocs build output (deployed directly to Cloudflare Pages)
+site/
+
+# Wrangler cache / local state
+.wrangler/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Editor / OS
+.DS_Store
+.idea/
+.vscode/
