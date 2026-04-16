@@ -10,6 +10,6 @@ nav:
     - Kokoro Auth: projects/auth.md
     - Kokoro VPN: projects/vpn.md
     - Kokoro Pay: projects/pay.md
+    - Kokoro Staking: projects/staking.md
     - Kokoro Constitution: projects/constitution.md
     - Kokoro Claude Skills: projects/claude-skills.md
-
