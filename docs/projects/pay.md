@@ -1,7 +1,5 @@
 # Kokoro Pay
 
-Repository: [https://github.com/happykokoro/kokoro-pay](https://github.com/happykokoro/kokoro-pay)
-
 Kokoro Pay is a multi-chain stablecoin payment processor. It is designed to accept payments in USDC and USDT across chains, and to handle the downstream responsibilities that come with receiving on-chain payments in a business context.
 
 ## What it aims to do

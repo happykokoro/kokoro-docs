@@ -1,7 +1,5 @@
 # Kokoro VPN
 
-Repository: [https://github.com/happykokoro/kokoro-vpn](https://github.com/happykokoro/kokoro-vpn)
-
 Kokoro VPN is a self-hosted VPN platform built on WireGuard. The goal is to provide a manageable VPN infrastructure that supports two distinct network topologies without requiring a separate tool for each.
 
 ## Modes
