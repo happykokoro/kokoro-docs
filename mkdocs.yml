@@ -1,5 +1,5 @@
 site_name: Kokoro Tech
-site_url: https://happykokoro.github.io/kokoro-docs/
+site_url: https://docs.happykokoro.com/
 repo_url: https://github.com/happykokoro/kokoro-docs
 theme:
   name: material
