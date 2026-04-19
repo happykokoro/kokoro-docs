@@ -1,6 +1,6 @@
 # Kokoro Terminal
 
-Repository: [https://github.com/happykokoro/kokoro-terminal](https://github.com/happykokoro/kokoro-terminal)
+Repository: [https://gitlab.com/kokoro-tech/products/kokoro-terminal](https://gitlab.com/kokoro-tech/products/kokoro-terminal)
 
 Kokoro Terminal is a WebGPU-based terminal for displaying and interacting with crypto market data. It is the primary active project at Kokoro Tech and is currently under development.
 

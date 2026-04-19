@@ -1,6 +1,6 @@
 # Kokoro Staking
 
-Repository: [https://github.com/happykokoro/kokoro-staking](https://github.com/happykokoro/kokoro-staking)
+Repository: [https://gitlab.com/kokoro-tech/products/kokoro-staking](https://gitlab.com/kokoro-tech/products/kokoro-staking)
 
 Live: [https://staking.happykokoro.com](https://staking.happykokoro.com)
 

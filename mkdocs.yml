@@ -1,6 +1,6 @@
 site_name: Kokoro Tech
 site_url: https://docs.happykokoro.com/
-repo_url: https://github.com/happykokoro/kokoro-docs
+repo_url: https://gitlab.com/kokoro-tech/governance/kokoro-docs
 theme:
   name: material
 nav:

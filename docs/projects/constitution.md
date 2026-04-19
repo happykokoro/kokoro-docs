@@ -1,6 +1,6 @@
 # Kokoro Constitution
 
-Repository: [https://github.com/happykokoro/kokoro-constitution](https://github.com/happykokoro/kokoro-constitution)
+Repository: [https://gitlab.com/kokoro-tech/governance/kokoro-constitution](https://gitlab.com/kokoro-tech/governance/kokoro-constitution)
 
 Kokoro Constitution is the engineering governance framework for Kokoro Tech. It defines the standards, processes, and rules that apply to all engineering work across the organization.
 
