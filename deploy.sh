@@ -29,6 +29,12 @@ fi
 echo ">> Building MkDocs site..."
 python3 -m mkdocs build "${MKDOCS_ARGS[@]}"
 
+# MkDocs ignores dotfile directories. Copy .well-known/ into the build manually.
+if [[ -d docs/.well-known ]]; then
+  cp -r docs/.well-known site/.well-known
+  echo ">> Copied .well-known/ into site/"
+fi
+
 echo ">> Deploying to Cloudflare Pages (project: kokoro-docs)..."
 COMMIT_HASH=$(git rev-parse --short HEAD 2>/dev/null || echo "local")
 npx --yes wrangler pages deploy site \
