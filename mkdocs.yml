@@ -1,15 +1,76 @@
 site_name: Kokoro Tech
+site_description: Kokoro Tech engineering capabilities — what we deliver, how we engage.
 site_url: https://docs.happykokoro.com/
 repo_url: https://gitlab.com/kokoro-tech/governance/kokoro-docs
+edit_uri: ""
+
 theme:
   name: material
+  features:
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+    - search.suggest
+    - search.highlight
+  palette:
+    - scheme: default
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - scheme: slate
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  font:
+    text: Inter
+    code: JetBrains Mono
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - pymdownx.details
+  - pymdownx.superfences
+  - toc:
+      permalink: true
+
+extra:
+  generator: false
+  social:
+    - icon: fontawesome/regular/envelope
+      link: mailto:kokorotechofficial@happykokoro.com
+      name: Contact
+
+copyright: Copyright &copy; 2026 Kokoro Tech
+
 nav:
   - Home: index.md
-  - Projects:
-    - Kokoro Terminal: projects/terminal.md
-    - Kokoro Auth: projects/auth.md
-    - Kokoro VPN: projects/vpn.md
-    - Kokoro Pay: projects/pay.md
-    - Kokoro Staking: projects/staking.md
-    - Kokoro Constitution: projects/constitution.md
-    - Kokoro Claude Skills: projects/claude-skills.md
+  - Capabilities:
+    - Network services:
+      - Software: capabilities/network-services/software.md
+      - Hardware: capabilities/network-services/hardware.md
+    - IoT & embedded systems: capabilities/iot-and-embedded.md
+    - Identity & access: capabilities/identity-and-access.md
+    - Payments: capabilities/payments.md
+    - Trading & data: capabilities/trading-and-data.md
+    - DeFi & on-chain: capabilities/defi-and-onchain.md
+    - Enterprise platforms: capabilities/enterprise-platforms.md
+    - Infrastructure & monitoring: capabilities/infrastructure-and-monitoring.md
+  - Services:
+    - Custom development: services/custom-development.md
+    - Customization & extension: services/customization-extension.md
+    - Managed operations: services/managed-operations.md
+    - Engagement models: services/engagement-models.md
+  - Engineering practice:
+    - How we work: engineering/how-we-work.md
+    - Quality standards: engineering/quality-standards.md
+  - Trust:
+    - Overview: trust/index.md
+    - Security: trust/security.md
+    - Vulnerability disclosure: trust/vulnerability-disclosure.md
+  - Contact: contact.md
